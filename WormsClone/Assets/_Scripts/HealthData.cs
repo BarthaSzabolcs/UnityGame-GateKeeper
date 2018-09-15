@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Components/DestructableDataHolder")]
-public class DestructableDataHolder : ScriptableObject
+[CreateAssetMenu(menuName = "Components/Health")]
+public class HealthData : ScriptableObject
 {
     [Header("Health:")]
-	public int maxHealth;
+	public int maxHealthPoints;
 
     [Header("Hit:")]
     public string hitAudio;

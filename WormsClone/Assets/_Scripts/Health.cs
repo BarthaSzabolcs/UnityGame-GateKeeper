@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructableComponent : MonoBehaviour
+public class Health : MonoBehaviour
 {
     #region Events
     public delegate void Death(GameObject sender);
@@ -18,25 +18,25 @@ public class DestructableComponent : MonoBehaviour
     public event SelfDestruct OnSelfDestruct;
     #endregion
     #region ShowInEditor
-    [SerializeField] protected DestructableDataHolder data;
+    [SerializeField] protected HealthData data;
 	#endregion
 	#region HideInEditor
-	private int health;
-	protected int Health
+	private int healthPoints;
+	protected int HealthPoints
 	{
-		get { return health; }
+		get { return healthPoints; }
 		set
 		{
-			if (value >= data.maxHealth)
+			if (value >= data.maxHealthPoints)
 			{
-				health = data.maxHealth;
+				healthPoints = data.maxHealthPoints;
 			}else if (value <= 0)
 			{
-				health = 0;
+				healthPoints = 0;
 			}
 			else
 			{
-				health = value;
+				healthPoints = value;
 			}
 		}
 	}
@@ -45,16 +45,16 @@ public class DestructableComponent : MonoBehaviour
 	Coroutine flash;
     #endregion
 
-    #region Magic
+    #region UnityFunctions
     protected virtual void Awake()
     {
-        Health = data.maxHealth;
+        HealthPoints = data.maxHealthPoints;
     }
     #endregion
     #region HealthFunctions
     void ResetHealth()
 	{
-		Health = data.maxHealth;
+		HealthPoints = data.maxHealthPoints;
 		dead = false;
 	}
     /// <summary>
@@ -64,14 +64,14 @@ public class DestructableComponent : MonoBehaviour
     /// <param name="heal"></param>
     public virtual void GainHealth(int heal)
 	{
-		Health += heal;
+		HealthPoints += heal;
 		if (data.flashOnHealthChange && heal > 0 && flash == null )
 		{
 			flash = StartCoroutine(FlashGreen());
 		}
-		if (Health > data.maxHealth)
+		if (HealthPoints > data.maxHealthPoints)
 		{
-			Health = data.maxHealth;
+			HealthPoints = data.maxHealthPoints;
 		}
 	}
     /// <summary>
@@ -90,7 +90,7 @@ public class DestructableComponent : MonoBehaviour
 
         if (!dead)
         {
-            if (Health - damage < 0)
+            if (HealthPoints - damage < 0)
             {
                 dead = true;
                 Die();
@@ -101,7 +101,7 @@ public class DestructableComponent : MonoBehaviour
                 {
                     BeatMaster.Instance.PlaySound(data.hitAudio);
                 }
-                Health -= damage;
+                HealthPoints -= damage;
             }
         }
     }

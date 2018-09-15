@@ -16,11 +16,11 @@ MonoBehaviour:
   feetLayer:
     serializedVersion: 2
     m_Bits: 55
-  moveForce: 100
+  moveForce: 50
   runMaxSpeed: 15
   sprintMaxSpeed: 20
-  airControlMultiplier: 1
-  jumpForce: 500
+  airControlMultiplier: 2
+  jumpForce: 600
   multiJumps: 1
   teleportRange: 10
   teleportCoolDown: 1

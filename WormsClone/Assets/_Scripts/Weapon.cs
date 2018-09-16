@@ -6,22 +6,53 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region ShowInEditor
-    [SerializeField] WeaponData data;
+    [SerializeField] List<WeaponData> data;
     [SerializeField] PlayerController wielder;
     #endregion
     #region HideInEditor
-    WeaponData instance;
+    SpriteRenderer renderer;
+    List<WeaponData> instances;
+    int dataIndex = 0;
+    public int DataIndex
+    {
+        get
+        {
+            return dataIndex;
+        }
+        set
+        {
+            if(value > data.Count - 1)
+            {
+                dataIndex = 0;
+            }
+            else if(value < 0)
+            {
+                dataIndex = data.Count - 1;
+            }
+            else
+            {
+                dataIndex = value;
+            }
+        }
+    }
+    [HideInInspector] public Coroutine reloadingRoutine;
     #endregion
 
     #region UnityFunctions
     private void Start()
     {
-        Initialize();
+        renderer = GetComponent<SpriteRenderer>();
+        wielder.OnAttackTriggered += Attack;
+        wielder.OnReloadTriggered += Reload;
+        wielder.OnNextWeaponTriggered += ChangeToNextWeapon;
+        wielder.OnPreviousWeaponTriggered += ChangeToPreviousWeapon;
+        InitializeInstances();
+        renderer.sprite = instances[DataIndex].sprite;
     }
     #endregion
-    void Initialize()
+    void Initialize(int i)
     {
-        RangedWeaponData rangedData = data as RangedWeaponData;
+        RangedWeaponData rangedData = data[i] as RangedWeaponData;
         if (rangedData != null)
         {
             rangedData = Instantiate(rangedData);
@@ -29,38 +60,84 @@ public class Weapon : MonoBehaviour
             (
                 GetComponent<Rigidbody2D>()
             );
-            instance = rangedData;
+            instances[i] = rangedData;
         }
 
-        MeeleWeaponData meeleData = data as MeeleWeaponData;
+        MeeleWeaponData meeleData = data[i] as MeeleWeaponData;
         if (meeleData != null)
         {
             meeleData = Instantiate(meeleData);
             meeleData.Initialize
             (
-            );
-            instance = meeleData;
-        }
 
-        wielder.OnAttackTriggered += Attack;
-        wielder.OnReloadTriggered += Reload;
+            );
+        }
+        RefreshApearance();
     }
+    void InitializeInstances()
+    {
+        instances = new List<WeaponData>(new WeaponData[data.Count]);
+        for (int i = 0; i < data.Count; i++)
+        {
+            Initialize(i);
+        }
+    }
+    void RefreshApearance()
+    {
+        renderer.sprite = instances[DataIndex].sprite;
+    }
+
     void Attack()
     {
-        instance.Attack();
+        if(reloadingRoutine == null)
+        {
+            instances[dataIndex].Attack();
+        }
+        else if (reloadingRoutine != null)
+        {
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+        }
     }
     void Reload()
     {
-        RangedWeaponData ranged = instance as RangedWeaponData;
-
-        if ( ranged != null)
+        RangedWeaponData ranged = instances[dataIndex] as RangedWeaponData;
+        if (ranged != null)
         {
-            ranged.Reload();
-        }
-        else
-        {
-            print("weapon can not be reloaded.");
+            if (reloadingRoutine == null)
+            {
+                reloadingRoutine = StartCoroutine(ranged.ReloadRoutine(this));
+            }
         }
     }
 
+    void ChangeToNextWeapon()
+    {
+        if(reloadingRoutine != null)
+        {
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+        }
+        DataIndex++;
+        RefreshApearance();
+    }
+    void ChangeToPreviousWeapon()
+    {
+        if (reloadingRoutine != null)
+        {
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+        }
+        DataIndex--;
+        RefreshApearance();
+    }
+
+    public void AddNewWeapon(WeaponData newData)
+    {
+        data.Add(newData);
+    }
+    public void RemoveWeapon(WeaponData dataToRemove)
+    {
+        data.Remove(dataToRemove);
+    }
 }

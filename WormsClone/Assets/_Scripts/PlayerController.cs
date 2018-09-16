@@ -13,6 +13,14 @@ public class PlayerController : MonoBehaviour
 
     public delegate void ReloadTrigger();
     public event ReloadTrigger OnReloadTriggered;
+
+    public delegate void NextWeaponTrigger();
+    public event NextWeaponTrigger OnNextWeaponTriggered;
+
+    public delegate void PreviousWeaponTrigger();
+    public event PreviousWeaponTrigger OnPreviousWeaponTriggered;
+
+
     #endregion
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
@@ -159,30 +167,36 @@ public class PlayerController : MonoBehaviour
         AimWeapon();
         Attack();
         Reload();
+        ChangeWeapon();
     }
     void AimWeapon()
     {
         Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        weapon.up = target - (Vector2)weapon.position;
+        weapon.right = target - (Vector2)weapon.position;
     }
     void Attack()
     {
         if(Input.GetButton("Attack"))
         {
-            if (OnAttackTriggered != null)
-            {
-                OnAttackTriggered();
-            }
+            if (OnAttackTriggered != null)  OnAttackTriggered();
         }
     }
     void Reload()
     {
-        if (Input.GetButton("Reload"))
+        if (Input.GetButtonDown("Reload"))
         {
-            if (OnReloadTriggered != null)
-            {
-                OnReloadTriggered();
-            }
+            if (OnReloadTriggered != null) OnReloadTriggered();
+        }
+    }
+    void ChangeWeapon()
+    {
+        if (Input.GetButtonDown("NextWeapon"))
+        {
+            if (OnNextWeaponTriggered != null) OnNextWeaponTriggered();
+        }
+        if (Input.GetButtonDown("PreviousWeapon"))
+        {
+            if (OnPreviousWeaponTriggered != null) OnPreviousWeaponTriggered();
         }
     }
     #endregion

@@ -6,27 +6,45 @@ using UnityEngine;
 public class RangedWeaponData : WeaponData
 {
     #region ShowInEditor
-    public GameObject bullet;
-    public ShootingPattern pattern;
-    public int magazineSize;
-    public float reloadTime;
+    [SerializeField] GameObject bullet;
+    [SerializeField] BulletData bulletData;
+    [SerializeField] ShootingPattern pattern;
+    [SerializeField] int magazineSize;
+    [SerializeField] float reloadTime;
+    [SerializeField] float fireRate;
+    [SerializeField] Vector2 barrelOffSet;
+    [SerializeField] int reloadRefreshRate;
     #endregion
     #region HideInEditor
-    int ammo;
     Rigidbody2D self;
+    int ammo;
+    float reloadTimer;
+    float fireRateTimer;
     #endregion
 
-    public override void Attack()
-    {
-        pattern.Shoot(bullet, self.transform);
-    }
-    public void Reload()
-    {
-        ammo = magazineSize;
-    }
     public void Initialize(Rigidbody2D self)
     {
         this.self = self;
+        ammo = magazineSize;
+    }
+    public override void Attack()
+    {
+        if(ammo > 0 && fireRateTimer + fireRate < Time.time )
+        {
+            pattern.Shoot(bullet, bulletData, self.transform, barrelOffSet);
+            fireRateTimer = Time.time;
+            ammo--;
+        }
+    }
+    public IEnumerator ReloadRoutine(Weapon weapon)
+    {
+        for (int i = 0; i < reloadRefreshRate; i++)
+        {
+            yield return new WaitForSeconds(reloadTime / reloadRefreshRate);
+            Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
+        }
+        ammo = magazineSize;
+        weapon.reloadingRoutine = null;
     }
 
 }

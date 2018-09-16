@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	#region ShowInEditor
-	[SerializeField] public BulletData data;
-	#endregion
-	#region HideInEditor
+	public BulletData data;
 	Rigidbody2D self;
-    #endregion
 
     #region UnityFunctions
     void Start ()

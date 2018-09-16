@@ -9,6 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1737303a2a6f7142accda4f9d25364c, type: 3}
-  m_Name: LowSpread
+  m_Name: SMG
   m_EditorClassIdentifier: 
-  spread: 17.5
+  randomSpreadLimit: 20
+  bulletCount: 1
+  angle: 0

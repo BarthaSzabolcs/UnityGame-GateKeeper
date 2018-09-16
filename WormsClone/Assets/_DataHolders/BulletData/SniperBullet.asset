@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
-  m_Name: T_Bullet2
+  m_Name: SniperBullet
   m_EditorClassIdentifier: 
   taggedToDamage: []
   taggedToDestroy:
@@ -17,10 +17,10 @@ MonoBehaviour:
   taggedToDestroyWithoutEffects: []
   mass: 0.5
   damage: 1
-  speed: 50
+  speed: 200
   hasLifeTime: 1
-  lifeTime: 5
-  bulletColor: {r: 0, g: 1, b: 0.4228201, a: 1}
+  lifeTime: 0.3
+  bulletColor: {r: 1, g: 0.86230963, b: 0, a: 1}
   muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
   muzzleFlashSize: 2
   trail: {fileID: 1762351444363594, guid: e481d680feb369d41bb114348def67b3, type: 2}

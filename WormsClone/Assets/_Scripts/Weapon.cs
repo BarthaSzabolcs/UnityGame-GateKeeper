@@ -44,8 +44,8 @@ public class Weapon : MonoBehaviour
         renderer = GetComponent<SpriteRenderer>();
         wielder.OnAttackTriggered += Attack;
         wielder.OnReloadTriggered += Reload;
-        wielder.OnNextWeaponTriggered += ChangeToNextWeapon;
-        wielder.OnPreviousWeaponTriggered += ChangeToPreviousWeapon;
+        wielder.OnWeaponChangeTriggered += ChangeWeapon;
+
         InitializeInstances();
         renderer.sprite = instances[DataIndex].sprite;
     }
@@ -72,7 +72,7 @@ public class Weapon : MonoBehaviour
 
             );
         }
-        RefreshApearance();
+        RefreshData();
     }
     void InitializeInstances()
     {
@@ -82,9 +82,10 @@ public class Weapon : MonoBehaviour
             Initialize(i);
         }
     }
-    void RefreshApearance()
+    void RefreshData()
     {
         renderer.sprite = instances[DataIndex].sprite;
+        wielder.weaponIsAuto = data[DataIndex].isAuto;
     }
 
     void Attack()
@@ -111,25 +112,22 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void ChangeToNextWeapon()
+    void ChangeWeapon(bool next)
     {
         if(reloadingRoutine != null)
         {
             StopCoroutine(reloadingRoutine);
             reloadingRoutine = null;
         }
-        DataIndex++;
-        RefreshApearance();
-    }
-    void ChangeToPreviousWeapon()
-    {
-        if (reloadingRoutine != null)
+        if(next)
         {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
+            DataIndex++;
         }
-        DataIndex--;
-        RefreshApearance();
+        else
+        {
+            DataIndex--;
+        }
+        RefreshData();
     }
 
     public void AddNewWeapon(WeaponData newData)

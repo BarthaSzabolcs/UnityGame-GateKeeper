@@ -15,7 +15,10 @@ public class Bullet : MonoBehaviour
 		self = GetComponent<Rigidbody2D>();
 		self.velocity = transform.up * data.speed;
 		self.mass = data.mass;
-        Instantiate(data.trail, transform);
+        if(data.trail != null)
+        {
+            Instantiate(data.trail, transform);
+        }
         if (data.hasLifeTime)
         {
             SelfDestruct component = gameObject.AddComponent<SelfDestruct>();

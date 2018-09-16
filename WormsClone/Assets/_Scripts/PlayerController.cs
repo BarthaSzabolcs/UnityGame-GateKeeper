@@ -14,13 +14,8 @@ public class PlayerController : MonoBehaviour
     public delegate void ReloadTrigger();
     public event ReloadTrigger OnReloadTriggered;
 
-    public delegate void NextWeaponTrigger();
-    public event NextWeaponTrigger OnNextWeaponTriggered;
-
-    public delegate void PreviousWeaponTrigger();
-    public event PreviousWeaponTrigger OnPreviousWeaponTriggered;
-
-
+    public delegate void WeaponChangeTrigger(bool next);
+    public event WeaponChangeTrigger OnWeaponChangeTriggered;
     #endregion
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
@@ -34,6 +29,7 @@ public class PlayerController : MonoBehaviour
     float currentMoveForce;
     int jumpCounter = 0;
     float teleportTimer;
+    [HideInInspector] public bool weaponIsAuto;
     #endregion
 
     #region UnityFunctions
@@ -176,10 +172,21 @@ public class PlayerController : MonoBehaviour
     }
     void Attack()
     {
-        if(Input.GetButton("Attack"))
+        if (weaponIsAuto)
         {
-            if (OnAttackTriggered != null)  OnAttackTriggered();
+            if (Input.GetButton("Attack"))
+            {
+                if (OnAttackTriggered != null) OnAttackTriggered();
+            }
         }
+        else
+        {
+            if (Input.GetButtonDown("Attack"))
+            {
+                if (OnAttackTriggered != null) OnAttackTriggered();
+            }
+        }
+        
     }
     void Reload()
     {
@@ -192,11 +199,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("NextWeapon"))
         {
-            if (OnNextWeaponTriggered != null) OnNextWeaponTriggered();
+            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(true);
         }
         if (Input.GetButtonDown("PreviousWeapon"))
         {
-            if (OnPreviousWeaponTriggered != null) OnPreviousWeaponTriggered();
+            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(false);
         }
     }
     #endregion

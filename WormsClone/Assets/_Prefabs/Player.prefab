@@ -246,8 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-  - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
   - {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
+  - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
+  - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
   wielder: {fileID: 114380863404926114}
 --- !u!212 &212060709190250868
 SpriteRenderer:

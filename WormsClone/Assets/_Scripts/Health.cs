@@ -99,7 +99,7 @@ public class Health : MonoBehaviour
             {
                 if (data.hitAudio != null)
                 {
-                    BeatMaster.Instance.PlaySound(data.hitAudio);
+                    AudioManager.Instance.PlaySound(data.hitAudio);
                 }
                 HealthPoints -= damage;
             }
@@ -117,7 +117,7 @@ public class Health : MonoBehaviour
         }
         if (data.deathAudio != null)
         {
-            BeatMaster.Instance.PlaySound(data.deathAudio);
+            AudioManager.Instance.PlaySound(data.deathAudio);
         }
         if (OnDeath != null)
         {

@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatMaster : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
 	#region ShowInEditor
 	[SerializeField] Sound[] sounds;
     #endregion
     #region HideInEditor
-    public static BeatMaster Instance;
+    public static AudioManager Instance;
     #endregion
 
     #region MagicFunctions

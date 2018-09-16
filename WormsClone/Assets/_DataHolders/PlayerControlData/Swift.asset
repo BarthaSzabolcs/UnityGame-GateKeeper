@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: Swift
   m_EditorClassIdentifier: 
   material: {fileID: 6200000, guid: 8c5bc085945df524f95c67494ab655b8, type: 2}
-  feetRadius: 0.5
-  feetLayer:
+  gripWidth: 2
+  gripLayer:
     serializedVersion: 2
-    m_Bits: 55
-  moveForce: 50
-  runMaxSpeed: 15
-  sprintMaxSpeed: 20
-  airControlMultiplier: 2
-  jumpForce: 600
+    m_Bits: 567
+  moveForce: 1
+  runMaxSpeed: 30
+  sprintMaxSpeed: 50
+  airControlMultiplier: 0.5
+  jumpForce: 60
   multiJumps: 1
-  teleportRange: 10
+  teleportRange: 80
   teleportCoolDown: 1

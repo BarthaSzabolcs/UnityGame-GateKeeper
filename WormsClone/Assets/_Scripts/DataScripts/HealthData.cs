@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Components/Health")]
+[CreateAssetMenu(menuName = "Data/Health")]
 public class HealthData : ScriptableObject
 {
     [Header("Health:")]
@@ -16,5 +16,5 @@ public class HealthData : ScriptableObject
     [Header("Death:")]
     public string deathAudio;
     public GameObject deathAnim;
-    public ExplosionDataHolder deathAnimData;
+    public ExplosionData deathAnimData;
 }

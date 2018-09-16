@@ -66,14 +66,10 @@ public class JetPack : MonoBehaviour
     {
         if(fuel != 0)
         {
-            if(targetRB.velocity.y + upwardForce  > maxUpwardForce)
-            {
-                targetRB.velocity = new Vector2(targetRB.velocity.x, maxUpwardForce);
-            }
-            else
+            if(targetRB.velocity.y < maxUpwardForce)
             {
                 targetRB.AddForce(Vector2.up * upwardForce);
-                Fuel -= depleteRate * Time.deltaTime;
+                Fuel -= depleteRate;
             }
         }
     }
@@ -88,7 +84,7 @@ public class JetPack : MonoBehaviour
         {
             if (fuelRegenTimer + regenInterval < Time.time)
             {
-                Fuel += regenRate * Time.deltaTime;
+                Fuel += regenRate;
                 fuelRegenTimer = Time.time;
             }
         }

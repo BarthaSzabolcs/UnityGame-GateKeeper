@@ -5,12 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Events
-    public delegate void JetPackTriggered();
-    public event JetPackTriggered OnJetPackTriggered;
+    public delegate void JetPackTrigger();
+    public event JetPackTrigger OnJetPackTriggered;
+
+    public delegate void AttackTrigger();
+    public event AttackTrigger OnAttackTriggered;
+
+    public delegate void ReloadTrigger();
+    public event ReloadTrigger OnReloadTriggered;
     #endregion
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
-    [SerializeField] Transform feet;
+    [SerializeField] Transform grip;
+    [SerializeField] Transform weapon;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -30,9 +37,10 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         Move();
+        WeaponHandling();
     }
     #endregion
-
+    #region Movement Functions
     void Move()
     {
         Grounded();
@@ -45,7 +53,10 @@ public class PlayerController : MonoBehaviour
 
     void Grounded()
     {
-        if (Physics2D.OverlapCircle(feet.position, data.feetRadius, data.feetLayer))
+        Vector2 pointA = new Vector2(grip.position.x - data.gripWidth, grip.position.y - data.gripWidth);
+        Vector2 pointB = new Vector2(grip.position.x + data.gripWidth, grip.position.y + data.gripWidth);
+
+        if (Physics2D.OverlapArea(pointA, pointB ,data.gripLayer))
         {
             isGrounded = true;
         }
@@ -68,24 +79,16 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Left"))
         {
-            if (self.velocity.x - currentMoveForce > -currentMaxSpeed)
-            {
-                self.AddForce(Vector2.left * currentMoveForce);
-            }
-            else
+            if (self.velocity.x > -currentMaxSpeed)
             {
                 self.velocity = new Vector2(-currentMaxSpeed, self.velocity.y);
             }
         }
         else if (Input.GetButton("Right"))
         {
-            if (self.velocity.x + currentMoveForce < currentMaxSpeed)
+            if (self.velocity.x < currentMaxSpeed)
             {
-                self.AddForce(Vector2.right * currentMoveForce);
-            }
-            else
-            {
-                self.velocity = new Vector2(currentMaxSpeed, self.velocity.y);
+                self.velocity = new Vector2(currentMaxSpeed, self.velocity.y);  
             }
         }
     }
@@ -107,12 +110,12 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                self.AddForce(Vector2.up * data.jumpForce);
+                self.velocity = new Vector2(self.velocity.x, data.jumpForce);
                 jumpCounter = 0;
             }
             else if (jumpCounter < data.multiJumps)
             {
-                self.AddForce(Vector2.up * data.jumpForce);
+                self.velocity = new Vector2 (self.velocity.x, data.jumpForce);
                 jumpCounter++;
             }
         }
@@ -149,5 +152,38 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    #endregion
+    #region Weapon Functions
+    void WeaponHandling()
+    {
+        AimWeapon();
+        Attack();
+        Reload();
+    }
+    void AimWeapon()
+    {
+        Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        weapon.up = target - (Vector2)weapon.position;
+    }
+    void Attack()
+    {
+        if(Input.GetButton("Attack"))
+        {
+            if (OnAttackTriggered != null)
+            {
+                OnAttackTriggered();
+            }
+        }
+    }
+    void Reload()
+    {
+        if (Input.GetButton("Reload"))
+        {
+            if (OnReloadTriggered != null)
+            {
+                OnReloadTriggered();
+            }
+        }
+    }
+    #endregion
 }

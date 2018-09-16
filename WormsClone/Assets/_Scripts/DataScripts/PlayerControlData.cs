@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Components/PlayerControlData")]
+[CreateAssetMenu(menuName = "Data/PlayerControl")]
 public class PlayerControlData : ScriptableObject
 {
     public PhysicsMaterial2D material;
-    [Header("Feet Settings:")]
-    public float feetRadius;
-    public LayerMask feetLayer;
+    [Header("Grip Settings:")]
+    public float gripWidth;
+    public LayerMask gripLayer;
 
     [Header("Movement Settings:")]
     public float moveForce;

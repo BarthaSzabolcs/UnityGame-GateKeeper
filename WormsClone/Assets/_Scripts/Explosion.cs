@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-	[HideInInspector] public ExplosionDataHolder data;
+	[HideInInspector] public ExplosionData data;
 
 	private void Start()
 	{

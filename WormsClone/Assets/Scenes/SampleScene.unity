@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 124184779}
   m_Layer: 0
   m_Name: brownTile (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,12 +229,17 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 124184778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.69, y: 5.06, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: -33.9, y: 41.2, z: 0}
+  m_LocalScale: {x: 10.979, y: 5.0885, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &140942302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4829554916734194, guid: 6759feafc0d88e74b90c6017f7d0de35,
+    type: 2}
+  m_PrefabInternal: {fileID: 1508416710}
 --- !u!1 &186017603
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +253,7 @@ GameObject:
   - component: {fileID: 186017607}
   m_Layer: 0
   m_Name: brownTile
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,11 +311,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 186017603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.34, y: -8.36, z: 0}
-  m_LocalScale: {x: 25.3, y: 4.36, z: 4.953}
+  m_LocalPosition: {x: 95.27, y: -8.36, z: 0}
+  m_LocalScale: {x: 105.24799, y: 4.36, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &186017606
 Rigidbody2D:
@@ -370,7 +375,7 @@ GameObject:
   - component: {fileID: 186110489}
   m_Layer: 0
   m_Name: brownTile (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,11 +478,52 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 186110488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.09, y: 0.83, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: 44.4, y: 75.4, z: 0}
+  m_LocalScale: {x: 5.348, y: 4.757, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &276885530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 276885532}
+  - component: {fileID: 276885531}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &276885531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276885530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c543003602b72e44b08b8ca83d58111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+--- !u!4 &276885532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276885530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5241713, y: -0.55448085, z: -0.22038895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &367268904
 GameObject:
@@ -492,7 +538,7 @@ GameObject:
   - component: {fileID: 367268905}
   m_Layer: 0
   m_Name: brownTile (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,11 +641,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367268904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.91, y: -1.29, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: 34.2, y: 36.6, z: 0}
+  m_LocalScale: {x: 7.216, y: 6.094, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -686,7 +732,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -709,11 +755,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.2099996, z: -10}
+  m_LocalPosition: {x: 0, y: 8.000002, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &637146978 stripped
 Transform:
@@ -733,7 +779,7 @@ GameObject:
   - component: {fileID: 757818523}
   m_Layer: 0
   m_Name: brownTile (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,11 +882,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757818522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.49, y: 8.91, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: 72.3, y: 3.8, z: 0}
+  m_LocalScale: {x: 10.032, y: 9.593108, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169017402
 GameObject:
@@ -855,7 +901,7 @@ GameObject:
   - component: {fileID: 1169017403}
   m_Layer: 0
   m_Name: brownTile (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -958,11 +1004,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169017402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.6, y: 18.16, z: 0}
-  m_LocalScale: {x: 5.9270935, y: 38.52744, z: 4.953}
+  m_LocalPosition: {x: -49.6, y: 66.23, z: 0}
+  m_LocalScale: {x: 5.9270935, y: 86.68674, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1258499243
 GameObject:
@@ -977,7 +1023,7 @@ GameObject:
   - component: {fileID: 1258499244}
   m_Layer: 0
   m_Name: brownTile (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1080,11 +1126,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1258499243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.93, y: 21.99, z: 0}
-  m_LocalScale: {x: 4.513071, y: 34.518158, z: 4.953}
+  m_LocalPosition: {x: 196.1, y: 68, z: 0}
+  m_LocalScale: {x: 4.513071, y: 77.665855, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1355525305
 Prefab:
@@ -1099,7 +1145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4046193370656972, guid: 20e8c90d6627a2143a45d3d078abeea3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.2099996
+      value: 8.000002
       objectReference: {fileID: 0}
     - target: {fileID: 4046193370656972, guid: 20e8c90d6627a2143a45d3d078abeea3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1123,32 +1169,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4046193370656972, guid: 20e8c90d6627a2143a45d3d078abeea3, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 114217104670596226, guid: 20e8c90d6627a2143a45d3d078abeea3,
         type: 2}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 637146978}
-    - target: {fileID: 114682452965886376, guid: 20e8c90d6627a2143a45d3d078abeea3,
+    - target: {fileID: 114217104670596226, guid: 20e8c90d6627a2143a45d3d078abeea3,
         type: 2}
-      propertyPath: m_SoftZoneWidth
-      value: 0.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 114682452965886376, guid: 20e8c90d6627a2143a45d3d078abeea3,
-        type: 2}
-      propertyPath: m_DeadZoneWidth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114682452965886376, guid: 20e8c90d6627a2143a45d3d078abeea3,
-        type: 2}
-      propertyPath: m_SoftZoneHeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114682452965886376, guid: 20e8c90d6627a2143a45d3d078abeea3,
-        type: 2}
-      propertyPath: m_BiasY
-      value: -0.4000001
+      propertyPath: m_Lens.OrthographicSize
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20e8c90d6627a2143a45d3d078abeea3, type: 2}
@@ -1166,7 +1197,7 @@ GameObject:
   - component: {fileID: 1475440178}
   m_Layer: 0
   m_Name: brownTile (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1269,11 +1300,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1475440177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.26, y: 3.71, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: 4.6, y: 85, z: 0}
+  m_LocalScale: {x: 5.351, y: 5.8495, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1508416710
 Prefab:
@@ -1288,7 +1319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505730152154142, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4505730152154142, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1312,8 +1343,42 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4505730152154142, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
       propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355047541934848, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212462940063974108, guid: 6759feafc0d88e74b90c6017f7d0de35,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212462940063974108, guid: 6759feafc0d88e74b90c6017f7d0de35,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.87560844
+      objectReference: {fileID: 0}
+    - target: {fileID: 212462940063974108, guid: 6759feafc0d88e74b90c6017f7d0de35,
+        type: 2}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4829554916734194, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.247
+      objectReference: {fileID: 0}
+    - target: {fileID: 114380863404926114, guid: 6759feafc0d88e74b90c6017f7d0de35,
+        type: 2}
+      propertyPath: grip
+      value: 
+      objectReference: {fileID: 140942302}
+    - target: {fileID: 114491675432283018, guid: 6759feafc0d88e74b90c6017f7d0de35,
+        type: 2}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 2}
   m_IsPrefabAsset: 0
@@ -1330,7 +1395,7 @@ GameObject:
   - component: {fileID: 1569836160}
   m_Layer: 0
   m_Name: brownTile (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1433,11 +1498,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1569836159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.12, y: 59.88, z: 0}
-  m_LocalScale: {x: 51.32256, y: 5.6668706, z: 4.953}
+  m_LocalPosition: {x: 75.9, y: 145.2, z: 0}
+  m_LocalScale: {x: 125.22705, y: 5.6668706, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831830673
 GameObject:
@@ -1452,7 +1517,7 @@ GameObject:
   - component: {fileID: 1831830674}
   m_Layer: 0
   m_Name: brownTile (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1555,11 +1620,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1831830673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.84, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 0.5, z: 4.953}
+  m_LocalPosition: {x: 126.8, y: 12.1, z: 0}
+  m_LocalScale: {x: 14.11, y: 2.409, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1891426318
 GameObject:
@@ -1574,7 +1639,7 @@ GameObject:
   - component: {fileID: 1891426319}
   m_Layer: 0
   m_Name: brownTile (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,5 +1746,5 @@ Transform:
   m_LocalScale: {x: 19.300447, y: 9.6999, z: 4.953}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

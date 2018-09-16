@@ -11,8 +11,10 @@ public class Bullet : MonoBehaviour
     #region UnityFunctions
     void Start ()
 	{
-		GetComponent<SpriteRenderer>().color = data.bulletColor;
-		self = GetComponent<Rigidbody2D>();
+        var renderer = GetComponent<SpriteRenderer>();
+        renderer.color = data.bulletColor;
+        renderer.sprite = data.sprite;
+        self = GetComponent<Rigidbody2D>();
 		self.velocity = transform.up * data.speed;
 		self.mass = data.mass;
         if(data.trail != null)

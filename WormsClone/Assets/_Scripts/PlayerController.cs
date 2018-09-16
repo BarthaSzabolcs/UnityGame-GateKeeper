@@ -21,21 +21,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
     [SerializeField] Transform weapon;
+    [SerializeField] Animator animator;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
+    SpriteRenderer renderer;
+
     bool isGrounded;
+    int jumpCounter = 0;
+
     float currentMaxSpeed;
     float currentMoveForce;
-    int jumpCounter = 0;
+
     float teleportTimer;
     [HideInInspector] public bool weaponIsAuto;
+    Vector2 target;
     #endregion
 
     #region UnityFunctions
     void Start ()
     {
         self = GetComponent<Rigidbody2D>();
+        renderer = GetComponent<SpriteRenderer>();
         self.sharedMaterial = data.material;
     }
 	void Update ()
@@ -53,6 +60,8 @@ public class PlayerController : MonoBehaviour
         Jump();
         JetPack();
         Teleport();
+        animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
+        animator.SetBool("speed", isGrounded);
     }
 
     void Grounded()
@@ -150,9 +159,12 @@ public class PlayerController : MonoBehaviour
                 if (Physics2D.OverlapArea(pointA, pointB) == null)
                 {
                     transform.position = target;
-                }
-
-                teleportTimer = Time.time;
+                    teleportTimer = Time.time;
+                    if(data.loseMomentumOnTeleport)
+                    {
+                        self.velocity = Vector2.zero;
+                    }
+                }                
             }
         }
     }
@@ -161,13 +173,14 @@ public class PlayerController : MonoBehaviour
     void WeaponHandling()
     {
         AimWeapon();
+        CheckDirection();
         Attack();
         Reload();
         ChangeWeapon();
     }
     void AimWeapon()
     {
-        Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         weapon.right = target - (Vector2)weapon.position;
     }
     void Attack()
@@ -204,6 +217,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("PreviousWeapon"))
         {
             if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(false);
+        }
+    }
+    void CheckDirection()
+    {
+        if(target.x > transform.position.x)
+        {
+            renderer.flipX = false;
+            weapon.transform.localPosition = data.weaponPosition;
+            weapon.GetComponent<SpriteRenderer>().flipY = false;
+        }
+        else
+        {
+            renderer.flipX = true;
+            weapon.transform.localPosition = -data.weaponPosition;
+            weapon.GetComponent<SpriteRenderer>().flipY = true;
         }
     }
     #endregion

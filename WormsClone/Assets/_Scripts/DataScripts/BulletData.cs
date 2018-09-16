@@ -16,7 +16,8 @@ public class BulletData : ScriptableObject
     public bool hasLifeTime;
     public float lifeTime;
     [Header("Effects Settings:")]
-	public Color bulletColor;
+    public Sprite sprite;
+    public Color bulletColor;
 	public Color muzzleFlashColor;
 	public float muzzleFlashSize;
     public GameObject trail;

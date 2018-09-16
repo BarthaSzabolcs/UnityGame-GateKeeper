@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerControlData : ScriptableObject
 {
     public PhysicsMaterial2D material;
+    [Header("Animation Settings:")]
+    public Vector2 weaponPosition;
+
     [Header("Grip Settings:")]
     public float gripWidth;
     public LayerMask gripLayer;
@@ -23,4 +26,5 @@ public class PlayerControlData : ScriptableObject
     [Header("Teleport Settings")]
     public float teleportRange;
     public float teleportCoolDown;
+    public bool loseMomentumOnTeleport;
 }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Name: SR_Weapon
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b1374e18c204a08458b9f311c82c51b0, type: 3}
+  weaponPosition: {x: 0.95, y: -0.64}
+  rightHandPosition: {x: -1.11, y: -0.39}
+  leftHandPosition: {x: 1.08, y: -0.34}
   isAuto: 0
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 2}
   bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
@@ -19,5 +22,5 @@ MonoBehaviour:
   magazineSize: 5
   reloadTime: 0.3
   fireRate: 0.3
-  barrelOffSet: {x: 3, y: 0}
+  barrelOffSet: {x: 5.75, y: 0.2}
   reloadRefreshRate: 2

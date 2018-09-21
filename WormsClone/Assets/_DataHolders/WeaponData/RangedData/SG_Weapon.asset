@@ -9,15 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
-  m_Name: SMG_Weapon
+  m_Name: SG_Weapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 85dfb885c215e5546b5d41bb18386503, type: 3}
+  sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
+  weaponPosition: {x: 0.88, y: -1}
+  rightHandPosition: {x: 0.68, y: -0.27}
+  leftHandPosition: {x: -0.8, y: -0.32}
   isAuto: 1
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 2}
-  bulletData: {fileID: 11400000, guid: 7ed9fa855b17fad429a1b813094283ea, type: 2}
-  pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}
-  magazineSize: 20
-  reloadTime: 0.25
-  fireRate: 0.01
-  barrelOffSet: {x: 1, y: 0}
+  bulletData: {fileID: 11400000, guid: 40062fdeaf98e5f49aad238802246f40, type: 2}
+  pattern: {fileID: 11400000, guid: a8867e22cd5ec144bbb95d1a1f9ca141, type: 2}
+  magazineSize: 5
+  reloadTime: 1
+  fireRate: 0.25
+  barrelOffSet: {x: 2, y: 0}
   reloadRefreshRate: 2

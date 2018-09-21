@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
   m_Name: SMG_Bullet
   m_EditorClassIdentifier: 
-  taggedToDamage: []
+  taggedToDamage:
+  - Dummy
   taggedToDestroy:
   - Wall
+  - Dummy
   taggedToDestroyWithoutEffects: []
   mass: 0.5
   damage: 1

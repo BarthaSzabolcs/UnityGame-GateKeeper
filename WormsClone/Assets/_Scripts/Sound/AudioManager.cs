@@ -54,6 +54,6 @@ public class AudioManager : MonoBehaviour
 				found = true;
 			}
 		}
-		//if (!found) print("Sound not found: " + audioName);
+		if (!found) print("Sound not found: " + audioName);
 	}
 }

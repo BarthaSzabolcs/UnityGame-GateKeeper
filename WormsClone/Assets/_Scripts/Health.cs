@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     public event SelfDestruct OnSelfDestruct;
     #endregion
     #region ShowInEditor
-    [SerializeField] protected HealthData data;
+    [SerializeField] HealthData data;
 	#endregion
 	#region HideInEditor
 	private int healthPoints;

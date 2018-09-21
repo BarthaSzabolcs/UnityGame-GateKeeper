@@ -20,13 +20,14 @@ public class PlayerController : MonoBehaviour
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
-    [SerializeField] Transform weapon;
+    [SerializeField] Transform weaponTransform;
     [SerializeField] Animator animator;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
-    SpriteRenderer renderer;
-
+    SpriteRenderer sRenderer;
+    Weapon weaponComponent;
+    
     bool isGrounded;
     int jumpCounter = 0;
 
@@ -34,15 +35,18 @@ public class PlayerController : MonoBehaviour
     float currentMoveForce;
 
     float teleportTimer;
+
     [HideInInspector] public bool weaponIsAuto;
-    Vector2 target;
+    [HideInInspector] public bool canAim = true;
+    [HideInInspector] public Vector2 target;
     #endregion
 
     #region UnityFunctions
     void Start ()
     {
+        weaponComponent = weaponTransform.GetComponent<Weapon>();
         self = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
+        sRenderer = GetComponent<SpriteRenderer>();
         self.sharedMaterial = data.material;
     }
 	void Update ()
@@ -61,7 +65,7 @@ public class PlayerController : MonoBehaviour
         JetPack();
         Teleport();
         animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
-        animator.SetBool("speed", isGrounded);
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     void Grounded()
@@ -180,8 +184,11 @@ public class PlayerController : MonoBehaviour
     }
     void AimWeapon()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        weapon.right = target - (Vector2)weapon.position;
+        if (canAim)
+        {
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            weaponTransform.right = target - (Vector2)weaponTransform.position;
+        }
     }
     void Attack()
     {
@@ -223,15 +230,13 @@ public class PlayerController : MonoBehaviour
     {
         if(target.x > transform.position.x)
         {
-            renderer.flipX = false;
-            weapon.transform.localPosition = data.weaponPosition;
-            weapon.GetComponent<SpriteRenderer>().flipY = false;
+            sRenderer.flipX = false;
+            weaponComponent.SetApearence(true);
         }
         else
         {
-            renderer.flipX = true;
-            weapon.transform.localPosition = -data.weaponPosition;
-            weapon.GetComponent<SpriteRenderer>().flipY = true;
+            sRenderer.flipX = true;
+            weaponComponent.SetApearence(false);
         }
     }
     #endregion

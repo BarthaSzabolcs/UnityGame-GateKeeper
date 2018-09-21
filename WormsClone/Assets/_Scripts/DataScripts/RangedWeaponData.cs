@@ -6,6 +6,7 @@ using UnityEngine;
 public class RangedWeaponData : WeaponData
 {
     #region ShowInEditor
+    [Header("RangedWeapon Settings:")]
     [SerializeField] GameObject bullet;
     [SerializeField] BulletData bulletData;
     [SerializeField] ShootingPattern pattern;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Data/SpreadPattern")]
+[CreateAssetMenu(menuName = "Data/Pattern_Spread")]
 public class ShootingPattern_Spread : ShootingPattern
 {
     [Header("Spread Settings:")]

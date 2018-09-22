@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084955257760458}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.029421369}
+  m_LocalPosition: {x: 0, y: -0.331, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4355047541934848}
@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508970199601920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.029421369}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4355047541934848}
@@ -222,7 +222,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.09274238}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.225, y: 0.35}
+    pivot: {x: 0.25, y: 0.5}
     oldSize: {x: 2, y: 2}
     newSize: {x: 2, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -291,6 +291,8 @@ MonoBehaviour:
   weaponTransform: {fileID: 4355047541934848}
   animator: {fileID: 95880372648653940}
   weaponIsAuto: 0
+  canAim: 1
+  target: {x: 0, y: 0}
 --- !u!114 &114391605167803530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,9 +327,10 @@ MonoBehaviour:
   data:
   - {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
   - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
-  - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
   - {fileID: 11400000, guid: b694e441ea824cc4e920f269c48b503f, type: 2}
   wielder: {fileID: 114380863404926114}
+  droppedWeapon: {fileID: 1959444473538686, guid: 5285ddab37430b244b0b0d9b0895c045,
+    type: 2}
 --- !u!212 &212060709190250868
 SpriteRenderer:
   m_ObjectHideFlags: 1

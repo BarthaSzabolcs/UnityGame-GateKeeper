@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
 
     public delegate void WeaponChangeTrigger(bool next);
     public event WeaponChangeTrigger OnWeaponChangeTriggered;
+
+    public delegate void WeaponDropTrigger();
+    public event WeaponDropTrigger OnWeaponDropTriggered;
     #endregion
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
@@ -53,6 +56,14 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         WeaponHandling();
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "DroppedWeapon")
+        {
+            PickUpWeapon(col.gameObject.GetComponent<DroppedWeapon>().data);
+            Destroy(col.gameObject);
+        }
     }
     #endregion
     #region Movement Functions
@@ -181,6 +192,7 @@ public class PlayerController : MonoBehaviour
         Attack();
         Reload();
         ChangeWeapon();
+        DropWeapon();
     }
     void AimWeapon()
     {
@@ -215,17 +227,7 @@ public class PlayerController : MonoBehaviour
             if (OnReloadTriggered != null) OnReloadTriggered();
         }
     }
-    void ChangeWeapon()
-    {
-        if (Input.GetButtonDown("NextWeapon"))
-        {
-            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(true);
-        }
-        if (Input.GetButtonDown("PreviousWeapon"))
-        {
-            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(false);
-        }
-    }
+
     void CheckDirection()
     {
         if(target.x > transform.position.x)
@@ -238,6 +240,29 @@ public class PlayerController : MonoBehaviour
             sRenderer.flipX = true;
             weaponComponent.SetApearence(false);
         }
+    }
+
+    void ChangeWeapon()
+    {
+        if (Input.GetButtonDown("NextWeapon"))
+        {
+            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(true);
+        }
+        if (Input.GetButtonDown("PreviousWeapon"))
+        {
+            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(false);
+        }
+    }
+    void DropWeapon()
+    {
+        if (Input.GetButtonDown("DropWeapon"))
+        {
+            if (OnWeaponDropTriggered != null) OnWeaponDropTriggered();
+        }
+    }
+    void PickUpWeapon(WeaponData weaponData)
+    {
+        weaponComponent.PickUpWeapon(weaponData);
     }
     #endregion
 }

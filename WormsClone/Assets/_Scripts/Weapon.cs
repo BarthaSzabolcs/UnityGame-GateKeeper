@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     #region ShowInEditor
     [SerializeField] List<WeaponData> data;
     [SerializeField] PlayerController wielder;
+    [SerializeField] GameObject droppedWeapon;
     #endregion
     #region HideInEditor
     SpriteRenderer sRenderer;
@@ -18,7 +19,16 @@ public class Weapon : MonoBehaviour
     {
         get
         {
-            return dataIndex;
+            if (dataIndex < data.Count)
+            {
+                return dataIndex;
+            }
+            else
+            {
+                DataIndex = dataIndex;
+                return dataIndex;
+            }
+
         }
         set
         {
@@ -55,6 +65,7 @@ public class Weapon : MonoBehaviour
         wielder.OnAttackTriggered += Attack;
         wielder.OnReloadTriggered += Reload;
         wielder.OnWeaponChangeTriggered += ChangeWeapon;
+        wielder.OnWeaponDropTriggered += DropWeapon;
 
         InitializeInstances();
         RefreshData();
@@ -74,9 +85,9 @@ public class Weapon : MonoBehaviour
         
     }
     #endregion
-    void Initialize(int i)
+    void Initialize(WeaponData weaponData)
     {
-        RangedWeaponData rangedData = data[i] as RangedWeaponData;
+        RangedWeaponData rangedData = weaponData as RangedWeaponData;
         if (rangedData != null)
         {
             rangedData = Instantiate(rangedData);
@@ -84,10 +95,10 @@ public class Weapon : MonoBehaviour
             (
                 GetComponent<Rigidbody2D>()
             );
-            instances[i] = rangedData;
+            instances.Add(rangedData);
         }
 
-        MeeleWeaponData meeleData = data[i] as MeeleWeaponData;
+        MeeleWeaponData meeleData = weaponData as MeeleWeaponData;
         if (meeleData != null)
         {
             meeleData = Instantiate(meeleData);
@@ -97,15 +108,15 @@ public class Weapon : MonoBehaviour
                 damageTrigger,
                 wielder
             );
-            instances[i] = meeleData;
+            instances.Add(meeleData);
         }
     }
     void InitializeInstances()
     {
-        instances = new List<WeaponData>(new WeaponData[data.Count]);
-        for (int i = 0; i < data.Count; i++)
+        instances = new List<WeaponData>();
+        foreach (var weaponData in data)
         {
-            Initialize(i);
+            Initialize(weaponData);
         }
     }
     void RefreshData()
@@ -153,6 +164,7 @@ public class Weapon : MonoBehaviour
         damageTrigger.enabled = false;
         wielder.canAim = true;
     }
+
     void Reload()
     {
         RangedWeaponData ranged = instances[DataIndex] as RangedWeaponData;
@@ -183,7 +195,25 @@ public class Weapon : MonoBehaviour
         }
         RefreshData();
     }
-
+    void DropWeapon()
+    {
+        if (instances.Count > 1)
+        {
+            GameObject weapon = Instantiate(droppedWeapon, transform.position, transform.rotation);
+            DroppedWeapon droppedWeaponInstance = weapon.GetComponent<DroppedWeapon>();
+            droppedWeaponInstance.data = data[DataIndex];
+            droppedWeaponInstance.dropDirection = transform.right.normalized;
+            
+            instances.RemoveAt(DataIndex);
+            data.RemoveAt(DataIndex);
+            RefreshData();
+        }
+    }
+    public void PickUpWeapon(WeaponData weaponData)
+    {
+        data.Add(weaponData);
+        Initialize(weaponData);
+    }
     #region Appearence
     public void SetApearence(bool lookingRight)
     {

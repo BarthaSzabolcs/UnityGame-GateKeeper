@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Dummy
+  - DroppedWeapon
   layers:
   - Default
   - TransparentFX

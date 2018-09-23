@@ -7,6 +7,10 @@ public class DroppedWeapon : MonoBehaviour
     [SerializeField] float pickUpDelay;
     public WeaponData data;
     public Vector2 dropDirection;
+
+    public int ammoInMag;
+    public int extraAmmo;
+
     SpriteRenderer Srenderer;
     BoxCollider2D trigger;
 

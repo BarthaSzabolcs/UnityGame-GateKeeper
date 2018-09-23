@@ -203,16 +203,33 @@ public class Weapon : MonoBehaviour
             DroppedWeapon droppedWeaponInstance = weapon.GetComponent<DroppedWeapon>();
             droppedWeaponInstance.data = data[DataIndex];
             droppedWeaponInstance.dropDirection = transform.right.normalized;
-            
+
+            var rangedWeapon = instances[DataIndex] as RangedWeaponData;
+            if (rangedWeapon)
+            {
+                droppedWeaponInstance.ammoInMag = rangedWeapon.ammoInMag;
+                droppedWeaponInstance.extraAmmo = rangedWeapon.extraAmmo;
+            }
+
             instances.RemoveAt(DataIndex);
             data.RemoveAt(DataIndex);
             RefreshData();
         }
     }
-    public void PickUpWeapon(WeaponData weaponData)
+    public void PickUpWeapon(WeaponData newWeaponData)
     {
-        data.Add(weaponData);
-        Initialize(weaponData);
+        data.Add(newWeaponData);
+        //instances.Add(newWeaponData);
+        Initialize(newWeaponData);
+
+        //var newRangedWeaponData = newWeaponData as RangedWeaponData;
+        //if (newRangedWeaponData)
+        //{
+        //    var rangedWeaponInstance = instances[instances.Count - 1] as RangedWeaponData;
+
+        //    rangedWeaponInstance.ammoInMag = newRangedWeaponData.ammoInMag;
+        //    rangedWeaponInstance.extraAmmo = newRangedWeaponData.extraAmmo;
+        //}
     }
     #region Appearence
     public void SetApearence(bool lookingRight)

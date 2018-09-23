@@ -10,7 +10,8 @@ public class RangedWeaponData : WeaponData
     [SerializeField] GameObject bullet;
     [SerializeField] BulletData bulletData;
     [SerializeField] ShootingPattern pattern;
-    [SerializeField] int magazineSize;
+    public int extraAmmo;
+    [SerializeField] int magSize;
     [SerializeField] float reloadTime;
     [SerializeField] float fireRate;
     [SerializeField] Vector2 barrelOffSet;
@@ -18,33 +19,38 @@ public class RangedWeaponData : WeaponData
     #endregion
     #region HideInEditor
     Rigidbody2D self;
-    int ammo;
     float reloadTimer;
     float fireRateTimer;
+    public int ammoInMag;
     #endregion
 
     public void Initialize(Rigidbody2D self)
     {
         this.self = self;
-        ammo = magazineSize;
+        ammoInMag = magSize;
     }
     public override void Attack()
     {
-        if(ammo > 0 && fireRateTimer + fireRate < Time.time )
+        if(ammoInMag > 0 && fireRateTimer + fireRate < Time.time )
         {
             pattern.Shoot(bullet, bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
-            ammo--;
+            ammoInMag--;
         }
     }
     public IEnumerator ReloadRoutine(Weapon weapon)
     {
-        for (int i = 0; i < reloadRefreshRate; i++)
+        if(extraAmmo > 1)
         {
-            yield return new WaitForSeconds(reloadTime / reloadRefreshRate);
-            Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
+            for (int i = 0; i < reloadRefreshRate; i++)
+            {
+                yield return new WaitForSeconds(reloadTime / reloadRefreshRate);
+                //Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
+            }
+            ammoInMag = extraAmmo >= magSize ? magSize : extraAmmo;
+            extraAmmo -= ammoInMag;
         }
-        ammo = magazineSize;
+        
         weapon.reloadingRoutine = null;
     }
 

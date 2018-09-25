@@ -24,4 +24,10 @@ public class BulletData : ScriptableObject
 	public string bulletFiredAudio;
     public string impactAudio;
 	public GameObject impactAnim;
+    [Header("Homing Settings:")]
+    public bool isHoming;
+    public string[] taggedToTarget;
+    public float targetingRadius;
+    public float homingRefreshRate;
+    public float rotateSpeed;
 }

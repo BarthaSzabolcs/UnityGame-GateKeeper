@@ -20,8 +20,9 @@ MonoBehaviour:
   bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
   pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
   extraAmmo: 100
-  magazineSize: 5
+  magSize: 3
   reloadTime: 0.3
   fireRate: 0.3
   barrelOffSet: {x: 5.75, y: 0.2}
   reloadRefreshRate: 2
+  ammoInMag: 0

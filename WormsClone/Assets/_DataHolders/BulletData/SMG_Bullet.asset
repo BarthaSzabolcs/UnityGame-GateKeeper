@@ -17,11 +17,11 @@ MonoBehaviour:
   - Wall
   - Dummy
   taggedToDestroyWithoutEffects: []
-  mass: 0.5
+  mass: 0
   damage: 1
-  speed: 120
+  speed: 30
   hasLifeTime: 1
-  lifeTime: 0.3
+  lifeTime: 1
   sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
   bulletColor: {r: 0, g: 1, b: 0.10588236, a: 1}
   muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
@@ -30,3 +30,9 @@ MonoBehaviour:
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
   impactAnim: {fileID: 0}
+  isHoming: 1
+  taggedToTarget:
+  - Dummy
+  targetingRadius: 10
+  homingRefreshRate: 0.016
+  rotateSpeed: 180

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: SwordOfPosseidon
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: abd187833740b4a4a8f5d9141a7567cc, type: 3}
-  weaponPosition: {x: 1, y: -1}
+  weaponPosition: {x: 2, y: 0}
   rightHandPosition: {x: 0, y: 0}
   leftHandPosition: {x: 0, y: 0}
   isAuto: 0
@@ -22,4 +22,4 @@ MonoBehaviour:
   damage: 10
   damageTriggerSize: {x: 1, y: 3}
   damageTriggerOffSet: {x: 0, y: 1}
-  swingDegrees: 20
+  swingDegrees: 40

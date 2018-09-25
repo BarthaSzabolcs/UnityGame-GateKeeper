@@ -23,10 +23,21 @@ public class Bullet : MonoBehaviour
         }
         if (data.hasLifeTime)
         {
-            SelfDestruct component = gameObject.AddComponent<SelfDestruct>();
+            var component = gameObject.AddComponent<SelfDestruct>();
             component.lifeTime = data.lifeTime;
         }
-	}
+        if(data.isHoming)
+        {
+            var component = gameObject.AddComponent<HomingBehavior>();
+
+            component.taggedToTarget = data.taggedToTarget;
+            component.targetingRadius = data.targetingRadius;
+            component.homingRefreshRate = data.homingRefreshRate;
+            component.speed = data.speed;
+            component.rotateSpeed = data.rotateSpeed;
+    
+        }
+    }
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		foreach (var tag in data.taggedToDamage)

@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,13 +17,13 @@ MonoBehaviour:
   rightHandPosition: {x: 0, y: -0.33}
   leftHandPosition: {x: 0, y: -0.33}
   isAuto: 1
-  bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 2}
+  bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 7ed9fa855b17fad429a1b813094283ea, type: 2}
   pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}
-  extraAmmo: 1000
+  ExtraAmmo: 1000
   magSize: 100
   reloadTime: 0.25
   fireRate: 0.01
   barrelOffSet: {x: 1.75, y: 0.2}
-  reloadRefreshRate: 2
-  ammoInMag: 0
+  reloadRefreshRate: 10
+  AmmoInMag: 0

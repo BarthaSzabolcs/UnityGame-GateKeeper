@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class UserInterface : MonoBehaviour {
 
     public Text health;
+    public Text maxhealth;
+    private float Hppercent;
+    private float hppercent { get { return Hppercent; } set { Hppercent = value; RefreshHPBar(); } }
     public Text ammo;
+    public Text extraammo;
+    public Text reloadtime;
     public GameObject player;
     public Weapon weapons;
     public GameObject wsprite;
@@ -32,87 +37,76 @@ public class UserInterface : MonoBehaviour {
         }
     }
 
-    private void ChangeMaxHealth()
-    {
-        maxHealthPoints = player.GetComponent<Health>().maxHealthPoints;
-    }
-
-    private void SetSpriteRenderer()
-    {
-        image = wsprite.GetComponent<Image>();
-    }
-
     private void Initialize()
     {
-        ChangeMaxHealth();
-        SetSpriteRenderer();
+        image = wsprite.GetComponent<Image>();
+        reloadtime.enabled = false;
     }
 
-    private void Update()
-    {
-        RefreshHealth();
-        //RefreshPlayerWeapon();
-        //RefreshWeapon();
-    }
-
-    private void RefreshHealth()
-    {
-        if (player != null)
-        {
-            health.text = player.GetComponent<Health>().HealthPoints + "/" + maxHealthPoints;
-        }
-        else
-        {
-            health.text = "0/" + maxHealthPoints;
-        }
-    }
-
-    private void RefreshPlayerWeapon()
-    {
-        weapons = player.GetComponentInChildren<Weapon>();
-    }
-
-    /*private void RefreshWeapon()
-    {
-        var weapon = weapons.instances[weapons.DataIndex];
-        image.sprite = weapon.sprite;
-        if (weapon is RangedWeaponData)
-        {
-            var rangedweapon = weapon as RangedWeaponData;
-            ammo.text = rangedweapon.ammoInMag + "/" + rangedweapon.magSize;
-        }
-        else
-        {
-            ammo.text = "∞";
-        }
-    }*/
-
-    public void RefreshReloadTime(float time)
-    {
-        ammo.text = time.ToString("0.0");
-    }
-
-    public void RefreshWeapon(Sprite sprite,bool ranged,int inMag,int rest)
+    public void RefreshWeaponSprite(Sprite sprite,WeaponData wdata)
     {
         image.sprite = sprite;
-        if(ranged)
+        if(wdata is RangedWeaponData)
         {
-            RefreshRangedAmmo(inMag,rest);
+            ammo.text = ((RangedWeaponData)wdata).ammoInMag.ToString();
+            extraammo.text = ((RangedWeaponData)wdata).extraAmmo.ToString();
+            extraammo.enabled = true;
         }
         else
         {
+            extraammo.enabled = false;
             ammo.text = "∞";
         }
     }
 
-    public void RefreshRangedAmmo(int inMag,int rest)
+    public void MagChange(int inMag)
     {
-        ammo.text = inMag + "|" + rest;
+        ammo.text = inMag.ToString();
     }
 
-    
-        
-    
+    public void ExtraMagChange(int extraMag)
+    {
+        extraammo.text = extraMag.ToString();
+    }
+
+    public void ReloadStart()
+    {
+        reloadtime.enabled = true;
+    }
+
+    public void ReloadStop()
+    {
+        reloadtime.enabled = false;
+    }
+
+    public void ReloadChange(float time, float percent)
+    {
+        reloadtime.text = time.ToString("0.0");
+    }
+
+    public void HealthChange(int healthvalue)
+    {
+        health.text = healthvalue.ToString();
+        CalculateHPPercent();
+    }
+
+    public void MaxHealthChange(int healthvalue)
+    {
+        maxhealth.text = healthvalue.ToString();
+    }
+
+    private void CalculateHPPercent()
+    {
+        hppercent = float.Parse(health.text) / float.Parse(maxhealth.text);
+    }
+
+    private void RefreshHPBar()
+    {
+
+    }
+
+
+
 
 
 }

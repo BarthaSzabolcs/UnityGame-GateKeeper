@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    #region Events
+    public delegate void WeaponChanged(Sprite sprite,WeaponData wdata);
+    public event WeaponChanged OnWeaponChanged;
+    public delegate void ReloadStart();
+    public delegate void ReloadStop();
+    public event ReloadStart OnReloadStart;
+    public event ReloadStop OnReloadStop;
+    #endregion
     #region ShowInEditor
     [SerializeField] List<WeaponData> data;
     [SerializeField] PlayerController wielder;
@@ -46,8 +54,8 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-
-    public Coroutine reloadingRoutine;
+    private Coroutine ReloadingRoutine;
+    public Coroutine reloadingRoutine { get { return ReloadingRoutine; } set { if (ReloadingRoutine == null) { OnReloadStart(); } if (value == null) { OnReloadStop(); } ReloadingRoutine = value; } }
     public Coroutine meeleRoutine;
 
     Transform rightHand, leftHand;
@@ -89,6 +97,9 @@ public class Weapon : MonoBehaviour
     void Initialize(WeaponData weaponData)
     {
         uiManager = UserInterface.Instance;
+        OnWeaponChanged = uiManager.RefreshWeaponSprite;
+        OnReloadStart = uiManager.ReloadStart;
+        OnReloadStop = uiManager.ReloadStop;
         RangedWeaponData rangedData = weaponData as RangedWeaponData;
         if (rangedData != null)
         {
@@ -112,6 +123,7 @@ public class Weapon : MonoBehaviour
             );
             instances.Add(meeleData);
         }
+        OnWeaponChanged(instances[DataIndex].sprite, instances[DataIndex]);
     }
     void InitializeInstances()
     {
@@ -131,13 +143,9 @@ public class Weapon : MonoBehaviour
         {
             damageTrigger.size = meeleData.damageTriggerSize;
             damageTrigger.offset = meeleData.damageTriggerOffSet;
-            uiManager.RefreshWeapon(sRenderer.sprite, false, 0, 0);
-        }
-        else
-        {
-            uiManager.RefreshWeapon(sRenderer.sprite, true, ((RangedWeaponData)instances[DataIndex]).ammoInMag, ((RangedWeaponData)instances[DataIndex]).extraAmmo);
         }
         damageTrigger.enabled = false;
+        OnWeaponChanged(sRenderer.sprite, instances[DataIndex]);
         
     }
 
@@ -156,7 +164,6 @@ public class Weapon : MonoBehaviour
             if (reloadingRoutine == null)
             {
                 instances[dataIndex].Attack();
-                uiManager.RefreshRangedAmmo(((RangedWeaponData)instances[DataIndex]).ammoInMag, ((RangedWeaponData)instances[DataIndex]).extraAmmo);
             }
             else if (reloadingRoutine != null)
             {

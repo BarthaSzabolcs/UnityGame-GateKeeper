@@ -11,6 +11,14 @@ public class Health : MonoBehaviour
     /// </summary>
     public event Death OnDeath;
 
+    public delegate void HealthCHange(int newHealth);
+    /// <summary>
+    /// Triggered on HealthChange.
+    /// </summary>
+    public event HealthCHange OnHealthCHange;
+
+    public event HealthCHange OnMaxHealthCHange;
+
     public delegate void SelfDestruct(GameObject sender);
     /// <summary>
     /// Triggers if the component is killed by the DestroySelf( ) function.
@@ -21,44 +29,51 @@ public class Health : MonoBehaviour
     [SerializeField] HealthData data;
 	#endregion
 	#region HideInEditor
-	private int healthPoints;
-	public int HealthPoints
+	private int healthPoint;
+	public int HealthPoint
 	{
-		get { return healthPoints; }
+		get { return healthPoint; }
 		set
 		{
 			if (value >= data.maxHealthPoints)
 			{
-				healthPoints = data.maxHealthPoints;
+				healthPoint = data.maxHealthPoints;
 			}else if (value <= 0)
 			{
-				healthPoints = 0;
+				healthPoint = 0;
 			}
 			else
 			{
-				healthPoints = value;
+				healthPoint = value;
 			}
-		}
+            if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
+        }
 	}
-    public int maxHealthPoints
+    private int MaxHealthPoint;
+    public int maxHealthPoint
     {
-        get { return data.maxHealthPoints; }
+        get { return MaxHealthPoint; } set { OnMaxHealthCHange(value); MaxHealthPoint = value; }
     }
 	float flashProgress;
 	protected bool dead = false;
 	Coroutine flash;
+    UserInterface uiManager;
     #endregion
 
     #region UnityFunctions
     protected virtual void Awake()
     {
-        HealthPoints = data.maxHealthPoints;
+        UserInterface uiManager = UserInterface.Instance;
+        OnHealthCHange = uiManager.HealthChange;
+        OnMaxHealthCHange = uiManager.MaxHealthChange;
+        maxHealthPoint = data.maxHealthPoints;
+        healthPoint = data.maxHealthPoints;
     }
     #endregion
     #region HealthFunctions
     void ResetHealth()
 	{
-		HealthPoints = data.maxHealthPoints;
+		HealthPoint = data.maxHealthPoints;
 		dead = false;
 	}
     /// <summary>
@@ -68,14 +83,14 @@ public class Health : MonoBehaviour
     /// <param name="heal"></param>
     public virtual void GainHealth(int heal)
 	{
-		HealthPoints += heal;
+		HealthPoint += heal;
 		if (data.flashOnHealthChange && heal > 0 && flash == null )
 		{
 			flash = StartCoroutine(FlashGreen());
 		}
-		if (HealthPoints > data.maxHealthPoints)
+		if (HealthPoint > data.maxHealthPoints)
 		{
-			HealthPoints = data.maxHealthPoints;
+			HealthPoint = data.maxHealthPoints;
 		}
 	}
     /// <summary>
@@ -94,7 +109,7 @@ public class Health : MonoBehaviour
 
         if (!dead)
         {
-            if (HealthPoints - damage < 0)
+            if (HealthPoint - damage < 0)
             {
                 dead = true;
                 Die();
@@ -105,7 +120,7 @@ public class Health : MonoBehaviour
                 {
                     AudioManager.Instance.PlaySound(data.hitAudio);
                 }
-                HealthPoints -= damage;
+                HealthPoint -= damage;
             }
         }
     }

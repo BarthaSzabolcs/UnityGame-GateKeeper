@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class DroppedWeapon : MonoBehaviour
 {
+    #region ShowInEditor
     [SerializeField] float pickUpDelay;
-    public WeaponData data;
-    public Vector2 dropDirection;
-
-    public int ammoInMag;
-    public int extraAmmo;
-
+    #endregion
+    #region HideInEditor
+    [HideInInspector] public WeaponData data;
+    [HideInInspector] public Vector2 dropDirection;
     SpriteRenderer Srenderer;
     BoxCollider2D trigger;
+    #endregion
 
+    #region UnityFunctions
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = data.sprite;
         StartCoroutine(AddCollider());
         GetComponent<Rigidbody2D>().velocity = dropDirection * 20;
     }
-
+    #endregion
     IEnumerator AddCollider()
     {
         yield return new  WaitForSeconds(pickUpDelay);

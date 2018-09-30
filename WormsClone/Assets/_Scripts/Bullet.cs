@@ -5,8 +5,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-	public BulletData data;
-	Rigidbody2D self;
+    #region ShowInEditor
+    public BulletData data;
+    #endregion
+    #region HideInEditor
+    Rigidbody2D self;
+    #endregion
 
     #region UnityFunctions
     void Start ()

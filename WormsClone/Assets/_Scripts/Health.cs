@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
 	#endregion
 	#region HideInEditor
 	private int healthPoints;
-	protected int HealthPoints
+	public int HealthPoints
 	{
 		get { return healthPoints; }
 		set
@@ -40,6 +40,10 @@ public class Health : MonoBehaviour
 			}
 		}
 	}
+    public int maxHealthPoints
+    {
+        get { return data.maxHealthPoints; }
+    }
 	float flashProgress;
 	protected bool dead = false;
 	Coroutine flash;

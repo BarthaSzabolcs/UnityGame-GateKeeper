@@ -11,7 +11,7 @@ public class RangedWeaponData : WeaponData
     [SerializeField] BulletData bulletData;
     [SerializeField] ShootingPattern pattern;
     public int extraAmmo;
-    [SerializeField] int magSize;
+    public int magSize;
     [SerializeField] float reloadTime;
     [SerializeField] float fireRate;
     [SerializeField] Vector2 barrelOffSet;

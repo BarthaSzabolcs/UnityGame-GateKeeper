@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     #region HideInEditor
     SpriteRenderer sRenderer;
     BoxCollider2D damageTrigger;
-    List<WeaponData> instances;
+    public List<WeaponData> instances;
     int dataIndex = 0;
     public int DataIndex
     {

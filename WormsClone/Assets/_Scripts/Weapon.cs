@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    #region Events
+    public delegate void ReloadStateChange(float percent);
+    public event ReloadStateChange OnReloadStateChange;
+    #endregion
     #region ShowInEditor
     [SerializeField] List<WeaponData> data;
     [SerializeField] PlayerController wielder;
@@ -27,7 +31,6 @@ public class Weapon : MonoBehaviour
                 DataIndex = dataIndex;
                 return dataIndex;
             }
-
         }
         set
         {
@@ -74,16 +77,13 @@ public class Weapon : MonoBehaviour
     #endregion
     void Initialize(WeaponData weaponData)
     {
-        RangedWeaponData rangedData = weaponData as RangedWeaponData;
-        if (rangedData != null)
-        {
-            rangedData = Instantiate(rangedData);
-            rangedData.Initialize
-            (
-                GetComponent<Rigidbody2D>()
-            );
-            instances.Add(rangedData);
-        }
+        var instance = Instantiate(weaponData);
+        instance.Initialize
+        (
+            GetComponent<Rigidbody2D>(),
+            this
+        );
+        instances.Add(instance);
     }
     void InitializeInstances()
     {
@@ -101,40 +101,29 @@ public class Weapon : MonoBehaviour
 
     void Attack()
     {
-
-            if (reloadingRoutine == null)
-            {
-                instances[dataIndex].Attack();
-            }
-            else if (reloadingRoutine != null)
-            {
-                StopCoroutine(reloadingRoutine);
-                reloadingRoutine = null;
-            }
+        if (reloadingRoutine == null)
+        {
+            instances[dataIndex].Attack();
+        }
+        else if (reloadingRoutine != null)
+        {
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+            instances[dataIndex].Attack();
+        }
     }
-    //void CancelMeeleAttack()
-    //{
-    //    if (meeleRoutine != null) { StopCoroutine(meeleRoutine); };
-    //    meeleRoutine = null;
-    //    damageTrigger.enabled = false;
-    //    wielder.canAim = true;
-    //}
 
     void Reload()
     {
-        RangedWeaponData ranged = instances[DataIndex] as RangedWeaponData;
-        if (ranged != null)
+        if (reloadingRoutine == null)
         {
-            if (reloadingRoutine == null)
-            {
-                reloadingRoutine = StartCoroutine(ranged.ReloadRoutine(this));
-            }
+            reloadingRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
         }
+        
     }
 
     void ChangeWeapon(bool next)
     {
-        //CancelMeeleAttack();
         if (reloadingRoutine != null)
         {
             StopCoroutine(reloadingRoutine);
@@ -156,15 +145,8 @@ public class Weapon : MonoBehaviour
         {
             GameObject weapon = Instantiate(droppedWeapon, transform.position, transform.rotation);
             DroppedWeapon droppedWeaponInstance = weapon.GetComponent<DroppedWeapon>();
-            droppedWeaponInstance.data = data[DataIndex];
+            droppedWeaponInstance.data = instances[DataIndex];
             droppedWeaponInstance.dropDirection = transform.right.normalized;
-
-            var rangedWeapon = instances[DataIndex] as RangedWeaponData;
-            if (rangedWeapon)
-            {
-                droppedWeaponInstance.ammoInMag = rangedWeapon.ammoInMag;
-                droppedWeaponInstance.extraAmmo = rangedWeapon.extraAmmo;
-            }
 
             instances.RemoveAt(DataIndex);
             data.RemoveAt(DataIndex);
@@ -175,10 +157,9 @@ public class Weapon : MonoBehaviour
     {
         data.Add(newWeaponData);
         Initialize(newWeaponData);
-
     }
     #region Appearence
-    public void SetApearence(bool lookingRight)
+    public void RefreshAppearance(bool lookingRight)
     {
         if (lookingRight)
         {
@@ -194,6 +175,10 @@ public class Weapon : MonoBehaviour
             leftHand.localPosition  = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
             rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
         }
+    }
+    public void RefreshReloadBar(float percent)
+    {
+        if (OnReloadStateChange != null) {OnReloadStateChange(percent); }
     }
     #endregion
 }

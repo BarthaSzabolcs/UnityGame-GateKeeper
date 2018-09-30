@@ -61,7 +61,8 @@ public class PlayerController : MonoBehaviour
     {
         if(col.gameObject.tag == "DroppedWeapon")
         {
-            PickUpWeapon(col.gameObject.GetComponent<DroppedWeapon>().data);
+            DroppedWeapon droppedWeapon = col.gameObject.GetComponent<DroppedWeapon>();
+            PickUpWeapon(droppedWeapon.data);
             Destroy(col.gameObject);
         }
     }
@@ -233,12 +234,12 @@ public class PlayerController : MonoBehaviour
         if(target.x > transform.position.x)
         {
             sRenderer.flipX = false;
-            weaponComponent.SetApearence(true);
+            weaponComponent.RefreshAppearance(true);
         }
         else
         {
             sRenderer.flipX = true;
-            weaponComponent.SetApearence(false);
+            weaponComponent.RefreshAppearance(false);
         }
     }
 

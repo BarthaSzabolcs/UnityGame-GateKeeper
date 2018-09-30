@@ -51,8 +51,8 @@ public class UserInterface : MonoBehaviour {
     private void Update()
     {
         RefreshHealth();
-        RefreshPlayerWeapon();
-        RefreshWeapon();
+        //RefreshPlayerWeapon();
+        //RefreshWeapon();
     }
 
     private void RefreshHealth()
@@ -72,7 +72,7 @@ public class UserInterface : MonoBehaviour {
         weapons = player.GetComponentInChildren<Weapon>();
     }
 
-    private void RefreshWeapon()
+    /*private void RefreshWeapon()
     {
         var weapon = weapons.instances[weapons.DataIndex];
         image.sprite = weapon.sprite;
@@ -85,6 +85,29 @@ public class UserInterface : MonoBehaviour {
         {
             ammo.text = "∞";
         }
+    }*/
+
+    public void RefreshReloadTime(float time)
+    {
+        ammo.text = time.ToString("0.0");
+    }
+
+    public void RefreshWeapon(Sprite sprite,bool ranged,int inMag,int rest)
+    {
+        image.sprite = sprite;
+        if(ranged)
+        {
+            RefreshRangedAmmo(inMag,rest);
+        }
+        else
+        {
+            ammo.text = "∞";
+        }
+    }
+
+    public void RefreshRangedAmmo(int inMag,int rest)
+    {
+        ammo.text = inMag + "|" + rest;
     }
 
     

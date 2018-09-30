@@ -51,6 +51,7 @@ public class Weapon : MonoBehaviour
     public Coroutine meeleRoutine;
 
     Transform rightHand, leftHand;
+    private UserInterface uiManager;
     #endregion
 
     #region UnityFunctions
@@ -87,6 +88,7 @@ public class Weapon : MonoBehaviour
     #endregion
     void Initialize(WeaponData weaponData)
     {
+        uiManager = UserInterface.Instance;
         RangedWeaponData rangedData = weaponData as RangedWeaponData;
         if (rangedData != null)
         {
@@ -129,8 +131,14 @@ public class Weapon : MonoBehaviour
         {
             damageTrigger.size = meeleData.damageTriggerSize;
             damageTrigger.offset = meeleData.damageTriggerOffSet;
+            uiManager.RefreshWeapon(sRenderer.sprite, false, 0, 0);
+        }
+        else
+        {
+            uiManager.RefreshWeapon(sRenderer.sprite, true, ((RangedWeaponData)instances[DataIndex]).ammoInMag, ((RangedWeaponData)instances[DataIndex]).extraAmmo);
         }
         damageTrigger.enabled = false;
+        
     }
 
     void Attack()
@@ -148,6 +156,7 @@ public class Weapon : MonoBehaviour
             if (reloadingRoutine == null)
             {
                 instances[dataIndex].Attack();
+                uiManager.RefreshRangedAmmo(((RangedWeaponData)instances[DataIndex]).ammoInMag, ((RangedWeaponData)instances[DataIndex]).extraAmmo);
             }
             else if (reloadingRoutine != null)
             {
@@ -155,6 +164,7 @@ public class Weapon : MonoBehaviour
                 reloadingRoutine = null;
             }
         }
+        
 
     }
     void CancelMeeleAttack()

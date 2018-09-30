@@ -22,12 +22,14 @@ public class RangedWeaponData : WeaponData
     float reloadTimer;
     float fireRateTimer;
     public int ammoInMag;
+    private UserInterface uiManager;
     #endregion
 
     public void Initialize(Rigidbody2D self)
     {
         this.self = self;
         ammoInMag = magSize;
+        uiManager = UserInterface.Instance;
     }
     public override void Attack()
     {
@@ -42,9 +44,11 @@ public class RangedWeaponData : WeaponData
     {
         if(extraAmmo > 1)
         {
+            var reloadRefreshTime = reloadTime / reloadRefreshRate;
             for (int i = 0; i < reloadRefreshRate; i++)
             {
-                yield return new WaitForSeconds(reloadTime / reloadRefreshRate);
+                uiManager.RefreshReloadTime(reloadTime - i * reloadRefreshTime);
+                yield return new WaitForSeconds(reloadRefreshTime);
                 //Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
             }
             ammoInMag = extraAmmo >= magSize ? magSize : extraAmmo;

@@ -8,7 +8,7 @@ public class BulletData : ScriptableObject
 	[Header("Interaction Settings:")]
 	public string[] taggedToDamage;
 	public string[] taggedToDestroy;
-	public string[] taggedToDestroyWithoutEffects;
+	//public string[] taggedToDestroyWithoutEffects;
     public float mass;
     public int damage;
     public float speed;
@@ -30,4 +30,7 @@ public class BulletData : ScriptableObject
     public float targetingRadius;
     public float homingRefreshRate;
     public float rotateSpeed;
+    [Header("AoE Settings:")]
+    public bool isAoE;
+    public float aoeRadius;
 }

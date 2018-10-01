@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
-  m_Name: SR_Bullet
+  m_Name: RL_Bullet
   m_EditorClassIdentifier: 
   taggedToDamage:
   - Dummy
@@ -30,10 +30,10 @@ MonoBehaviour:
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
   impactAnim: {fileID: 0}
-  isHoming: 1
+  isHoming: 0
   taggedToTarget: []
   targetingRadius: 0
   homingRefreshRate: 0
   rotateSpeed: 0
-  isAoE: 1
-  aoeRadius: 15
+  isAoE: 0
+  aoeRadius: 0

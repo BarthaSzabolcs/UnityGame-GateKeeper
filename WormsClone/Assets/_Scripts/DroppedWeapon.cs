@@ -6,9 +6,9 @@ public class DroppedWeapon : MonoBehaviour
 {
     #region ShowInEditor
     [SerializeField] float pickUpDelay;
+    public WeaponData data;
     #endregion
-    #region HideInEditor
-    [HideInInspector] public WeaponData data;
+    #region HideInEditorú-
     [HideInInspector] public Vector2 dropDirection;
     SpriteRenderer Srenderer;
     BoxCollider2D trigger;

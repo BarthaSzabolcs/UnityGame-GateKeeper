@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,7 +17,7 @@ MonoBehaviour:
   taggedToDestroy:
   - Wall
   - Dummy
-  taggedToDestroyWithoutEffects: []
+  - DroppedWeapon
   mass: 5
   damage: 1
   speed: 100
@@ -29,4 +30,12 @@ MonoBehaviour:
   trail: {fileID: 0}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
-  impactAnim: {fileID: 0}
+  explosionData: {fileID: 11400000, guid: 08ee56205b2eb42488eebeeeca092cd1, type: 2}
+  explosionObject: {fileID: 6679732311415594618, guid: e837978dcf5761845abe29c78986fc2b, type: 3}
+  isHoming: 0
+  taggedToTarget: []
+  targetingRadius: 0
+  homingRefreshRate: 0
+  rotateSpeed: 0
+  isAoE: 0
+  aoeRadius: 0

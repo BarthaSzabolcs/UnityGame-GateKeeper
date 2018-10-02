@@ -9,9 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1737303a2a6f7142accda4f9d25364c, type: 3}
-  m_Name: SniperPattern
+  m_Script: {fileID: 11500000, guid: 6dc6de298ef24f74889830560aef944d, type: 3}
+  m_Name: FixedPattern_Test
   m_EditorClassIdentifier: 
-  randomSpreadLimit: 0
-  bulletCount: 1
-  angle: 30
+  angles:
+  - 0
+  - 2
+  - 4
+  - -3
+  - 11
+  - -7
+  - -5
+  - 8
+  - 6
+  - -9
+  - 6
+  - -7
+  - -11
+  - -10
+  - 10
+  - -2
+  - -10
+  - 8
+  - 9
+  - -11
+  spreadResetTime: 2

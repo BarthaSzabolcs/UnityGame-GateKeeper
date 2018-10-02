@@ -5,19 +5,19 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
 	[HideInInspector] public ExplosionData data;
+    SpriteRenderer sRenderer;
 
-	private void Start()
+    private void Start()
 	{
 		StartCoroutine(PlayAnimation());
 	}
-
 	IEnumerator PlayAnimation()
 	{
-		SpriteRenderer sRenderer = GetComponent<SpriteRenderer>();
+        sRenderer = GetComponent<SpriteRenderer>();
 		for (int i = 0; i < data.animationFrames.Length; i++)
 		{
 			sRenderer.sprite = data.animationFrames[i];
-			yield return new WaitForSeconds(Time.deltaTime*(1/Time.timeScale));
+            yield return new WaitForEndOfFrame();
 		}
 		Destroy(gameObject);
 	}

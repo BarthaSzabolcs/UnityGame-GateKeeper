@@ -44,32 +44,49 @@ public class Bullet : MonoBehaviour
     }
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		foreach (var tag in data.taggedToDamage)
-		{
-			if (tag == coll.gameObject.tag)
-			{
-				coll.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
-			}
-		}
-		foreach (var tag in data.taggedToDestroy)
-		{
-			if (tag == coll.gameObject.tag)
-			{
-				if(data.impactAnim != null)
+        if (data.isAoE == false)
+        {
+            foreach (var tag in data.taggedToDamage)
+            {
+                if (tag == coll.gameObject.tag)
                 {
-                    Instantiate(data.impactAnim, transform.position, Quaternion.identity);
+                    coll.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
                 }
-                AudioManager.Instance.PlaySound(data.impactAudio);
-				Destroy(gameObject);
-			}
-		}
-		foreach (var tag in data.taggedToDestroyWithoutEffects)
-		{
-			if (tag == coll.gameObject.tag)
-			{
-				Destroy(gameObject);
-			}
-		}
+            }
+            foreach (var tag in data.taggedToDestroy)
+            {
+                if (tag == coll.gameObject.tag)
+                {
+                    Explode();
+                }
+            }
+        }
+        else
+        {
+            Collider2D[] objectsHit = Physics2D.OverlapCircleAll(transform.position, data.aoeRadius);
+            foreach(var hit in objectsHit)
+            {
+                foreach (var tag in data.taggedToDamage)
+                {
+                    if (tag == hit.gameObject.tag)
+                    {
+                        hit.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
+                    }
+                }
+
+            }
+            Explode();
+        }
 	}
+    void Explode()
+    {
+        AudioManager.Instance.PlaySound(data.impactAudio);
+        if (data.explosionObject != null && data.explosionData != null)
+        {
+            var explosion = Instantiate(data.explosionObject, transform.position, Quaternion.identity);
+            explosion.GetComponent<Explosion>().data = data.explosionData;
+        }
+        Destroy(gameObject);
+    }
     #endregion
 }

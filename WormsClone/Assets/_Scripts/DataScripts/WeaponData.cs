@@ -27,6 +27,7 @@ public class WeaponData : ScriptableObject
     #region HideInEditor
     Weapon weapon;
     Rigidbody2D self;
+    ShootingPattern patternInstance;
     float reloadTimer;
     float fireRateTimer;
     public int ammoInMag;
@@ -36,12 +37,13 @@ public class WeaponData : ScriptableObject
     {
         this.self = self;
         this.weapon = weapon;
+        patternInstance = Instantiate(pattern);
     }
     public void Attack()
     {
         if (ammoInMag > 0 && fireRateTimer + fireRate < Time.time)
         {
-            pattern.Shoot(bullet, bulletData, self.transform, barrelOffSet);
+            patternInstance.Shoot(bullet, bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
             ammoInMag--;
         }

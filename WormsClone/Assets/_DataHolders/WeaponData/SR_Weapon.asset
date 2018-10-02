@@ -26,4 +26,4 @@ MonoBehaviour:
   magSize: 3
   reloadTime: 0.3
   reloadRefreshRate: 2
-  ammoInMag: 0
+  ammoInMag: 3

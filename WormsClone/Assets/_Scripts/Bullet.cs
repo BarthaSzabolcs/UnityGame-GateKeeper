@@ -57,21 +57,13 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == coll.gameObject.tag)
                 {
-                    if (data.impactAnim != null)
+                    if (data.explosionObject != null)
                     {
-                        Instantiate(data.impactAnim, transform.position, Quaternion.identity);
+                        Instantiate(data.explosionObject, transform.position, Quaternion.identity);
                     }
-                    AudioManager.Instance.PlaySound(data.impactAudio);
-                    Destroy(gameObject);
+                    Explode();
                 }
             }
-            //foreach (var tag in data.taggedToDestroyWithoutEffects)
-            //{
-            //    if (tag == coll.gameObject.tag)
-            //    {
-            //        Destroy(gameObject);
-            //    }
-            //}
         }
         else
         {
@@ -87,14 +79,19 @@ public class Bullet : MonoBehaviour
                 }
 
             }
-            if (data.impactAnim != null)
+            if (data.explosionObject != null)
             {
-                Instantiate(data.impactAnim, transform.position, Quaternion.identity);
+                Instantiate(data.explosionObject, transform.position, Quaternion.identity);
             }
-            AudioManager.Instance.PlaySound(data.impactAudio);
-            Destroy(gameObject);
-
+            Explode();
         }
 	}
+    void Explode()
+    {
+        AudioManager.Instance.PlaySound(data.impactAudio);
+        Destroy(gameObject);
+        var explosion = Instantiate(data.explosionObject, transform.position, Quaternion.identity);
+        explosion.GetComponent<Explosion>().data = data.explosionData;
+    }
     #endregion
 }

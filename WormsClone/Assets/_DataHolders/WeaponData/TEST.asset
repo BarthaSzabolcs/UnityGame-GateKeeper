@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f80ac137426a84e9d06fd802e80e49, type: 3}
-  m_Name: SG_Weapon
+  m_Name: TEST
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
-  barrelOffSet: {x: 2, y: 0}
-  weaponPosition: {x: 1.2, y: 0.04}
-  rightHandPosition: {x: 0.68, y: -0.27}
-  leftHandPosition: {x: -0.8, y: -0.32}
+  barrelOffSet: {x: 1.75, y: 0.2}
+  weaponPosition: {x: 1.71, y: -0.38}
+  rightHandPosition: {x: 0, y: -0.33}
+  leftHandPosition: {x: 0, y: -0.33}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 40062fdeaf98e5f49aad238802246f40, type: 2}
-  pattern: {fileID: 11400000, guid: a8867e22cd5ec144bbb95d1a1f9ca141, type: 2}
-  fireRate: 0.25
+  bulletData: {fileID: 11400000, guid: 890da2f27266978409fa34cc84a169e3, type: 2}
+  pattern: {fileID: 11400000, guid: d5259b28a4213944b8854734372d80ca, type: 2}
+  fireRate: 0.05
   isAuto: 1
-  extraAmmo: 35
-  magSize: 7
-  reloadTime: 1
+  extraAmmo: 900
+  magSize: 20
+  reloadTime: 0.5
   reloadRefreshRate: 2
-  ammoInMag: 7
+  ammoInMag: 20

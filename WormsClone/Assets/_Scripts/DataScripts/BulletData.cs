@@ -23,7 +23,8 @@ public class BulletData : ScriptableObject
     public GameObject trail;
 	public string bulletFiredAudio;
     public string impactAudio;
-	public GameObject impactAnim;
+    public ExplosionData explosionData;
+	public GameObject explosionObject;
     [Header("Homing Settings:")]
     public bool isHoming;
     public string[] taggedToTarget;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Data/Pattern_Spread")]
-public class ShootingPattern_Spread : ShootingPattern
+public class ShootingPattern_RandomSpread : ShootingPattern
 {
     [Header("Spread Settings:")]
     [SerializeField] float randomSpreadLimit;

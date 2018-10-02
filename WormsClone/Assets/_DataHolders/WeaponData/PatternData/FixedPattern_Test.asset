@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dc6de298ef24f74889830560aef944d, type: 3}
-  m_Name: PatternTest
+  m_Name: FixedPattern_Test
   m_EditorClassIdentifier: 
   angles:
-  - 1
-  - 5
-  - 3
+  - 0
+  - 2
   - 4
   - -3
+  - 11
+  - -7
+  - -5
   - 8
   - 6
-  - -3
+  - -9
+  - 6
   - -7
-  - 7
-  - 9
+  - -11
   - -10
   - 10
-  - 11
-  - 7
-  - -12
-  - 13
-  - -14
-  - 15
-  - -17
-  spreadResetTime: 0.45
+  - -2
+  - -10
+  - 8
+  - 9
+  - -11
+  spreadResetTime: 2

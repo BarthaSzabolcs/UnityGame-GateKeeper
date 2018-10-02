@@ -17,6 +17,7 @@ MonoBehaviour:
   taggedToDestroy:
   - Wall
   - Dummy
+  - DroppedWeapon
   mass: 0
   damage: 1
   speed: 30

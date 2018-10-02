@@ -6,11 +6,11 @@ public class Explosion : MonoBehaviour
 {
 	[HideInInspector] public ExplosionData data;
     SpriteRenderer sRenderer;
+
     private void Start()
 	{
 		StartCoroutine(PlayAnimation());
 	}
-
 	IEnumerator PlayAnimation()
 	{
         sRenderer = GetComponent<SpriteRenderer>();

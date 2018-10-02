@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39f80ac137426a84e9d06fd802e80e49, type: 3}
-  m_Name: TEST
+  m_Name: FixedWeapon_Test
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
   barrelOffSet: {x: 1.75, y: 0.2}
@@ -18,12 +18,12 @@ MonoBehaviour:
   rightHandPosition: {x: 0, y: -0.33}
   leftHandPosition: {x: 0, y: -0.33}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 890da2f27266978409fa34cc84a169e3, type: 2}
+  bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
   pattern: {fileID: 11400000, guid: d5259b28a4213944b8854734372d80ca, type: 2}
   fireRate: 0.05
   isAuto: 1
   extraAmmo: 900
   magSize: 20
-  reloadTime: 0.5
-  reloadRefreshRate: 2
+  reloadTime: 1
+  reloadRefreshRate: 50
   ammoInMag: 20

@@ -18,7 +18,7 @@ MonoBehaviour:
   rightHandPosition: {x: 0, y: -0.33}
   leftHandPosition: {x: 0, y: -0.33}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 7ed9fa855b17fad429a1b813094283ea, type: 2}
+  bulletData: {fileID: 11400000, guid: bfb9c2dda2206ad44a35ca02bb068531, type: 2}
   pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}
   fireRate: 0.01
   isAuto: 1

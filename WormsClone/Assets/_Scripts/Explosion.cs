@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-	[HideInInspector] public ExplosionData data;
+    #region HideInEditor
+    [HideInInspector] public ExplosionData data;
     SpriteRenderer sRenderer;
+    #endregion
 
     private void Start()
 	{
@@ -13,6 +15,20 @@ public class Explosion : MonoBehaviour
 	}
 	IEnumerator PlayAnimation()
 	{
+        if (data.isExplosive)
+        {
+            var circleCollider = gameObject.AddComponent<CircleCollider2D>();
+            circleCollider.radius = data.explosionRange;
+            circleCollider.isTrigger = true;
+            circleCollider.usedByEffector = true;
+
+            var pointEffector = gameObject.AddComponent<PointEffector2D>();
+            pointEffector.useColliderMask = true;
+            pointEffector.colliderMask = data.explosionMask;
+            pointEffector.forceMagnitude = data.explosionMagnitude;
+            pointEffector.forceSource = EffectorSelection2D.Collider;
+            pointEffector.forceMode = data.explosionForceMode;
+        }
         sRenderer = GetComponent<SpriteRenderer>();
 		for (int i = 0; i < data.animationFrames.Length; i++)
 		{

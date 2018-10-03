@@ -39,10 +39,17 @@ public class ShootingPattern_CalculatedSpread : ShootingPattern
 
     public override void Shoot(GameObject bullet, BulletData bulletData, Transform self, Vector2 barrelOffSet)
     {
-        string msg = SpreadIndex.ToString();
-
         SpreadIndex -= Mathf.FloorToInt((Time.time - spreadResetTimer) * angles.Length / spreadResetTime);
-        Quaternion rotation = Quaternion.Euler(0, 0, angles[SpreadIndex]);
+
+        Quaternion rotation;
+        if (Vector2.SignedAngle(Vector2.up, self.right) > 0)
+        {
+            rotation = Quaternion.Euler(0, 0, -angles[SpreadIndex]);
+        }
+        else
+        {
+            rotation = Quaternion.Euler(0, 0, angles[SpreadIndex]);
+        }
 
         ShootBullet(bullet, bulletData, self, barrelOffSet, rotation);
 

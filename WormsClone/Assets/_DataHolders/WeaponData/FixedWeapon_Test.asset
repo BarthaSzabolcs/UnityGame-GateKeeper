@@ -18,8 +18,8 @@ MonoBehaviour:
   rightHandPosition: {x: 0, y: -0.33}
   leftHandPosition: {x: 0, y: -0.33}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
-  pattern: {fileID: 11400000, guid: d5259b28a4213944b8854734372d80ca, type: 2}
+  bulletData: {fileID: 11400000, guid: 890da2f27266978409fa34cc84a169e3, type: 2}
+  pattern: {fileID: 11400000, guid: 7bdfe3aff98b7cf43ad18af0dc6f38c6, type: 2}
   fireRate: 0.05
   isAuto: 1
   extraAmmo: 900

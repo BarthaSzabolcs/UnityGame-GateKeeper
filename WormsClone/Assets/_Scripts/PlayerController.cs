@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
     [SerializeField] Animator animator;
+    [SerializeField] BoxCollider2D shieldCollider;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public bool weaponIsAuto;
     [HideInInspector] public bool canAim = true;
     [HideInInspector] public Vector2 target;
+
+    bool inAnimation = false;
     #endregion
 
     #region UnityFunctions
@@ -194,6 +197,7 @@ public class PlayerController : MonoBehaviour
         Reload();
         ChangeWeapon();
         DropWeapon();
+        UseShield();
     }
     void AimWeapon()
     {
@@ -228,19 +232,30 @@ public class PlayerController : MonoBehaviour
             if (OnReloadTriggered != null) OnReloadTriggered();
         }
     }
+    void UseShield()
+    {
+        if (Input.GetButton("UseShield"))
+        {
+            
+            animator.SetBool("isShielding", true);
+            inAnimation = true;
+        }
+        else if(Input.GetButton("UseShield") == false)
+        {
+            animator.SetBool("isShielding", false);
+            inAnimation = false;
+            shieldCollider.enabled = false;
+        }
+    }
 
     void CheckDirection()
     {
-        if(target.x > transform.position.x)
-        {
-            sRenderer.flipX = false;
-            weaponComponent.RefreshAppearance(true);
-        }
-        else
-        {
-            sRenderer.flipX = true;
-            weaponComponent.RefreshAppearance(false);
-        }
+        weaponComponent.RefreshAppearance(FacingLeft());
+        animator.SetBool("isFacingLeft", FacingLeft());
+        //if(inAnimation == false)
+        //{
+        //    sRenderer.flipX = FacingLeft();
+        //}
     }
 
     void ChangeWeapon()
@@ -264,6 +279,11 @@ public class PlayerController : MonoBehaviour
     void PickUpWeapon(WeaponData weaponData)
     {
         weaponComponent.PickUpWeapon(weaponData);
+    }
+
+    bool FacingLeft()
+    {
+       return target.x < transform.position.x ? true : false;
     }
     #endregion
 }

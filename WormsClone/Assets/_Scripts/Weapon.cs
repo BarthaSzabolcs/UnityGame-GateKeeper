@@ -119,7 +119,6 @@ public class Weapon : MonoBehaviour
         {
             reloadingRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
         }
-        
     }
 
     void ChangeWeapon(bool next)
@@ -159,21 +158,21 @@ public class Weapon : MonoBehaviour
         Initialize(newWeaponData);
     }
     #region Appearence
-    public void RefreshAppearance(bool lookingRight)
+    public void RefreshAppearance(bool lookingLeft)
     {
-        if (lookingRight)
+        if (lookingLeft)
+        {
+            sRenderer.flipY = true;
+            transform.localPosition = new Vector2(-data[DataIndex].weaponPosition.x, data[DataIndex].weaponPosition.y);
+            leftHand.localPosition = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
+            rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
+        }
+        else
         {
             sRenderer.flipY = false;
             transform.localPosition = data[DataIndex].weaponPosition;
             leftHand.localPosition = data[DataIndex].leftHandPosition;
             rightHand.localPosition = data[DataIndex].rightHandPosition;
-        }
-        else
-        {
-            sRenderer.flipY = true;
-            transform.localPosition = new Vector2(-data[DataIndex].weaponPosition.x, data[DataIndex].weaponPosition.y);
-            leftHand.localPosition  = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
-            rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
         }
     }
     public void RefreshReloadBar(float percent)

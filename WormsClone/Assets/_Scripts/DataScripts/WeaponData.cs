@@ -55,7 +55,6 @@ public class WeaponData : ScriptableObject
             for (int i = 0; i < reloadRefreshRate; i++)
             {
                 yield return new WaitForSeconds(reloadTime / reloadRefreshRate);
-                //Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
                 weapon.RefreshReloadBar(i / (float)reloadRefreshRate);
             }
             ammoInMag = extraAmmo >= magSize ? magSize : extraAmmo;

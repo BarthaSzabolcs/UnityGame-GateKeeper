@@ -18,24 +18,25 @@ MonoBehaviour:
   - Wall
   - Dummy
   - DroppedWeapon
-  mass: 20
+  mass: 0
   damage: 1
   speed: 100
-  hasLifeTime: 0
-  lifeTime: 0
+  hasLifeTime: 1
+  lifeTime: 3
   sprite: {fileID: 21300000, guid: ddbcbf19a8d341d439666b4efd2aec76, type: 3}
-  bulletColor: {r: 0.60784316, g: 0, b: 0.50948715, a: 1}
+  bulletColor: {r: 1, g: 0.23113209, b: 0.53109056, a: 1}
   muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
   muzzleFlashSize: 2
-  trail: {fileID: 0}
+  trail: {fileID: 1762351444363594, guid: f21062ff7e86d4d47b1e7c562aadc8f5, type: 3}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
-  explosionData: {fileID: 11400000, guid: 08ee56205b2eb42488eebeeeca092cd1, type: 2}
+  explosionData: {fileID: 11400000, guid: 49cda12c1e6294f4a9b7ef4a9452a4b8, type: 2}
   explosionObject: {fileID: 6679732311415594618, guid: e837978dcf5761845abe29c78986fc2b, type: 3}
-  isHoming: 0
-  taggedToTarget: []
-  targetingRadius: 30
-  homingRefreshRate: 0
-  rotateSpeed: 0
+  isHoming: 1
+  taggedToTarget:
+  - Dummy
+  targetingRadius: 5
+  homingRefreshRate: 0.032
+  rotateSpeed: 90
   isAoE: 1
   aoeRadius: 5

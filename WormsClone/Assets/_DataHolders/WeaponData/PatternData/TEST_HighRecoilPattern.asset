@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dc6de298ef24f74889830560aef944d, type: 3}
-  m_Name: FixedPattern_Test
+  m_Name: TEST_HighRecoilPattern
   m_EditorClassIdentifier: 
   angles:
   - 0
   - 2
   - 4
-  - -3
-  - 11
-  - -7
-  - -5
+  - 6
   - 8
-  - 6
-  - -9
-  - 6
-  - -7
-  - -11
-  - -10
   - 10
-  - -2
-  - -10
-  - 8
-  - 9
-  - -11
+  - 12
+  - 14
+  - 16
+  - 18
+  - 20
+  - 21
+  - 19
+  - 22
+  - 19
+  - 17
+  - 24
+  - 15
+  - 20
+  - 14
   spreadResetTime: 2

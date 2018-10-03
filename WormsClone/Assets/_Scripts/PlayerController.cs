@@ -194,6 +194,7 @@ public class PlayerController : MonoBehaviour
         Reload();
         ChangeWeapon();
         DropWeapon();
+        UseShield();
     }
     void AimWeapon()
     {
@@ -228,17 +229,29 @@ public class PlayerController : MonoBehaviour
             if (OnReloadTriggered != null) OnReloadTriggered();
         }
     }
+    void UseShield()
+    {
+        if (Input.GetButton("UseShield"))
+        {
+            animator.SetBool("isFacingRight", FacingRight());
+            animator.SetBool("isShielding", true);
+        }
+        else if(Input.GetButtonUp("UseShield"))
+        {
+            animator.SetBool("isShielding", false);
+        }
+    }
 
     void CheckDirection()
     {
-        if(target.x > transform.position.x)
+        if(FacingRight())
         {
-            sRenderer.flipX = false;
+            //sRenderer.flipX = false;
             weaponComponent.RefreshAppearance(true);
         }
         else
         {
-            sRenderer.flipX = true;
+            //sRenderer.flipX = true;
             weaponComponent.RefreshAppearance(false);
         }
     }
@@ -264,6 +277,11 @@ public class PlayerController : MonoBehaviour
     void PickUpWeapon(WeaponData weaponData)
     {
         weaponComponent.PickUpWeapon(weaponData);
+    }
+
+    bool FacingRight()
+    {
+       return target.x > transform.position.x ? true : false;
     }
     #endregion
 }

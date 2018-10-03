@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: a82c11bdde807b4428d941769871e798
+guid: 1d3d6a2d6218af04a9499b33ac0b2e8b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MrPlaceHolder_Shield_0
-    21300002: MrPlaceHolder_Shield_1
-    21300004: MrPlaceHolder_Shield_2
-    21300006: MrPlaceHolder_Shield_3
-    21300008: MrPlaceHolder_Shield_4
-    21300010: MrPlaceHolder_Shield_5
-    21300012: MrPlaceHolder_Shield_6
+    21300000: Shield_Right_0
+    21300002: Shield_Right_1
+    21300004: Shield_Right_2
+    21300006: Shield_Right_3
+    21300008: Shield_Right_4
+    21300010: Shield_Right_5
+    21300012: Shield_Right_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -78,18 +78,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 512
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: iPhone
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -113,7 +102,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_0
+      name: Shield_Right_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,13 +116,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d767e0c17e3787c428063e8506bccb18
+      spriteID: e7806a3336978b04c96ed19d6d8c3874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_1
+      name: Shield_Right_1
       rect:
         serializedVersion: 2
         x: 64
@@ -147,13 +136,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4362794247aa6bb49ac518dfdb4cc9a4
+      spriteID: d7120fcb9f07d244fb79ef6c4ea77ce9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_2
+      name: Shield_Right_2
       rect:
         serializedVersion: 2
         x: 128
@@ -167,13 +156,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 106b0ccaa15df9e4f88909d6949f9f09
+      spriteID: 49447406d5aa4894089a3e3f67a1eac4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_3
+      name: Shield_Right_3
       rect:
         serializedVersion: 2
         x: 192
@@ -187,16 +176,16 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5a3ced6d6e76bb469cbed6458a69e56
+      spriteID: d125f9cf1deb2dc46bb788595fad53e3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_4
+      name: Shield_Right_4
       rect:
         serializedVersion: 2
-        x: 257
+        x: 256
         y: 0
         width: 64
         height: 64
@@ -207,13 +196,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a180b62329045640aa585e139c8a8f1
+      spriteID: 65656467180151e4cbdbd2274b16b514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_5
+      name: Shield_Right_5
       rect:
         serializedVersion: 2
         x: 320
@@ -227,13 +216,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 072eb2077463545438565eef3f842660
+      spriteID: 958e2857b8dbf024bb56140fa29378dc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrPlaceHolder_Shield_6
+      name: Shield_Right_6
       rect:
         serializedVersion: 2
         x: 384
@@ -247,7 +236,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2228f30208bfcd44b9b0cbc20222b4e0
+      spriteID: 5a061086f734d2c4a9afa5edaabb10cf
       vertices: []
       indices: 
       edges: []
@@ -255,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8ccddb0381c5484408b8ebae4c0f3d8a
+    spriteID: c37a91b492b197940b669627b2e62663
     vertices: []
     indices: 
     edges: []

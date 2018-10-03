@@ -203,6 +203,10 @@ PrefabInstance:
       propertyPath: data.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
+    - target: {fileID: 212060709190250868, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 3}
 --- !u!1 &124184778
@@ -627,7 +631,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197668333}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

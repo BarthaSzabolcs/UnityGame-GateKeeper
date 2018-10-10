@@ -41,7 +41,6 @@ public class PlayerController : MonoBehaviour
     float teleportTimer;
 
     [HideInInspector] public bool weaponIsAuto;
-    [HideInInspector] public bool canAim = true;
     [HideInInspector] public Vector2 target;
 
     bool inAnimation = false;
@@ -78,7 +77,7 @@ public class PlayerController : MonoBehaviour
         HorizontalMovement();
         Jump();
         JetPack();
-        Teleport();
+        //Teleport();
         animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
         animator.SetBool("isGrounded", isGrounded);
     }
@@ -100,6 +99,8 @@ public class PlayerController : MonoBehaviour
 
     void HorizontalMovement()
     {
+        if (inAnimation) return;
+
         if (isGrounded)
         {
             currentMoveForce = data.moveForce;
@@ -138,6 +139,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (inAnimation) return;
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
@@ -154,6 +156,7 @@ public class PlayerController : MonoBehaviour
     }
     void JetPack()
     {
+        if (inAnimation) return;
         if (Input.GetButton("JumpJet"))
         {
             if (OnJetPackTriggered != null)
@@ -192,23 +195,22 @@ public class PlayerController : MonoBehaviour
     void WeaponHandling()
     {
         AimWeapon();
-        CheckDirection();
         Attack();
         Reload();
         ChangeWeapon();
         DropWeapon();
         UseShield();
+        Punch();
+        RefreshAppearance();
     }
     void AimWeapon()
     {
-        if (canAim)
-        {
-            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            weaponTransform.right = target - (Vector2)weaponTransform.position;
-        }
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        weaponTransform.right = target - (Vector2)weaponTransform.position;
     }
     void Attack()
     {
+        if (inAnimation) return;
         if (weaponIsAuto)
         {
             if (Input.GetButton("Attack"))
@@ -234,28 +236,36 @@ public class PlayerController : MonoBehaviour
     }
     void UseShield()
     {
-        if (Input.GetButton("UseShield"))
+        if (Input.GetButton("UseShield") && Input.GetButton("Punch") == false)
         {
-            
+
             animator.SetBool("isShielding", true);
-            inAnimation = true;
         }
         else if(Input.GetButton("UseShield") == false)
         {
             animator.SetBool("isShielding", false);
-            inAnimation = false;
-            shieldCollider.enabled = false;
         }
     }
-
-    void CheckDirection()
+    void Punch()
     {
+        if (Input.GetButton("Punch") && Input.GetButton("UseShield") == false)
+        {
+            animator.SetBool("isPunching", true);
+        }
+        else if (Input.GetButton("Punch") == false)
+        {
+            animator.SetBool("isPunching", false);
+        }
+    }
+    void RefreshAppearance()
+    {
+        inAnimation = Input.GetButton("Punch") || Input.GetButton("UseShield") ?
+            true :
+            false;
+
         weaponComponent.RefreshAppearance(FacingLeft());
         animator.SetBool("isFacingLeft", FacingLeft());
-        //if(inAnimation == false)
-        //{
-        //    sRenderer.flipX = FacingLeft();
-        //}
+        weaponComponent.Show(!inAnimation);
     }
 
     void ChangeWeapon()

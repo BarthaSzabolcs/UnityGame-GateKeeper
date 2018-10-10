@@ -51,6 +51,7 @@ public class Weapon : MonoBehaviour
 
     public Coroutine reloadingRoutine;
     Transform rightHand, leftHand;
+    SpriteRenderer rightHandRenderer, leftHandRenderer;
     #endregion
 
     #region UnityFunctions
@@ -58,8 +59,10 @@ public class Weapon : MonoBehaviour
     {
         sRenderer = GetComponent<SpriteRenderer>();
 
-        rightHand = transform.Find("RightHand");
         leftHand = transform.Find("LeftHand");
+        leftHandRenderer = leftHand.GetComponent<SpriteRenderer>();
+        rightHand = transform.Find("RightHand");
+        rightHandRenderer = rightHand.GetComponent<SpriteRenderer>();
 
         wielder.OnAttackTriggered += Attack;
         wielder.OnReloadTriggered += Reload;
@@ -69,7 +72,6 @@ public class Weapon : MonoBehaviour
         InitializeInstances();
         RefreshData();
     }
-
     private void OnTriggerEnter2D(Collider2D coll)
     {
         
@@ -158,6 +160,21 @@ public class Weapon : MonoBehaviour
         Initialize(newWeaponData);
     }
     #region Appearence
+    public void Show(bool isVisible)
+    {
+        if (isVisible)
+        {
+            sRenderer.enabled = true;
+            leftHandRenderer.enabled = true;
+            rightHandRenderer.enabled = true;
+        }
+        else
+        {
+            sRenderer.enabled = false;
+            leftHandRenderer.enabled = false;
+            rightHandRenderer.enabled = false;
+        }
+    }
     public void RefreshAppearance(bool lookingLeft)
     {
         if (lookingLeft)

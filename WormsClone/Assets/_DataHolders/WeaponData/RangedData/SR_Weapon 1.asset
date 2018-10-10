@@ -17,13 +17,13 @@ MonoBehaviour:
   weaponPosition: {x: 0.71, y: 0.82}
   rightHandPosition: {x: -1.11, y: -0.39}
   leftHandPosition: {x: 1.08, y: -0.34}
-  bullet: {fileID: 0}
-  bulletData: {fileID: 0}
-  pattern: {fileID: 0}
-  fireRate: 0
+  bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
+  bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
+  pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
+  fireRate: 0.3
   isAuto: 0
-  ExtraAmmo: 0
-  magSize: 0
-  reloadTime: 0
-  reloadRefreshRate: 0
+  ExtraAmmo: 100
+  magSize: 3
+  reloadTime: 0.3
+  reloadRefreshRate: 10
   AmmoInMag: 0

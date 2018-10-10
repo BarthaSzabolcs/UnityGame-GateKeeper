@@ -20,7 +20,6 @@ public class Weapon : MonoBehaviour
     #endregion
     #region HideInEditor
     SpriteRenderer sRenderer;
-    BoxCollider2D damageTrigger;
     public List<WeaponData> instances;
     int dataIndex = 0;
     public int DataIndex
@@ -65,7 +64,6 @@ public class Weapon : MonoBehaviour
     #region UnityFunctions
     private void Start()
     {
-        damageTrigger = GetComponent<BoxCollider2D>();
         sRenderer = GetComponent<SpriteRenderer>();
 
         rightHand = transform.Find("RightHand");
@@ -80,19 +78,6 @@ public class Weapon : MonoBehaviour
         RefreshData();
     }
 
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        var meeleData = data[DataIndex] as MeeleWeaponData;
-        foreach (var tag in meeleData.taggedToDamage)
-        {
-            if (tag == coll.gameObject.tag)
-            {
-                coll.gameObject.GetComponent<Health>().TakeDamage(meeleData.damage, gameObject);
-                CancelMeeleAttack();
-            }
-        }
-        
-    }
     #endregion
     void Initialize(WeaponData weaponData)
     {
@@ -100,7 +85,7 @@ public class Weapon : MonoBehaviour
         OnWeaponChanged = uiManager.RefreshWeaponSprite;
         OnReloadStart = uiManager.ReloadStart;
         OnReloadStop = uiManager.ReloadStop;
-        RangedWeaponData rangedData = weaponData as RangedWeaponData;
+        /*RangedWeaponData rangedData = weaponData as RangedWeaponData;
         if (rangedData != null)
         {
             rangedData = Instantiate(rangedData);
@@ -109,20 +94,15 @@ public class Weapon : MonoBehaviour
                 GetComponent<Rigidbody2D>()
             );
             instances.Add(rangedData);
-        }
+        }*/
+        var instance = Instantiate(weaponData);
+        instance.Initialize
+        (
+            GetComponent<Rigidbody2D>(),
+            this
+        );
+        instances.Add(instance);
 
-        MeeleWeaponData meeleData = weaponData as MeeleWeaponData;
-        if (meeleData != null)
-        {
-            meeleData = Instantiate(meeleData);
-            meeleData.Initialize
-            (
-                GetComponent<Rigidbody2D>(),
-                damageTrigger,
-                wielder
-            );
-            instances.Add(meeleData);
-        }
         OnWeaponChanged(instances[DataIndex].sprite, instances[DataIndex]);
     }
     void InitializeInstances()
@@ -138,65 +118,56 @@ public class Weapon : MonoBehaviour
         sRenderer.sprite = data[DataIndex].sprite;
         wielder.weaponIsAuto = data[DataIndex].isAuto;
 
-        MeeleWeaponData meeleData = data[DataIndex] as MeeleWeaponData;
-        if (meeleData != null)
-        {
-            damageTrigger.size = meeleData.damageTriggerSize;
-            damageTrigger.offset = meeleData.damageTriggerOffSet;
-        }
-        damageTrigger.enabled = false;
+        
         OnWeaponChanged(sRenderer.sprite, instances[DataIndex]);
         
     }
 
     void Attack()
     {
-        var meele = instances[DataIndex] as MeeleWeaponData;
-        if (meele != null)
+        /*if (reloadingRoutine == null)
         {
-            if (meeleRoutine == null)
-            {
-                meeleRoutine = StartCoroutine(meele.AttackRoutine());
-            }
+            instances[dataIndex].Attack();
         }
-        else
+        else if (reloadingRoutine != null)
         {
-            if (reloadingRoutine == null)
-            {
-                instances[dataIndex].Attack();
-            }
-            else if (reloadingRoutine != null)
-            {
-                StopCoroutine(reloadingRoutine);
-                reloadingRoutine = null;
-            }
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+        }*/
+        if (reloadingRoutine == null)
+        {
+            instances[dataIndex].Attack();
         }
-        
+        else if (reloadingRoutine != null)
+        {
+            StopCoroutine(reloadingRoutine);
+            reloadingRoutine = null;
+            instances[dataIndex].Attack();
+        }
+
+
 
     }
-    void CancelMeeleAttack()
-    {
-        if (meeleRoutine != null) { StopCoroutine(meeleRoutine); };
-        meeleRoutine = null;
-        damageTrigger.enabled = false;
-        wielder.canAim = true;
-    }
+
 
     void Reload()
     {
-        RangedWeaponData ranged = instances[DataIndex] as RangedWeaponData;
+        /*RangedWeaponData ranged = instances[DataIndex] as RangedWeaponData;
         if (ranged != null)
         {
             if (reloadingRoutine == null)
             {
                 reloadingRoutine = StartCoroutine(ranged.ReloadRoutine(this));
             }
+        }*/
+        if (reloadingRoutine == null)
+        {
+            reloadingRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
         }
     }
 
     void ChangeWeapon(bool next)
     {
-        CancelMeeleAttack();
         if (reloadingRoutine != null)
         {
             StopCoroutine(reloadingRoutine);
@@ -218,15 +189,8 @@ public class Weapon : MonoBehaviour
         {
             GameObject weapon = Instantiate(droppedWeapon, transform.position, transform.rotation);
             DroppedWeapon droppedWeaponInstance = weapon.GetComponent<DroppedWeapon>();
-            droppedWeaponInstance.data = data[DataIndex];
+            droppedWeaponInstance.data = instances[DataIndex];
             droppedWeaponInstance.dropDirection = transform.right.normalized;
-
-            var rangedWeapon = instances[DataIndex] as RangedWeaponData;
-            if (rangedWeapon)
-            {
-                droppedWeaponInstance.ammoInMag = rangedWeapon.ammoInMag;
-                droppedWeaponInstance.extraAmmo = rangedWeapon.extraAmmo;
-            }
 
             instances.RemoveAt(DataIndex);
             data.RemoveAt(DataIndex);
@@ -236,17 +200,7 @@ public class Weapon : MonoBehaviour
     public void PickUpWeapon(WeaponData newWeaponData)
     {
         data.Add(newWeaponData);
-        //instances.Add(newWeaponData);
         Initialize(newWeaponData);
-
-        //var newRangedWeaponData = newWeaponData as RangedWeaponData;
-        //if (newRangedWeaponData)
-        //{
-        //    var rangedWeaponInstance = instances[instances.Count - 1] as RangedWeaponData;
-
-        //    rangedWeaponInstance.ammoInMag = newRangedWeaponData.ammoInMag;
-        //    rangedWeaponInstance.extraAmmo = newRangedWeaponData.extraAmmo;
-        //}
     }
     #region Appearence
     public void SetApearence(bool lookingRight)

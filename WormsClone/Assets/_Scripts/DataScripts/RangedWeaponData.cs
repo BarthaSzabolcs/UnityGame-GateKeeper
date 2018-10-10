@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="Data/RangedWeapon")]
 public class RangedWeaponData : WeaponData
 {
-    #region Events
+   /* #region Events
     public delegate void MagChange(int inMag);
     public delegate void ExtraMagChange(int extraMag);
     public event MagChange OnMagChange;
@@ -44,7 +44,7 @@ public class RangedWeaponData : WeaponData
         OnReloadChange = uiManager.ReloadChange;
         ammoInMag = magSize;
     }
-    public override void Attack()
+    /*public override void Attack()
     {
         if(ammoInMag > 0 && fireRateTimer + fireRate < Time.time )
         {
@@ -52,8 +52,8 @@ public class RangedWeaponData : WeaponData
             fireRateTimer = Time.time;
             ammoInMag--;
         }
-    }
-    public IEnumerator ReloadRoutine(Weapon weapon)
+    }*/
+    /*public IEnumerator ReloadRoutine(Weapon weapon)
     {
         if(extraAmmo > 1)
         {
@@ -70,6 +70,6 @@ public class RangedWeaponData : WeaponData
         }
         
         weapon.reloadingRoutine = null;
-    }
+    }*/
 
 }

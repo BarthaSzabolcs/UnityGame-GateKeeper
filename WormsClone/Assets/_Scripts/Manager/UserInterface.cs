@@ -17,6 +17,9 @@ public class UserInterface : MonoBehaviour {
     public GameObject wsprite;
     private Image image;
     private int maxHealthPoints;
+    public Image HealthBar;
+    public Image reloadWheel;
+    [SerializeField] List<Sprite> reloadsprites;
 
 
     public static UserInterface Instance { get; private set; }
@@ -41,22 +44,17 @@ public class UserInterface : MonoBehaviour {
     {
         image = wsprite.GetComponent<Image>();
         reloadtime.enabled = false;
+        reloadWheel.enabled = false;
     }
 
     public void RefreshWeaponSprite(Sprite sprite,WeaponData wdata)
     {
         image.sprite = sprite;
-        if(wdata is RangedWeaponData)
-        {
-            ammo.text = ((RangedWeaponData)wdata).ammoInMag.ToString();
-            extraammo.text = ((RangedWeaponData)wdata).extraAmmo.ToString();
+        
+            ammo.text = wdata.ammoInMag.ToString();
+            extraammo.text = wdata.extraAmmo.ToString();
             extraammo.enabled = true;
-        }
-        else
-        {
-            extraammo.enabled = false;
-            ammo.text = "∞";
-        }
+        
     }
 
     public void MagChange(int inMag)
@@ -72,16 +70,38 @@ public class UserInterface : MonoBehaviour {
     public void ReloadStart()
     {
         reloadtime.enabled = true;
+        reloadWheel.enabled = true;
     }
 
     public void ReloadStop()
     {
         reloadtime.enabled = false;
+        reloadWheel.enabled = false;
     }
 
     public void ReloadChange(float time, float percent)
     {
         reloadtime.text = time.ToString("0.0");
+        if(percent < 0.125)
+        {
+            reloadWheel.sprite = reloadsprites[0];
+        }
+        else if(percent < 0.375)
+        {
+            reloadWheel.sprite = reloadsprites[1];
+        }
+        else if (percent < 0.625)
+        {
+            reloadWheel.sprite = reloadsprites[2];
+        }
+        else if (percent < 0.875)
+        {
+            reloadWheel.sprite = reloadsprites[3];
+        }
+        else
+        {
+            reloadWheel.sprite = reloadsprites[4];
+        }
     }
 
     public void HealthChange(int healthvalue)
@@ -93,6 +113,7 @@ public class UserInterface : MonoBehaviour {
     public void MaxHealthChange(int healthvalue)
     {
         maxhealth.text = healthvalue.ToString();
+        CalculateHPPercent();
     }
 
     private void CalculateHPPercent()
@@ -102,7 +123,7 @@ public class UserInterface : MonoBehaviour {
 
     private void RefreshHPBar()
     {
-
+        HealthBar.rectTransform.localScale = new Vector3(hppercent, 1, 0);
     }
 
 

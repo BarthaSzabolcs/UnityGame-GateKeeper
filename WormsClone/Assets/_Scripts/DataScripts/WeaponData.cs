@@ -57,14 +57,12 @@ public class WeaponData : ScriptableObject
 
     public void Attack()
     {
-
         if (ammoInMag > 0 && fireRateTimer + fireRate < Time.time)
         {
             patternInstance.Shoot(bullet, bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
             ammoInMag--;
         }
-        
     }
 
     public IEnumerator ReloadRoutine()
@@ -77,7 +75,6 @@ public class WeaponData : ScriptableObject
             {
                 OnReloadChange(reloadTime - i * reloadRefreshTime, i * percent);
                 yield return new WaitForSeconds(reloadRefreshTime);
-                //Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
             }
             ammoInMag = extraAmmo >= magSize ? magSize : extraAmmo;
             extraAmmo -= ammoInMag;

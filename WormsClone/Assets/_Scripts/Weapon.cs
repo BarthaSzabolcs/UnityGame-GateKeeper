@@ -204,9 +204,5 @@ public class Weapon : MonoBehaviour
             rightHand.localPosition = data[DataIndex].rightHandPosition;
         }
     }
-    public void RefreshReloadBar(float percent)
-    {
-        if (OnReloadStateChange != null) {OnReloadStateChange(percent); }
-    }
     #endregion
 }

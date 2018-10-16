@@ -7,39 +7,49 @@ public class Health : MonoBehaviour
     #region Events
     public delegate void Death(GameObject sender);
     /// <summary>
-    /// Triggered on death.
+    /// Triggers before just before death.
     /// </summary>
     public event Death OnDeath;
 
+    public delegate void HealthCHange(int newHealth);
+    /// <summary>
+    /// Triggered on HealthChange.
+    /// </summary>
+    public event HealthCHange OnHealthCHange;
+
+    public event HealthCHange OnMaxHealthCHange;
+
     public delegate void SelfDestruct(GameObject sender);
     /// <summary>
-    /// Triggered when the component is killed by the DestroySelf( ) function.
+    /// Triggers if the component is killed by the DestroySelf( ) function.
     /// </summary>
     public event SelfDestruct OnSelfDestruct;
     #endregion
     #region ShowInEditor
     [SerializeField] HealthData data;
-	#endregion
-	#region HideInEditor
-	private int healthPoints;
-	protected int HealthPoints
-	{
-		get { return healthPoint; }
-		set
-		{
-			if (value >= data.maxHealthPoints)
-			{
-				healthPoint = data.maxHealthPoints;
-			}else if (value <= 0)
-			{
-				healthPoint = 0;
-			}
-			else
-			{
-				healthPoint = value;
-			}
-		}
-	}
+    #endregion
+    #region HideInEditor
+    private int healthPoint;
+    public int HealthPoint
+    {
+        get { return healthPoint; }
+        set
+        {
+            if (value >= data.maxHealthPoints)
+            {
+                healthPoint = data.maxHealthPoints;
+            }
+            else if (value <= 0)
+            {
+                healthPoint = 0;
+            }
+            else
+            {
+                healthPoint = value;
+            }
+            if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
+        }
+    }
     private int maxHealthPoint;
     public int MaxHealthPoint
     {
@@ -57,40 +67,46 @@ public class Health : MonoBehaviour
             }
         }
     }
-	float flashProgress;
-	protected bool dead = false;
-	Coroutine flash;
+    float flashProgress;
+    protected bool dead = false;
+    Coroutine flash;
     #endregion
 
     #region UnityFunctions
     private void Awake()
     {
-        HealthPoints = data.maxHealthPoints;
+        if (tag == "Player")
+        {
+            OnHealthCHange += UserInterface.Instance.HealthChange;
+            OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
+        }
+        MaxHealthPoint = data.maxHealthPoints;
+        HealthPoint = data.maxHealthPoints;
     }
     #endregion
     #region HealthFunctions
     void ResetHealth()
-	{
-		HealthPoint = data.maxHealthPoints;
-		dead = false;
-	}
+    {
+        HealthPoint = data.maxHealthPoints;
+        dead = false;
+    }
     /// <summary>
     /// Increases the health of the component by heal, but it will never exceed the maxHealth.
     /// Triggers the green flash if it's enabled.
     /// </summary>
     /// <param name="heal"></param>
     public virtual void GainHealth(int heal)
-	{
-		HealthPoint += heal;
-		if (data.flashOnHealthChange && heal > 0 && flash == null )
-		{
-			flash = StartCoroutine(FlashGreen());
-		}
-		if (HealthPoint > data.maxHealthPoints)
-		{
-			HealthPoint = data.maxHealthPoints;
-		}
-	}
+    {
+        HealthPoint += heal;
+        if (data.flashOnHealthChange && heal > 0 && flash == null)
+        {
+            flash = StartCoroutine(FlashGreen());
+        }
+        if (HealthPoint > data.maxHealthPoints)
+        {
+            HealthPoint = data.maxHealthPoints;
+        }
+    }
     /// <summary>
     /// Decreases the health by the damage, if it's drop to zero the component will die.
     /// Plays the hitsound.
@@ -100,7 +116,7 @@ public class Health : MonoBehaviour
     /// <param name="attacker"></param>
     public void TakeDamage(int damage, GameObject attacker)
     {
-        if (data.flashOnHealthChange && damage > 0 && flash == null )
+        if (data.flashOnHealthChange && damage > 0 && flash == null)
         {
             flash = StartCoroutine(FlashRed());
         }
@@ -141,7 +157,7 @@ public class Health : MonoBehaviour
             OnDeath(gameObject);
         }
 
-        Destroy(gameObject);   
+        Destroy(gameObject);
     }
     /// <summary>
     /// Destroys the component without any sound or effect.
@@ -150,71 +166,51 @@ public class Health : MonoBehaviour
     {
         if (OnSelfDestruct != null)
         {
-           OnSelfDestruct(gameObject);
+            OnSelfDestruct(gameObject);
         }
         Destroy(gameObject);
     }
     #endregion
     #region HealthEffects
     private IEnumerator FlashRed()
-	{
-		flashProgress = 1;
-		while (flashProgress > 0)
-		{
-			GetComponent<SpriteRenderer>().color = new Color(1, 1 * flashProgress, 1 * flashProgress);
+    {
+        flashProgress = 1;
+        while (flashProgress > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1 * flashProgress, 1 * flashProgress);
 
-			flashProgress -= 1/ data.flashTime /2;
-			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
-		}
+            flashProgress -= 1 / data.flashTime / 2;
+            yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
+        }
 
-		while (flashProgress <= 1)
-		{
-			GetComponent<SpriteRenderer>().color = new Color(1, 1 * flashProgress, 1 * flashProgress);
+        while (flashProgress <= 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1 * flashProgress, 1 * flashProgress);
 
-			flashProgress += 1 / data.flashTime / 2;
-			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
-		}
-		flash = null;
-	}
-	private IEnumerator FlashGreen()
-	{
-		flashProgress = 1;
-		while (flashProgress > 0)
-		{
-			GetComponent<SpriteRenderer>().color = new Color(1 * flashProgress, 1 , 1 * flashProgress);
+            flashProgress += 1 / data.flashTime / 2;
+            yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
+        }
+        flash = null;
+    }
+    private IEnumerator FlashGreen()
+    {
+        flashProgress = 1;
+        while (flashProgress > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1 * flashProgress, 1, 1 * flashProgress);
 
-			flashProgress -= 1 / data.flashTime / 2;
-			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
-		}
+            flashProgress -= 1 / data.flashTime / 2;
+            yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
+        }
 
-		while (flashProgress <= 1)
-		{
-			GetComponent<SpriteRenderer>().color = new Color(1 * flashProgress, 1 , 1 * flashProgress);
+        while (flashProgress <= 1)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1 * flashProgress, 1, 1 * flashProgress);
 
-			flashProgress += 1 / data.flashTime / 2;
-			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
-		}
-		flash = null;
-	}
+            flashProgress += 1 / data.flashTime / 2;
+            yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
+        }
+        flash = null;
+    }
     #endregion
 }
-
-    public delegate void HealthCHange(int newHealth);
-    /// <summary>
-    /// Triggered on HealthChange.
-    /// </summary>
-    public event HealthCHange OnHealthCHange;
-
-    public event HealthCHange OnMaxHealthCHange;
-
-	private int healthPoint;
-	public int HealthPoint
-            if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
-        }
-        if(tag == "Player")
-        {
-            OnHealthCHange += UserInterface.Instance.HealthChange;
-            OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
-        }
-        MaxHealthPoint = data.maxHealthPoints;
-        HealthPoint = data.maxHealthPoints;

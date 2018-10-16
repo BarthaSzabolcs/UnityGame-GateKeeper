@@ -6,8 +6,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Events
-    public delegate void ReloadStateChange(float percent);
-    public event ReloadStateChange OnReloadStateChange;
+    public delegate void WeaponChanged(WeaponData wdata);
+    public event WeaponChanged OnWeaponChanged;
+    public delegate void ReloadStart();
+    public delegate void ReloadStop();
+    public event ReloadStart OnReloadStart;
+    public event ReloadStop OnReloadStop;
     #endregion
     #region ShowInEditor
     [SerializeField] List<WeaponData> data;
@@ -16,7 +20,7 @@ public class Weapon : MonoBehaviour
     #endregion
     #region HideInEditor
     SpriteRenderer sRenderer;
-    List<WeaponData> instances;
+    public List<WeaponData> instances;
     int dataIndex = 0;
     public int DataIndex
     {
@@ -48,8 +52,10 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+    private Coroutine reloadingRoutine;
+    public Coroutine ReloadRoutine { get { return reloadingRoutine; } set { if (reloadingRoutine == null) { OnReloadStart(); } if (value == null) { OnReloadStop(); } reloadingRoutine = value; } }
+    public Coroutine meeleRoutine;
 
-    public Coroutine reloadingRoutine;
     Transform rightHand, leftHand;
     SpriteRenderer rightHandRenderer, leftHandRenderer;
     #endregion
@@ -72,13 +78,13 @@ public class Weapon : MonoBehaviour
         InitializeInstances();
         RefreshData();
     }
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        
-    }
+
     #endregion
     void Initialize(WeaponData weaponData)
     {
+        OnWeaponChanged += UserInterface.Instance.RefreshWeaponData;
+        OnReloadStart += UserInterface.Instance.ReloadStart;
+        OnReloadStop += UserInterface.Instance.ReloadStop;
         var instance = Instantiate(weaponData);
         instance.Initialize
         (
@@ -86,6 +92,8 @@ public class Weapon : MonoBehaviour
             this
         );
         instances.Add(instance);
+
+        OnWeaponChanged(instances[DataIndex]);
     }
     void InitializeInstances()
     {
@@ -99,36 +107,40 @@ public class Weapon : MonoBehaviour
     {
         sRenderer.sprite = data[DataIndex].sprite;
         wielder.weaponIsAuto = data[DataIndex].isAuto;
+
+        if(OnWeaponChanged != null)
+        {
+            OnWeaponChanged(instances[DataIndex]);
+        }
     }
 
     void Attack()
     {
-        if (reloadingRoutine == null)
+        if (ReloadRoutine == null)
         {
             instances[dataIndex].Attack();
         }
-        else if (reloadingRoutine != null)
+        else if (ReloadRoutine != null)
         {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
+            StopCoroutine(ReloadRoutine);
+            ReloadRoutine = null;
             instances[dataIndex].Attack();
         }
     }
-
     void Reload()
     {
-        if (reloadingRoutine == null)
+        if (ReloadRoutine == null)
         {
-            reloadingRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
+            ReloadRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
         }
     }
 
     void ChangeWeapon(bool next)
     {
-        if (reloadingRoutine != null)
+        if (ReloadRoutine != null)
         {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
+            StopCoroutine(ReloadRoutine);
+            ReloadRoutine = null;
         }
         if(next)
         {

@@ -11,12 +11,6 @@ public class Health : MonoBehaviour
     /// </summary>
     public event Death OnDeath;
 
-    public delegate void HealthCHange(int newHealth);
-    /// <summary>
-    /// Triggered on HealthChange.
-    /// </summary>
-    public event HealthCHange OnHealthCHange;
-
     public delegate void SelfDestruct(GameObject sender);
     /// <summary>
     /// Triggered when the component is killed by the DestroySelf( ) function.
@@ -27,8 +21,8 @@ public class Health : MonoBehaviour
     [SerializeField] HealthData data;
 	#endregion
 	#region HideInEditor
-	private int healthPoint;
-	protected int HealthPoint
+	private int healthPoints;
+	protected int HealthPoints
 	{
 		get { return healthPoint; }
 		set
@@ -44,18 +38,34 @@ public class Health : MonoBehaviour
 			{
 				healthPoint = value;
 			}
-            if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
-        }
+		}
 	}
+    private int maxHealthPoint;
+    public int MaxHealthPoint
+    {
+        get
+        {
+            return maxHealthPoint;
+        }
+        set
+        {
+            maxHealthPoint = value;
+
+            if (OnMaxHealthCHange != null)
+            {
+                OnMaxHealthCHange(value);
+            }
+        }
+    }
 	float flashProgress;
 	protected bool dead = false;
 	Coroutine flash;
     #endregion
 
     #region UnityFunctions
-    protected virtual void Awake()
+    private void Awake()
     {
-        HealthPoint = data.maxHealthPoints;
+        HealthPoints = data.maxHealthPoints;
     }
     #endregion
     #region HealthFunctions
@@ -88,7 +98,7 @@ public class Health : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     /// <param name="attacker"></param>
-    public virtual void TakeDamage(int damage, GameObject attacker)
+    public void TakeDamage(int damage, GameObject attacker)
     {
         if (data.flashOnHealthChange && damage > 0 && flash == null )
         {
@@ -115,7 +125,7 @@ public class Health : MonoBehaviour
     /// <summary>
     /// Kills the component with sound and effects.
     /// </summary>
-    public virtual void Die()
+    public void Die()
     {
         if (data.deathAnim != null)
         {
@@ -146,7 +156,7 @@ public class Health : MonoBehaviour
     }
     #endregion
     #region HealthEffects
-    protected IEnumerator FlashRed()
+    private IEnumerator FlashRed()
 	{
 		flashProgress = 1;
 		while (flashProgress > 0)
@@ -166,7 +176,7 @@ public class Health : MonoBehaviour
 		}
 		flash = null;
 	}
-	protected IEnumerator FlashGreen()
+	private IEnumerator FlashGreen()
 	{
 		flashProgress = 1;
 		while (flashProgress > 0)
@@ -188,3 +198,23 @@ public class Health : MonoBehaviour
 	}
     #endregion
 }
+
+    public delegate void HealthCHange(int newHealth);
+    /// <summary>
+    /// Triggered on HealthChange.
+    /// </summary>
+    public event HealthCHange OnHealthCHange;
+
+    public event HealthCHange OnMaxHealthCHange;
+
+	private int healthPoint;
+	public int HealthPoint
+            if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
+        }
+        if(tag == "Player")
+        {
+            OnHealthCHange += UserInterface.Instance.HealthChange;
+            OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
+        }
+        MaxHealthPoint = data.maxHealthPoints;
+        HealthPoint = data.maxHealthPoints;

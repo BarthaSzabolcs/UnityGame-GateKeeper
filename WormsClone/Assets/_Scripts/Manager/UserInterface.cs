@@ -3,27 +3,61 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UserInterface : MonoBehaviour {
+public class UserInterface : MonoBehaviour
+{
+    [SerializeField] Text ammo;
+    [SerializeField] Text extraAmmo;
+    [SerializeField] Text reloadtime;
+    [SerializeField] GameObject player;
+    [SerializeField] Image weaponImage;
+    [SerializeField] Image HealthBar;
+    [SerializeField] Image reloadWheelCurrent;
+    [SerializeField] Image reloadWheelBackGround;
+    [SerializeField] Text health;
+    [SerializeField] Text maxhealth;
 
-    public Text health;
-    public Text maxhealth;
-    private float Hppercent;
-    private float hppercent { get { return Hppercent; } set { Hppercent = value; RefreshHPBar(); } }
-    public Text ammo;
-    public Text extraammo;
-    public Text reloadtime;
-    public GameObject player;
-    public Weapon weapons;
-    public GameObject wsprite;
-    private Image image;
-    private int maxHealthPoints;
-    public Image HealthBar;
-    public Image reloadWheel;
-    [SerializeField] List<Sprite> reloadsprites;
-
-
+    private int currentHealth;
+    private int CurrentHealth
+    {
+        get
+        {
+            return currentHealth;
+        }
+        set
+        {
+            currentHealth = value;
+            CalculateHealthPercent();
+            RefreshHealthBar();
+        }
+    }
+    int maxHealth;
+    int MaxHealth
+    {
+        get
+        {
+            return maxHealth;
+        }
+        set
+        {
+            maxHealth = value;
+            CalculateHealthPercent();
+            RefreshHealthBar();
+        }
+    }
+    float healthPercent;
+    float HealthPercent
+    {
+        get
+        {
+            return healthPercent;
+        }
+        set
+        {
+            healthPercent = value;
+            RefreshHealthBar();
+        }
+    }
     public static UserInterface Instance { get; private set; }
-
 
     private void Awake()
     {
@@ -31,103 +65,71 @@ public class UserInterface : MonoBehaviour {
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Initialize();
-            
-}
+            Initialize();    
+        }
         else
         {
             Destroy(gameObject);
         }
     }
-
     private void Initialize()
     {
-        image = wsprite.GetComponent<Image>();
         reloadtime.enabled = false;
-        reloadWheel.enabled = false;
+        reloadWheelCurrent.enabled = false;
+        reloadWheelBackGround.enabled = false;
     }
 
-    public void RefreshWeaponSprite(Sprite sprite,WeaponData wdata)
+    public void RefreshWeaponData(WeaponData wData)
     {
-        image.sprite = sprite;
-        
-            ammo.text = wdata.ammoInMag.ToString();
-            extraammo.text = wdata.extraAmmo.ToString();
-            extraammo.enabled = true;
-        
+        weaponImage.sprite = wData.sprite;
+        ammo.text = wData.ammoInMag.ToString();
+        extraAmmo.text = "/" + wData.extraAmmo.ToString();
+        extraAmmo.enabled = true;
     }
 
-    public void MagChange(int inMag)
+    public void MagChange(int ammo)
     {
-        ammo.text = inMag.ToString();
+        this.ammo.text = ammo.ToString();
     }
-
-    public void ExtraMagChange(int extraMag)
+    public void ExtraMagChange(int extraAmmo)
     {
-        extraammo.text = extraMag.ToString();
+        this.extraAmmo.text = "/" + extraAmmo.ToString();
     }
 
     public void ReloadStart()
     {
         reloadtime.enabled = true;
-        reloadWheel.enabled = true;
+        reloadWheelCurrent.enabled = true;
+        reloadWheelBackGround.enabled = true;
     }
-
     public void ReloadStop()
     {
         reloadtime.enabled = false;
-        reloadWheel.enabled = false;
+        reloadWheelCurrent.enabled = false;
+        reloadWheelBackGround.enabled = false;
     }
-
     public void ReloadChange(float time, float percent)
     {
         reloadtime.text = time.ToString("0.0");
-        if(percent < 0.125)
-        {
-            reloadWheel.sprite = reloadsprites[0];
-        }
-        else if(percent < 0.375)
-        {
-            reloadWheel.sprite = reloadsprites[1];
-        }
-        else if (percent < 0.625)
-        {
-            reloadWheel.sprite = reloadsprites[2];
-        }
-        else if (percent < 0.875)
-        {
-            reloadWheel.sprite = reloadsprites[3];
-        }
-        else
-        {
-            reloadWheel.sprite = reloadsprites[4];
-        }
+        reloadWheelCurrent.fillAmount = percent;
     }
 
     public void HealthChange(int healthvalue)
     {
+        CurrentHealth = healthvalue;
         health.text = healthvalue.ToString();
-        CalculateHPPercent();
     }
-
     public void MaxHealthChange(int healthvalue)
     {
-        maxhealth.text = healthvalue.ToString();
-        CalculateHPPercent();
+        MaxHealth = healthvalue;
+        maxhealth.text = "/" + healthvalue.ToString();
     }
-
-    private void CalculateHPPercent()
+    private void CalculateHealthPercent()
     {
-        hppercent = float.Parse(health.text) / float.Parse(maxhealth.text);
+        HealthPercent = (float)CurrentHealth / MaxHealth;
     }
-
-    private void RefreshHPBar()
+    private void RefreshHealthBar()
     {
-        HealthBar.rectTransform.localScale = new Vector3(hppercent, 1, 0);
+        HealthBar.fillAmount = HealthPercent;
     }
-
-
-
-
-
 }

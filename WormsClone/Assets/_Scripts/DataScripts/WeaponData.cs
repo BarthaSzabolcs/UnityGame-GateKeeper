@@ -83,6 +83,6 @@ public class WeaponData : ScriptableObject
             extraAmmo -= ammoInMag;
         }
 
-        weapon.reloadingRoutine = null;
+        weapon.ReloadRoutine = null;
     }
 }

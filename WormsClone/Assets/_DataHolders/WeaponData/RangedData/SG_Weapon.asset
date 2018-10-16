@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: SG_Weapon
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
+  barrelOffSet: {x: 2, y: 0}
   weaponPosition: {x: 1.2, y: 0.04}
   rightHandPosition: {x: 0.68, y: -0.27}
   leftHandPosition: {x: -0.8, y: -0.32}
-  isAuto: 1
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 40062fdeaf98e5f49aad238802246f40, type: 2}
   pattern: {fileID: 11400000, guid: a8867e22cd5ec144bbb95d1a1f9ca141, type: 2}
+  fireRate: 0.25
+  isAuto: 1
   ExtraAmmo: 100
   magSize: 5
   reloadTime: 1
-  fireRate: 0.25
-  barrelOffSet: {x: 2, y: 0}
-  reloadRefreshRate: 10
+  reloadRefreshRate: 30
   AmmoInMag: 0

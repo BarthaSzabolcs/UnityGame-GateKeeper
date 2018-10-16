@@ -6,7 +6,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Events
-    public delegate void WeaponChanged(Sprite sprite,WeaponData wdata);
+    public delegate void WeaponChanged(WeaponData wdata);
     public event WeaponChanged OnWeaponChanged;
     public delegate void ReloadStart();
     public delegate void ReloadStop();
@@ -53,12 +53,11 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    private Coroutine ReloadingRoutine;
-    public Coroutine reloadingRoutine { get { return ReloadingRoutine; } set { if (ReloadingRoutine == null) { OnReloadStart(); } if (value == null) { OnReloadStop(); } ReloadingRoutine = value; } }
+    private Coroutine reloadingRoutine;
+    public Coroutine ReloadRoutine { get { return reloadingRoutine; } set { if (reloadingRoutine == null) { OnReloadStart(); } if (value == null) { OnReloadStop(); } reloadingRoutine = value; } }
     public Coroutine meeleRoutine;
 
     Transform rightHand, leftHand;
-    private UserInterface uiManager;
     #endregion
 
     #region UnityFunctions
@@ -81,20 +80,9 @@ public class Weapon : MonoBehaviour
     #endregion
     void Initialize(WeaponData weaponData)
     {
-        uiManager = UserInterface.Instance;
-        OnWeaponChanged = uiManager.RefreshWeaponSprite;
-        OnReloadStart = uiManager.ReloadStart;
-        OnReloadStop = uiManager.ReloadStop;
-        /*RangedWeaponData rangedData = weaponData as RangedWeaponData;
-        if (rangedData != null)
-        {
-            rangedData = Instantiate(rangedData);
-            rangedData.Initialize
-            (
-                GetComponent<Rigidbody2D>()
-            );
-            instances.Add(rangedData);
-        }*/
+        OnWeaponChanged += UserInterface.Instance.RefreshWeaponData;
+        OnReloadStart += UserInterface.Instance.ReloadStart;
+        OnReloadStop += UserInterface.Instance.ReloadStop;
         var instance = Instantiate(weaponData);
         instance.Initialize
         (
@@ -103,7 +91,7 @@ public class Weapon : MonoBehaviour
         );
         instances.Add(instance);
 
-        OnWeaponChanged(instances[DataIndex].sprite, instances[DataIndex]);
+        OnWeaponChanged(instances[DataIndex]);
     }
     void InitializeInstances()
     {
@@ -118,60 +106,39 @@ public class Weapon : MonoBehaviour
         sRenderer.sprite = data[DataIndex].sprite;
         wielder.weaponIsAuto = data[DataIndex].isAuto;
 
-        
-        OnWeaponChanged(sRenderer.sprite, instances[DataIndex]);
-        
+        if(OnWeaponChanged != null)
+        {
+            OnWeaponChanged(instances[DataIndex]);
+        }
     }
 
     void Attack()
     {
-        /*if (reloadingRoutine == null)
+        if (ReloadRoutine == null)
         {
             instances[dataIndex].Attack();
         }
-        else if (reloadingRoutine != null)
+        else if (ReloadRoutine != null)
         {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
-        }*/
-        if (reloadingRoutine == null)
-        {
+            StopCoroutine(ReloadRoutine);
+            ReloadRoutine = null;
             instances[dataIndex].Attack();
         }
-        else if (reloadingRoutine != null)
-        {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
-            instances[dataIndex].Attack();
-        }
-
-
-
     }
-
-
     void Reload()
     {
-        /*RangedWeaponData ranged = instances[DataIndex] as RangedWeaponData;
-        if (ranged != null)
+        if (ReloadRoutine == null)
         {
-            if (reloadingRoutine == null)
-            {
-                reloadingRoutine = StartCoroutine(ranged.ReloadRoutine(this));
-            }
-        }*/
-        if (reloadingRoutine == null)
-        {
-            reloadingRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
+            ReloadRoutine = StartCoroutine(instances[DataIndex].ReloadRoutine());
         }
     }
 
     void ChangeWeapon(bool next)
     {
-        if (reloadingRoutine != null)
+        if (ReloadRoutine != null)
         {
-            StopCoroutine(reloadingRoutine);
-            reloadingRoutine = null;
+            StopCoroutine(ReloadRoutine);
+            ReloadRoutine = null;
         }
         if(next)
         {

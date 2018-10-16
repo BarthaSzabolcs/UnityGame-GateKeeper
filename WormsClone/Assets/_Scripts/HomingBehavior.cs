@@ -40,12 +40,15 @@ public class HomingBehavior : MonoBehaviour
     {
         while (true)
         {
-            Vector2 direction = (Vector2)target.transform.position - self.position;
+            if(target != null)
+            { 
+                Vector2 direction = (Vector2)target.transform.position - self.position;
 
-            float rotateAmmount = Vector3.Cross(self.transform.up, direction).z;
+                float rotateAmmount = Vector3.Cross(self.transform.up, direction).z;
 
-            self.angularVelocity = rotateAmmount * rotateSpeed;
-            self.velocity = transform.up * speed;
+                self.angularVelocity = rotateAmmount * rotateSpeed;
+                self.velocity = transform.up * speed;
+            }
             yield return new WaitForSeconds(homingRefreshRate);
         }
     }

@@ -49,25 +49,38 @@ public class Health : MonoBehaviour
             if (OnHealthCHange != null) { OnHealthCHange(healthPoint); }
         }
 	}
-    private int MaxHealthPoint;
-    public int maxHealthPoint
+    private int maxHealthPoint;
+    public int MaxHealthPoint
     {
-        get { return MaxHealthPoint; } set { OnMaxHealthCHange(value); MaxHealthPoint = value; }
+        get
+        {
+            return maxHealthPoint;
+        }
+        set
+        {
+            maxHealthPoint = value;
+
+            if (OnMaxHealthCHange != null)
+            {
+                OnMaxHealthCHange(value);
+            }
+        }
     }
 	float flashProgress;
 	protected bool dead = false;
 	Coroutine flash;
-    UserInterface uiManager;
     #endregion
 
     #region UnityFunctions
-    protected virtual void Awake()
+    private void Awake()
     {
-        UserInterface uiManager = UserInterface.Instance;
-        OnHealthCHange = uiManager.HealthChange;
-        OnMaxHealthCHange = uiManager.MaxHealthChange;
-        maxHealthPoint = data.maxHealthPoints;
-        healthPoint = data.maxHealthPoints;
+        if(tag == "Player")
+        {
+            OnHealthCHange += UserInterface.Instance.HealthChange;
+            OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
+        }
+        MaxHealthPoint = data.maxHealthPoints;
+        HealthPoint = data.maxHealthPoints;
     }
     #endregion
     #region HealthFunctions
@@ -100,7 +113,7 @@ public class Health : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     /// <param name="attacker"></param>
-    public virtual void TakeDamage(int damage, GameObject attacker)
+    public void TakeDamage(int damage, GameObject attacker)
     {
         if (data.flashOnHealthChange && damage > 0 && flash == null )
         {
@@ -127,7 +140,7 @@ public class Health : MonoBehaviour
     /// <summary>
     /// Kills the component with sound and effects.
     /// </summary>
-    public virtual void Die()
+    public void Die()
     {
         if (data.deathAnim != null)
         {
@@ -158,7 +171,7 @@ public class Health : MonoBehaviour
     }
     #endregion
     #region HealthEffects
-    protected IEnumerator FlashRed()
+    private IEnumerator FlashRed()
 	{
 		flashProgress = 1;
 		while (flashProgress > 0)
@@ -178,7 +191,7 @@ public class Health : MonoBehaviour
 		}
 		flash = null;
 	}
-	protected IEnumerator FlashGreen()
+	private IEnumerator FlashGreen()
 	{
 		flashProgress = 1;
 		while (flashProgress > 0)

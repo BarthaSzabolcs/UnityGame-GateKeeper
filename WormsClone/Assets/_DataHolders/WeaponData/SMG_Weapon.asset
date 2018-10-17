@@ -26,4 +26,4 @@ MonoBehaviour:
   magSize: 100
   reloadTime: 0.25
   reloadRefreshRate: 30
-  AmmoInMag: 0
+  AmmoInMag: 100

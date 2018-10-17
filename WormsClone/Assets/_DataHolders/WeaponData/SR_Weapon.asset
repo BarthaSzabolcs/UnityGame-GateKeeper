@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
-  m_Name: SG_Weapon
+  m_Name: SR_Weapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
-  barrelOffSet: {x: 2, y: 0}
-  weaponPosition: {x: 1.2, y: 0.04}
-  rightHandPosition: {x: 0.68, y: -0.27}
-  leftHandPosition: {x: -0.8, y: -0.32}
+  sprite: {fileID: 21300000, guid: b1374e18c204a08458b9f311c82c51b0, type: 3}
+  barrelOffSet: {x: 5.75, y: 0.2}
+  weaponPosition: {x: 0.71, y: 0.82}
+  rightHandPosition: {x: -1.11, y: -0.39}
+  leftHandPosition: {x: 1.08, y: -0.34}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 40062fdeaf98e5f49aad238802246f40, type: 2}
-  pattern: {fileID: 11400000, guid: a8867e22cd5ec144bbb95d1a1f9ca141, type: 2}
-  fireRate: 0.25
-  isAuto: 1
+  bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
+  pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
+  fireRate: 0.3
+  isAuto: 0
   ExtraAmmo: 100
-  magSize: 5
-  reloadTime: 1
+  magSize: 3
+  reloadTime: 0.3
   reloadRefreshRate: 30
-  AmmoInMag: 0
+  AmmoInMag: 3

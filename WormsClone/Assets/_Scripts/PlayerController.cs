@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
-    [SerializeField] Animator animator;
+    //[SerializeField] Animator animator;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
         Jump();
         JetPack();
         Teleport();
-        animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
-        animator.SetBool("isGrounded", isGrounded);
+        //animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
+        //animator.SetBool("isGrounded", isGrounded);
     }
 
     void Grounded()

@@ -20,7 +20,18 @@ public class WeaponData : ScriptableObject
     public bool isAuto;
     [Header("Ammo Settings:")]
     [SerializeField] int ExtraAmmo;
-    public int extraAmmo { get { return ExtraAmmo; } set { OnExtraMagChange(value); ExtraAmmo = value; } }
+    public int extraAmmo
+    {
+        get
+        {
+            return ExtraAmmo;
+        }
+        set
+        {
+            if(OnExtraMagChange != null) OnExtraMagChange(value);
+            ExtraAmmo = value;
+        }
+    }
     [SerializeField] int magSize;
     [SerializeField] float reloadTime;
     [SerializeField] int reloadRefreshRate;
@@ -40,33 +51,41 @@ public class WeaponData : ScriptableObject
     float reloadTimer;
     float fireRateTimer;
     [SerializeField] int AmmoInMag;
-    public int ammoInMag { get { return AmmoInMag; } set { OnMagChange(value); AmmoInMag = value; } }
+    public int ammoInMag
+    {
+        get
+        {
+            return AmmoInMag;
+        }
+        set
+        {
+            if(OnMagChange != null) OnMagChange(value);
+            AmmoInMag = value;
+        }
+    }
     private UserInterface uiManager;
     #endregion
 
     public void Initialize(Rigidbody2D self, Weapon weapon)
     {
         this.self = self;
-        uiManager = UserInterface.Instance;
-        OnMagChange = uiManager.MagChange;
-        OnExtraMagChange = uiManager.ExtraMagChange;
-        OnReloadChange = uiManager.ReloadChange;
+        //uiManager = UserInterface.Instance;
+        //OnMagChange = uiManager.MagChange;
+        //OnExtraMagChange = uiManager.ExtraMagChange;
+        //OnReloadChange = uiManager.ReloadChange;
         this.weapon = weapon;
         patternInstance = Instantiate(pattern);
     }
 
     public void Attack()
     {
-
         if (ammoInMag > 0 && fireRateTimer + fireRate < Time.time)
         {
             patternInstance.Shoot(bullet, bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
             ammoInMag--;
-        }
-        
+        }   
     }
-
     public IEnumerator ReloadRoutine()
     {
         if (extraAmmo > 1)
@@ -75,9 +94,11 @@ public class WeaponData : ScriptableObject
             var reloadRefreshTime = reloadTime * percent;
             for (int i = 0; i < reloadRefreshRate; i++)
             {
-                OnReloadChange(reloadTime - i * reloadRefreshTime, i * percent);
+                if(OnReloadChange != null)
+                {
+                    OnReloadChange(reloadTime - i * reloadRefreshTime, i * percent);
+                }
                 yield return new WaitForSeconds(reloadRefreshTime);
-                //Debug.Log("implement reload progress here (" + i / (float)reloadRefreshRate + ")");
             }
             ammoInMag = extraAmmo >= magSize ? magSize : extraAmmo;
             extraAmmo -= ammoInMag;

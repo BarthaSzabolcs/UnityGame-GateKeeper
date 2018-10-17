@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
     #endregion
     #region HideInEditor
     SpriteRenderer sRenderer;
-    public List<WeaponData> instances;
+    List<WeaponData> instances;
     int dataIndex = 0;
     public int DataIndex
     {
@@ -54,9 +54,25 @@ public class Weapon : MonoBehaviour
         }
     }
     private Coroutine reloadingRoutine;
-    public Coroutine ReloadRoutine { get { return reloadingRoutine; } set { if (reloadingRoutine == null) { OnReloadStart(); } if (value == null) { OnReloadStop(); } reloadingRoutine = value; } }
-    public Coroutine meeleRoutine;
-
+    public Coroutine ReloadRoutine
+    {
+        get
+        {
+            return reloadingRoutine;
+        }
+        set
+        {
+            if (reloadingRoutine == null)
+            {
+                if(OnReloadStart != null) OnReloadStart();
+            }
+            if (value == null)
+            {
+                if(OnReloadStop != null) OnReloadStop();
+            }
+            reloadingRoutine = value;
+        }
+    }
     Transform rightHand, leftHand;
     #endregion
 
@@ -80,9 +96,9 @@ public class Weapon : MonoBehaviour
     #endregion
     void Initialize(WeaponData weaponData)
     {
-        OnWeaponChanged += UserInterface.Instance.RefreshWeaponData;
-        OnReloadStart += UserInterface.Instance.ReloadStart;
-        OnReloadStop += UserInterface.Instance.ReloadStop;
+        //OnWeaponChanged = UserInterface.Instance.RefreshWeaponData;
+        //OnReloadStart = UserInterface.Instance.ReloadStart;
+        //OnReloadStop = UserInterface.Instance.ReloadStop;
         var instance = Instantiate(weaponData);
         instance.Initialize
         (
@@ -91,7 +107,10 @@ public class Weapon : MonoBehaviour
         );
         instances.Add(instance);
 
-        OnWeaponChanged(instances[DataIndex]);
+        if(OnWeaponChanged != null)
+        {
+            OnWeaponChanged(instances[DataIndex]);
+        }
     }
     void InitializeInstances()
     {

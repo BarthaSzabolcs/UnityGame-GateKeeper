@@ -76,7 +76,7 @@ public class Health : MonoBehaviour
     {
         if(tag == "Player")
         {
-            OnHealthCHange += UserInterface.Instance.HealthChange;
+            OnHealthCHange = UserInterface.Instance.HealthChange;
             OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
         }
         MaxHealthPoint = data.maxHealthPoints;

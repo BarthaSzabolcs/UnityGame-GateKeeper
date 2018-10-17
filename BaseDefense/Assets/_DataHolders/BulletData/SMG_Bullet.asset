@@ -30,10 +30,13 @@ MonoBehaviour:
   trail: {fileID: 1762351444363594, guid: e481d680feb369d41bb114348def67b3, type: 3}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
-  impactAnim: {fileID: 0}
+  explosionData: {fileID: 0}
+  explosionObject: {fileID: 0}
   isHoming: 1
   taggedToTarget:
   - Dummy
   targetingRadius: 10
   homingRefreshRate: 0.016
   rotateSpeed: 180
+  isAoE: 1
+  aoeRadius: 0.5

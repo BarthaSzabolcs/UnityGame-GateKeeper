@@ -109,6 +109,10 @@ public class PlayerController : MonoBehaviour
         {
             if (self.velocity.x > -currentMaxSpeed)
             {
+                self.AddForce(Vector2.left * currentMoveForce);
+            }
+            else
+            {
                 self.velocity = new Vector2(-currentMaxSpeed, self.velocity.y);
             }
         }
@@ -116,7 +120,11 @@ public class PlayerController : MonoBehaviour
         {
             if (self.velocity.x < currentMaxSpeed)
             {
-                self.velocity = new Vector2(currentMaxSpeed, self.velocity.y);  
+                self.AddForce(Vector2.right * currentMoveForce);
+            }
+            else
+            {
+                self.velocity = new Vector2(currentMaxSpeed, self.velocity.y);
             }
         }
         else if(isGrounded == true)

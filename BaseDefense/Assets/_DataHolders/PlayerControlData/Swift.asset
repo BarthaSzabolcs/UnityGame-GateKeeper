@@ -17,14 +17,14 @@ MonoBehaviour:
   gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
-    m_Bits: 1
-  moveForce: 150
+    m_Bits: 23
+  moveForce: 5000
   runMaxSpeed: 30
   sprintMaxSpeed: 50
   airControlMultiplier: 0.5
   stoppingRate: 0.9
-  jumpForce: 45
-  multiJumps: 1
+  jumpForce: 30
+  multiJumps: 2
   teleportRange: 80
   teleportCoolDown: 1
   teleportMask:

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: SR_Weapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: b1374e18c204a08458b9f311c82c51b0, type: 3}
-  barrelOffSet: {x: 5.75, y: 0.2}
-  weaponPosition: {x: 0.96, y: -0.92}
+  sprite: {fileID: 21300008, guid: 32924624ac8e8a940a84a60be4b17303, type: 3}
+  barrelOffSet: {x: 1.5, y: 0}
+  weaponPosition: {x: 0, y: 0}
   rightHandPosition: {x: -1.11, y: -0.39}
   leftHandPosition: {x: 1.08, y: -0.34}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}

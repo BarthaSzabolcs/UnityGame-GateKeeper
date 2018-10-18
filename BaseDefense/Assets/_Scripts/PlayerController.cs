@@ -167,11 +167,13 @@ public class PlayerController : MonoBehaviour
 
             if (Vector2.Distance(target, transform.position) < data.teleportRange && teleportTimer + data.teleportCoolDown < Time.time)
             {
-                Vector2 colliderSize = GetComponent<BoxCollider2D>().size;
+                Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
+
                 Vector2 pointA = new Vector2(-colliderSize.x / 2, -colliderSize.y / 2) + target;
                 Vector2 pointB = new Vector2(colliderSize.x / 2, colliderSize.y / 2) + target;
 
-                if (Physics2D.OverlapArea(pointA, pointB) == null)
+
+                if (Physics2D.OverlapArea(pointA, pointB, data.teleportMask) == null)
                 {
                     transform.position = target;
                     teleportTimer = Time.time;

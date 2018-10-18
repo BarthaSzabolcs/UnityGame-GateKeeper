@@ -26,4 +26,7 @@ MonoBehaviour:
   multiJumps: 1
   teleportRange: 80
   teleportCoolDown: 1
-  loseMomentumOnTeleport: 1
+  teleportMask:
+    serializedVersion: 2
+    m_Bits: 23
+  loseMomentumOnTeleport: 0

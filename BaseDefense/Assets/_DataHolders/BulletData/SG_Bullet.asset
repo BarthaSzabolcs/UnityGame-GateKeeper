@@ -19,7 +19,7 @@ MonoBehaviour:
   - Enemy
   - DroppedWeapon
   taggedToDestroyWithoutEffects: []
-  mass: 5
+  mass: 10
   damage: 1
   speed: 100
   hasLifeTime: 1

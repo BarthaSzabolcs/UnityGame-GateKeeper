@@ -26,5 +26,6 @@ public class PlayerControlData : ScriptableObject
     [Header("Teleport Settings")]
     public float teleportRange;
     public float teleportCoolDown;
+    public LayerMask teleportMask;
     public bool loseMomentumOnTeleport;
 }

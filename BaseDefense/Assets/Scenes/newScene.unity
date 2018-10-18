@@ -1987,7 +1987,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981308036}
   m_LocalRotation: {x: -0, y: -0, z: 0.17063366, w: 0.9853345}
-  m_LocalPosition: {x: 0.67198324, y: 0.0000052776013, z: 0}
+  m_LocalPosition: {x: 0.67198324, y: 0.000999829, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701168525}
@@ -3095,7 +3095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1424586431}
   m_LocalRotation: {x: -0, y: -0, z: 0.9903853, w: -0.13833666}
-  m_LocalPosition: {x: 0.04821875, y: 0.088418745, z: 0}
+  m_LocalPosition: {x: 0.04821875, y: 0.0814804, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1601517097}
@@ -4571,6 +4571,7 @@ GameObject:
   - component: {fileID: 2046244563}
   - component: {fileID: 2046244562}
   - component: {fileID: 2046244561}
+  - component: {fileID: 2046244564}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -4660,13 +4661,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046244560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.319605, y: -0.1950593, z: 0}
+  m_LocalPosition: {x: 21.319605, y: -1.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1601517097}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2046244564
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046244560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1c06a8cf7ce923c4e908c4737a345588, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2107701696
 GameObject:
   m_ObjectHideFlags: 0

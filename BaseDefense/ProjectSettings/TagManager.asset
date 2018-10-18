@@ -7,6 +7,7 @@ TagManager:
   - DroppedWeapon
   - Wall
   - Enemy
+  - Base
   layers:
   - Default
   - TransparentFX

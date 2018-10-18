@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: AR_Pattern
   m_EditorClassIdentifier: 
   angles:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - -1
   - 1
   - 2
-  - 3
-  - 4
-  - 2
-  - -2
-  - -4
-  - 5
-  - 9
+  - -3
   - -4
   - -9
   - 3
@@ -43,4 +43,4 @@ MonoBehaviour:
   - -2
   - 4
   - 1
-  spreadResetTime: 5
+  spreadResetTime: 3

@@ -119,6 +119,10 @@ public class PlayerController : MonoBehaviour
                 self.velocity = new Vector2(currentMaxSpeed, self.velocity.y);  
             }
         }
+        else if(isGrounded == true)
+        {
+            self.velocity = new Vector2( Mathf.Lerp(self.velocity.x, 0f, data.stoppingRate) , self.velocity.y);
+        }
     }
     void Sprint()
     {

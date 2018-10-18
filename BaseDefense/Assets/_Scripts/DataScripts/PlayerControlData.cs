@@ -18,6 +18,7 @@ public class PlayerControlData : ScriptableObject
     public float runMaxSpeed;
     public float sprintMaxSpeed;
     public float airControlMultiplier;
+    public float stoppingRate;
 
     [Header("Jump Settings:")]
     public float jumpForce;

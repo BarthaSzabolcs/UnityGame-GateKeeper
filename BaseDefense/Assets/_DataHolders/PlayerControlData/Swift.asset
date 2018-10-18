@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 6200000, guid: 8c5bc085945df524f95c67494ab655b8, type: 2}
   weaponPosition: {x: 1, y: -1}
-  gripWidth: 1.8
+  gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
     m_Bits: 1
@@ -22,6 +22,7 @@ MonoBehaviour:
   runMaxSpeed: 30
   sprintMaxSpeed: 50
   airControlMultiplier: 0.5
+  stoppingRate: 0.9
   jumpForce: 45
   multiJumps: 1
   teleportRange: 80

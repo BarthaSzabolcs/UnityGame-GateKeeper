@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
+  m_Name: E_HomingBullet
+  m_EditorClassIdentifier: 
+  taggedToDamage:
+  - Player
+  - Base
+  taggedToDestroy:
+  - Player
+  - Base
+  taggedToDestroyWithoutEffects: []
+  mass: 0
+  damage: 1
+  speed: 20
+  hasLifeTime: 0
+  lifeTime: 0
+  sprite: {fileID: 21300000, guid: 5c0c5e59a3e61214689c02731a2db8ee, type: 3}
+  bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  muzzleFlashColor: {r: 0, g: 0, b: 0, a: 1}
+  muzzleFlashSize: 0
+  trail: {fileID: 1762351444363594, guid: f21062ff7e86d4d47b1e7c562aadc8f5, type: 3}
+  bulletFiredAudio: 
+  impactAudio: 
+  explosionData: {fileID: 11400000, guid: 8ac0551f2156b9a4a9c256917a61c664, type: 2}
+  explosionObject: {fileID: 2460725773196922292, guid: 6873ceea3d9406c438471f8ee5089bcb, type: 3}
+  isHoming: 1
+  taggedToTarget:
+  - Player
+  - Base
+  targetingRadius: 50
+  homingRefreshRate: 0.016
+  rotateSpeed: 360
+  isAoE: 1
+  aoeRadius: 2

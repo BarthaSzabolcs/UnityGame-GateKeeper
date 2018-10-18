@@ -18,6 +18,7 @@ MonoBehaviour:
   - Wall
   - Enemy
   - DroppedWeapon
+  - Base
   taggedToDestroyWithoutEffects: []
   mass: 10
   damage: 1

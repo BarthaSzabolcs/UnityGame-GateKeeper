@@ -21,7 +21,7 @@ MonoBehaviour:
   - Base
   taggedToDestroyWithoutEffects: []
   mass: 10
-  damage: 1
+  damage: 3
   speed: 100
   hasLifeTime: 1
   lifeTime: 1

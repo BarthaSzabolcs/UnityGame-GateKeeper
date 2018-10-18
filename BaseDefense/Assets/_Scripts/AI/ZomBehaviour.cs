@@ -5,17 +5,50 @@ using UnityEngine;
 public class ZomBehaviour : MonoBehaviour
 {
     #region ShowInEditor
-    Collider2D attackTrigger;
+    [SerializeField] Collider2D attackTrigger;
+    [SerializeField] float moveSpeed;
+    [SerializeField] string[] taggedToAttack;
+
     Rigidbody2D self;
-    float moveSpeed;
+    Animator animator;
+
+    bool move = true;
     #endregion
 
     private void Start()
     {
         self = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
-        self.velocity = Vector2.right * moveSpeed;
+        if(move == true)
+        {
+            self.velocity = Vector2.left * moveSpeed;
+        }
+        animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        foreach (var tag in taggedToAttack)
+        {
+            if (tag == col.tag)
+            {
+                animator.SetBool("attack", true);
+                self.velocity = Vector2.zero;
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        foreach (var tag in taggedToAttack)
+        {
+            if (tag == col.tag)
+            {
+                animator.SetBool("attack", false);
+                move = true;
+            }
+        }
     }
 }

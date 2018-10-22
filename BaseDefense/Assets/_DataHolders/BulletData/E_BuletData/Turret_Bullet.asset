@@ -24,23 +24,23 @@ MonoBehaviour:
   taggedToDestroyWithoutEffects: []
   mass: 1
   damage: 1
-  speed: 40
+  speed: 30
   hasLifeTime: 1
-  lifeTime: 2
+  lifeTime: 1
   sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
-  bulletColor: {r: 1, g: 0, b: 0.15076351, a: 1}
+  bulletColor: {r: 1, g: 0, b: 0, a: 1}
   muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
   muzzleFlashSize: 2
-  trail: {fileID: 0}
+  trail: {fileID: 1762351444363594, guid: c4ec37f7e5e253440acadc1d92576fb2, type: 3}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
   explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
   explosionObject: {fileID: 2460725773196922292, guid: 6873ceea3d9406c438471f8ee5089bcb, type: 3}
-  isHoming: 0
+  isHoming: 1
   taggedToTarget:
-  - Enemy
-  targetingRadius: 10
-  homingRefreshRate: 0.016
-  rotateSpeed: 180
+  - Player
+  targetingRadius: 7
+  homingRefreshRate: 0.01
+  maxRotationPerCycle: 15
   isAoE: 0
   aoeRadius: 0.5

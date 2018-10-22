@@ -200,21 +200,14 @@ public class PlayerController : MonoBehaviour
     }
     void Attack()
     {
-        if (weaponIsAuto)
+        if (weapon.IsAuto && Input.GetButton("Attack"))
         {
-            if (Input.GetButton("Attack"))
-            {
-                weapon.Attack();
-            }
+            weapon.Attack();
         }
-        else
+        else if(weapon.IsAuto == false && Input.GetButtonDown("Attack"))
         {
-            if (Input.GetButtonDown("Attack"))
-            {
-                weapon.Attack();
-            }
+            weapon.Attack();
         }
-        
     }
     void Reload()
     {

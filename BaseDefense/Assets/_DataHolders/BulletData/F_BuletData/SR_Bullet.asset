@@ -24,8 +24,8 @@ MonoBehaviour:
   mass: 10
   damage: 20
   speed: 200
-  hasLifeTime: 0
-  lifeTime: 0
+  hasLifeTime: 1
+  lifeTime: 2
   sprite: {fileID: 21300000, guid: c326bc576f3f25946b2600685800762c, type: 3}
   bulletColor: {r: 1, g: 0.86230963, b: 0, a: 1}
   muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
@@ -39,6 +39,6 @@ MonoBehaviour:
   taggedToTarget: []
   targetingRadius: 0
   homingRefreshRate: 0
-  rotateSpeed: 0
+  maxRotationPerCycle: 0
   isAoE: 0
   aoeRadius: 0

@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
             component.targetingRadius = data.targetingRadius;
             component.homingRefreshRate = data.homingRefreshRate;
             component.speed = data.speed;
-            component.rotateSpeed = data.rotateSpeed;
+            component.maxRotationPerCycle = data.maxRotationPerCycle;
         }
     }
     void OnCollisionEnter2D(Collision2D coll)

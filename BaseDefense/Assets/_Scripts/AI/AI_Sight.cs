@@ -19,19 +19,24 @@ public class AI_Sight : MonoBehaviour
     #endregion
     #region ShowInEditor
     [SerializeField] float viewDistance;
-    [SerializeField] float fieldOfView;
+    [SerializeField]
+    [Range(0.0f, 360f)] float fieldOfView;
+    [Header("Line Of Sight:")]
+    [SerializeField] bool checkLineOfSight;
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] string[] taggedToSight;
     #endregion
     #region HideInEditor
     GameObject target;
+    bool targetVisible = false;
+
     public GameObject Target
     {
         get
         {
             return target;
         }
-        set
+        private set
         {
             target = value;
             if (value == null)
@@ -44,14 +49,13 @@ public class AI_Sight : MonoBehaviour
             }
         }
     }
-    bool targetVisible = false;
-    bool TargetVisible
+    public bool TargetVisible
     {
         get
         {
             return targetVisible;
         }
-        set
+        private set
         {
             if(targetVisible && value == false)
             {
@@ -64,6 +68,7 @@ public class AI_Sight : MonoBehaviour
             targetVisible = value;
         }
     }
+    public float LineOfSightAngle { get; private set; }
     Collider2D targetCollider;
     #endregion
 
@@ -111,9 +116,12 @@ public class AI_Sight : MonoBehaviour
     }
     private bool CheckForLineOfSight(Collider2D col)
     {
-        Vector2 direction = col.transform.position - transform.position;
+        if (checkLineOfSight == false) return true;
 
-        if (Vector2.Angle(direction, transform.right) < fieldOfView * 0.5f)
+        Vector2 direction = col.transform.position - transform.position;
+        LineOfSightAngle = Vector2.SignedAngle(transform.right, direction);
+
+        if (Mathf.Abs(LineOfSightAngle) < fieldOfView * 0.5f)
         {
             RaycastHit2D hit;
             hit = Physics2D.Raycast(transform.position, (direction).normalized, viewDistance, obstacleMask);

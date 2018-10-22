@@ -7,7 +7,7 @@ public class HomingBehavior : MonoBehaviour
     public string[] taggedToTarget;
     public float targetingRadius;
     public float homingRefreshRate;
-    public float rotateSpeed;
+    public float maxRotationPerCycle;
     public float speed;
 
     Rigidbody2D self;
@@ -41,13 +41,18 @@ public class HomingBehavior : MonoBehaviour
         while (true)
         {
             if(target != null)
-            { 
-                Vector2 direction = (Vector2)target.transform.position - self.position;
+            {
+                float signedAngle = Vector2.SignedAngle(transform.up, target.transform.position - transform.position);
 
-                float rotateAmmount = Vector3.Cross(self.transform.up, direction).z;
+                float rotation =
+                    Mathf.Abs(signedAngle) < maxRotationPerCycle ?
+                    signedAngle :
+                    Mathf.Sign(signedAngle) * maxRotationPerCycle;
 
-                self.angularVelocity = rotateAmmount * rotateSpeed;
+                Vector3 rotationVector = new Vector3(0, 0, rotation);
+                transform.Rotate(rotationVector);
                 self.velocity = transform.up * speed;
+                print("Signed angle: " + signedAngle.ToString() + "; Rotation: " + rotation);
             }
             yield return new WaitForSeconds(homingRefreshRate);
         }

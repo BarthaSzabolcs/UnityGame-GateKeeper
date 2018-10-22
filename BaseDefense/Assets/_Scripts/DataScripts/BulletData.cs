@@ -31,7 +31,7 @@ public class BulletData : ScriptableObject
     public string[] taggedToTarget;
     public float targetingRadius;
     public float homingRefreshRate;
-    public float rotateSpeed;
+    public float maxRotationPerCycle;
     [Header("AoE Settings:")]
     public bool isAoE;
     public float aoeRadius;

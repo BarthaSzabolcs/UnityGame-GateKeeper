@@ -23,7 +23,7 @@ MonoBehaviour:
   fireRate: 0.025
   isAuto: 1
   extraAmmo: 2000000
-  magSize: 2000000
-  reloadTime: 2
-  reloadRefreshPerSecond: 60
-  ammoInMag: 2000000
+  magSize: 5
+  reloadTime: 1
+  reloadRefreshPerSecond: 1
+  ammoInMag: 5

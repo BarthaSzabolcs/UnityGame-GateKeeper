@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     public event ReloadStop OnReloadStop;
     public delegate void MagChange(int inMag);
     public event MagChange OnMagChange;
+    public delegate void MagEmpty();
+    public event MagEmpty OnMagEmpty;
     public delegate void ExtraAmmoChange(int extraMag);
     public event ExtraAmmoChange OnExtraAmmoChange;
     public delegate void ReloadChange(float time, float percent);
@@ -58,6 +60,7 @@ public class Weapon : MonoBehaviour
             }
         }
     }
+    Transform rightHand, leftHand;
     private Coroutine reloadingRoutine;
     public Coroutine ReloadRoutine
     {
@@ -78,7 +81,9 @@ public class Weapon : MonoBehaviour
             reloadingRoutine = value;
         }
     }
-    Transform rightHand, leftHand;
+    public int AmmoInMag { get => instances[DataIndex].AmmoInMag; }
+    public int ExtraAmmo { get => instances[DataIndex].ExtraAmmo; }
+    public bool IsAuto { get => instances[DataIndex].isAuto; }
     #endregion
 
     #region UnityFunctions
@@ -202,6 +207,10 @@ public class Weapon : MonoBehaviour
     public void TriggerMagChange(int inMag)
     {
         OnMagChange?.Invoke(inMag);
+        if(inMag == 0)
+        {
+            OnMagEmpty?.Invoke();
+        }
     }
     public void TriggerExtraAmmoChange(int extraMag)
     {

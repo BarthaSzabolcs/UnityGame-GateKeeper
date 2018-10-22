@@ -17,7 +17,7 @@ MonoBehaviour:
   gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
-    m_Bits: 23
+    m_Bits: 1025
   moveForce: 5000
   runMaxSpeed: 30
   sprintMaxSpeed: 50

@@ -19,8 +19,8 @@ TagManager:
   - 
   - Bullet
   - Player
-  - 
-  - 
+  - Obstacle
+  - AI_Sight_PlayerOnly
   - 
   - 
   - 

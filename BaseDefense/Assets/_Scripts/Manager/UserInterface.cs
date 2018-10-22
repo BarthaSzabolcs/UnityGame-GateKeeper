@@ -8,13 +8,15 @@ public class UserInterface : MonoBehaviour
     [SerializeField] Text ammo;
     [SerializeField] Text extraAmmo;
     [SerializeField] Text reloadtime;
-    [SerializeField] GameObject player;
     [SerializeField] Image weaponImage;
     [SerializeField] Image HealthBar;
     [SerializeField] Image reloadWheelCurrent;
     [SerializeField] Image reloadWheelBackGround;
     [SerializeField] Text health;
     [SerializeField] Text maxhealth;
+
+
+    [SerializeField] Text debugText;
 
     private int currentHealth;
     private int CurrentHealth
@@ -131,5 +133,10 @@ public class UserInterface : MonoBehaviour
     private void RefreshHealthBar()
     {
         HealthBar.fillAmount = HealthPercent;
+    }
+    //Debug
+    public void DebugLog(string text)
+    {
+        debugText.text = text;
     }
 }

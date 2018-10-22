@@ -78,11 +78,6 @@ public class Health : MonoBehaviour
     #region UnityFunctions
     private void Awake()
     {
-        if(tag == "Player")
-        {
-            OnHealthCHange = UserInterface.Instance.HealthChange;
-            OnMaxHealthCHange += UserInterface.Instance.MaxHealthChange;
-        }
         MaxHealthPoint = data.maxHealthPoints;
         HealthPoint = data.maxHealthPoints;
     }

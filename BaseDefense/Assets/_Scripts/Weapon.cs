@@ -12,10 +12,15 @@ public class Weapon : MonoBehaviour
     public delegate void ReloadStop();
     public event ReloadStart OnReloadStart;
     public event ReloadStop OnReloadStop;
+    public delegate void MagChange(int inMag);
+    public event MagChange OnMagChange;
+    public delegate void ExtraAmmoChange(int extraMag);
+    public event ExtraAmmoChange OnExtraAmmoChange;
+    public delegate void ReloadChange(float time, float percent);
+    public event ReloadChange OnReloadChange;
     #endregion
     #region ShowInEditor
     [SerializeField] List<WeaponData> data;
-    [SerializeField] PlayerController wielder;
     [SerializeField] GameObject droppedWeapon;
     #endregion
     #region HideInEditor
@@ -64,11 +69,11 @@ public class Weapon : MonoBehaviour
         {
             if (reloadingRoutine == null)
             {
-                if(OnReloadStart != null) OnReloadStart();
+                OnReloadStart?.Invoke();
             }
             if (value == null)
             {
-                if(OnReloadStop != null) OnReloadStop();
+                OnReloadStop?.Invoke();
             }
             reloadingRoutine = value;
         }
@@ -77,17 +82,12 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region UnityFunctions
-    private void Start()
+    private void Awake()
     {
         sRenderer = GetComponent<SpriteRenderer>();
 
         rightHand = transform.Find("RightHand");
         leftHand = transform.Find("LeftHand");
-
-        wielder.OnAttackTriggered += Attack;
-        wielder.OnReloadTriggered += Reload;
-        wielder.OnWeaponChangeTriggered += ChangeWeapon;
-        wielder.OnWeaponDropTriggered += DropWeapon;
 
         InitializeInstances();
         RefreshData();
@@ -96,9 +96,6 @@ public class Weapon : MonoBehaviour
     #endregion
     void Initialize(WeaponData weaponData)
     {
-        OnWeaponChanged = UserInterface.Instance.RefreshWeaponData;
-        OnReloadStart = UserInterface.Instance.ReloadStart;
-        OnReloadStop = UserInterface.Instance.ReloadStop;
         var instance = Instantiate(weaponData);
         instance.Initialize
         (
@@ -107,10 +104,7 @@ public class Weapon : MonoBehaviour
         );
         instances.Add(instance);
 
-        if(OnWeaponChanged != null)
-        {
-            OnWeaponChanged(instances[DataIndex]);
-        }
+        OnWeaponChanged?.Invoke(instances[DataIndex]);
     }
     void InitializeInstances()
     {
@@ -123,15 +117,12 @@ public class Weapon : MonoBehaviour
     void RefreshData()
     {
         sRenderer.sprite = data[DataIndex].sprite;
-        wielder.weaponIsAuto = data[DataIndex].isAuto;
+        //wielder.weaponIsAuto = data[DataIndex].isAuto;
 
-        if(OnWeaponChanged != null)
-        {
-            OnWeaponChanged(instances[DataIndex]);
-        }
+        OnWeaponChanged?.Invoke(instances[DataIndex]);
     }
 
-    void Attack()
+    public void Attack()
     {
         if (ReloadRoutine == null)
         {
@@ -144,7 +135,7 @@ public class Weapon : MonoBehaviour
             instances[dataIndex].Attack();
         }
     }
-    void Reload()
+    public void Reload()
     {
         if (ReloadRoutine == null)
         {
@@ -152,7 +143,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void ChangeWeapon(bool next)
+    public void ChangeWeapon(bool next)
     {
         if (ReloadRoutine != null)
         {
@@ -169,7 +160,7 @@ public class Weapon : MonoBehaviour
         }
         RefreshData();
     }
-    void DropWeapon()
+    public void DropWeapon()
     {
         if (instances.Count > 1)
         {
@@ -205,6 +196,20 @@ public class Weapon : MonoBehaviour
             leftHand.localPosition  = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
             rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
         }
+    }
+    #endregion
+    #region EventTriggerFromData
+    public void TriggerMagChange(int inMag)
+    {
+        OnMagChange?.Invoke(inMag);
+    }
+    public void TriggerExtraAmmoChange(int extraMag)
+    {
+        OnExtraAmmoChange?.Invoke(extraMag);
+    }
+    public void TriggerReloadChange(float time, float percent)
+    {
+        OnReloadChange?.Invoke(time, percent);
     }
     #endregion
 }

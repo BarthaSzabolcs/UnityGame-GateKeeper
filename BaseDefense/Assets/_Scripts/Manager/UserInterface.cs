@@ -5,17 +5,22 @@ using UnityEngine.UI;
 
 public class UserInterface : MonoBehaviour
 {
+    [Header("Player components:")]
+    [SerializeField] Weapon weaponComponent;
+    [SerializeField] Health healthComponent;
+    [Header("Weapon:")]
+    [SerializeField] Image weaponImage;
     [SerializeField] Text ammo;
     [SerializeField] Text extraAmmo;
+    [Header("Reload:")]
     [SerializeField] Text reloadtime;
-    [SerializeField] Image weaponImage;
-    [SerializeField] Image HealthBar;
     [SerializeField] Image reloadWheelCurrent;
     [SerializeField] Image reloadWheelBackGround;
+    [Header("Health:")]
+    [SerializeField] Image HealthBar;
     [SerializeField] Text health;
     [SerializeField] Text maxhealth;
-
-
+    //Debug
     [SerializeField] Text debugText;
 
     private int currentHealth;
@@ -79,6 +84,16 @@ public class UserInterface : MonoBehaviour
         reloadtime.enabled = false;
         reloadWheelCurrent.enabled = false;
         reloadWheelBackGround.enabled = false;
+
+        weaponComponent.OnWeaponChanged += RefreshWeaponData;
+        weaponComponent.OnReloadStart += ReloadStart;
+        weaponComponent.OnReloadChange += Instance.ReloadChange;
+        weaponComponent.OnReloadStop += ReloadStop;
+        weaponComponent.OnExtraAmmoChange += ExtraMagChange;
+        weaponComponent.OnMagChange += MagChange;
+        
+        healthComponent.OnHealthCHange += HealthChange;
+        healthComponent.OnMaxHealthCHange += MaxHealthChange;
     }
 
     public void RefreshWeaponData(WeaponData wData)

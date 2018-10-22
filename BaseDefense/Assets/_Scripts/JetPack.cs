@@ -21,7 +21,7 @@ public class JetPack : MonoBehaviour
     float fuelRegenDelayTimer;
     float fuelRegenTimer;
     bool cancelFuelRegen = false;
-    [SerializeField] float fuel;
+    float fuel;
     public float Fuel
     {
         get
@@ -54,7 +54,6 @@ public class JetPack : MonoBehaviour
     #region UnityFunctions
     private void Start()
     {
-        targetRB.GetComponent<PlayerController>().OnJetPackTriggered += JetPackHandler;
         Fuel = maxFuel;
     }
     private void Update()
@@ -62,17 +61,22 @@ public class JetPack : MonoBehaviour
         FuelRegen();
     }
     #endregion
-    private void JetPackHandler()
+    public void Use()
     {
         if(fuel != 0)
         {
-            if(targetRB.velocity.y < maxUpwardForce)
+            if (targetRB.velocity.y < maxUpwardForce)
             {
                 targetRB.AddForce(Vector2.up * upwardForce);
-                Fuel -= depleteRate;
+                fuel -= depleteRate;
+            }
+            else
+            {
+                targetRB.velocity = new Vector2(targetRB.velocity.x, maxUpwardForce);
             }
         }
     }
+    //Rework needed
     private void FuelRegen()
     {
         if (cancelFuelRegen)

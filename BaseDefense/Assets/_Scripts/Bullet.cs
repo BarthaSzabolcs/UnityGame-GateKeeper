@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour
     #region UnityFunctions
     void Start()
     {
+        gameObject.layer = data.layer;
         var renderer = GetComponent<SpriteRenderer>();
         renderer.color = data.bulletColor;
         renderer.sprite = data.sprite;
@@ -76,6 +77,7 @@ public class Bullet : MonoBehaviour
             Explode();
         }
     }
+    #endregion
     void Explode()
     {
         AudioManager.Instance.PlaySound(data.impactAudio);
@@ -86,5 +88,4 @@ public class Bullet : MonoBehaviour
         }
         Destroy(gameObject);
     }
-    #endregion
 }

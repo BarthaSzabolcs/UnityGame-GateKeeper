@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletData : ScriptableObject
 {
     [Header("Interaction Settings:")]
+    public int layer;
     public string[] taggedToDamage;
     public string[] taggedToDestroy;
     public string[] taggedToDestroyWithoutEffects;

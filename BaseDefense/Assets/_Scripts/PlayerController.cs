@@ -4,32 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region Events
-    public delegate void JetPackTrigger();
-    public event JetPackTrigger OnJetPackTriggered;
-
-    public delegate void AttackTrigger();
-    public event AttackTrigger OnAttackTriggered;
-
-    public delegate void ReloadTrigger();
-    public event ReloadTrigger OnReloadTriggered;
-
-    public delegate void WeaponChangeTrigger(bool next);
-    public event WeaponChangeTrigger OnWeaponChangeTriggered;
-
-    public delegate void WeaponDropTrigger();
-    public event WeaponDropTrigger OnWeaponDropTriggered;
-    #endregion
     #region ShowInEditor
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
+    [SerializeField] JetPack jetPack;
     //[SerializeField] Animator animator;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
     SpriteRenderer sRenderer;
-    Weapon weaponComponent;
+    Weapon weapon;
     
     bool isGrounded;
     int jumpCounter = 0;
@@ -45,12 +30,12 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region UnityFunctions
-    void Start ()
+    void Awake ()
     {
-        weaponComponent = weaponTransform.GetComponent<Weapon>();
         self = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
         self.sharedMaterial = data.material;
+        weapon = weaponTransform.GetComponent<Weapon>();
     }
 	void Update ()
     {
@@ -164,10 +149,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButton("JumpJet"))
         {
-            if (OnJetPackTriggered != null)
-            {
-                OnJetPackTriggered();
-            }
+            jetPack.Use();
         }
     }
     void Teleport()
@@ -222,14 +204,14 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButton("Attack"))
             {
-                if (OnAttackTriggered != null) OnAttackTriggered();
+                weapon.Attack();
             }
         }
         else
         {
             if (Input.GetButtonDown("Attack"))
             {
-                if (OnAttackTriggered != null) OnAttackTriggered();
+                weapon.Attack();
             }
         }
         
@@ -238,7 +220,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Reload"))
         {
-            if (OnReloadTriggered != null) OnReloadTriggered();
+            weapon.Reload();
         }
     }
 
@@ -247,12 +229,12 @@ public class PlayerController : MonoBehaviour
         if(target.x > transform.position.x)
         {
             sRenderer.flipX = false;
-            weaponComponent.SetApearence(true);
+            weapon.SetApearence(true);
         }
         else
         {
             sRenderer.flipX = true;
-            weaponComponent.SetApearence(false);
+            weapon.SetApearence(false);
         }
     }
 
@@ -260,23 +242,23 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("NextWeapon"))
         {
-            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(true);
+            weapon.ChangeWeapon(true);
         }
         if (Input.GetButtonDown("PreviousWeapon"))
         {
-            if (OnWeaponChangeTriggered != null) OnWeaponChangeTriggered(false);
+            weapon.ChangeWeapon(false);
         }
     }
     void DropWeapon()
     {
         if (Input.GetButtonDown("DropWeapon"))
         {
-            if (OnWeaponDropTriggered != null) OnWeaponDropTriggered();
+            weapon.DropWeapon();
         }
     }
     void PickUpWeapon(WeaponData weaponData)
     {
-        weaponComponent.PickUpWeapon(weaponData);
+        weapon.PickUpWeapon(weaponData);
     }
     #endregion
 }

@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class AI_Sight : MonoBehaviour
 {
+    #region Events
+    public delegate void TargetFound();
+    /// <summary>
+    /// Fired when there is a new target or the current target become visible again.
+    /// </summary>
+    public event TargetFound OnTargetFound;
+
+    public delegate void TargetLost();
+    /// <summary>
+    /// Fired if lost line of sight of the target.
+    /// </summary>
+    public event TargetLost OnTargetLost;
+    #endregion
     #region ShowInEditor
     [SerializeField] float viewDistance;
     [SerializeField] float fieldOfView;
@@ -21,11 +34,37 @@ public class AI_Sight : MonoBehaviour
         set
         {
             target = value;
-            targetCollider = value ? value.GetComponent<Collider2D>() : null;
+            if (value == null)
+            {
+                targetCollider = null;
+            }
+            else
+            {
+                targetCollider = target.GetComponent<Collider2D>();
+            }
+        }
+    }
+    bool targetVisible = false;
+    bool TargetVisible
+    {
+        get
+        {
+            return targetVisible;
+        }
+        set
+        {
+            if(targetVisible && value == false)
+            {
+                OnTargetLost?.Invoke();
+            }
+            else if (targetVisible == false && value == true)
+            {
+                OnTargetFound?.Invoke();
+            }
+            targetVisible = value;
         }
     }
     Collider2D targetCollider;
-    bool targetVisible = false;
     #endregion
 
     void Start()
@@ -35,7 +74,7 @@ public class AI_Sight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (Target == null || targetVisible == false)
+        if (Target == null || TargetVisible == false)
         {
            Target = col.gameObject;   
         }
@@ -51,15 +90,11 @@ public class AI_Sight : MonoBehaviour
     {
         if(Target != null)
         {
-            //Debug.Log(Target.name);
-            if (CheckForLineOfSight(targetCollider) == true)
-            {
-                targetVisible = true;
-            }
-            else
-            {
-                targetVisible = false;
-            }
+            TargetVisible = CheckForLineOfSight(targetCollider);
+        }
+        else
+        {
+            TargetVisible = false;
         }
     }
 
@@ -83,15 +118,11 @@ public class AI_Sight : MonoBehaviour
             RaycastHit2D hit;
             hit = Physics2D.Raycast(transform.position, (direction).normalized, viewDistance, obstacleMask);
 
-            UserInterface.Instance.DebugLog("In the field of view.");
             if (hit.collider == col)
             {
-                UserInterface.Instance.DebugLog("Can see it.");
                 return true;
             }
-            return false;
         }
-        UserInterface.Instance.DebugLog("Hidden.");
         return false;
     }
 }

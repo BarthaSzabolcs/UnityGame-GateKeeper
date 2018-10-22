@@ -17,12 +17,12 @@ TagManager:
   - UI
   - 
   - 
-  - Bullet
+  - Enemy
   - Player
   - Obstacle
   - AI_Sight_PlayerOnly
-  - 
-  - 
+  - Bullet_E
+  - Bullet_F
   - 
   - 
   - 

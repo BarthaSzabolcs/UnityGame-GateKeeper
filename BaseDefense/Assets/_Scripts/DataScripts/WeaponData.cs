@@ -28,21 +28,13 @@ public class WeaponData : ScriptableObject
         }
         set
         {
-            if (OnExtraMagChange != null) OnExtraMagChange(value);
             extraAmmo = value;
+            weapon.TriggerExtraAmmoChange(extraAmmo);
         }
     }
     [SerializeField] int magSize;
     [SerializeField] float reloadTime;
     [SerializeField] int reloadRefreshPerSecond;
-    #endregion
-    #region Events
-    public delegate void MagChange(int inMag);
-    public delegate void ExtraMagChange(int extraMag);
-    public event MagChange OnMagChange;
-    public event ExtraMagChange OnExtraMagChange;
-    public delegate void ReloadChange(float time, float percent);
-    public event ReloadChange OnReloadChange;
     #endregion
     #region HideInEditor
     Weapon weapon;
@@ -59,8 +51,8 @@ public class WeaponData : ScriptableObject
         }
         set
         {
-            if (OnMagChange != null) OnMagChange(value);
             ammoInMag = value;
+            weapon.TriggerMagChange(ammoInMag);
         }
     }
     #endregion
@@ -68,9 +60,6 @@ public class WeaponData : ScriptableObject
     public void Initialize(Rigidbody2D self, Weapon weapon)
     {
         this.self = self;
-        OnMagChange = UserInterface.Instance.MagChange;
-        OnExtraMagChange = UserInterface.Instance.ExtraMagChange;
-        OnReloadChange = UserInterface.Instance.ReloadChange;
         this.weapon = weapon;
         patternInstance = Instantiate(pattern);
     }
@@ -91,10 +80,8 @@ public class WeaponData : ScriptableObject
             float timePassed = 0;
             while (timePassed < reloadTime)
             {
-                if (OnReloadChange != null)
-                {
-                    OnReloadChange(reloadTime - timePassed, timePassed / reloadTime);
-                }
+                weapon.TriggerReloadChange(reloadTime - timePassed, timePassed / reloadTime);
+
                 yield return new WaitForSeconds(1f / reloadRefreshPerSecond);
                 timePassed += 1f / reloadRefreshPerSecond;
             }

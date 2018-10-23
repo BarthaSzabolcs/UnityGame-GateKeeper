@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     #region ShowInEditor
+    [SerializeField] GameObject B_ADAM_ENEMY;
     [SerializeField] GameObject[] enemies;
     [SerializeField] Vector2[] spawnPoints;
     #endregion
@@ -25,12 +26,22 @@ public class SpawnManager : MonoBehaviour
             Destroy(this);
         }
     }
+
+    private void Start()
+    {
+        // B. Ádám AI-ja itt spawnol teszt jelleggel.
+        Instantiate(B_ADAM_ENEMY, new Vector3(40, -2, 0), Quaternion.identity);
+
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown("mouse 2"))
         {
             SpawnEnemy();
         }
+
+
     }
     #endregion
 

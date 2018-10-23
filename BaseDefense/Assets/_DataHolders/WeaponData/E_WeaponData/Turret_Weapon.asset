@@ -12,18 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Turret_Weapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300010, guid: 32924624ac8e8a940a84a60be4b17303, type: 3}
+  sprite: {fileID: 21300000, guid: 32924624ac8e8a940a84a60be4b17303, type: 3}
+  muzzleFashAnimation: []
   barrelOffSet: {x: 1.5, y: 0}
   weaponPosition: {x: 0, y: 0}
   rightHandPosition: {x: 0.68, y: -0.27}
   leftHandPosition: {x: -0.8, y: -0.32}
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
-  bulletData: {fileID: 11400000, guid: 74ecfc8a6ff1d034088a8ddd125eb202, type: 2}
-  pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}
-  fireRate: 0.025
+  bulletData: {fileID: 11400000, guid: e0cd681dba983bf48b6dc648309b4da5, type: 2}
+  pattern: {fileID: 11400000, guid: f3c4deb5c05099647b0ca3f22c9ed6bb, type: 2}
+  timeBetweenShots: 0
   isAuto: 1
   extraAmmo: 2000000
-  magSize: 5
+  magSize: 1
   reloadTime: 1
   reloadRefreshPerSecond: 1
-  ammoInMag: 5
+  ammoInMag: 2

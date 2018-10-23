@@ -5,18 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/PlayerControl")]
 public class PlayerControlData : ScriptableObject
 {
-    public PhysicsMaterial2D material;
-    [Header("Animation Settings:")]
-    public Vector2 weaponPosition;
-
     [Header("Grip Settings:")]
     public float gripWidth;
     public LayerMask gripLayer;
 
     [Header("Movement Settings:")]
     public float moveForce;
-    public float runMaxSpeed;
-    public float sprintMaxSpeed;
+    public float baseMaxSpeed;
+    public float altMaxSpeed;
     public float airControlMultiplier;
     public float stoppingRate;
 
@@ -28,5 +24,5 @@ public class PlayerControlData : ScriptableObject
     public float teleportRange;
     public float teleportCoolDown;
     public LayerMask teleportMask;
-    public bool loseMomentumOnTeleport;
+    public bool loseVelocityOnTeleport;
 }

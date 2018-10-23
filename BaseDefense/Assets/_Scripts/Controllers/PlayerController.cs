@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         self = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
-        self.sharedMaterial = data.material;
         weapon = weaponTransform.GetComponent<Weapon>();
     }
 	void Update ()
@@ -55,7 +54,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         Grounded();
-        Sprint();
+        AltVelocity();
         HorizontalMovement();
         Jump();
         JetPack();
@@ -117,15 +116,15 @@ public class PlayerController : MonoBehaviour
             self.velocity = new Vector2( Mathf.Lerp(self.velocity.x, 0f, data.stoppingRate) , self.velocity.y);
         }
     }
-    void Sprint()
+    void AltVelocity()
     {
-        if (Input.GetButton("Sprint") && isGrounded)
+        if (Input.GetButton("AltVelocity") && isGrounded)
         {
-            currentMaxSpeed = data.sprintMaxSpeed;
+            currentMaxSpeed = data.altMaxSpeed;
         }
         else
         {
-            currentMaxSpeed = data.runMaxSpeed;
+            currentMaxSpeed = data.baseMaxSpeed;
         }
     }
 
@@ -171,7 +170,7 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.position = target;
                     teleportTimer = Time.time;
-                    if(data.loseMomentumOnTeleport)
+                    if(data.loseVelocityOnTeleport)
                     {
                         self.velocity = Vector2.zero;
                     }

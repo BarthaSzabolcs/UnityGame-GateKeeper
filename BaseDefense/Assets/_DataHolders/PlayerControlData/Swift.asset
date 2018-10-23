@@ -12,22 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5075162f8a2b7d46bc23c83a93e017d, type: 3}
   m_Name: Swift
   m_EditorClassIdentifier: 
-  material: {fileID: 6200000, guid: 8c5bc085945df524f95c67494ab655b8, type: 2}
-  weaponPosition: {x: 1, y: -1}
   gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
-    m_Bits: 1025
-  moveForce: 5000
-  runMaxSpeed: 30
-  sprintMaxSpeed: 50
+    m_Bits: 1281
+  moveForce: 3000
+  baseMaxSpeed: 30
+  altMaxSpeed: 20
   airControlMultiplier: 0.5
-  stoppingRate: 0.9
+  stoppingRate: 0.33
   jumpForce: 30
   multiJumps: 2
   teleportRange: 80
-  teleportCoolDown: 1
+  teleportCoolDown: 0
   teleportMask:
     serializedVersion: 2
-    m_Bits: 23
-  loseMomentumOnTeleport: 0
+    m_Bits: 1024
+  loseVelocityOnTeleport: 0

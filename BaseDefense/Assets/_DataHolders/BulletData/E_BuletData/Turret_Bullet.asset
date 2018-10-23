@@ -24,7 +24,7 @@ MonoBehaviour:
   taggedToDestroyWithoutEffects: []
   mass: 1
   damage: 1
-  speed: 30
+  speed: 35
   hasLifeTime: 1
   lifeTime: 1
   sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}

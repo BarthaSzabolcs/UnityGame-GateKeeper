@@ -8,7 +8,7 @@ public class JetPack : MonoBehaviour
     [SerializeField] Rigidbody2D targetRB;
     [Header("Force Settings:")]
     [SerializeField] float upwardForce;
-    [SerializeField] float maxUpwardForce;
+    [SerializeField] float maxUpwardVelocity;
     [Header("Fuel Settings")]
     [SerializeField] float maxFuel;
     [SerializeField] float depleteRate;
@@ -65,14 +65,14 @@ public class JetPack : MonoBehaviour
     {
         if(fuel != 0)
         {
-            if (targetRB.velocity.y < maxUpwardForce)
+            if (targetRB.velocity.y < maxUpwardVelocity)
             {
                 targetRB.AddForce(Vector2.up * upwardForce);
                 fuel -= depleteRate;
             }
             else
             {
-                targetRB.velocity = new Vector2(targetRB.velocity.x, maxUpwardForce);
+                targetRB.velocity = new Vector2(targetRB.velocity.x, maxUpwardVelocity);
             }
         }
     }

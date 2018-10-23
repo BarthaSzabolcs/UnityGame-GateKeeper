@@ -22,7 +22,7 @@ MonoBehaviour:
   pattern: {fileID: 11400000, guid: f3c4deb5c05099647b0ca3f22c9ed6bb, type: 2}
   fireRate: 0.25
   isAuto: 1
-  extraAmmo: 60
+  extraAmmo: 99999
   magSize: 5
   reloadTime: 1
   reloadRefreshPerSecond: 60

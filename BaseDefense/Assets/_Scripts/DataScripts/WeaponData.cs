@@ -8,16 +8,19 @@ public class WeaponData : ScriptableObject
     #region ShowInEditor
     [Header("Appearance Settings:")]
     public Sprite sprite;
+    public Sprite[] muzzleFashAnimation;
     [SerializeField] Vector2 barrelOffSet;
     public Vector2 weaponPosition;
     public Vector2 rightHandPosition;
     public Vector2 leftHandPosition;
+
     [Header("Shooting Settings:")]
     [SerializeField] GameObject bullet;
-    [SerializeField] BulletData bulletData;
+    public BulletData bulletData;
     [SerializeField] ShootingPattern pattern;
-    [SerializeField] float fireRate;
+    [SerializeField] float timeBetweenShots;
     public bool isAuto;
+
     [Header("Ammo Settings:")]
     [SerializeField] int extraAmmo;
     public int ExtraAmmo
@@ -66,8 +69,12 @@ public class WeaponData : ScriptableObject
 
     public void Attack()
     {
-        if (AmmoInMag > 0 && fireRateTimer + fireRate < Time.time)
+        if (AmmoInMag > 0 && fireRateTimer + timeBetweenShots < Time.time)
         {
+            if(muzzleFashAnimation.Length > 0)
+            {
+                weapon.MuzleFlash();
+            }
             patternInstance.Shoot(bullet, bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
             AmmoInMag--;

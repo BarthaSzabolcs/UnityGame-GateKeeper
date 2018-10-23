@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/newScene.unity
+    path: Assets/Scenes/Kraken.unity
     guid: ac7f751ed32638746b51deccf55e193f
   m_configObjects: {}

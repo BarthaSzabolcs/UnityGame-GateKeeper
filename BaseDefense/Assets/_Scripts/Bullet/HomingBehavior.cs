@@ -51,8 +51,8 @@ public class HomingBehavior : MonoBehaviour
 
                 Vector3 rotationVector = new Vector3(0, 0, rotation);
                 transform.Rotate(rotationVector);
+
                 self.velocity = transform.up * speed;
-                print("Signed angle: " + signedAngle.ToString() + "; Rotation: " + rotation);
             }
             yield return new WaitForSeconds(homingRefreshRate);
         }

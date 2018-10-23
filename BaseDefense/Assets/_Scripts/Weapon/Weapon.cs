@@ -22,14 +22,19 @@ public class Weapon : MonoBehaviour
     public event ReloadChange OnReloadChange;
     #endregion
     #region ShowInEditor
+    [Header("Weapons:")]
     [SerializeField] List<WeaponData> data;
     [SerializeField] GameObject droppedWeapon;
+
+    [Header("Components:")]
+    [SerializeField] SpriteRenderer muzzleflashRenderer;
+    [SerializeField] Transform rightHand, leftHand;
     #endregion
     #region HideInEditor
     SpriteRenderer sRenderer;
     List<WeaponData> instances;
     int dataIndex = 0;
-    public int DataIndex
+    private int DataIndex
     {
         get
         {
@@ -60,7 +65,6 @@ public class Weapon : MonoBehaviour
             }
         }
     }
-    Transform rightHand, leftHand;
     private Coroutine reloadingRoutine;
     public Coroutine ReloadRoutine
     {
@@ -81,6 +85,27 @@ public class Weapon : MonoBehaviour
             reloadingRoutine = value;
         }
     }
+    private Coroutine muzzleFlash;
+    private Coroutine MuzzleFlash
+    {
+        get
+        {
+            return muzzleFlash;
+        }
+        set
+        {
+            if (value != null && muzzleFlash != null)
+            {
+                StopCoroutine(muzzleFlash);
+            }
+            else if(value == null && muzzleFlash != null)
+            {
+                StopCoroutine(muzzleFlash);
+                muzzleflashRenderer.enabled = false;
+            }
+            muzzleFlash = value;
+        }
+    }
     public int AmmoInMag { get => instances[DataIndex].AmmoInMag; }
     public int ExtraAmmo { get => instances[DataIndex].ExtraAmmo; }
     public bool IsAuto { get => instances[DataIndex].isAuto; }
@@ -91,13 +116,9 @@ public class Weapon : MonoBehaviour
     {
         sRenderer = GetComponent<SpriteRenderer>();
 
-        rightHand = transform.Find("RightHand");
-        leftHand = transform.Find("LeftHand");
-
         InitializeInstances();
         RefreshData();
     }
-
     #endregion
     void Initialize(WeaponData weaponData)
     {
@@ -122,8 +143,7 @@ public class Weapon : MonoBehaviour
     void RefreshData()
     {
         sRenderer.sprite = data[DataIndex].sprite;
-        //wielder.weaponIsAuto = data[DataIndex].isAuto;
-
+        muzzleflashRenderer.color = data[DataIndex].bulletData.muzzleFlashColor;
         OnWeaponChanged?.Invoke(instances[DataIndex]);
     }
 
@@ -139,6 +159,19 @@ public class Weapon : MonoBehaviour
             ReloadRoutine = null;
             instances[dataIndex].Attack();
         }
+    }
+    IEnumerator MuzzleFlashRoutine()
+    {
+        muzzleflashRenderer.enabled = true;
+
+        foreach (Sprite sprite in data[DataIndex].muzzleFashAnimation)
+        {
+            muzzleflashRenderer.sprite = sprite;
+            yield return new WaitForEndOfFrame();
+        }
+
+        muzzleflashRenderer.enabled = false;
+        MuzzleFlash = null;
     }
     public void Reload()
     {
@@ -203,7 +236,11 @@ public class Weapon : MonoBehaviour
         }
     }
     #endregion
-    #region EventTriggerFromData
+    #region CalledFromWeaponData
+    public void MuzleFlash()
+    {
+        MuzzleFlash = StartCoroutine(MuzzleFlashRoutine());
+    }
     public void TriggerMagChange(int inMag)
     {
         OnMagChange?.Invoke(inMag);

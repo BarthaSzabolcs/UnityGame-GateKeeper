@@ -13,12 +13,19 @@ MonoBehaviour:
   m_Name: AOE_Explosion
   m_EditorClassIdentifier: 
   animationFrames:
-  - {fileID: 21300000, guid: 60eb67299d57ced4bb618a761a5c30ae, type: 3}
-  - {fileID: 21300000, guid: d808263905498a543b22f8370a60a17a, type: 3}
-  - {fileID: 21300000, guid: a9468005e1f314942bdf5e6d40eef8d7, type: 3}
-  - {fileID: 21300000, guid: 4938632de979f294b81ea49f04429643, type: 3}
-  - {fileID: 21300000, guid: 7aeb74317dbc6014e85397bf0bfea02a, type: 3}
-  - {fileID: 21300000, guid: f299e673b30760a42a9e85927a8fe620, type: 3}
+  - {fileID: 21300000, guid: 0e2889358e4230843ab6e7f3b62272dd, type: 3}
+  - {fileID: 21300000, guid: f9249df2f2995214780a69c15d5fa2bc, type: 3}
+  - {fileID: 21300000, guid: ae2b32f76167a18428e5b055e3c853d8, type: 3}
+  - {fileID: 21300000, guid: 1f775c2a020f4d94ba60a6cd35738956, type: 3}
+  - {fileID: 21300000, guid: 15169eeaae3b896438b2a8f09a831724, type: 3}
+  - {fileID: 21300000, guid: 01c7f43148b49de49b320a3adc3691a2, type: 3}
+  - {fileID: 21300000, guid: 649a95b7cb2980c4ea64bc0baf8ae848, type: 3}
+  - {fileID: 21300000, guid: a308b97331e07324a97b6e704a7e3b6b, type: 3}
+  - {fileID: 21300000, guid: 77aa8e4a8956077488a0e71d3f75cb0a, type: 3}
+  - {fileID: 21300000, guid: d071550e90e6c91438ea66594b5bef3f, type: 3}
+  - {fileID: 21300000, guid: a69260643555bf04fb34cd4dc2f541e8, type: 3}
+  - {fileID: 21300000, guid: 895e3b41664273a4f8b7325de4c3e8e6, type: 3}
+  - {fileID: 21300000, guid: cca2f19788c37bc4da0f1ba387ec44ea, type: 3}
   isExplosive: 1
   explosionRange: 3
   explosionMagnitude: 10000

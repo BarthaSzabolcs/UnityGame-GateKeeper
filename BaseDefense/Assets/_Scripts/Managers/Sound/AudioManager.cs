@@ -9,36 +9,36 @@ public class AudioManager : MonoBehaviour
 	[SerializeField] Sound[] sounds;
     #endregion
     #region HideInEditor
-    public static AudioManager Instance;
+    public static AudioManager Instance { get; private set; }
     #endregion
 
-    #region MagicFunctions
+    #region UnityFunctions
     void Awake ()
 	{
-		foreach (Sound s in sounds)
-		{
-			s.source = gameObject.AddComponent<AudioSource>();
-			s.source.volume = s.volume;
-			s.source.pitch = s.pitch;
-			s.source.loop = s.loop;
-		}
-	}
-	private void Start()
-	{
-		if(Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
-
-		PlaySound("MainTheme");
+        if (Instance == null)
+        {
+            Initialize();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 	}
     #endregion
 
+    private void Initialize()
+    {
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+        }
+        PlaySound("MainTheme");
+    }
     /// <summary>
     /// Plays the sound with the given name, if it's not found an error will be logged to the console.
     /// </summary>

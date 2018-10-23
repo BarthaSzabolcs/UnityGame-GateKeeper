@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AR_Weapon
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300006, guid: 32924624ac8e8a940a84a60be4b17303, type: 3}
+  muzzleFashAnimation: []
   barrelOffSet: {x: 1.5, y: 0}
   weaponPosition: {x: 0, y: 0}
   rightHandPosition: {x: 0.68, y: -0.27}
@@ -20,9 +21,9 @@ MonoBehaviour:
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 7cf7541e94ba2fb4c9a336c8dd81d0cf, type: 2}
   pattern: {fileID: 11400000, guid: 6ae3144001d95b44694f460d046bdc95, type: 2}
-  fireRate: 0.025
+  timeBetweenShots: 0
   isAuto: 1
-  extraAmmo: 180
+  extraAmmo: 99999
   magSize: 30
   reloadTime: 2
   reloadRefreshPerSecond: 60

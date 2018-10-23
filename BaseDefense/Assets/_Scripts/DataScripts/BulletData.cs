@@ -10,12 +10,16 @@ public class BulletData : ScriptableObject
     public string[] taggedToDamage;
     public string[] taggedToDestroy;
     public string[] taggedToDestroyWithoutEffects;
-    public float mass;
     public int damage;
     public float speed;
+    public float mass;
+    public float gravityScale;
+
     [Header("LifeTime Settings:")]
     public bool hasLifeTime;
     public float lifeTime;
+    public bool explodeAfterLifeTime;
+
     [Header("Effects Settings:")]
     public Sprite sprite;
     public Color bulletColor;
@@ -26,12 +30,14 @@ public class BulletData : ScriptableObject
     public string impactAudio;
     public ExplosionData explosionData;
     public GameObject explosionObject;
+
     [Header("Homing Settings:")]
     public bool isHoming;
     public string[] taggedToTarget;
     public float targetingRadius;
     public float homingRefreshRate;
     public float maxRotationPerCycle;
+
     [Header("AoE Settings:")]
     public bool isAoE;
     public float aoeRadius;

@@ -21,6 +21,7 @@ public class Bullet : MonoBehaviour
         renderer.sprite = data.sprite;
         self = GetComponent<Rigidbody2D>();
         self.velocity = transform.up * data.speed;
+        self.gravityScale = data.gravityScale;
         self.mass = data.mass;
         if (data.trail != null)
         {
@@ -30,6 +31,12 @@ public class Bullet : MonoBehaviour
         {
             var component = gameObject.AddComponent<SelfDestruct>();
             component.lifeTime = data.lifeTime;
+            if (data.explodeAfterLifeTime)
+            {
+                component.explosionAudio = data.impactAudio;
+                component.explosionObject = data.explosionObject;
+                component.explosionData = data.explosionData;
+            }
         }
         if (data.isHoming)
         {

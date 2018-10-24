@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour
+public class SpawnManager_Szabolcs : MonoBehaviour
 {
     #region ShowInEditor
     [SerializeField] GameObject[] enemies;
     [SerializeField] Vector2[] spawnPoints;
+    [SerializeField] string spawnKey;
     #endregion
     #region HideInEditor
-    public SpawnManager Instance { get; private set; }
+    public SpawnManager_Szabolcs Instance { get; private set; }
     #endregion
 
     #region UnityFunctions
@@ -27,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown("mouse 2"))
+        if (Input.GetKeyDown(spawnKey))
         {
             SpawnEnemy();
         }

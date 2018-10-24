@@ -239,7 +239,10 @@ public class Weapon : MonoBehaviour
     #region CalledFromWeaponData
     public void MuzleFlash()
     {
-        MuzzleFlash = StartCoroutine(MuzzleFlashRoutine());
+        if(MuzzleFlash == null)
+        {
+            MuzzleFlash = StartCoroutine(MuzzleFlashRoutine());
+        }
     }
     public void TriggerMagChange(int inMag)
     {

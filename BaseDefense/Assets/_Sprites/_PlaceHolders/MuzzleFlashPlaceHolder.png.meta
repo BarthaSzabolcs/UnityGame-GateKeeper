@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: 4c0cae8ee542c44458ddc70582abf63f
+guid: 857ca8c860edaf943a32c60cdbe19596
 TextureImporter:
   fileIDToRecycleName:
-    21300000: RectanglePlaceHolders_0
-    21300002: RectanglePlaceHolders_1
-    21300004: RectanglePlaceHolders_2
-    21300006: RectanglePlaceHolders_3
-    21300008: RectanglePlaceHolders_4
-    21300010: RectanglePlaceHolders_5
+    21300000: MuzzleFlashPlaceHolder_0
+    21300002: MuzzleFlashPlaceHolder_1
+    21300004: MuzzleFlashPlaceHolder_2
+    21300006: MuzzleFlashPlaceHolder_3
+    21300008: MuzzleFlashPlaceHolder_4
+    21300010: MuzzleFlashPlaceHolder_5
+    21300012: MuzzleFlashPlaceHolder_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -47,11 +48,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
+  spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -66,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -77,7 +78,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 512
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -88,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 512
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -101,121 +102,141 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RectanglePlaceHolders_0
+      name: MuzzleFlashPlaceHolder_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42ca6625a4f251d4bbdcfaf2a509beb1
+      spriteID: 432acc2834bab6b45b48f91f49a5fb3b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RectanglePlaceHolders_1
+      name: MuzzleFlashPlaceHolder_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448dbd8b7088372408d6a24fece48d6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MuzzleFlashPlaceHolder_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d07b9b33167320940a148e188c8292c8
+      spriteID: 0029e2813fb248b4da91f05a4b9d2ae9
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RectanglePlaceHolders_2
+      name: MuzzleFlashPlaceHolder_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3e32e57f3543346bc4c5c155dd3212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MuzzleFlashPlaceHolder_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ab9aae81a903a949a2756cb662dcc3a
+      spriteID: 2e44df2f019d25347b139977cdd424c5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RectanglePlaceHolders_3
+      name: MuzzleFlashPlaceHolder_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6efc001ad0915f64e90b81d59a019f59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MuzzleFlashPlaceHolder_6
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 16
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68dc99a0746301f4b8993a99f63d6223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RectanglePlaceHolders_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3c33c9bf4136a74ba24ae464593484f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RectanglePlaceHolders_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbf17c0abdaa0834195997ad2b200bbc
+      spriteID: ac4ab58f0efb7c44591f576be56d32aa
       vertices: []
       indices: 
       edges: []
@@ -223,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4afd5ad89810d8848a9b9fcdf5e8d43a
+    spriteID: fbd489f31a810814dbd65dd6f78a67ce
     vertices: []
     indices: 
     edges: []

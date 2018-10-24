@@ -7,8 +7,9 @@ public class AI_TurretController : MonoBehaviour
     #region ShowInEditor
     [SerializeField] AI_Sight sight;
     [SerializeField] Weapon weapon;
-    [Header("Rotation:")]
+    [Header("Aim:")]
     [SerializeField] float maxRotationAngle;
+    [SerializeField] float aimingPrecision;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -32,7 +33,7 @@ public class AI_TurretController : MonoBehaviour
             RotateTowardsTarget();
         }
 
-        if (shoot && !reload)
+        if (shoot && !reload && Mathf.Abs(sight.LineOfSightAngle) < aimingPrecision)
         {
             weapon.Attack();
         }

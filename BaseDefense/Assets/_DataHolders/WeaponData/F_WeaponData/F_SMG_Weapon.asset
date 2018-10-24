@@ -10,9 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
-  m_Name: SMG_Weapon
+  m_Name: F_SMG_Weapon
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300004, guid: 32924624ac8e8a940a84a60be4b17303, type: 3}
+  muzzleFashAnimation:
+  - {fileID: 21300006, guid: 857ca8c860edaf943a32c60cdbe19596, type: 3}
+  - {fileID: 21300008, guid: 857ca8c860edaf943a32c60cdbe19596, type: 3}
+  - {fileID: 21300010, guid: 857ca8c860edaf943a32c60cdbe19596, type: 3}
+  - {fileID: 21300012, guid: 857ca8c860edaf943a32c60cdbe19596, type: 3}
   barrelOffSet: {x: 1.5, y: 0}
   weaponPosition: {x: 0, y: 0}
   rightHandPosition: {x: 0, y: -0.33}
@@ -20,10 +25,10 @@ MonoBehaviour:
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 7ed9fa855b17fad429a1b813094283ea, type: 2}
   pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}
-  fireRate: 0.01
+  timeBetweenShots: 0.014285714
   isAuto: 1
   extraAmmo: 99999
-  magSize: 30
+  magSize: 60
   reloadTime: 0.5
   reloadRefreshPerSecond: 60
-  ammoInMag: 30
+  ammoInMag: 60

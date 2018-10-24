@@ -22,14 +22,15 @@ public class AI_Sight : MonoBehaviour
     [SerializeField]
     [Range(0.0f, 360f)] float fieldOfView;
     [Header("Line Of Sight:")]
+    [SerializeField] bool checkAngle;
     [SerializeField] bool checkLineOfSight;
+    [SerializeField] LayerMask targetMask;
     [SerializeField] LayerMask obstacleMask;
     [SerializeField] string[] taggedToSight;
     #endregion
     #region HideInEditor
     GameObject target;
     bool targetVisible = false;
-
     public GameObject Target
     {
         get
@@ -39,9 +40,10 @@ public class AI_Sight : MonoBehaviour
         private set
         {
             target = value;
-            if (value == null)
+            if (target == null)
             {
                 targetCollider = null;
+                TargetVisible = false;
             }
             else
             {
@@ -57,9 +59,10 @@ public class AI_Sight : MonoBehaviour
         }
         private set
         {
-            if(targetVisible && value == false)
+            if (targetVisible == true && value == false)
             {
                 OnTargetLost?.Invoke();
+                SeachForNewTarget();
             }
             else if (targetVisible == false && value == true)
             {
@@ -81,7 +84,10 @@ public class AI_Sight : MonoBehaviour
     {
         if (Target == null || TargetVisible == false)
         {
-           Target = col.gameObject;   
+            if (CheckForEnemyTag(col.tag) && CheckForLineOfSight(col))
+            {
+                Target = col.gameObject;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D col)
@@ -116,21 +122,39 @@ public class AI_Sight : MonoBehaviour
     }
     private bool CheckForLineOfSight(Collider2D col)
     {
-        if (checkLineOfSight == false) return true;
 
         Vector2 direction = col.transform.position - transform.position;
         LineOfSightAngle = Vector2.SignedAngle(transform.right, direction);
-
-        if (Mathf.Abs(LineOfSightAngle) < fieldOfView * 0.5f)
+        if (checkAngle == false)
         {
+            return true;
+        }
+        else if (Mathf.Abs(LineOfSightAngle) < fieldOfView * 0.5f)
+        {
+            if (checkLineOfSight == false)
+            {
+                return true;
+            }
+
             RaycastHit2D hit;
             hit = Physics2D.Raycast(transform.position, (direction).normalized, viewDistance, obstacleMask);
-
             if (hit.collider == col)
             {
                 return true;
             }
         }
         return false;
+    }
+    private void SeachForNewTarget()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, viewDistance, targetMask);
+        foreach (Collider2D  col in cols)
+        {
+            if (CheckForEnemyTag(col.tag) && CheckForLineOfSight(col))
+            {
+                Target = col.gameObject;
+                break;
+            }
+        }
     }
 }

@@ -24,7 +24,6 @@ public class BulletData : ScriptableObject
     public Sprite sprite;
     public Color bulletColor;
     public Color muzzleFlashColor;
-    public float muzzleFlashSize;
     public GameObject trail;
     public string bulletFiredAudio;
     public string impactAudio;

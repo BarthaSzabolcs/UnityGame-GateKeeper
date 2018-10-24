@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5075162f8a2b7d46bc23c83a93e017d, type: 3}
-  m_Name: Swift
+  m_Name: LowGravity
   m_EditorClassIdentifier: 
   gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
-    m_Bits: 17664
-  moveForce: 3000
+    m_Bits: 1281
+  moveForce: 375
   baseMaxSpeed: 30
   altMaxSpeed: 20
   airControlMultiplier: 0.5
   stoppingRate: 0.33
-  jumpForce: 30
-  multiJumps: 0
+  jumpForce: 3.75
+  multiJumps: 1
   teleportRange: 80
-  teleportCoolDown: 0.3333333
+  teleportCoolDown: 0.33333334
   teleportMask:
     serializedVersion: 2
     m_Bits: 1024

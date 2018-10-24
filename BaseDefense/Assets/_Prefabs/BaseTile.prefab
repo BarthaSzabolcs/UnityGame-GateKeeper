@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 8571900106975425357}
   - component: {fileID: 8571900106975425346}
   - component: {fileID: 8571900106975425347}
-  m_Layer: 10
+  m_Layer: 14
   m_Name: BaseTile
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8571900106975425356
 Transform:

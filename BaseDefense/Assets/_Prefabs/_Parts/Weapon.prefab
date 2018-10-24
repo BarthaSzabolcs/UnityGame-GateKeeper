@@ -93,7 +93,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676408744470668772}
   m_BodyType: 1
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -122,11 +122,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
   - {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
   - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
-  muzzleflashRenderer: {fileID: 9167076062032745846}
   droppedWeapon: {fileID: 1959444473538686, guid: 5285ddab37430b244b0b0d9b0895c045, type: 3}
+  muzzleflashRenderer: {fileID: 9167076062032745846}
   rightHand: {fileID: 4563299978047517368}
   leftHand: {fileID: 3140466390550604774}
-  sRenderer: {fileID: 0}
 --- !u!1 &5177301760493914885
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,9 +191,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 866877615
-  m_SortingLayer: 1
-  m_SortingOrder: 4
+  m_SortingLayerID: -405904451
+  m_SortingLayer: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

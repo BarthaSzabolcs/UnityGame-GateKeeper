@@ -14,7 +14,7 @@ public class DamageZone : MonoBehaviour
         {
             if (tag == col.gameObject.tag)
             {
-                col.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
+                col.gameObject.GetComponent<Health>().TakeDamage(data.damage);
             }
         }
     }

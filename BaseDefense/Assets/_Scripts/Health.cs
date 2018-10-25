@@ -74,7 +74,7 @@ public class Health : MonoBehaviour
     #endregion
 
     #region UnityFunctions
-    private void Awake()
+    private void Start()
     {
         MaxHealthPoint = data.maxHealthPoints;
         HealthPoint = data.maxHealthPoints;
@@ -109,8 +109,8 @@ public class Health : MonoBehaviour
     /// Triggers the red flash if it's enabled.
     /// </summary>
     /// <param name="damage"></param>
-    /// <param name="attacker"></param>
-    public void TakeDamage(int damage, GameObject attacker)
+    /// 
+    public void TakeDamage(int damage)
     {
         if(dead)
         {

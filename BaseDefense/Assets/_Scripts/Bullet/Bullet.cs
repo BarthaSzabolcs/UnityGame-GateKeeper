@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == coll.gameObject.tag)
                 {
-                    coll.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
+                    coll.gameObject.GetComponent<Health>().TakeDamage(data.damage);
                 }
             }
             foreach (var tag in data.taggedToDestroy)
@@ -65,19 +65,20 @@ public class Bullet : MonoBehaviour
                 if (tag == coll.gameObject.tag)
                 {
                     Explode();
+                    break;
                 }
             }
         }
         else
         {
-            Collider2D[] objectsHit = Physics2D.OverlapCircleAll(transform.position, data.aoeRadius);
+            Collider2D[] objectsHit = Physics2D.OverlapCircleAll(transform.position, data.aoeRadius, data.aoeLayerMask);
             foreach (var hit in objectsHit)
             {
                 foreach (var tag in data.taggedToDamage)
                 {
                     if (tag == hit.gameObject.tag)
                     {
-                        hit.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
+                        hit.gameObject.GetComponent<Health>().TakeDamage(data.damage);
                     }
                 }
             }

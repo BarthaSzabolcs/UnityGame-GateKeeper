@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
             if(player == null)
             {
                 player = GameObject.Find("Player");
+                if(player != null)
+                {
+                    player.GetComponent<Health>().OnDeath += HandlePlayerDeath;
+                }
             }
             return player;
         }
@@ -44,16 +48,32 @@ public class GameManager : MonoBehaviour
             Destroy(this);
         }
     }
+    private void Start()
+    {
+        SceneManager.sceneLoaded += StartLevel;
+    }
     #endregion
     #region CusomFunctions
     public void ChangeScene(int index)
     {
         OnSceneChange?.Invoke();
         SceneManager.LoadScene(index);
+        
     }
     public void ReloadScene()
     {
         ChangeScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void StartLevel(Scene scene, LoadSceneMode mode)
+    {
+        Money = 0;
+        player = GameObject.Find("Player");
+        if (player != null)
+        {
+            player.GetComponent<Health>().OnDeath += HandlePlayerDeath;
+        }
+        UserInterface.Instance.InitializeLevelUI();
     }
 
     public void PauseGame()
@@ -68,6 +88,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = timeScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
+
+    private void HandlePlayerDeath(GameObject sender)
+    {
+        ReloadScene();
     }
     #endregion
 }

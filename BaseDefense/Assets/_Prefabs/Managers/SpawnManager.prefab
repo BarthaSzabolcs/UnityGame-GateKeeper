@@ -49,3 +49,6 @@ MonoBehaviour:
   spawnPoints:
   - {x: -55, y: -7}
   - {x: 55, y: -7}
+  spawnKey: mouse 2
+  autoSpawn: 0
+  spawnDelay: 4

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer: 12
   taggedToDamage:
-  - Enemy
   - Player
   - Base
   taggedToDestroy:
@@ -32,7 +31,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: be40868840b05984082ff1611ae44b48, type: 3}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
   muzzleFlashColor: {r: 1, g: 0, b: 0, a: 1}
-  muzzleFlashSize: 2
   trail: {fileID: 1762351444363594, guid: c4ec37f7e5e253440acadc1d92576fb2, type: 3}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
@@ -44,4 +42,7 @@ MonoBehaviour:
   homingRefreshRate: 0
   maxRotationPerCycle: 0
   isAoE: 1
+  aoeLayerMask:
+    serializedVersion: 2
+    m_Bits: 16896
   aoeRadius: 5

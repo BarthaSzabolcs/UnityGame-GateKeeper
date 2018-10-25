@@ -71,7 +71,7 @@ public class JetPack : MonoBehaviour
         set
         {
             maxFuel = value;
-            OnMaxFuelCHange.Invoke(maxFuel);
+            OnMaxFuelCHange?.Invoke(maxFuel);
         }
     }
     #endregion

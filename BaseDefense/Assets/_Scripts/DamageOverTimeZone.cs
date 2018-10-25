@@ -19,7 +19,7 @@ public class DamageOverTimeZone : MonoBehaviour
             if (tag == col.gameObject.tag && damageTimer + timebetweenDamage < Time.time)
             {
                 damageTimer = Time.time;
-                col.gameObject.GetComponent<Health>().TakeDamage(data.damage, gameObject);
+                col.gameObject.GetComponent<Health>().TakeDamage(data.damage);
             }
         }
     }

@@ -9,20 +9,17 @@ public class Weapon : MonoBehaviour
     public delegate void WeaponChanged(WeaponData wdata);
     public event WeaponChanged OnWeaponChanged;
 
-    public delegate void ReloadStart();
-    public delegate void ReloadStop();
-    public event ReloadStart OnReloadStart;
-    public event ReloadStop OnReloadStop;
+    public delegate void ReloadStateChange();
+    public event ReloadStateChange OnReloadStart;
+    public event ReloadStateChange OnReloadStop;
 
-    public delegate void MagChange(int inMag);
-    public event MagChange OnMagChange;
+    public delegate void AmmoChange(int inMag);
+    public event AmmoChange OnMagChange;
+    public event AmmoChange OnExtraAmmoChange;
 
     public delegate void MagEmpty();
     public event MagEmpty OnMagEmpty;
-
-    public delegate void ExtraAmmoChange(int extraMag);
-    public event ExtraAmmoChange OnExtraAmmoChange;
-
+    
     public delegate void ReloadChange(float time, float percent);
     public event ReloadChange OnReloadChange;
     #endregion

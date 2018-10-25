@@ -39,5 +39,6 @@ public class BulletData : ScriptableObject
 
     [Header("AoE Settings:")]
     public bool isAoE;
+    public LayerMask aoeLayerMask;
     public float aoeRadius;
 }

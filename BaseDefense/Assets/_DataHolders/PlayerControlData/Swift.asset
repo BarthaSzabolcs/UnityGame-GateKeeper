@@ -22,10 +22,10 @@ MonoBehaviour:
   airControlMultiplier: 0.5
   stoppingRate: 0.33
   jumpForce: 30
-  multiJumps: 0
+  multiJumps: 1
   teleportRange: 80
-  teleportCoolDown: 0.3333333
+  teleportCoolDown: 0.5
   teleportMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
   loseVelocityOnTeleport: 0

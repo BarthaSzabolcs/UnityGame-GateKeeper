@@ -5,25 +5,44 @@ using UnityEngine.UI;
 
 public class UserInterface : MonoBehaviour
 {
+    #region ShowInEditor
+    [Header("Cursor:")]
+    [SerializeField] Texture2D crosshairImage;
+
     [Header("Player components:")]
     [SerializeField] Weapon weaponComponent;
     [SerializeField] Health healthComponent;
-    [Header("Weapon:")]
-    [SerializeField] Image weaponImage;
-    [SerializeField] Text ammo;
-    [SerializeField] Text extraAmmo;
-    [Header("Reload:")]
-    [SerializeField] Text reloadtime;
-    [SerializeField] Image reloadWheelCurrent;
-    [SerializeField] Image reloadWheelBackGround;
-    [Header("Health:")]
-    [SerializeField] Image HealthBar;
-    [SerializeField] Text health;
-    [SerializeField] Text maxhealth;
-    //Debug
-    [SerializeField] Text debugText;
+    [SerializeField] JetPack jetPackComponent;
 
+    [Header("Weapon:")]
+    [SerializeField] Image weaponImage_Image;
+    [SerializeField] Text ammo_Text;
+    [SerializeField] Text extraAmmo_Text;
+
+    [Header("Reload:")]
+    [SerializeField] Text reloadtime_Text;
+    [SerializeField] Image reloadWheelCurrent_Image;
+    [SerializeField] Image reloadWheelBackGround_Image;
+
+    [Header("Health:")]
+    [SerializeField] Image healthBar_Image;
+    [SerializeField] Text health_Text;
+    [SerializeField] Text maxHealth_Text;
+
+    [Header("JetPack:")]
+    [SerializeField] Image fuelBar_Image;
+    [SerializeField] Text fuel_Text;
+    [SerializeField] Text maxFuel_Text;
+
+    [Header("Debug:")]
+    [SerializeField] Text debugText;
+    #endregion
+    #region HideInEditor
+    public static UserInterface Instance { get; private set; }
+    //Health
     private int currentHealth;
+    int maxHealth;
+    float healthPercent;
     private int CurrentHealth
     {
         get
@@ -33,11 +52,9 @@ public class UserInterface : MonoBehaviour
         set
         {
             currentHealth = value;
-            CalculateHealthPercent();
-            RefreshHealthBar();
+            HealthPercent = (float)CurrentHealth / MaxHealth;
         }
     }
-    int maxHealth;
     int MaxHealth
     {
         get
@@ -47,11 +64,9 @@ public class UserInterface : MonoBehaviour
         set
         {
             maxHealth = value;
-            CalculateHealthPercent();
-            RefreshHealthBar();
+            HealthPercent = (float)CurrentHealth / MaxHealth;
         }
     }
-    float healthPercent;
     float HealthPercent
     {
         get
@@ -61,18 +76,58 @@ public class UserInterface : MonoBehaviour
         set
         {
             healthPercent = value;
-            RefreshHealthBar();
+            healthBar_Image.fillAmount = HealthPercent;
         }
     }
-    public static UserInterface Instance { get; private set; }
+    //Fuel
+    private int currentFuel;
+    private int maxFuel;
+    private float fuelPercent;
+    public int CurrentFuel
+    {
+        get
+        {
+            return currentFuel;
+        }
+        set
+        {
+            currentFuel = value;
+            FuelPercent = (float)currentFuel / MaxFuel;
+        }
+    }
+    public int MaxFuel
+    {
+        get
+        {
+            return maxFuel;
+        }
+        set
+        {
+            maxFuel = value;
+            FuelPercent = (float)CurrentFuel / maxFuel;
+        }
+    }
+    public float FuelPercent
+    {
+        get
+        {
+            return fuelPercent;
+        }
+        set
+        {
+            fuelPercent = value;
+            fuelBar_Image.fillAmount = fuelPercent;
+        }
+    }
+    #endregion
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            Initialize();    
+            Initialize();
         }
         else
         {
@@ -81,9 +136,9 @@ public class UserInterface : MonoBehaviour
     }
     private void Initialize()
     {
-        reloadtime.enabled = false;
-        reloadWheelCurrent.enabled = false;
-        reloadWheelBackGround.enabled = false;
+        reloadtime_Text.enabled = false;
+        reloadWheelCurrent_Image.enabled = false;
+        reloadWheelBackGround_Image.enabled = false;
 
         weaponComponent.OnWeaponChanged += RefreshWeaponData;
         weaponComponent.OnReloadStart += ReloadStart;
@@ -91,63 +146,80 @@ public class UserInterface : MonoBehaviour
         weaponComponent.OnReloadStop += ReloadStop;
         weaponComponent.OnExtraAmmoChange += ExtraMagChange;
         weaponComponent.OnMagChange += MagChange;
-        
+
         healthComponent.OnHealthCHange += HealthChange;
         healthComponent.OnMaxHealthCHange += MaxHealthChange;
-    }
 
-    public void RefreshWeaponData(WeaponData wData)
-    {
-        weaponImage.sprite = wData.sprite;
-        ammo.text = wData.AmmoInMag.ToString();
-        extraAmmo.text = "/" + wData.ExtraAmmo.ToString();
-        extraAmmo.enabled = true;
-    }
+        jetPackComponent.OnFuelChange += FuelChange;
+        jetPackComponent.OnMaxFuelCHange += MaxFuelChange;
 
-    public void MagChange(int ammo)
-    {
-        this.ammo.text = ammo.ToString();
+        ChangeCursorToCrossHair();
     }
-    public void ExtraMagChange(int extraAmmo)
+    //Cursor
+    public void ChangeCursorToCrossHair()
     {
-        this.extraAmmo.text = "/" + extraAmmo.ToString();
+        Cursor.SetCursor(crosshairImage, new Vector2(crosshairImage.width/2, crosshairImage.height/2), CursorMode.Auto);
     }
-
-    public void ReloadStart()
+    public void ChangeCursorBack()
     {
-        reloadtime.enabled = true;
-        reloadWheelCurrent.enabled = true;
-        reloadWheelBackGround.enabled = true;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
-    public void ReloadStop()
+    //Weapon
+    private void RefreshWeaponData(WeaponData wData)
     {
-        reloadtime.enabled = false;
-        reloadWheelCurrent.enabled = false;
-        reloadWheelBackGround.enabled = false;
+        weaponImage_Image.sprite = wData.sprite;
+        ammo_Text.text = wData.AmmoInMag.ToString();
+        extraAmmo_Text.text = "/" + wData.ExtraAmmo.ToString();
+        extraAmmo_Text.enabled = true;
     }
-    public void ReloadChange(float time, float percent)
+    //Ammo
+    private void MagChange(int value)
     {
-        reloadtime.text = time.ToString("0.0");
-        reloadWheelCurrent.fillAmount = percent;
+        this.ammo_Text.text = value.ToString();
     }
-
-    public void HealthChange(int healthvalue)
+    private void ExtraMagChange(int value)
     {
-        CurrentHealth = healthvalue;
-        health.text = healthvalue.ToString();
+        this.extraAmmo_Text.text = "/" + value.ToString();
     }
-    public void MaxHealthChange(int healthvalue)
+    //Reload
+    private void ReloadStart()
     {
-        MaxHealth = healthvalue;
-        maxhealth.text = "/" + healthvalue.ToString();
+        reloadtime_Text.enabled = true;
+        reloadWheelCurrent_Image.enabled = true;
+        reloadWheelBackGround_Image.enabled = true;
     }
-    private void CalculateHealthPercent()
+    private void ReloadStop()
     {
-        HealthPercent = (float)CurrentHealth / MaxHealth;
+        reloadtime_Text.enabled = false;
+        reloadWheelCurrent_Image.enabled = false;
+        reloadWheelBackGround_Image.enabled = false;
     }
-    private void RefreshHealthBar()
+    private void ReloadChange(float time, float percent)
     {
-        HealthBar.fillAmount = HealthPercent;
+        reloadtime_Text.text = time.ToString("0.0");
+        reloadWheelCurrent_Image.fillAmount = percent;
+    }
+    //Health
+    private void HealthChange(int value)
+    {
+        CurrentHealth = value;
+        health_Text.text = value.ToString();
+    }
+    private void MaxHealthChange(int value)
+    {
+        MaxHealth = value;
+        maxHealth_Text.text = "/" + value.ToString();
+    }
+    //Fuel
+    private void FuelChange(int value)
+    {
+        CurrentFuel = value;
+        fuel_Text.text = value.ToString();
+    }
+    private void MaxFuelChange(int value)
+    {
+        MaxFuel = value;
+        maxFuel_Text.text = "/" + value.ToString();
     }
     //Debug
     public void DebugLog(string text)

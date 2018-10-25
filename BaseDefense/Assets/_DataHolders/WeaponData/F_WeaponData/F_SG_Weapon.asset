@@ -29,7 +29,8 @@ MonoBehaviour:
   timeBetweenShots: 0.2
   isAuto: 1
   extraAmmo: 99999
-  magSize: 5
-  reloadTime: 1
+  magSize: 6
+  reloadAmmount: 2
+  reloadTime: 0.2
   reloadRefreshPerSecond: 60
-  ammoInMag: 5
+  ammoInMag: 6

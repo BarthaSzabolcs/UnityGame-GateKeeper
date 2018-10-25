@@ -28,10 +28,11 @@ MonoBehaviour:
   bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
   pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
-  timeBetweenShots: 0.33333334
+  timeBetweenShots: 0.1
   isAuto: 0
   extraAmmo: 99999
-  magSize: 5
-  reloadTime: 0.2
+  magSize: 1
+  reloadAmmount: 1
+  reloadTime: 0.5
   reloadRefreshPerSecond: 60
-  ammoInMag: 5
+  ammoInMag: 1

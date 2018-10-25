@@ -8,45 +8,50 @@ public class ShootingPattern_CalculatedSpread : ShootingPattern
     #region ShowInEditor
     [Header("Spread Settings:")]
     [SerializeField] float[] angles;
-    [SerializeField] float spreadResetTime;
+    [SerializeField] float recoilDuration;
     #endregion
     #region HideInEditor 
-    int spreadIndex = 10;
-    public int SpreadIndex
+    private float weaponFireRate;
+    private float spreadFloatIndex = 0;
+    private int SpreadIndex
     {
         get
         {
-            return spreadIndex;
-        }
-        set
-        {
-            if (value > angles.Length -1)
+            if(spreadFloatIndex < 0)
             {
-                spreadIndex = angles.Length -1;
+                spreadFloatIndex = 0;
             }
-            else if (value < 0)
+            else if (spreadFloatIndex > (angles.Length -1) * recoilDuration)
             {
-                spreadIndex = 0;
+                spreadFloatIndex = (angles.Length - 1) * recoilDuration;
             }
-            else
-            {
-                spreadIndex = value;
-            }
+
+            return Mathf.RoundToInt(spreadFloatIndex / recoilDuration);
         }
     }
-    float spreadResetTimer;
+    private float previousShot;
     #endregion
 
+    public void Initialize(float timeBetweenShots)
+    {
+        this.weaponFireRate = timeBetweenShots;
+    }
     public override void Shoot(GameObject bullet, BulletData bulletData, Transform self, Vector2 barrelOffSet)
     {
-        string msg = SpreadIndex.ToString();
-
-        SpreadIndex -= Mathf.FloorToInt((Time.time - spreadResetTimer) * angles.Length / spreadResetTime);
+        float timeBetweenShots = Time.time - previousShot;
+        float diff = timeBetweenShots - weaponFireRate - recoilDuration;
+        spreadFloatIndex -= diff;
         Quaternion rotation = Quaternion.Euler(0, 0, angles[SpreadIndex]);
-
         ShootBullet(bullet, bulletData, self, barrelOffSet, rotation);
 
-        SpreadIndex++;
-        spreadResetTimer = Time.time;
+        previousShot = Time.time;
+
+        //Debug
+        string msg = "Time between the two shot: " + timeBetweenShots;
+        msg += "\nSpread index change: " + -diff;
+        msg += "\nIndex: " + SpreadIndex;
+        msg += "\nFloatIndex: "+ spreadFloatIndex;
+        msg += "\nFPS: " + 1/ Time.smoothDeltaTime;
+        UserInterface.Instance.DebugLog(msg);
     }
 }

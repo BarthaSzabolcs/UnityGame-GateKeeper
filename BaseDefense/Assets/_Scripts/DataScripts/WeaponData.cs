@@ -36,6 +36,9 @@ public class WeaponData : ScriptableObject
         }
     }
     [SerializeField] int magSize;
+
+    [Header("Reload Settings:")]
+    [SerializeField] int reloadAmmount;
     [SerializeField] float reloadTime;
     [SerializeField] int reloadRefreshPerSecond;
     #endregion
@@ -54,7 +57,7 @@ public class WeaponData : ScriptableObject
         }
         set
         {
-            ammoInMag = value;
+            ammoInMag = value > magSize ? magSize : value;
             weapon.TriggerMagChange(ammoInMag);
         }
     }
@@ -65,6 +68,13 @@ public class WeaponData : ScriptableObject
         this.self = self;
         this.weapon = weapon;
         patternInstance = Instantiate(pattern);
+
+        //maybe not the best aproach
+        var calculatedSpread = patternInstance as ShootingPattern_CalculatedSpread;
+        if(calculatedSpread)
+        {
+            calculatedSpread.Initialize(timeBetweenShots);
+        }
     }
 
     public void Attack()
@@ -82,7 +92,7 @@ public class WeaponData : ScriptableObject
     }
     public IEnumerator ReloadRoutine()
     {
-        if (ExtraAmmo >= 1)
+        if (ExtraAmmo >= 1 && ammoInMag != magSize)
         {
             float timePassed = 0;
             while (timePassed < reloadTime)
@@ -92,8 +102,10 @@ public class WeaponData : ScriptableObject
                 yield return new WaitForSeconds(1f / reloadRefreshPerSecond);
                 timePassed += 1f / reloadRefreshPerSecond;
             }
-            AmmoInMag = ExtraAmmo >= magSize ? magSize : ExtraAmmo;
-            ExtraAmmo -= AmmoInMag;
+
+            int difference = magSize - AmmoInMag;
+            AmmoInMag += reloadAmmount;
+            ExtraAmmo -= difference < reloadAmmount ? difference : reloadAmmount;
         }
         weapon.ReloadRoutine = null;
     }

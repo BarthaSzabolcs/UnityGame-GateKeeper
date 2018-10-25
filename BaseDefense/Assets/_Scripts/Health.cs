@@ -10,6 +10,10 @@ public class Health : MonoBehaviour
     /// Triggers just before death.
     /// </summary>
     public event Death OnDeath;
+    /// <summary>
+    /// Triggers if the component is killed by the DestroySelf( ) function.
+    /// </summary>
+    public event Death OnSelfDestruct;
 
     public delegate void HealthCHange(int newHealth);
     /// <summary>
@@ -20,12 +24,6 @@ public class Health : MonoBehaviour
     /// Triggered on MaxHealthChange.
     /// </summary>
     public event HealthCHange OnMaxHealthCHange;
-
-    public delegate void SelfDestruct(GameObject sender);
-    /// <summary>
-    /// Triggers if the component is killed by the DestroySelf( ) function.
-    /// </summary>
-    public event SelfDestruct OnSelfDestruct;
     #endregion
     #region ShowInEditor
     [SerializeField] HealthData data;
@@ -133,7 +131,7 @@ public class Health : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        if (data.deathAnim != null)
+        if (data.deathAnim != null && data.deathAnimData != null)
         {
             GameObject exp = Instantiate(data.deathAnim, transform.position, Quaternion.identity);
             exp.GetComponent<Explosion>().data = data.deathAnimData;

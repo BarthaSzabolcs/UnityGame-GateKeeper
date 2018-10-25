@@ -21,7 +21,7 @@ MonoBehaviour:
   - DroppedWeapon
   - Base
   taggedToDestroyWithoutEffects: []
-  damage: 5
+  damage: 7
   speed: 85
   mass: 1
   gravityScale: 0
@@ -31,7 +31,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
   bulletColor: {r: 0, g: 1, b: 0.32156864, a: 1}
   muzzleFlashColor: {r: 0.15477037, g: 0.6981132, b: 0.5644752, a: 1}
-  muzzleFlashSize: 2
   trail: {fileID: 1762351444363594, guid: 09a2cd61dd9e7924eb3a6370b6223dd8, type: 3}
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact

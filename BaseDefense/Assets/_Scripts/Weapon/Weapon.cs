@@ -8,16 +8,21 @@ public class Weapon : MonoBehaviour
     #region Events
     public delegate void WeaponChanged(WeaponData wdata);
     public event WeaponChanged OnWeaponChanged;
+
     public delegate void ReloadStart();
     public delegate void ReloadStop();
     public event ReloadStart OnReloadStart;
     public event ReloadStop OnReloadStop;
+
     public delegate void MagChange(int inMag);
     public event MagChange OnMagChange;
+
     public delegate void MagEmpty();
     public event MagEmpty OnMagEmpty;
+
     public delegate void ExtraAmmoChange(int extraMag);
     public event ExtraAmmoChange OnExtraAmmoChange;
+
     public delegate void ReloadChange(float time, float percent);
     public event ReloadChange OnReloadChange;
     #endregion
@@ -120,6 +125,7 @@ public class Weapon : MonoBehaviour
         RefreshData();
     }
     #endregion
+    #region CustomFunctions
     void Initialize(WeaponData weaponData)
     {
         var instance = Instantiate(weaponData);
@@ -212,12 +218,11 @@ public class Weapon : MonoBehaviour
             RefreshData();
         }
     }
-    public void PickUpWeapon(WeaponData newWeaponData)
+    public void AddWeapon(WeaponData newWeaponData)
     {
         data.Add(newWeaponData);
         Initialize(newWeaponData);
     }
-    #region Appearence
     public void SetApearence(bool lookingRight)
     {
         if (lookingRight)
@@ -235,8 +240,7 @@ public class Weapon : MonoBehaviour
             rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
         }
     }
-    #endregion
-    #region CalledFromWeaponData
+
     public void MuzleFlash()
     {
         if(MuzzleFlash == null)

@@ -43,15 +43,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4b0cf18595be14c94b65d137aaf828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crosshairImage: {fileID: 2800000, guid: c326bc576f3f25946b2600685800762c, type: 3}
   weaponComponent: {fileID: 0}
   healthComponent: {fileID: 0}
-  weaponImage: {fileID: 0}
-  ammo: {fileID: 0}
-  extraAmmo: {fileID: 0}
-  reloadtime: {fileID: 0}
-  reloadWheelCurrent: {fileID: 0}
-  reloadWheelBackGround: {fileID: 0}
-  HealthBar: {fileID: 0}
-  health: {fileID: 0}
-  maxhealth: {fileID: 0}
+  jetPackComponent: {fileID: 0}
+  weaponImage_Image: {fileID: 0}
+  ammo_Text: {fileID: 0}
+  extraAmmo_Text: {fileID: 0}
+  reloadtime_Text: {fileID: 0}
+  reloadWheelCurrent_Image: {fileID: 0}
+  reloadWheelBackGround_Image: {fileID: 0}
+  healthBar_Image: {fileID: 0}
+  health_Text: {fileID: 0}
+  maxHealth_Text: {fileID: 0}
+  fuelBar_Image: {fileID: 0}
+  fuel_Text: {fileID: 0}
+  maxFuel_Text: {fileID: 0}
   debugText: {fileID: 0}

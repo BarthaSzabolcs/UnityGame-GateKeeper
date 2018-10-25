@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b11e80129ae5d5f4e91f908532e242ae, type: 3}
-  m_Name: Test_Health
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
   hitAudio: 
@@ -18,4 +18,4 @@ MonoBehaviour:
   flashTime: 1
   deathAudio: 
   deathAnim: {fileID: 2460725773196922292, guid: 6873ceea3d9406c438471f8ee5089bcb, type: 3}
-  deathAnimData: {fileID: 11400000, guid: 8ac0551f2156b9a4a9c256917a61c664, type: 2}
+  deathAnimData: {fileID: 0}

@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class JetPack : MonoBehaviour
 {
+    #region Events
+    public delegate void FuelChange(int value);
+
+    public event FuelChange OnFuelChange;
+    public event FuelChange OnMaxFuelCHange;
+    #endregion
     #region ShowInEditor
     [SerializeField] Rigidbody2D targetRB;
     [Header("Force Settings:")]
     [SerializeField] float upwardForce;
     [SerializeField] float maxUpwardVelocity;
+
     [Header("Fuel Settings")]
-    [SerializeField] float maxFuel;
-    [SerializeField] float depleteRate;
+    [SerializeField] int maxFuel;
+    [SerializeField] int depleteRate;
+
     [Header("Fuelregen Settings:")]
     [SerializeField] float regenDelay;
     [SerializeField] float regenInterval;
-    [SerializeField] float regenRate;
+    [SerializeField] int regenRate;
     #endregion
     #region HideInEditor
-    float fuelRegenDelayTimer;
-    float fuelRegenTimer;
-    bool cancelFuelRegen = false;
-    float fuel;
-    public float Fuel
+    private float fuelRegenDelayTimer;
+    private float fuelRegenTimer;
+    private Coroutine fuelRegenRoutine;
+    int fuel;
+    public int Fuel
     {
         get
         {
@@ -32,12 +40,16 @@ public class JetPack : MonoBehaviour
         {
             if (value < fuel)
             {
-                cancelFuelRegen = true;
+                if (fuelRegenRoutine != null)
+                {
+                    StopCoroutine(fuelRegenRoutine);
+                }
+                fuelRegenRoutine = StartCoroutine(FuelRegenRoutine());
             }
 
-            if (value > maxFuel)
+            if (value > MaxFuel)
             {
-                fuel = maxFuel;
+                fuel = MaxFuel;
             }
             else if (value < 0)
             {
@@ -47,6 +59,19 @@ public class JetPack : MonoBehaviour
             {
                 fuel = value;
             }
+            OnFuelChange?.Invoke(fuel);
+        }
+    }
+    public int MaxFuel
+    {
+        get
+        {
+            return maxFuel;
+        }
+        set
+        {
+            maxFuel = value;
+            OnMaxFuelCHange.Invoke(maxFuel);
         }
     }
     #endregion
@@ -54,21 +79,18 @@ public class JetPack : MonoBehaviour
     #region UnityFunctions
     private void Start()
     {
-        Fuel = maxFuel;
-    }
-    private void Update()
-    {
-        FuelRegen();
+        MaxFuel = MaxFuel;
+        Fuel = MaxFuel;
     }
     #endregion
     public void Use()
     {
-        if(fuel != 0)
+        if(Fuel > 0)
         {
             if (targetRB.velocity.y < maxUpwardVelocity)
             {
                 targetRB.AddForce(Vector2.up * upwardForce);
-                fuel -= depleteRate;
+                Fuel -= depleteRate;
             }
             else
             {
@@ -76,21 +98,14 @@ public class JetPack : MonoBehaviour
             }
         }
     }
-    //Rework needed
-    private void FuelRegen()
+
+    private IEnumerator FuelRegenRoutine()
     {
-        if (cancelFuelRegen)
+        yield return new WaitForSeconds(regenDelay);
+        while(Fuel < MaxFuel)
         {
-            cancelFuelRegen = false;
-            fuelRegenDelayTimer = Time.time;
-        }
-        else if (regenDelay + fuelRegenDelayTimer < Time.time)
-        {
-            if (fuelRegenTimer + regenInterval < Time.time)
-            {
-                Fuel += regenRate;
-                fuelRegenTimer = Time.time;
-            }
+            Fuel += regenRate;
+            yield return new WaitForSeconds(regenInterval);
         }
     }
 }

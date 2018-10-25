@@ -1,5 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!4 &6615417805566424445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2554940815676398442, guid: c02ad62403e6ceb48914486c1848c785, type: 3}
+  m_PrefabInstance: {fileID: 8699360545391603223}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7737432843488256495
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +99,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7737432843488256495}
   m_Enabled: 1
-  m_Density: 1
+  m_Density: 10
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -157,10 +162,10 @@ MonoBehaviour:
   targetRB: {fileID: 873296464828910030}
   upwardForce: 3750
   maxUpwardVelocity: 30
-  maxFuel: 150
-  depleteRate: 0.5
-  regenDelay: 2
-  regenInterval: 0.032
+  maxFuel: 300
+  depleteRate: 1
+  regenDelay: 0.1
+  regenInterval: 0.05
   regenRate: 1
 --- !u!114 &7123206984244372839
 MonoBehaviour:
@@ -174,12 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73f05dd2d362e44090aaf10d58fc133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7aec714d7d7fdbb43a929e1f04b0fb30, type: 2}
---- !u!4 &6615417805566424445 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2554940815676398442, guid: c02ad62403e6ceb48914486c1848c785, type: 3}
-  m_PrefabInstance: {fileID: 8699360545391603223}
-  m_PrefabAsset: {fileID: 0}
+  data: {fileID: 11400000, guid: 645b5b34e6378c84b855d86d59b389d0, type: 2}
 --- !u!1 &8219627001120652797
 GameObject:
   m_ObjectHideFlags: 0

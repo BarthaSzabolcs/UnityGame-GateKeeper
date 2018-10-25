@@ -10,7 +10,7 @@ public class SpawnManager_Szabolcs : MonoBehaviour
     [SerializeField] string spawnKey;
     #endregion
     #region HideInEditor
-    public SpawnManager_Szabolcs Instance { get; private set; }
+    public static SpawnManager_Szabolcs Instance { get; private set; }
     #endregion
 
     #region UnityFunctions

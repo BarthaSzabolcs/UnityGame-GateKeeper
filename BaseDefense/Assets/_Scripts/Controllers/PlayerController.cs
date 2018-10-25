@@ -9,21 +9,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
     [SerializeField] JetPack jetPack;
-    //[SerializeField] Animator animator;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
     SpriteRenderer sRenderer;
     Weapon weapon;
-    
     bool isGrounded;
     int jumpCounter = 0;
-
     float currentMaxSpeed;
     float currentMoveForce;
-
     float teleportTimer;
-
     [HideInInspector] public bool weaponIsAuto;
     [HideInInspector] public bool canAim = true;
     [HideInInspector] public Vector2 target;
@@ -59,8 +54,6 @@ public class PlayerController : MonoBehaviour
         Jump();
         JetPack();
         Teleport();
-        //animator.SetFloat("speed", Mathf.Abs(self.velocity.x));
-        //animator.SetBool("isGrounded", isGrounded);
     }
 
     void Grounded()
@@ -71,6 +64,7 @@ public class PlayerController : MonoBehaviour
         if (Physics2D.OverlapArea(pointA, pointB ,data.gripLayer))
         {
             isGrounded = true;
+            jumpCounter = 0;
         }
         else
         {
@@ -135,7 +129,6 @@ public class PlayerController : MonoBehaviour
             if (isGrounded)
             {
                 self.velocity = new Vector2(self.velocity.x, data.jumpForce);
-                jumpCounter = 0;
             }
             else if (jumpCounter < data.multiJumps)
             {
@@ -250,7 +243,7 @@ public class PlayerController : MonoBehaviour
     }
     void PickUpWeapon(WeaponData weaponData)
     {
-        weapon.PickUpWeapon(weaponData);
+        weapon.AddWeapon(weaponData);
     }
     #endregion
 }

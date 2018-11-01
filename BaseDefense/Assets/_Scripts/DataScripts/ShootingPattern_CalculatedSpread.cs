@@ -52,6 +52,6 @@ public class ShootingPattern_CalculatedSpread : ShootingPattern
         msg += "\nIndex: " + SpreadIndex;
         msg += "\nFloatIndex: "+ spreadFloatIndex;
         msg += "\nFPS: " + 1/ Time.smoothDeltaTime;
-        UserInterface.Instance.DebugLog(msg);
+        //UserInterface.Instance.DebugLog(msg);
     }
 }

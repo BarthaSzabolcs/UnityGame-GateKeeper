@@ -151,6 +151,7 @@ public class Health : MonoBehaviour
     {
         OnSelfDestruct?.Invoke(gameObject);
         Destroy(gameObject);
+        SpawnManager_B_Adam.enemiesAlive--;
     }
     #endregion
     #region HealthEffects

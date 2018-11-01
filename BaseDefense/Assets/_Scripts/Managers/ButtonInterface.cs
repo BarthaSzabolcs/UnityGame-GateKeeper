@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "GameManagerInterface", fileName = "GameManagerInterface")]
-public class GameManagerInterface : ScriptableObject
+[CreateAssetMenu(menuName = "ButtonInterface", fileName = "ButtonInterface")]
+public class ButtonInterface : ScriptableObject
 {
     public void ChangeScene(int index)
     {
@@ -21,5 +21,14 @@ public class GameManagerInterface : ScriptableObject
     public void ContinueGame()
     {
         GameManager.Instance.ContinueGame();
+    }
+
+    public void SellTrap()
+    {
+        GameManager.Instance.SellTrap();
+    }
+    public void BuyTrap()
+    { 
+        GameManager.Instance.BuyTrap();
     }
 }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Level 1.unity
     guid: 5046d93df03f7f344a220920a4f91674
+  - enabled: 1
+    path: Assets/_Scenes/OrcsMustDie_Plan.unity
+    guid: 88135ff78114bb34381436198f3fa3ee
   m_configObjects: {}

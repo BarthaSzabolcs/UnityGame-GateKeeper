@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59cb5686ea5a4554fa7206a049844854, type: 3}
-  m_Name: GameManagerInterface
+  m_Name: ButtonFunction_Interface
   m_EditorClassIdentifier: 

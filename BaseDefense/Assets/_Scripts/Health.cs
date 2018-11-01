@@ -91,7 +91,7 @@ public class Health : MonoBehaviour
     /// Triggers the green flash if it's enabled.
     /// </summary>
     /// <param name="heal"></param>
-    public virtual void GainHealth(int heal)
+    public void GainHealth(int heal)
 	{
 		HealthPoint += heal;
 		if (data.flashOnHealthChange && heal > 0 && flash == null )
@@ -103,6 +103,10 @@ public class Health : MonoBehaviour
 			HealthPoint = data.maxHealthPoints;
 		}
 	}
+    public void GainHealthOverTime(int heal, int times, float frequency)
+    {
+        StartCoroutine(HealOverTime(heal, times, frequency));
+    }
     /// <summary>
     /// Decreases the health by the damage, if it's drop to zero the component will die.
     /// Plays the hitsound.
@@ -125,6 +129,10 @@ public class Health : MonoBehaviour
             AudioManager.Instance.PlaySound(data.hitAudio);
         }
         HealthPoint -= damage;
+    }
+    public void TakeDamgeOverTime(int damage, int times, float frequency)
+    {
+        StartCoroutine(DamageOverTime(damage, times, frequency));
     }
     /// <summary>
     /// Kills the component with sound and effects.
@@ -153,7 +161,23 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
     #endregion
-    #region HealthEffects
+    #region Routines
+    private IEnumerator DamageOverTime(int damage, int times, float frequency)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            yield return new WaitForSeconds(frequency);
+            TakeDamage(damage);
+        }
+    }
+    private IEnumerator HealOverTime(int heal, int times, float frequency)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            yield return new WaitForSeconds(frequency);
+            GainHealth(heal);
+        }
+    }
     private IEnumerator FlashRed()
 	{
 		flashProgress = 1;

@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4b0cf18595be14c94b65d137aaf828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crosshairImage: {fileID: 2800000, guid: 20d5121af46aaf84d9da046f2d5859ab, type: 3}
+  crosshairImage: {fileID: 2800000, guid: d3bdd078fc5b0a049b1a695d7365c89f, type: 3}
   playerWeapon_name: Weapon
   weaponImage_name: CurrentWeapon
   currentAmmo_name: AmmoInMag
@@ -57,4 +57,13 @@ MonoBehaviour:
   fuelbar_name: FuelBarCurrent_Image
   fuel_name: CurrentFuel_Text
   maxfuel_name: MaxFuel_Text
+  clickLayer:
+    serializedVersion: 2
+    m_Bits: 32768
+  trapMenu_name: UI_TrapMenu
+  trapName_name: TrapName_Text
+  trapImage_name: TrapImageFG_Image
+  trapLevel_name: TrapLevel_Text
+  trapLevelUp_name: TrapLevelUp_Button
+  trapLevelDown_name: TrapLevelDown_Buton
   debug_name: Debug_Text

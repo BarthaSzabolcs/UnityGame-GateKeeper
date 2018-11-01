@@ -11,9 +11,13 @@ public class GameManager : MonoBehaviour
     /// Triggered just before the scene change.
     /// </summary>
     public event SceneChange OnSceneChange;
+
+    public delegate void BuildMode(bool state);
+    public event BuildMode OnBuildModeStateChange;
     #endregion
     #region Fields
     private GameObject player;
+    private bool inBuildMode;
     #endregion
     #region Properties
     public static GameManager Instance { get; private set; }
@@ -30,6 +34,21 @@ public class GameManager : MonoBehaviour
                 }
             }
             return player;
+        }
+    }
+    public bool InBuildMode
+    {
+        get
+        {
+            return inBuildMode;
+        }
+        set
+        {
+            if (value != inBuildMode)
+            {
+                OnBuildModeStateChange?.Invoke(value);
+            }
+            inBuildMode = value;
         }
     }
     public int Money { get; set; }
@@ -89,6 +108,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale = timeScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
     }
+
+
+    #region Shop Functions
+    public void BuyTrap()
+    {
+        Money += UserInterface.Instance.CurrentTrap.Data.price;
+        Money += UserInterface.Instance.SelectedTrapInShop.price;
+        UserInterface.Instance.CurrentTrap.Data = UserInterface.Instance.SelectedTrapInShop;
+    }
+    public void SellTrap()
+    {
+        Money += UserInterface.Instance.CurrentTrap.Data.price;
+        UserInterface.Instance.CurrentTrap.Data = null;
+    }
+    #endregion
 
     private void HandlePlayerDeath(GameObject sender)
     {

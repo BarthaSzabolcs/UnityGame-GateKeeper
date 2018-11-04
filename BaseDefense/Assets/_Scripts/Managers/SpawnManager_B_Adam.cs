@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,13 +14,15 @@ public class SpawnManager_B_Adam : MonoBehaviour
     // This pops up after each wave.
     public GameObject FinishText;
 
-    public static int enemiesAlive = 0;
+    //public static int enemiesAlive = 0;
 
     private int numberOfAis;
     private bool readyToStart;
     private bool JButtonWasPressed;
+    private bool spawning = false;
     private int currentWave;
     private int enemyPerWave = 10;
+    private string name;
     private List<GameObject> Wave = new List<GameObject>();
 
     // Initialize Random
@@ -30,33 +33,28 @@ public class SpawnManager_B_Adam : MonoBehaviour
     void Start()
     {
         numberOfAis = AisToSpawn.Length;
+
         readyToStart = true;
-        JButtonWasPressed = false;
         currentWave = 0;
-        BuildFixWaves(AisToSpawn);   
+
+        name = AisToSpawn[0].name;
+
+        BuildFixWaves(AisToSpawn);       
     }
 
     // Update
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (!EnemyIsStillOnMap())
         {
-            JButtonWasPressed = true;
-            FinishText.SetActive(false);
+            FinishText.SetActive(true);
         }
-
-        if (readyToStart && JButtonWasPressed)
+        if (readyToStart && Input.GetKeyDown(KeyCode.J) && !spawning && !EnemyIsStillOnMap())
         {
+            FinishText.SetActive(false);
             StartCoroutine(CallNextWave());
-            JButtonWasPressed = false;
             UnityEngine.Debug.Log("Next wave!");
         }
-
-        if (enemiesAlive == 0 && !readyToStart)
-        {
-            readyToStart = true;
-        }
-        
     }
 
     // Calling next wave.
@@ -75,10 +73,21 @@ public class SpawnManager_B_Adam : MonoBehaviour
 
             SpawnEnemy(i);
 
+            if (i == (currentWave*10 + 10) -1)
+            {
+                spawning = false;
+            }else
+            {
+                spawning = true;
+            }
+            
+
             yield return new WaitForSeconds(2.0f);
         }
+
         currentWave += 1;
-        FinishText.SetActive(true);
+        
+        readyToStart = true;
     }
 
     // Instantiate each enemy at a random spawnpoint.
@@ -87,6 +96,7 @@ public class SpawnManager_B_Adam : MonoBehaviour
         int randomNumber = random.Next(0, SpawnPoints.Length);
         Vector3 spawnPosition = SpawnPoints[randomNumber].transform.position;
         Instantiate(Wave[currentEnemy], spawnPosition, Wave[currentEnemy].transform.rotation);
+        //CountEnemies(Wave[currentEnemy]);
     }
 
     // Build fixed waves.
@@ -147,5 +157,33 @@ public class SpawnManager_B_Adam : MonoBehaviour
         Wave.Add(AisToSpawn[3]);
         Wave.Add(AisToSpawn[2]);
         Wave.Add(AisToSpawn[3]);
+    }
+
+    //public void CountEnemies(GameObject currentEnemy)
+    //{
+    //    currentEnemy.GetComponent<Health>().OnDeath += HandleEnemyDeath;
+    //    currentEnemy.GetComponent<Health>().OnMaxHealthCHange += HandleEnemyBirth;
+    //}
+
+    //private void HandleEnemyBirth(int newHealth)
+    //{
+    //    enemiesAlive += 1;
+    //}
+
+    //private void HandleEnemyDeath(GameObject sender)
+    //{
+    //    enemiesAlive -= 1;
+    //}
+
+    private bool EnemyIsStillOnMap()
+    {
+        GameObject enemy = GameObject.Find(name + "(Clone)");
+        if (enemy == null)
+        {
+            
+            return false;
+        }
+        else
+            return true;
     }
 }

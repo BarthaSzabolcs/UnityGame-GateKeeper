@@ -19,8 +19,6 @@ public class AI_StupidController : MonoBehaviour
         self = GetComponent<Rigidbody2D>();
         sign = Mathf.Sign(transform.position.x);
 
-        // Tells the SpawnManager if it is alive
-        SpawnManager_B_Adam.enemiesAlive++;
     }
     private void Update()
     {

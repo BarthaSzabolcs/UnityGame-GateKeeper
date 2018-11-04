@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -214,6 +215,7 @@ public class UserInterface : MonoBehaviour
         trapLevelDown_Button = GameObject.Find(trapLevelDown_name).GetComponent<Button>();
 
         trapMenu_Canvas.enabled = false;
+        GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
 
         reloadtime_Text.enabled = false;
         reloadWheelCurrent_Image.enabled = false;
@@ -243,6 +245,7 @@ public class UserInterface : MonoBehaviour
 
         ChangeCursorToCrossHair();
     }
+
     //Cursor
     public void ChangeCursorToCrossHair()
     {
@@ -315,6 +318,13 @@ public class UserInterface : MonoBehaviour
         debugText.text = text;
     }
     //BuildMode
+    private void HandleBuildModeChange(bool state)
+    {
+        if (state == false)
+        {
+            CloseTrapMenu();
+        }
+    }
     private void TrapClick()
     {
         if (GameManager.Instance.InBuildMode && Input.GetMouseButtonDown(0))
@@ -335,6 +345,10 @@ public class UserInterface : MonoBehaviour
         trapMenu_Canvas.enabled = true;
         trapName_Text.text = trap.Data.shopName;
         trap_Image.sprite = trap.Data.shopImage;
+    }
+    private void CloseTrapMenu()
+    {
+        trapMenu_Canvas.enabled = false;
     }
     #endregion
 }

@@ -20,8 +20,7 @@ public class PlayerController : MonoBehaviour
     float currentMoveForce;
     float teleportTimer;
     [HideInInspector] public bool weaponIsAuto;
-    [HideInInspector] public bool canAim = true;
-    [HideInInspector] public Vector2 target;
+    Vector2 target;
     #endregion
 
     #region UnityFunctions
@@ -33,8 +32,12 @@ public class PlayerController : MonoBehaviour
     }
 	void Update ()
     {
-        Move();
-        WeaponHandling();
+        if (GameManager.Instance.InBuildMode == false)
+        {
+            Move();
+            WeaponHandling();
+        }
+        OtherInput();
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -184,11 +187,8 @@ public class PlayerController : MonoBehaviour
     }
     void AimWeapon()
     {
-        if (canAim)
-        {
-            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            weaponTransform.right = target - (Vector2)weaponTransform.position;
-        }
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        weaponTransform.right = target - (Vector2)weaponTransform.position;
     }
     void Attack()
     {
@@ -244,6 +244,23 @@ public class PlayerController : MonoBehaviour
     void PickUpWeapon(WeaponData weaponData)
     {
         weapon.AddWeapon(weaponData);
+    }
+    #endregion
+    #region Other Functions
+    void OtherInput()
+    {
+        BuildMode();
+    }
+    void BuildMode()
+    {
+        if (Input.GetButtonDown("BuildMode"))
+        {
+            GameManager.Instance.InBuildMode = true;
+        }
+        else if (Input.GetButtonUp("BuildMode"))
+        {
+            GameManager.Instance.InBuildMode = false;
+        }
     }
     #endregion
 }

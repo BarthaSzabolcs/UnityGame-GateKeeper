@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,49 +11,78 @@ public class UserInterface : MonoBehaviour
     [SerializeField] Texture2D crosshairImage;
 
     [Header("Weapon:")]
-    [SerializeField] public string playerWeapon_name;
-    [SerializeField] public string weaponImage_name;
-    [SerializeField] public string currentAmmo_name;
-    [SerializeField] public string extraAmmo_name;
+    [SerializeField] string playerWeapon_name;
+    [SerializeField] string weaponImage_name;
+    [SerializeField] string currentAmmo_name;
+    [SerializeField] string extraAmmo_name;
 
     [Header("Reload:")]
-    [SerializeField] public string reloadtime_name;
-    [SerializeField] public string reloadWheelCurrent_name;
-    [SerializeField] public string reloadwheelBG_name;
+    [SerializeField] string reloadtime_name;
+    [SerializeField] string reloadWheelCurrent_name;
+    [SerializeField] string reloadwheelBG_name;
 
     [Header("Health:")]
-    [SerializeField] public string healthbar_name;
-    [SerializeField] public string health_name;
-    [SerializeField] public string maxhealth_name;
+    [SerializeField] string healthbar_name;
+    [SerializeField] string health_name;
+    [SerializeField] string maxhealth_name;
          
     [Header("JetPack:")]
-    [SerializeField] public string fuelbar_name;
-    [SerializeField] public string fuel_name;
-    [SerializeField] public string maxfuel_name;
+    [SerializeField]string fuelbar_name;
+    [SerializeField]string fuel_name;
+    [SerializeField]string maxfuel_name;
+
+    [Header("BuildMode:")]
+    public LayerMask clickLayer;
+
+    [Header("Trap")]
+    [SerializeField] string trapMenu_name;
+    [SerializeField] string trapName_name;
+    [SerializeField] string trapImage_name;
+    [SerializeField] string trapLevel_name;
+    [SerializeField] string trapLevelUp_name;
+    [SerializeField] string trapLevelDown_name;
 
     [Header("Debug:")]
     [SerializeField] public string debug_name;
     #endregion
     #region HideInEditor
+    //Camera
+    Camera mainCamera;
+
     //Ammo
     Image weaponImage_Image;
     Text ammo_Text;
     Text extraAmmo_Text;
+
     //ReloadWheel
     Text reloadtime_Text;
     Image reloadWheelCurrent_Image;
     Image reloadWheelBackGround_Image;
+
     //Health
     Image healthBar_Image;
     Text health_Text;
     Text maxHealth_Text;
+
     //Fuel
     Image fuelBar_Image;
     Text fuel_Text;
     Text maxFuel_Text;
+
+    //Trap
+    public Trap CurrentTrap { get; private set; }
+    public TrapData SelectedTrapInShop { get; private set; }
+    Canvas trapMenu_Canvas;
+    Text trapName_Text;
+    Image trap_Image;
+    Text trapLevel_Text;
+    Button trapLevelUp_Button;
+    Button trapLevelDown_Button;
+
     //Debug
     Text debugText;
     public static UserInterface Instance { get; private set; }
+
     //Health
     private int currentHealth;
     int maxHealth;
@@ -93,11 +123,12 @@ public class UserInterface : MonoBehaviour
             healthBar_Image.fillAmount = HealthPercent;
         }
     }
+
     //Fuel
     private int currentFuel;
     private int maxFuel;
     private float fuelPercent;
-    public int CurrentFuel
+    private int CurrentFuel
     {
         get
         {
@@ -109,7 +140,7 @@ public class UserInterface : MonoBehaviour
             FuelPercent = (float)currentFuel / MaxFuel;
         }
     }
-    public int MaxFuel
+    private int MaxFuel
     {
         get
         {
@@ -121,7 +152,7 @@ public class UserInterface : MonoBehaviour
             FuelPercent = (float)CurrentFuel / maxFuel;
         }
     }
-    public float FuelPercent
+    private float FuelPercent
     {
         get
         {
@@ -148,10 +179,16 @@ public class UserInterface : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void Update()
+    {
+        TrapClick();
+    }
     #endregion
     #region CustomFunctions
     public void InitializeLevelUI()
     {
+        mainCamera = Camera.main;
+
         weaponImage_Image = GameObject.Find(weaponImage_name).GetComponent<Image>();
         ammo_Text = GameObject.Find(currentAmmo_name).GetComponent<Text>();
         extraAmmo_Text = GameObject.Find(extraAmmo_name).GetComponent<Text>();
@@ -169,6 +206,16 @@ public class UserInterface : MonoBehaviour
         maxFuel_Text = GameObject.Find(maxfuel_name).GetComponent<Text>();
         
         debugText = GameObject.Find(debug_name).GetComponent<Text>();
+
+        trapMenu_Canvas = GameObject.Find(trapMenu_name).GetComponent<Canvas>();
+        trapName_Text = GameObject.Find(trapName_name).GetComponent<Text>();
+        trap_Image = GameObject.Find(trapImage_name).GetComponent<Image>();
+        trapLevel_Text = GameObject.Find(trapLevel_name).GetComponent<Text>();
+        trapLevelUp_Button = GameObject.Find(trapLevelUp_name).GetComponent<Button>();
+        trapLevelDown_Button = GameObject.Find(trapLevelDown_name).GetComponent<Button>();
+
+        trapMenu_Canvas.enabled = false;
+        GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
 
         reloadtime_Text.enabled = false;
         reloadWheelCurrent_Image.enabled = false;
@@ -198,6 +245,7 @@ public class UserInterface : MonoBehaviour
 
         ChangeCursorToCrossHair();
     }
+
     //Cursor
     public void ChangeCursorToCrossHair()
     {
@@ -268,6 +316,43 @@ public class UserInterface : MonoBehaviour
     public void DebugLog(string text)
     {
         debugText.text = text;
+    }
+    //BuildMode
+    public void InitializeTrapMenu()
+    {
+        trapMenu_Canvas.enabled = true;
+        trapName_Text.text = CurrentTrap.Data.shopName;
+        trap_Image.sprite = CurrentTrap.Data.shopImage;
+    }
+    private void HandleBuildModeChange(bool state)
+    {
+        if (state == false)
+        {
+            CloseTrapMenu();
+        }
+    }
+    private void TrapClick()
+    {
+        if (GameManager.Instance.InBuildMode && Input.GetMouseButtonDown(0))
+        {
+            Ray ray = mainCamera.ViewportPointToRay(mainCamera.ScreenToViewportPoint(Input.mousePosition));
+
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 30f,clickLayer);
+
+            if (hit.collider != null)
+            {
+                OpenTrapMenu(hit.collider.gameObject.GetComponent<Trap>());
+            }
+        }
+    }
+    private void OpenTrapMenu(Trap trap)
+    {
+        CurrentTrap = trap;
+        InitializeTrapMenu();
+    }
+    private void CloseTrapMenu()
+    {
+        trapMenu_Canvas.enabled = false;
     }
     #endregion
 }

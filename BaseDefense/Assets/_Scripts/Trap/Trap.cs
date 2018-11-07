@@ -57,6 +57,10 @@ public class Trap : MonoBehaviour
         }
         StartCoroutine(RecoverRoutine());
     }
+    private void OnDisable()
+    {
+        GameManager.Instance.OnBuildModeStateChange -= HandleBuildModeStateChanged;
+    }
     #endregion
     private void HandleBuildModeStateChanged(bool inBuildMode)
     {

@@ -15,7 +15,6 @@ public class WeaponData : ScriptableObject
     public Vector2 leftHandPosition;
 
     [Header("Shooting Settings:")]
-    [SerializeField] GameObject bullet;
     public BulletData bulletData;
     [SerializeField] ShootingPattern pattern;
     [SerializeField] float timeBetweenShots;
@@ -85,7 +84,7 @@ public class WeaponData : ScriptableObject
             {
                 weapon.MuzleFlash();
             }
-            patternInstance.Shoot(bullet, bulletData, self.transform, barrelOffSet);
+            patternInstance.Shoot(bulletData, self.transform, barrelOffSet);
             fireRateTimer = Time.time;
             AmmoInMag--;
         }

@@ -28,7 +28,6 @@ public class BulletData : ScriptableObject
     public string bulletFiredAudio;
     public string impactAudio;
     public ExplosionData explosionData;
-    public GameObject explosionObject;
 
     [Header("Homing Settings:")]
     public bool isHoming;

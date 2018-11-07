@@ -10,8 +10,8 @@ public class ShootingPattern_RandomSpread : ShootingPattern
     [SerializeField] int bulletCount;
     [SerializeField] float angle;
 
-    public override void Shoot(GameObject bullet, BulletData bulletData, Transform self, Vector2 barrelOffSet)
-    {
+    public override void Shoot(BulletData bulletData, Transform self, Vector2 barrelOffSet)
+	{
         int splits = bulletCount - 1;
         if(splits == 0)
         {
@@ -20,7 +20,7 @@ public class ShootingPattern_RandomSpread : ShootingPattern
             {
                 rotation = Quaternion.Euler(0, 0, Random.Range(-randomSpreadLimit, randomSpreadLimit));
             }
-            ShootBullet(bullet, bulletData, self, barrelOffSet, rotation);
+            ShootBullet(bulletData, self, barrelOffSet, rotation);
         }
         else
         {
@@ -33,7 +33,7 @@ public class ShootingPattern_RandomSpread : ShootingPattern
                 }
 
                 rotation *= Quaternion.Euler(0, 0, i * angle / splits - angle * 0.5f);
-                ShootBullet(bullet, bulletData, self, barrelOffSet, rotation);
+                ShootBullet(bulletData, self, barrelOffSet, rotation);
             }
         }
         

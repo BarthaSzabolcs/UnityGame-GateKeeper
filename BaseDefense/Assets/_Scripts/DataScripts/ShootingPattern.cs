@@ -4,13 +4,17 @@ using UnityEngine;
 
 public abstract class ShootingPattern : ScriptableObject
 {
-    public abstract void Shoot(GameObject bullet, BulletData bulletData,Transform self, Vector2 barrelOffSet);
-    protected void ShootBullet(GameObject bullet, BulletData bulletData, Transform self, Vector2 barrelOffSet, Quaternion rotation)
-    {
+    public abstract void Shoot(BulletData bulletData, Transform self, Vector2 barrelOffSet);
+    protected void ShootBullet(BulletData bulletData, Transform self, Vector2 barrelOffSet, Quaternion rotation)
+	{
         Vector2 calculatedPosition = self.TransformVector(barrelOffSet) + self.position;
 
-        var bulletInstance = Instantiate(bullet, calculatedPosition, Quaternion.identity);
+
+		//var bulletInstance = Instantiate(bullet, calculatedPosition, Quaternion.identity);
+		GameObject bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(calculatedPosition);	
         bulletInstance.transform.up = rotation * self.right;
-        bulletInstance.GetComponent<Bullet>().data = bulletData;
-    }
+		var bulletComponent = bulletInstance.GetComponent<Bullet>();
+		bulletComponent.data = bulletData;
+		bulletComponent.Initialize();
+	}
 }

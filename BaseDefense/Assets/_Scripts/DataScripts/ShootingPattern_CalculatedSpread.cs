@@ -36,13 +36,13 @@ public class ShootingPattern_CalculatedSpread : ShootingPattern
     {
         this.weaponFireRate = timeBetweenShots;
     }
-    public override void Shoot(GameObject bullet, BulletData bulletData, Transform self, Vector2 barrelOffSet)
-    {
+    public override void Shoot(BulletData bulletData, Transform self, Vector2 barrelOffSet)
+	{
         float timeBetweenShots = Time.time - previousShot;
         float diff = timeBetweenShots - weaponFireRate - recoilDuration;
         spreadFloatIndex -= diff;
         Quaternion rotation = Quaternion.Euler(0, 0, angles[SpreadIndex]);
-        ShootBullet(bullet, bulletData, self, barrelOffSet, rotation);
+        ShootBullet(bulletData, self, barrelOffSet, rotation);
 
         previousShot = Time.time;
 

@@ -9,32 +9,54 @@ public class Explosion : MonoBehaviour
     SpriteRenderer sRenderer;
     #endregion
 
-    private void Start()
+    public void Initialize()
 	{
 		StartCoroutine(PlayAnimation());
 	}
 	IEnumerator PlayAnimation()
 	{
-        if (data.isExplosive)
+		CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
+		PointEffector2D pointEffector = GetComponent<PointEffector2D>();
+		if (data.isExplosive)
         {
-            var circleCollider = gameObject.AddComponent<CircleCollider2D>();
-            circleCollider.radius = data.explosionRange;
+			if (circleCollider == null)
+			{
+				circleCollider = gameObject.AddComponent<CircleCollider2D>();
+			}
+			circleCollider.enabled = true;
+	        circleCollider.radius = data.explosionRange;
             circleCollider.isTrigger = true;
             circleCollider.usedByEffector = true;
 
-            var pointEffector = gameObject.AddComponent<PointEffector2D>();
+			if (pointEffector == null)
+			{
+				pointEffector = gameObject.AddComponent<PointEffector2D>();
+			}
+			pointEffector.enabled = true;
             pointEffector.useColliderMask = true;
             pointEffector.colliderMask = data.explosionMask;
             pointEffector.forceMagnitude = data.explosionMagnitude;
             pointEffector.forceSource = EffectorSelection2D.Collider;
             pointEffector.forceMode = data.explosionForceMode;
         }
+		else
+		{
+			if(circleCollider != null)
+			{
+				circleCollider.enabled = false;
+			}
+			if (pointEffector != null)
+			{
+				pointEffector.enabled = false;
+			}
+		}
         sRenderer = GetComponent<SpriteRenderer>();
 		for (int i = 0; i < data.animationFrames.Length; i++)
 		{
 			sRenderer.sprite = data.animationFrames[i];
             yield return new WaitForEndOfFrame();
 		}
-		Destroy(gameObject);
+		sRenderer.sprite = null;
+		ObjectPool_Manager.Instance.PoolExplosion(gameObject);
 	}
 }

@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     #endregion
 
     #region UnityFunctions
-    void Start()
+    public void Initialize()
     {
         gameObject.layer = data.layer;
         var renderer = GetComponent<SpriteRenderer>();
@@ -34,7 +34,6 @@ public class Bullet : MonoBehaviour
             if (data.explodeAfterLifeTime)
             {
                 component.explosionAudio = data.impactAudio;
-                component.explosionObject = data.explosionObject;
                 component.explosionData = data.explosionData;
             }
         }
@@ -89,11 +88,14 @@ public class Bullet : MonoBehaviour
     void Explode()
     {
         AudioManager.Instance.PlaySound(data.impactAudio);
-        if (data.explosionObject != null && data.explosionData != null)
+        if (data.explosionData != null)
         {
-            var explosion = Instantiate(data.explosionObject, transform.position, Quaternion.identity);
-            explosion.GetComponent<Explosion>().data = data.explosionData;
-        }
-        Destroy(gameObject);
+           
+			GameObject explosionInstance = ObjectPool_Manager.Instance.SpawnExplosion(transform.position);
+			var explosionComponent = explosionInstance.GetComponent<Explosion>();
+			explosionComponent.data = data.explosionData;
+			explosionComponent.Initialize();
+		}
+        ObjectPool_Manager.Instance.PoolBullet(gameObject);
     }
 }

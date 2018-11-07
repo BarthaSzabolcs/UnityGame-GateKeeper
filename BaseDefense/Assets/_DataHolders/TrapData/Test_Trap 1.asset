@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
   m_Name: Test_Trap 1
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300000, guid: be40868840b05984082ff1611ae44b48, type: 3}
+  shopImage: {fileID: 21300000, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
   shopName: Clap Trap
-  price: 500
+  price: 300
   taggedToDamage:
   - Player
   damage: 10
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
   recoverSpeed: 2
-  sprite: {fileID: 21300000, guid: be40868840b05984082ff1611ae44b48, type: 3}
-  buildModeSprite: {fileID: 21300004, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
+  sprite: {fileID: 21300000, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
+  buildModeSprite: {fileID: 21300004, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
   recoverAudio: 
   triggerAudio: 

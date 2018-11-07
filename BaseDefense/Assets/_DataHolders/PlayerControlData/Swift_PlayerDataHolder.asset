@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5075162f8a2b7d46bc23c83a93e017d, type: 3}
-  m_Name: Swift
+  m_Name: Swift_PlayerDataHolder
   m_EditorClassIdentifier: 
   gripWidth: 0.5
   gripLayer:
     serializedVersion: 2
-    m_Bits: 17664
+    m_Bits: 50432
   moveForce: 3000
   baseMaxSpeed: 30
   altMaxSpeed: 20
@@ -27,5 +27,5 @@ MonoBehaviour:
   teleportCoolDown: 0.5
   teleportMask:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 50432
   loseVelocityOnTeleport: 0

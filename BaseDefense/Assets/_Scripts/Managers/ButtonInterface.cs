@@ -27,8 +27,8 @@ public class ButtonInterface : ScriptableObject
     {
         GameManager.Instance.SellTrap();
     }
-    public void BuyTrap()
+    public void BuyTrap(TrapData newData)
     { 
-        GameManager.Instance.BuyTrap();
+        GameManager.Instance.BuyTrap(newData);
     }
 }

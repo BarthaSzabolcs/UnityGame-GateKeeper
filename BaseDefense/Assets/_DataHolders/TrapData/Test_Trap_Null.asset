@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
-  m_Name: Test_Trap 2
+  m_Name: Test_Trap_Null
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300002, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
-  shopName: Spikes
-  price: 500
-  taggedToDamage:
-  - Player
-  damage: 1
+  shopImage: {fileID: 0}
+  shopName: No Trap
+  price: 0
+  taggedToDamage: []
+  damage: 0
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
-  recoverSpeed: 0.1
-  sprite: {fileID: 21300002, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
+  recoverSpeed: 0
+  sprite: {fileID: 0}
   buildModeSprite: {fileID: 21300004, guid: 0351529e218c64544b162b6424ea55a1, type: 3}
   recoverAudio: 
   triggerAudio: 

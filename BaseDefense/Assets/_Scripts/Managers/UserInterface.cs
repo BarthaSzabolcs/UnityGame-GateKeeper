@@ -318,6 +318,12 @@ public class UserInterface : MonoBehaviour
         debugText.text = text;
     }
     //BuildMode
+    public void InitializeTrapMenu()
+    {
+        trapMenu_Canvas.enabled = true;
+        trapName_Text.text = CurrentTrap.Data.shopName;
+        trap_Image.sprite = CurrentTrap.Data.shopImage;
+    }
     private void HandleBuildModeChange(bool state)
     {
         if (state == false)
@@ -342,9 +348,7 @@ public class UserInterface : MonoBehaviour
     private void OpenTrapMenu(Trap trap)
     {
         CurrentTrap = trap;
-        trapMenu_Canvas.enabled = true;
-        trapName_Text.text = trap.Data.shopName;
-        trap_Image.sprite = trap.Data.shopImage;
+        InitializeTrapMenu();
     }
     private void CloseTrapMenu()
     {

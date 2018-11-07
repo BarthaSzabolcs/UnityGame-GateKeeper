@@ -6,6 +6,7 @@ public class Trap : MonoBehaviour
 {
     #region ShowInEditor
     [SerializeField] private TrapData data;
+    [SerializeField] private TrapData nullData;
     #endregion
     #region HideInEditor
     public TrapData Data
@@ -16,18 +17,17 @@ public class Trap : MonoBehaviour
         }
         set
         {
-            if(value != null)
+            if(value == null)
             {
-                triggerZone.size = value.triggerZoneSize;
-                triggerZone.offset = value.triggerZoneOffset;
-                spriteRenderer.sprite = GameManager.Instance.InBuildMode ? value.sprite : value.buildModeSprite;
+               data = nullData;
             }
             else
             {
-                triggerZone.enabled = false;
-                spriteRenderer.sprite = null;
+                data = value;
             }
-            data = value;
+            triggerZone.size = data.triggerZoneSize;
+            triggerZone.offset = data.triggerZoneOffset;
+            spriteRenderer.sprite = GameManager.Instance.InBuildMode ? data.buildModeSprite : data.sprite;   
         }
     }
     BoxCollider2D triggerZone;

@@ -12,15 +12,23 @@ public class SelfDestruct : MonoBehaviour
     public GameObject explosionObject;
     public ExplosionData explosionData;
 
-    private void Start()
+    private Coroutine selfDestructRoutine;
+
+    public void StartSelfDestruct()
     {
-        StartCoroutine(SelfDesruct());
+        selfDestructRoutine = StartCoroutine(SelfDesruct());
+    }
+    public void StopSelfDestruct()
+    {
+        if(selfDestructRoutine != null)
+        {
+            StopCoroutine(selfDestructRoutine);
+        }
     }
     IEnumerator SelfDesruct()
     {
         yield return new WaitForSeconds(lifeTime);
         Explode();
-        Destroy(gameObject);
     }
     void Explode()
     {
@@ -30,6 +38,6 @@ public class SelfDestruct : MonoBehaviour
             var explosion = Instantiate(explosionObject, transform.position, Quaternion.identity);
             explosion.GetComponent<Explosion>().data = explosionData;
         }
-        Destroy(gameObject);
+        ObjectPool_Manager.Instance.PoolBullet(gameObject);
     }
 }

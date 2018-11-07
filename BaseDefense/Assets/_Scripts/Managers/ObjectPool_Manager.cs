@@ -30,6 +30,11 @@ public class ObjectPool_Manager : MonoBehaviour
     
     #endregion
     #region CustomFunctions
+    public void InitializeLevel()
+    {
+        bulletPool.Clear();
+        explosionPool.Clear();
+    }
     public void PoolBullet(GameObject bullet)
 	{
 		bullet.SetActive(false);

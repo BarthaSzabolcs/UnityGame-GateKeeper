@@ -93,6 +93,7 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Health>().OnDeath += HandlePlayerDeath;
         }
         UserInterface.Instance.InitializeLevelUI();
+        ObjectPool_Manager.Instance.InitializeLevel();
     }
 
     public void PauseGame()

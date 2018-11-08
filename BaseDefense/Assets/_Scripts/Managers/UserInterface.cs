@@ -210,9 +210,9 @@ public class UserInterface : MonoBehaviour
         trapMenu_Canvas = GameObject.Find(trapMenu_name).GetComponent<Canvas>();
         trapName_Text = GameObject.Find(trapName_name).GetComponent<Text>();
         trap_Image = GameObject.Find(trapImage_name).GetComponent<Image>();
-        trapLevel_Text = GameObject.Find(trapLevel_name).GetComponent<Text>();
-        trapLevelUp_Button = GameObject.Find(trapLevelUp_name).GetComponent<Button>();
-        trapLevelDown_Button = GameObject.Find(trapLevelDown_name).GetComponent<Button>();
+        //trapLevel_Text = GameObject.Find(trapLevel_name).GetComponent<Text>();
+        //trapLevelUp_Button = GameObject.Find(trapLevelUp_name).GetComponent<Button>();
+        //trapLevelDown_Button = GameObject.Find(trapLevelDown_name).GetComponent<Button>();
 
         trapMenu_Canvas.enabled = false;
         GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;

@@ -53,9 +53,9 @@ public class Trap : MonoBehaviour
             if(tag == col.tag)
             {
                 col.gameObject.GetComponent<Health>().TakeDamage(Data.damage);
+                StartCoroutine(RecoverRoutine());
             }
         }
-        StartCoroutine(RecoverRoutine());
     }
     private void OnDisable()
     {

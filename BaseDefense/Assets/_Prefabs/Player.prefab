@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRB: {fileID: 873296464828910030}
-  upwardForce: 3750
-  maxUpwardVelocity: 30
+  upwardForce: 4000
+  maxUpwardVelocity: 20
   maxFuel: 300
   depleteRate: 1
   regenDelay: 0.1

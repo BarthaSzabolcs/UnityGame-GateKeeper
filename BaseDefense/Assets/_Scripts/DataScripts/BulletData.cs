@@ -39,9 +39,11 @@ public class BulletData : ScriptableObject
 
     [Header("Homing Settings:")]
     public bool isHoming;
+    public LayerMask targetMask;
     public string[] taggedToTarget;
     public float targetingRadius;
     public float homingRefreshRate;
+    public float targetingRefreshRate;
     public float maxRotationPerCycle;
 
     [Header("AoE Settings:")]

@@ -16,16 +16,15 @@ MonoBehaviour:
   - Enemy
   taggedToDestroy:
   - Wall
-  - Enemy
   - DroppedWeapon
   - Base
   taggedToDestroyWithoutEffects: []
   damage: 7
   baseLayer: 13
   taggedToPenetrate:
-  - 
-  penetrationNumber: 0
-  penetrationTime: 0
+  - Enemy
+  penetrationNumber: 2
+  penetrationTime: 0.05
   penetrationLayer: 14
   speed: 85
   mass: 1
@@ -41,10 +40,14 @@ MonoBehaviour:
   impactAudio: BulletImpact
   explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
   isHoming: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
   taggedToTarget:
   - Enemy
   targetingRadius: 10
   homingRefreshRate: 0.1
+  targetingRefreshRate: 0
   maxRotationPerCycle: 15
   isAoE: 0
   aoeLayerMask:

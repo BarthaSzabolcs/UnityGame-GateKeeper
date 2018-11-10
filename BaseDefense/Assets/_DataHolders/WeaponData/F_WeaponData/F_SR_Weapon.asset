@@ -34,7 +34,7 @@ MonoBehaviour:
   fireRateDecreaseTime: 0
   isAuto: 0
   extraAmmo: 99999
-  ammoConsumption: 3
+  ammoConsumption: 1
   magSize: 3
   reloadAmmount: 1
   reloadTime: 0.1

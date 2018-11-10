@@ -16,6 +16,9 @@ public class Bullet : MonoBehaviour
     #region UnityFunctions
     public void Initialize()
     {
+        // Reset Counters
+        penetrationCounter = 0;
+
         gameObject.layer = data.baseLayer;
 
         var renderer = GetComponent<SpriteRenderer>();
@@ -71,18 +74,21 @@ public class Bullet : MonoBehaviour
             {
                 homingBehaviour = gameObject.AddComponent<HomingBehavior>();
             }
+            homingBehaviour.targetMask = data.targetMask;
             homingBehaviour.taggedToTarget = data.taggedToTarget;
             homingBehaviour.targetingRadius = data.targetingRadius;
+            homingBehaviour.targetingRefreshRate = data.targetingRefreshRate;
             homingBehaviour.homingRefreshRate = data.homingRefreshRate;
             homingBehaviour.speed = data.speed;
             homingBehaviour.maxRotationPerCycle = data.maxRotationPerCycle;
+            homingBehaviour.Initialize();
         }
         else if(homingBehaviour != null)
         {
             Destroy(homingBehaviour);
         }
     }
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (data.isAoE == false)
         {
@@ -98,8 +104,8 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == col.gameObject.tag)
                 {
-                    Explode(col.contacts[0].point);
-                    break;
+                    Explode(/*col.contacts[0].point*/);
+                    return;
                 }
             }
             foreach (string tag in data.taggedToPenetrate)
@@ -112,7 +118,8 @@ public class Bullet : MonoBehaviour
                     }
                     else
                     {
-                        Explode(col.contacts[0].point);
+                        Explode(/*col.contacts[0].point*/);
+                        return;
                     }
                 }
             }
@@ -130,13 +137,14 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
-            Explode(col.contacts[0].point);
+            Explode(/*col.contacts[0].point*/);
+            return;
         }
     }
     #endregion
-    private void Explode(Vector2 contactPoint)
+    private void Explode(/*Vector2 contactPoint*/)
     {
-        DeathSpawn(contactPoint);
+        //DeathSpawn(contactPoint);
         AudioManager.Instance.PlaySound(data.impactAudio);
         if (data.explosionData != null)
         {

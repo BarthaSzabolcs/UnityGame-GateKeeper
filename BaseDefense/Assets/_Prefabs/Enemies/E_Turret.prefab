@@ -166,6 +166,7 @@ MonoBehaviour:
   sight: {fileID: 5130549311960363595}
   weapon: {fileID: 3831753258269601820}
   maxRotationAngle: 2
+  aimingPrecision: 0
 --- !u!4 &8313708239134687039 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2554940815676398442, guid: c02ad62403e6ceb48914486c1848c785, type: 3}

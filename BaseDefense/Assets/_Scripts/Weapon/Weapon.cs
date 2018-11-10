@@ -33,8 +33,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] Transform rightHand, leftHand;
     #endregion
     #region HideInEditor
+    // Components
     SpriteRenderer sRenderer;
     List<WeaponData> instances;
+    // Properties
     int dataIndex = 0;
     private int DataIndex
     {
@@ -76,12 +78,13 @@ public class Weapon : MonoBehaviour
         }
         set
         {
-            if (reloadingRoutine == null)
+            if (reloadingRoutine == null && value != null)
             {
                 OnReloadStart?.Invoke();
             }
-            if (value == null)
+            if (reloadingRoutine != null && value == null)
             {
+                StopCoroutine(reloadingRoutine);
                 OnReloadStop?.Invoke();
             }
             reloadingRoutine = value;
@@ -150,18 +153,14 @@ public class Weapon : MonoBehaviour
         OnWeaponChanged?.Invoke(instances[DataIndex]);
     }
 
-    public void Attack()
+    public void PullTrigger()
     {
-        if (ReloadRoutine == null)
-        {
-            instances[dataIndex].Attack();
-        }
-        else if (ReloadRoutine != null)
-        {
-            StopCoroutine(ReloadRoutine);
-            ReloadRoutine = null;
-            instances[dataIndex].Attack();
-        }
+        ReloadRoutine = null;
+        instances[dataIndex].PullTrigger();
+    }
+    public void RelaseTrigger()
+    {
+        instances[dataIndex].ReleaseTrigger();
     }
     IEnumerator MuzzleFlashRoutine()
     {
@@ -186,11 +185,7 @@ public class Weapon : MonoBehaviour
 
     public void ChangeWeapon(bool next)
     {
-        if (ReloadRoutine != null)
-        {
-            StopCoroutine(ReloadRoutine);
-            ReloadRoutine = null;
-        }
+        ReloadRoutine = null;
         if(next)
         {
             DataIndex++;

@@ -10,12 +10,13 @@ public class Bullet : MonoBehaviour
     #endregion
     #region HideInEditor
     Rigidbody2D self;
+    private int penetrationCounter = 0;
     #endregion
 
     #region UnityFunctions
     public void Initialize()
     {
-        gameObject.layer = data.layer;
+        gameObject.layer = data.baseLayer;
 
         var renderer = GetComponent<SpriteRenderer>();
         renderer.color = data.bulletColor;
@@ -81,23 +82,38 @@ public class Bullet : MonoBehaviour
             Destroy(homingBehaviour);
         }
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (data.isAoE == false)
         {
             foreach (var tag in data.taggedToDamage)
             {
-                if (tag == coll.gameObject.tag)
+                if (tag == col.gameObject.tag)
                 {
-                    coll.gameObject.GetComponent<Health>().TakeDamage(data.damage);
+                    col.gameObject.GetComponent<Health>().TakeDamage(data.damage);
+                    break;
                 }
             }
             foreach (var tag in data.taggedToDestroy)
             {
-                if (tag == coll.gameObject.tag)
+                if (tag == col.gameObject.tag)
                 {
-                    Explode();
+                    Explode(col.contacts[0].point);
                     break;
+                }
+            }
+            foreach (string tag in data.taggedToPenetrate)
+            {
+                if (tag == col.gameObject.tag)
+                {
+                    if(penetrationCounter < data.penetrationNumber)
+                    {
+                        Penetrate();
+                    }
+                    else
+                    {
+                        Explode(col.contacts[0].point);
+                    }
                 }
             }
         }
@@ -114,21 +130,76 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
-            Explode();
+            Explode(col.contacts[0].point);
         }
     }
     #endregion
-    void Explode()
+    private void Explode(Vector2 contactPoint)
     {
+        DeathSpawn(contactPoint);
         AudioManager.Instance.PlaySound(data.impactAudio);
         if (data.explosionData != null)
         {
-           
 			GameObject explosionInstance = ObjectPool_Manager.Instance.SpawnExplosion(transform.position);
 			var explosionComponent = explosionInstance.GetComponent<Explosion>();
 			explosionComponent.data = data.explosionData;
 			explosionComponent.Initialize();
 		}
         ObjectPool_Manager.Instance.PoolBullet(gameObject);
+    }
+    private void Penetrate()
+    {
+        StartCoroutine(PenetrationRoutine());
+    }
+    private IEnumerator PenetrationRoutine()
+    {
+        penetrationCounter++;
+
+        gameObject.layer = data.penetrationLayer;
+        yield return new WaitForSeconds(data.penetrationTime);
+        gameObject.layer = data.baseLayer;
+    }
+    private void DeathSpawn(Vector2 contactPoint)
+    {
+        if(data.smallerBullet != null)
+        {
+            int splits = data.smallBulletCount - 1;
+            GameObject bulletInstance;
+            Bullet bulletComponent;
+
+            Vector2 direction = contactPoint - (Vector2)transform.position;
+            direction.Normalize();
+
+            Vector2 spawnPosition = transform.position + transform.TransformVector(data.smalBulletpositionOffSet);//(Vector2)transform.position + direction * data.smalBulletpositionOffSet;
+            float impactAngle = Vector2.SignedAngle(transform.up, direction);
+
+            if (splits != 0)
+            {
+                for (var i = 0; i < splits; i++)
+                {
+                    bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(spawnPosition);
+                    bulletComponent = bulletInstance.GetComponent<Bullet>();
+
+                    bulletInstance.transform.Rotate
+                    (
+                        0,
+                        0,
+                        i * data.smallBulletAngle / splits - data.smallBulletAngle * 0.5f + impactAngle + data.smallBulletAngleOffset
+                    );
+
+                    bulletComponent.data = data.smallerBullet;
+                    bulletComponent.Initialize();
+                }
+            }
+            else
+            {
+                bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(spawnPosition);
+                bulletComponent = bulletInstance.GetComponent<Bullet>();
+
+                bulletInstance.transform.Rotate(0, 0, impactAngle + data.smallBulletAngleOffset);
+                bulletComponent.data = data.smallerBullet;
+                bulletComponent.Initialize();
+            }
+        }
     }
 }

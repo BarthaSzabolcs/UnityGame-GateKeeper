@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &73726766 stripped
@@ -229,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &154295125 stripped
@@ -291,6 +299,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &179390527 stripped
@@ -335,7 +347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -353,6 +365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &180450586 stripped
@@ -415,6 +431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &183767367 stripped
@@ -477,6 +497,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &214042210 stripped
@@ -521,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -539,6 +563,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &232581420 stripped
@@ -601,6 +629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &237822183 stripped
@@ -663,6 +695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &241709682 stripped
@@ -707,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -725,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &250771424 stripped
@@ -769,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 30
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -787,6 +827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &271778307 stripped
@@ -849,6 +893,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &305694837 stripped
@@ -912,7 +960,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1032,7 +1080,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1123,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &366762827 stripped
@@ -1253,6 +1305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &409993429 stripped
@@ -1297,7 +1353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1315,6 +1371,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &425024687 stripped
@@ -1378,7 +1438,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1484,7 +1544,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -1589,6 +1649,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &479515110 stripped
@@ -1633,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1651,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &569974558 stripped
@@ -1792,6 +1860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &590478515 stripped
@@ -1854,6 +1926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &610824592 stripped
@@ -1898,7 +1974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1916,6 +1992,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &656996480 stripped
@@ -1978,6 +2058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &658617087 stripped
@@ -2259,6 +2343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &754312176 stripped
@@ -2438,6 +2526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &798878887 stripped
@@ -2500,6 +2592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &799340608 stripped
@@ -2563,7 +2659,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -2668,6 +2764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &872480043 stripped
@@ -2712,7 +2812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2730,6 +2830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &882886107 stripped
@@ -2774,7 +2878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2854,6 +2958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &961043123 stripped
@@ -3079,6 +3187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1172018120 stripped
@@ -3141,6 +3253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1189674169 stripped
@@ -3284,6 +3400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1304107867 stripped
@@ -3347,7 +3467,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -3452,6 +3572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1482306914 stripped
@@ -3496,7 +3620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3514,6 +3638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1493044321 stripped
@@ -3558,7 +3686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3576,6 +3704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1566184043 stripped
@@ -3620,7 +3752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3638,6 +3770,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1641727532 stripped
@@ -3682,7 +3818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3700,6 +3836,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1654653632 stripped
@@ -3762,6 +3902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1684974773 stripped
@@ -3825,7 +3969,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -3930,6 +4074,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1717390041 stripped
@@ -3992,6 +4140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1746191964 stripped
@@ -4054,6 +4206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1763613024 stripped
@@ -4117,7 +4273,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4c0cae8ee542c44458ddc70582abf63f, type: 3}
-  m_Color: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -4204,7 +4360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4222,6 +4378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1776833981 stripped
@@ -4284,6 +4444,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1839257229 stripped
@@ -4328,7 +4492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4346,6 +4510,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1885050959 stripped
@@ -4408,6 +4576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1952313569 stripped
@@ -4452,7 +4624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4470,6 +4642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &1969034828 stripped
@@ -4532,6 +4708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &2022309190 stripped
@@ -4576,7 +4756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9106914878106277675, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4594,6 +4774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &2102491130 stripped
@@ -4656,6 +4840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277669, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
 --- !u!4 &2118968539 stripped

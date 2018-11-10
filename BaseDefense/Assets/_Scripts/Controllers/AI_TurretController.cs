@@ -35,7 +35,7 @@ public class AI_TurretController : MonoBehaviour
 
         if (shoot && !reload && Mathf.Abs(sight.LineOfSightAngle) < aimingPrecision)
         {
-            weapon.Attack();
+            weapon.PullTrigger();
         }
     }
 

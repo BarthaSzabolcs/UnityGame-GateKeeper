@@ -144,9 +144,6 @@ MonoBehaviour:
   grip: {fileID: 2859301284397866041}
   weaponTransform: {fileID: 6615417805566424445}
   jetPack: {fileID: 6953486840100857797}
-  weaponIsAuto: 0
-  canAim: 1
-  target: {x: 0, y: 0}
 --- !u!114 &6953486840100857797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,17 +214,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8133790287781295044}
     m_Modifications:
-    - target: {fileID: 7294107308845388873, guid: c02ad62403e6ceb48914486c1848c785, type: 3}
-      propertyPath: data.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2554940815676398442, guid: c02ad62403e6ceb48914486c1848c785, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7294107308845388873, guid: c02ad62403e6ceb48914486c1848c785, type: 3}
-      propertyPath: data.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 74b3cfc87bd70f64aa3b1361276361f3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02ad62403e6ceb48914486c1848c785, type: 3}

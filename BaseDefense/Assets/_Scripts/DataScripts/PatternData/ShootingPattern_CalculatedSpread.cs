@@ -34,24 +34,16 @@ public class ShootingPattern_CalculatedSpread : ShootingPattern
 
     public void Initialize(float timeBetweenShots)
     {
-        this.weaponFireRate = timeBetweenShots;
+        weaponFireRate = timeBetweenShots;
     }
     public override void Shoot(BulletData bulletData, Transform self, Vector2 barrelOffSet)
 	{
         float timeBetweenShots = Time.time - previousShot;
-        float diff = timeBetweenShots - weaponFireRate - recoilDuration;
-        spreadFloatIndex -= diff;
+
+        spreadFloatIndex -= timeBetweenShots - weaponFireRate - recoilDuration;
         Quaternion rotation = Quaternion.Euler(0, 0, angles[SpreadIndex]);
         ShootBullet(bulletData, self, barrelOffSet, rotation);
 
         previousShot = Time.time;
-
-        //Debug
-        string msg = "Time between the two shot: " + timeBetweenShots;
-        msg += "\nSpread index change: " + -diff;
-        msg += "\nIndex: " + SpreadIndex;
-        msg += "\nFloatIndex: "+ spreadFloatIndex;
-        msg += "\nFPS: " + 1/ Time.smoothDeltaTime;
-        //UserInterface.Instance.DebugLog(msg);
     }
 }

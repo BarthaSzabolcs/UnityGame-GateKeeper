@@ -122,6 +122,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
   - {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
   - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
+  - {fileID: 11400000, guid: 3cf462fbebd32ba468aa5e1355b8cbb0, type: 2}
+  - {fileID: 11400000, guid: dfcae1e2644c25b45bbae5daa3e4d752, type: 2}
   droppedWeapon: {fileID: 1959444473538686, guid: 5285ddab37430b244b0b0d9b0895c045, type: 3}
   muzzleflashRenderer: {fileID: 9167076062032745846}
   rightHand: {fileID: 4563299978047517368}

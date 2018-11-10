@@ -23,7 +23,7 @@ TagManager:
   - AI_Sight_PlayerOnly
   - Bullet_E
   - Bullet_F
-  - Base
+  - Bullet_F_Penetrate
   - Trap
   - 
   - 

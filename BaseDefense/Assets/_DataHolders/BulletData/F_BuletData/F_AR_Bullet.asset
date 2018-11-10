@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
   m_Name: F_AR_Bullet
   m_EditorClassIdentifier: 
-  layer: 13
   taggedToDamage:
   - Enemy
   taggedToDestroy:
@@ -22,6 +21,12 @@ MonoBehaviour:
   - Base
   taggedToDestroyWithoutEffects: []
   damage: 7
+  baseLayer: 13
+  taggedToPenetrate:
+  - 
+  penetrationNumber: 0
+  penetrationTime: 0
+  penetrationLayer: 14
   speed: 85
   mass: 1
   gravityScale: 0
@@ -35,7 +40,6 @@ MonoBehaviour:
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
   explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
-  explosionObject: {fileID: 2460725773196922292, guid: 6873ceea3d9406c438471f8ee5089bcb, type: 3}
   isHoming: 0
   taggedToTarget:
   - Enemy
@@ -43,4 +47,12 @@ MonoBehaviour:
   homingRefreshRate: 0.1
   maxRotationPerCycle: 15
   isAoE: 0
+  aoeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   aoeRadius: 0.5
+  smallerBullet: {fileID: 0}
+  smallBulletCount: 0
+  smallBulletAngle: 0
+  smallBulletAngleOffset: 0
+  smalBulletpositionOffSet: {x: 0, y: 0}

@@ -16,12 +16,18 @@ public class WeaponData : ScriptableObject
 
     [Header("Shooting Settings:")]
     public BulletData bulletData;
+    public bool chargable;
     [SerializeField] ShootingPattern pattern;
-    [SerializeField] float timeBetweenShots;
+    [SerializeField] float timeBtwShots;
+
+    [SerializeField] bool increasingFireRate;
+    [SerializeField] float[] dynamicTimeBtwShots;
+    [SerializeField] float fireRateDecreaseTime;
     public bool isAuto;
 
     [Header("Ammo Settings:")]
     [SerializeField] int extraAmmo;
+    public int ammoConsumption;
     public int ExtraAmmo
     {
         get
@@ -42,12 +48,26 @@ public class WeaponData : ScriptableObject
     [SerializeField] int reloadRefreshPerSecond;
     #endregion
     #region HideInEditor
+    // components
     Weapon weapon;
     Rigidbody2D self;
     ShootingPattern patternInstance;
+    IChargable chargedPattern;
+
+    // timers
     float reloadTimer;
     float fireRateTimer;
+    
+    // flags
+    bool triggerReseted = true;
+
+    int charge = 0;
+
+    // fields managed by property
     [SerializeField] int ammoInMag;
+    private int fireRateIndex;
+
+    // Properties
     public int AmmoInMag
     {
         get
@@ -60,6 +80,43 @@ public class WeaponData : ScriptableObject
             weapon.TriggerMagChange(ammoInMag);
         }
     }
+    public int FireRateIndex
+    {
+        get
+        {
+            return fireRateIndex;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                fireRateIndex = 0;
+            }
+            else if (value > dynamicTimeBtwShots.Length - 1)
+            {
+                fireRateIndex = dynamicTimeBtwShots.Length - 1;
+            }
+            else
+            {
+                fireRateIndex = value;
+            }
+        }
+    }
+    private float TimeBetweenShots
+    {
+        get
+        {
+            if (increasingFireRate == true)
+            {
+                return dynamicTimeBtwShots[FireRateIndex];
+            }
+            else
+            {
+                return timeBtwShots;
+            }
+
+        }
+    }
     #endregion
 
     public void Initialize(Rigidbody2D self, Weapon weapon)
@@ -68,26 +125,45 @@ public class WeaponData : ScriptableObject
         this.weapon = weapon;
         patternInstance = Instantiate(pattern);
 
-        //maybe not the best aproach
-        var calculatedSpread = patternInstance as ShootingPattern_CalculatedSpread;
-        if(calculatedSpread)
+        if(patternInstance is ShootingPattern_CalculatedSpread calculatedSpread)
         {
-            calculatedSpread.Initialize(timeBetweenShots);
+            calculatedSpread.Initialize(timeBtwShots);
         }
+        chargedPattern = patternInstance as IChargable;
     }
 
-    public void Attack()
+    public void PullTrigger()
     {
-        if (AmmoInMag > 0 && fireRateTimer + timeBetweenShots < Time.time)
+        if ((triggerReseted == true || isAuto == true) && AmmoInMag > 0 && fireRateTimer + TimeBetweenShots < Time.time)
         {
-            if(muzzleFashAnimation.Length > 0)
+            if(increasingFireRate)
+            {
+                FireRateIndex -= (int)Mathf.Floor((Time.time - fireRateTimer) / ( dynamicTimeBtwShots[FireRateIndex] + fireRateDecreaseTime));
+                FireRateIndex++;
+                Debug.Log(FireRateIndex);
+            }
+
+            patternInstance.Shoot(bulletData, self.transform, barrelOffSet);
+            AmmoInMag -= ammoConsumption;
+
+            if (muzzleFashAnimation.Length > 0)
             {
                 weapon.MuzleFlash();
             }
-            patternInstance.Shoot(bulletData, self.transform, barrelOffSet);
+
+            charge++;
+            triggerReseted = false;
             fireRateTimer = Time.time;
-            AmmoInMag--;
         }
+    }
+    public void ReleaseTrigger()
+    {
+        triggerReseted = true;
+        if (chargable && AmmoInMag > 0 && chargedPattern != null)
+        {
+            AmmoInMag -= chargedPattern.ChargedShot(charge, AmmoInMag, bulletData, self.transform, barrelOffSet);
+        }
+        charge = 0;
     }
     public IEnumerator ReloadRoutine()
     {

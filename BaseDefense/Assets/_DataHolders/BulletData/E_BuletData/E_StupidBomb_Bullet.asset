@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
   m_Name: E_StupidBomb_Bullet
   m_EditorClassIdentifier: 
-  layer: 12
   taggedToDamage:
   - Base
   - Player
   taggedToDestroy: []
   taggedToDestroyWithoutEffects: []
   damage: 20
+  baseLayer: 12
+  taggedToPenetrate:
+  - 
+  penetrationNumber: 0
+  penetrationTime: 0
+  penetrationLayer: 0
   speed: 0
   mass: 10
   gravityScale: 8
@@ -32,7 +37,6 @@ MonoBehaviour:
   bulletFiredAudio: BulletFired
   impactAudio: BulletImpact
   explosionData: {fileID: 11400000, guid: 8ac0551f2156b9a4a9c256917a61c664, type: 2}
-  explosionObject: {fileID: 2460725773196922292, guid: 6873ceea3d9406c438471f8ee5089bcb, type: 3}
   isHoming: 0
   taggedToTarget: []
   targetingRadius: 0
@@ -43,3 +47,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16896
   aoeRadius: 5
+  smallerBullet: {fileID: 0}
+  smallBulletCount: 0
+  smallBulletAngle: 0
+  smallBulletAngleOffset: 0
+  smalBulletpositionOffSet: {x: 0, y: 0}

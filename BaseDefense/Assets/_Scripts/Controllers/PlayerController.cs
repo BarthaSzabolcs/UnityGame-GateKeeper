@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     float currentMaxSpeed;
     float currentMoveForce;
     float teleportTimer;
-    [HideInInspector] public bool weaponIsAuto;
     Vector2 target;
     #endregion
 
@@ -192,13 +191,13 @@ public class PlayerController : MonoBehaviour
     }
     void Attack()
     {
-        if (weapon.IsAuto && Input.GetButton("Attack"))
+        if (Input.GetButton("Attack"))
         {
-            weapon.Attack();
+            weapon.PullTrigger();
         }
-        else if(weapon.IsAuto == false && Input.GetButtonDown("Attack"))
+        if (Input.GetButtonUp("Attack"))
         {
-            weapon.Attack();
+            weapon.RelaseTrigger();
         }
     }
     void Reload()

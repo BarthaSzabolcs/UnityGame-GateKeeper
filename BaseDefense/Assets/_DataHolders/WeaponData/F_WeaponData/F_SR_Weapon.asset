@@ -25,14 +25,18 @@ MonoBehaviour:
   weaponPosition: {x: 0, y: 0}
   rightHandPosition: {x: -1.11, y: -0.39}
   leftHandPosition: {x: 1.08, y: -0.34}
-  bullet: {fileID: 1309572664412140, guid: 46b15adb328ad7a4285faed4f61a7189, type: 3}
   bulletData: {fileID: 11400000, guid: 7fa98af2573c9ed46a8d6ee2a12cb47a, type: 2}
+  chargable: 0
   pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
-  timeBetweenShots: 0.1
+  timeBtwShots: 0.33333334
+  increasingFireRate: 0
+  dynamicTimeBtwShots: []
+  fireRateDecreaseTime: 0
   isAuto: 0
   extraAmmo: 99999
-  magSize: 1
+  ammoConsumption: 3
+  magSize: 3
   reloadAmmount: 1
-  reloadTime: 0.5
+  reloadTime: 0.1
   reloadRefreshPerSecond: 60
-  ammoInMag: 1
+  ammoInMag: 3

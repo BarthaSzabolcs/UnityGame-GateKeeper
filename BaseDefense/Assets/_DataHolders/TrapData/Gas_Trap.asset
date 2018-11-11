@@ -16,7 +16,7 @@ MonoBehaviour:
   shopName: Gas trap
   price: 500
   taggedToDamage:
-  - Player
+  - Enemy
   damage: 1
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}

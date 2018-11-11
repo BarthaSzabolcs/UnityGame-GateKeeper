@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321804869529617724}
   - component: {fileID: 1321804869529617725}
+  - component: {fileID: 1321804870405499773}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -52,3 +53,26 @@ MonoBehaviour:
   spawnKey: mouse 2
   autoSpawn: 0
   spawnDelay: 4
+--- !u!114 &1321804870405499773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321804869529617726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3c439d7745ea84982849d96d2c6b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  AisToSpawn:
+  - {fileID: 7332923727855092267, guid: 3b1f3991e8ac77342ba15386e84e05e2, type: 3}
+  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
+  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
+  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
+  FinishText: {fileID: 0}

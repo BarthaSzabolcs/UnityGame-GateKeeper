@@ -16,7 +16,7 @@ MonoBehaviour:
   shopName: Big spikes
   price: 300
   taggedToDamage:
-  - Player
+  - Enemy
   damage: 10
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}

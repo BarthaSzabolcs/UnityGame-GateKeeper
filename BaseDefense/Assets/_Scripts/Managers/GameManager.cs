@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
     {
         Money = 0;
         player = GameObject.Find("Player");
+        var portal = GameObject.Find("friendlyPortal");
+        if(portal != null)
+        {
+            portal.GetComponent<Health>().OnDeath += HandlePlayerDeath;
+        }
         if (player != null)
         {
             player.GetComponent<Health>().OnDeath += HandlePlayerDeath;

@@ -45,11 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
-  - {fileID: 8564006011627573364, guid: 7c4ce052357454848a0a1b3d97d81696, type: 3}
+  - {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
   spawnPoints:
-  - {x: -55, y: -7}
-  - {x: 55, y: -7}
+  - {x: -145, y: 29}
+  - {x: -145, y: 5}
+  - {x: 145, y: 5}
+  - {x: 145, y: 29}
   spawnKey: mouse 2
   autoSpawn: 0
   spawnDelay: 4
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321804869529617726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d3c439d7745ea84982849d96d2c6b62, type: 3}
   m_Name: 
@@ -71,8 +72,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   AisToSpawn:
-  - {fileID: 7332923727855092267, guid: 3b1f3991e8ac77342ba15386e84e05e2, type: 3}
-  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
-  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
-  - {fileID: 5397374428723529838, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
+  - {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
   FinishText: {fileID: 0}

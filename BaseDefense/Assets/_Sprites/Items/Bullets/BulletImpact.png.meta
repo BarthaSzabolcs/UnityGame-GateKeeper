@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7
+guid: 0a0784e2f351e1548a387ef815fccc40
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SmallImpact_0
-    21300002: SmallImpact_1
-    21300004: SmallImpact_2
-    21300006: SmallImpact_3
-    21300008: SmallImpact_4
+    21300000: BulletImpact_0
+    21300002: BulletImpact_1
+    21300004: BulletImpact_2
+    21300006: BulletImpact_3
+    21300008: BulletImpact_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -65,7 +65,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -76,7 +76,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -87,7 +87,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SmallImpact_0
+      name: BulletImpact_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,19 +114,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d7493c1f6a9e2489510906c4b4178f
+      spriteID: ad071cd358c0e42498b8458e5cb0ddf6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallImpact_1
+      name: BulletImpact_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34e552e168b3d446af2d03d0b11149d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletImpact_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,19 +154,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f10d7bb017942b34fbfcd7df166d174d
+      spriteID: d2c52f0a5a8816f4f991ef743a81cf29
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallImpact_2
+      name: BulletImpact_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795f99a7aa5980e478c10b763aaafda3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletImpact_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,47 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 664d54684508ca349851e2a8826e409b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallImpact_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3131a8ce0176629438c7fabb05d4e8c3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SmallImpact_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f042f6ccad63a0459e054d8a8dcbe2a
+      spriteID: 95d80d50c95f9f941ba8e2823fe960ae
       vertices: []
       indices: 
       edges: []
@@ -202,7 +202,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6bd1001a0bd4ec24b8a3548e090fd4bd
+    spriteID: d31518c6ad3de084796e09ded09c5419
     vertices: []
     indices: 
     edges: []

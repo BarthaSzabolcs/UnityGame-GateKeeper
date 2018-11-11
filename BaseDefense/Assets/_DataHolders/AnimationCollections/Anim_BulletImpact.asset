@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animations:
   - frames:
-    - {fileID: 21300000, guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7, type: 3}
-    - {fileID: 21300002, guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7, type: 3}
-    - {fileID: 21300004, guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7, type: 3}
-    - {fileID: 21300006, guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7, type: 3}
-    - {fileID: 21300008, guid: 93c26497c7aeeff47b8eaaa3ec1e4ef7, type: 3}
+    - {fileID: 21300000, guid: 0a0784e2f351e1548a387ef815fccc40, type: 3}
+    - {fileID: 21300002, guid: 0a0784e2f351e1548a387ef815fccc40, type: 3}
+    - {fileID: 21300004, guid: 0a0784e2f351e1548a387ef815fccc40, type: 3}
+    - {fileID: 21300006, guid: 0a0784e2f351e1548a387ef815fccc40, type: 3}
+    - {fileID: 21300008, guid: 0a0784e2f351e1548a387ef815fccc40, type: 3}
   randomizeX: 1
   randomizeY: 1

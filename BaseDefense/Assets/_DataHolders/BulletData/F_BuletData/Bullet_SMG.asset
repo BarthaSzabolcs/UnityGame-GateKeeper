@@ -97,7 +97,7 @@ MonoBehaviour:
     m_Bits: 0
   aoeRadius: 0.5
   hasLifeTime: 1
-  isHoming: 0
+  isHoming: 1
   spawnBullet: 0
   lifeTime: 0.6
   explodeAfterLifeTime: 0

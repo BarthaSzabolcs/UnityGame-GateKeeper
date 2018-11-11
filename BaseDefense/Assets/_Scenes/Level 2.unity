@@ -4893,14 +4893,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1321804870405499773, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
-      propertyPath: AisToSpawn.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321804870405499773, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
-      propertyPath: SpawnPoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1321804869529617724, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4950,14 +4942,6 @@ PrefabInstance:
       value: SpawnManager
       objectReference: {fileID: 0}
     - target: {fileID: 1321804870405499773, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
-      propertyPath: FinishText
-      value: 
-      objectReference: {fileID: 6726112633536612869}
-    - target: {fileID: 1321804869529617725, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
-      propertyPath: autoSpawn
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1321804870405499773, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
       propertyPath: SpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 797392736}
@@ -4974,9 +4958,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1076508465}
     - target: {fileID: 1321804870405499773, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
-      propertyPath: AisToSpawn.Array.data[0]
+      propertyPath: FinishText
       value: 
-      objectReference: {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
+      objectReference: {fileID: 6726112633536612869}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
 --- !u!1001 &2008205193964787995

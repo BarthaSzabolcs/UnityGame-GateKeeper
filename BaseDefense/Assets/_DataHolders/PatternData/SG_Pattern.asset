@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45957c528ce05b24a93a476ae861bfa4, type: 3}
   m_Name: SG_Pattern
   m_EditorClassIdentifier: 
-  bulletConsumption: 1
-  randomSpreadLimit: 0
+  randomAngles:
+  - 0
+  recoilDuration: 0.1
   bulletCount: 5
-  angle: 25
+  spreadAngle: 25
+  chargedRandomSpreadLimit: 0
+  chargredAngle: 0

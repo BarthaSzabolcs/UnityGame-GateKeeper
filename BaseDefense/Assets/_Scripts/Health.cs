@@ -139,15 +139,15 @@ public class Health : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        if (data.deathAnim != null && data.deathAnimData != null)
-        {
-            GameObject exp = Instantiate(data.deathAnim, transform.position, Quaternion.identity);
-            exp.GetComponent<Explosion>().data = data.deathAnimData;
-        }
-        if (data.deathAudio != null)
-        {
-            AudioManager.Instance.PlaySound(data.deathAudio);
-        }
+        //if (data.deathAnim != null && data.deathAnim != null)
+        //{
+        //    GameObject exp = Instantiate(data.deathAnim, transform.position, Quaternion.identity);
+        //    exp.GetComponent<Explosion>().data = data.deathAnim;
+        //}
+        var deathAnim = ObjectPool_Manager.Instance.SpawnExplosion(transform.position);
+        deathAnim.GetComponent<Explosion>().data = data.deathAnim;
+
+        AudioManager.Instance.PlaySound(data.deathAudio);
         OnDeath?.Invoke(gameObject);
 
         Destroy(gameObject);   

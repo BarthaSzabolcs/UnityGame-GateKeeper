@@ -4,34 +4,37 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    #region Show In Editor
+
+    [Header("Components:")]
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] CircleCollider2D explosiobCollider;
+    [SerializeField] PointEffector2D pointEffector;
+    
+    #endregion
     #region HideInEditor
+
     [HideInInspector] public ExplosionData data;
-    SpriteRenderer sRenderer;
+    
     #endregion
 
     public void Initialize()
 	{
-		StartCoroutine(PlayAnimation());
-	}
-	IEnumerator PlayAnimation()
+        spriteRenderer.color = data.animationColor;
+        
+        // Play it
+        StartCoroutine(PlayAnimation());
+    }
+    IEnumerator PlayAnimation()
 	{
-		CircleCollider2D circleCollider = GetComponent<CircleCollider2D>();
-		PointEffector2D pointEffector = GetComponent<PointEffector2D>();
+        // Initialize Explosion
 		if (data.isExplosive)
         {
-			if (circleCollider == null)
-			{
-				circleCollider = gameObject.AddComponent<CircleCollider2D>();
-			}
-			circleCollider.enabled = true;
-	        circleCollider.radius = data.explosionRange;
-            circleCollider.isTrigger = true;
-            circleCollider.usedByEffector = true;
-
-			if (pointEffector == null)
-			{
-				pointEffector = gameObject.AddComponent<PointEffector2D>();
-			}
+            // Collider
+			explosiobCollider.enabled = true;
+	        explosiobCollider.radius = data.explosionRange;
+            
+            // Effector
 			pointEffector.enabled = true;
             pointEffector.useColliderMask = true;
             pointEffector.colliderMask = data.explosionMask;
@@ -41,22 +44,24 @@ public class Explosion : MonoBehaviour
         }
 		else
 		{
-			if(circleCollider != null)
-			{
-				circleCollider.enabled = false;
-			}
-			if (pointEffector != null)
-			{
-				pointEffector.enabled = false;
-			}
+            // Collider
+			explosiobCollider.enabled = false;
+
+            // Effector
+            pointEffector.enabled = false;
 		}
-        sRenderer = GetComponent<SpriteRenderer>();
-		for (int i = 0; i < data.animationFrames.Length; i++)
-		{
-			sRenderer.sprite = data.animationFrames[i];
+
+        data.animationCllection.Randomize(spriteRenderer);
+
+        // Play Animation
+        foreach (var sprite in data.animationCllection.Next())
+        {
+            spriteRenderer.sprite = sprite;
             yield return new WaitForEndOfFrame();
-		}
-		sRenderer.sprite = null;
+        }
+
+        // Object Pooling
+		spriteRenderer.sprite = null;
 		ObjectPool_Manager.Instance.PoolExplosion(gameObject);
 	}
 }

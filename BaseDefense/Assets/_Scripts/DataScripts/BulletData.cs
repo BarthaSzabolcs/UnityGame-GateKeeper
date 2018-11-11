@@ -5,40 +5,55 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Bullet")]
 public class BulletData : ScriptableObject
 {
-    [Header("Interaction Settings:")]
-    public string[] taggedToDamage;
-    public string[] taggedToDestroy;
-    public string[] taggedToDestroyWithoutEffects;
-    public int damage;
-    public int baseLayer;
+    [Header("VisualFX:")]
+    public Sprite sprite;
+    public Color bulletColor;
+    public Color muzzleFlashColor;
 
-    [Header("Penetration Settings:")]
-    public string[] taggedToPenetrate;
-    public int penetrationNumber;
-    public float penetrationTime;
-    public int penetrationLayer;
+    [Header("   Trail:")]
+    public AnimationCurve trailWidth;
+    public float trailWidthMultiplier;
+    public float trailTime;
+    public Gradient trailColor;
 
-    [Header("Movement Settings:")]
+    [Header("AudioFX:")]
+    public string impactAudio;
+    public ExplosionData explosionData;
+    public string bulletFiredAudio;
+
+    [Header("Movement:")]
     public float speed;
     public float mass;
     public float gravityScale;
 
-    [Header("LifeTime Settings:")]
+    [Header("Interaction:")]
+    public string[] taggedToDamage;
+    public string[] taggedToDestroy;
+    public string[] taggedToDestroyWithoutEffects;
+    public int baseLayer;
+
+    [Header("   Penetration:")]
+    public string[] taggedToPenetrate;
+    public int penetrationsBeforeExplode;
+    public float ghostTime;
+    public int ghostLayer;
+
+    [Header("   Damage:")]
+    public int damage;
+    public bool isAoE;
+    public LayerMask aoeLayerMask;
+    public float aoeRadius;
+
+    [Header("Additional Behaviour:")]
     public bool hasLifeTime;
+    public bool isHoming;
+    public bool spawnBullet;
+
+    [Header("   LifeTime:")]
     public float lifeTime;
     public bool explodeAfterLifeTime;
 
-    [Header("Effects Settings:")]
-    public Sprite sprite;
-    public Color bulletColor;
-    public Color muzzleFlashColor;
-    public GameObject trail;
-    public string bulletFiredAudio;
-    public string impactAudio;
-    public ExplosionData explosionData;
-
-    [Header("Homing Settings:")]
-    public bool isHoming;
+    [Header("   Home in:")]
     public LayerMask targetMask;
     public string[] taggedToTarget;
     public float targetingRadius;
@@ -46,12 +61,7 @@ public class BulletData : ScriptableObject
     public float targetingRefreshRate;
     public float maxRotationPerCycle;
 
-    [Header("AoE Settings:")]
-    public bool isAoE;
-    public LayerMask aoeLayerMask;
-    public float aoeRadius;
-
-    [Header("SmallBullet Settings:")]
+    [Header("   Spawn Bullet:")]
     public BulletData smallerBullet;
     public int smallBulletCount;
     public float smallBulletAngle;

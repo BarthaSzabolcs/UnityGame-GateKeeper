@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
+  m_Name: Weapon_GL
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  muzzleFlashOffSet: {x: 1.5, y: 0}
+  barrelOffSet: {x: 1.5, y: 0}
+  weaponPosition: {x: 1, y: 0}
+  rightHandPosition: {x: 0, y: 0}
+  leftHandPosition: {x: 0, y: 0}
+  hasLaserSight: 0
+  laserSightColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  laserOffSet: {x: 0, y: 0}
+  laserSightMaxRange: 100
+  bulletData: {fileID: 11400000, guid: b3bf858ddfc65fa4e96c44484149989d, type: 2}
+  chargable: 0
+  pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}
+  timeBtwShots: 0.33333334
+  increasingFireRate: 0
+  dynamicTimeBtwShots: []
+  fireRateDecreaseTime: 0
+  isAuto: 1
+  extraAmmo: 99999
+  ammoConsumption: 1
+  magSize: 6
+  reloadAmmount: 1
+  reloadTime: 0.2
+  reloadRefreshPerSecond: 60
+  ammoInMag: 6

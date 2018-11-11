@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
+  m_Name: Bullet_Pistol
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300002, guid: 26ddd3071a8d08d4e8ff10af896cbec9, type: 3}
+  bulletColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  muzzleFlashColor: {r: 1, g: 0.69319046, b: 0, a: 1}
+  trailWidth:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.4991455
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0280762
+      value: -0.00067311525
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  trailWidthMultiplier: 1
+  trailTime: 0.05
+  trailColor:
+    serializedVersion: 2
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0.8724341, b: 0, a: 1}
+    key2: {r: 0.9420443, g: 1, b: 0.5896226, a: 0}
+    key3: {r: 0.862069, g: 1, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 35466
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 21010
+    atime2: 65535
+    atime3: 65535
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 3
+  impactAudio: BulletImpact
+  explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
+  bulletFiredAudio: BulletFired
+  speed: 120
+  mass: 1
+  gravityScale: 0
+  taggedToDamage:
+  - Enemy
+  taggedToDestroy:
+  - Wall
+  - DroppedWeapon
+  - Base
+  taggedToDestroyWithoutEffects: []
+  baseLayer: 13
+  taggedToPenetrate:
+  - Enemy
+  penetrationsBeforeExplode: 0
+  ghostTime: 0
+  ghostLayer: 0
+  damage: 7
+  isAoE: 0
+  aoeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aoeRadius: 0.5
+  hasLifeTime: 1
+  isHoming: 0
+  spawnBullet: 0
+  lifeTime: 0.35
+  explodeAfterLifeTime: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  taggedToTarget:
+  - Enemy
+  targetingRadius: 10
+  homingRefreshRate: 0.1
+  targetingRefreshRate: 0
+  maxRotationPerCycle: 15
+  smallerBullet: {fileID: 0}
+  smallBulletCount: 0
+  smallBulletAngle: 0
+  smallBulletAngleOffset: 0
+  smalBulletpositionOffSet: {x: 0, y: 0}

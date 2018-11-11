@@ -6,53 +6,43 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     #region ShowInEditor
+    [Header("Settings:")]
     public BulletData data;
+
+    [Header("Components:")]
+    [SerializeField] Rigidbody2D self;
+    [SerializeField] SpriteRenderer renderer;
+    [SerializeField] TrailRenderer trailerRenderer;
     #endregion
     #region HideInEditor
-    Rigidbody2D self;
     private int penetrationCounter = 0;
     #endregion
 
     #region UnityFunctions
     public void Initialize()
     {
-        // Reset Counters
-        penetrationCounter = 0;
-
+        // Layer
         gameObject.layer = data.baseLayer;
 
-        var renderer = GetComponent<SpriteRenderer>();
-        renderer.color = data.bulletColor;
-        renderer.sprite = data.sprite;
+        // Penetration Counters
+        penetrationCounter = 0;
 
-        self = GetComponent<Rigidbody2D>();
+        // RigidBody2D
         self.velocity = transform.up * data.speed;
         self.gravityScale = data.gravityScale;
         self.mass = data.mass;
 
-        // Initialize Trail
-        GameObject trail = null; 
-        if(transform.childCount > 0)
-        {
-            trail = transform.GetChild(0).gameObject;
-        }
-        if (trail == null)
-        {
-            if (data.trail != null)
-            {
-                Instantiate(data.trail, transform);
-            }
-        }
-        else
-        {
-            Destroy(trail);
-            if (data.trail != null)
-            {
-                Instantiate(data.trail, transform);
-            }
-        }
+        // SpriteRenderer
+        renderer.color = data.bulletColor;
+        renderer.sprite = data.sprite;
 
-        // Initialize SelfDestruct
+        // Trail        
+        trailerRenderer.colorGradient = data.trailColor;
+        trailerRenderer.widthCurve = data.trailWidth;
+        trailerRenderer.widthMultiplier = data.trailWidthMultiplier;
+        trailerRenderer.time = data.trailTime;
+
+        // SelfDestruct
         var selfDestruct = GetComponent<SelfDestruct>();
         selfDestruct.StopSelfDestruct();
         if (data.hasLifeTime)
@@ -66,14 +56,11 @@ public class Bullet : MonoBehaviour
             selfDestruct.StartSelfDestruct();
         }
 
-        // Initialize HomingBehavior
+        // HomingBehavior
         var homingBehaviour = GetComponent<HomingBehavior>();
         if (data.isHoming)
         {
-            if (homingBehaviour == null)
-            {
-                homingBehaviour = gameObject.AddComponent<HomingBehavior>();
-            }
+            homingBehaviour.enabled = true;
             homingBehaviour.targetMask = data.targetMask;
             homingBehaviour.taggedToTarget = data.taggedToTarget;
             homingBehaviour.targetingRadius = data.targetingRadius;
@@ -85,7 +72,7 @@ public class Bullet : MonoBehaviour
         }
         else if(homingBehaviour != null)
         {
-            Destroy(homingBehaviour);
+            homingBehaviour.enabled = false;
         }
     }
     void OnTriggerEnter2D(Collider2D col)
@@ -112,7 +99,7 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == col.gameObject.tag)
                 {
-                    if(penetrationCounter < data.penetrationNumber)
+                    if(penetrationCounter < data.penetrationsBeforeExplode)
                     {
                         Penetrate();
                     }
@@ -144,7 +131,10 @@ public class Bullet : MonoBehaviour
     #endregion
     private void Explode(/*Vector2 contactPoint*/)
     {
-        //DeathSpawn(contactPoint);
+        //if (data.spawnBullet == true)
+        //{
+        //    DeathSpawn(contactPoint);
+        //}
         AudioManager.Instance.PlaySound(data.impactAudio);
         if (data.explosionData != null)
         {
@@ -163,8 +153,8 @@ public class Bullet : MonoBehaviour
     {
         penetrationCounter++;
 
-        gameObject.layer = data.penetrationLayer;
-        yield return new WaitForSeconds(data.penetrationTime);
+        gameObject.layer = data.ghostLayer;
+        yield return new WaitForSeconds(data.ghostTime);
         gameObject.layer = data.baseLayer;
     }
     private void DeathSpawn(Vector2 contactPoint)

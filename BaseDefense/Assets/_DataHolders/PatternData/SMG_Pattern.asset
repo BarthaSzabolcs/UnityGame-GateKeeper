@@ -12,8 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45957c528ce05b24a93a476ae861bfa4, type: 3}
   m_Name: SMG_Pattern
   m_EditorClassIdentifier: 
-  randomSpreadLimit: 0
+  randomAngles:
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  recoilDuration: 0.1
   bulletCount: 1
-  angle: 0
+  spreadAngle: 0
   chargedRandomSpreadLimit: 0
   chargredAngle: 0

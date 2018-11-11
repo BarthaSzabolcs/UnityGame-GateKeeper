@@ -15,6 +15,5 @@ public class HealthData : ScriptableObject
 
     [Header("Death:")]
     public string deathAudio;
-    public GameObject deathAnim;
-    public ExplosionData deathAnimData;
+    public ExplosionData deathAnim;
 }

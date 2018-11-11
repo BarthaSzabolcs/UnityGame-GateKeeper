@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - DroppedWeapon
+  - Wall
+  - Enemy
+  - Base
+  - Portal
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - Player
+  - Obstacle
+  - AI_Sight_PlayerOnly
+  - Bullet_E
+  - Bullet_F
+  - Bullet_F_Penetrate
+  - Trap
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 866877615
+    locked: 0
+  - name: Ground
+    uniqueID: 3527193725
+    locked: 0
+  - name: Bullet
+    uniqueID: 3889062845
+    locked: 0
+  - name: UI
+    uniqueID: 2726494329
+    locked: 0

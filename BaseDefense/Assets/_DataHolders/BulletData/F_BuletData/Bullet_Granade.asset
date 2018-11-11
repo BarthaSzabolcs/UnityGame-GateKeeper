@@ -71,7 +71,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   impactAudio: BulletImpact
-  explosionData: {fileID: 11400000, guid: 8ac0551f2156b9a4a9c256917a61c664, type: 2}
+  explosionData: {fileID: 11400000, guid: 9a5bb4f03df2c364f82b06fd2f608101, type: 2}
   bulletFiredAudio: BulletFired
   speed: 60
   mass: 3

@@ -27,7 +27,7 @@ public class AnimationCollection: ScriptableObject
     {
         if (randomizeX)
         {
-            spriteRenderer.flipX = Random.Range(0, 1) > 0 ? true : false;
+            spriteRenderer.flipX = Random.Range(0, 2) > 0 ? true : false;
         }
         else
         {
@@ -35,7 +35,7 @@ public class AnimationCollection: ScriptableObject
         }
         if (randomizeY)
         {
-            spriteRenderer.flipY = Random.Range(0, 1) > 0 ? true : false;
+            spriteRenderer.flipY = Random.Range(0, 2) > 0 ? true : false;
         }
         else
         {

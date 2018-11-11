@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0a9f75a76379b4795c06f8d3bb723f, type: 3}
-  m_Name: Exp_BulletImpact
+  m_Name: Exp_Generic_BulletImpact
   m_EditorClassIdentifier: 
   animationCllection: {fileID: 11400000, guid: d57b0637e9819614b829bca0fec3044f, type: 2}
   animationColor: {r: 1, g: 0.8391768, b: 0.6367924, a: 1}

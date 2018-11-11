@@ -91,7 +91,7 @@ MonoBehaviour:
   ghostTime: 0
   ghostLayer: 0
   damage: 10
-  isAoE: 0
+  isAoE: 1
   aoeLayerMask:
     serializedVersion: 2
     m_Bits: 0

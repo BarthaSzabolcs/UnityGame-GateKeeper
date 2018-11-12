@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
-        Money = 0;
+        Money = 1000;
         player = GameObject.Find("Player");
         var portal = GameObject.Find("friendlyPortal");
         if(portal != null)
@@ -130,6 +130,28 @@ public class GameManager : MonoBehaviour
         UserInterface.Instance.CurrentTrap.Data = null;
         UserInterface.Instance.InitializeTrapMenu();
     }
+
+    public void BuyAmmo(WeaponData wep,int cost)
+    {
+        if (Money - cost >= 0)
+        {
+            if (UserInterface.Instance.IncreaseExtraAmmo(wep))
+            {
+                Money -= cost;
+            }
+        }
+    }
+
+    public int BuyWeapon(WeaponData wep,int cost)
+    {
+        if (Money - cost >= 0)
+        {
+            Money -= cost;
+            return UserInterface.Instance.BuyWeapon(wep);
+        }
+        return -1;
+    }
+    
     #endregion
     private void HandlePlayerDeath(GameObject sender)
     {

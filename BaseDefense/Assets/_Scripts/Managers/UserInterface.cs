@@ -164,6 +164,10 @@ public class UserInterface : MonoBehaviour
             fuelBar_Image.fillAmount = fuelPercent;
         }
     }
+
+    //WeaponComp
+
+    public Weapon weaponComponentS;
     #endregion
 
     #region UnityFunctions
@@ -355,4 +359,27 @@ public class UserInterface : MonoBehaviour
         trapMenu_Canvas.enabled = false;
     }
     #endregion
+
+    public void SetWeaponComponent()
+    {
+        weaponComponentS = GameManager.Instance.Player.transform.Find(playerWeapon_name).GetComponent<Weapon>();
+    }
+
+    public bool IncreaseExtraAmmo(WeaponData w)
+    {
+        if (weaponComponentS.HasWeapon(w))
+        {
+            WeaponData wep = weaponComponentS.ReturnWeapon(w);
+            wep.ExtraAmmo += wep.magSize;
+            return true;
+        }
+        return false;
+    }
+
+    public int BuyWeapon(WeaponData w)
+    {
+        weaponComponentS.AddWeapon(w);
+        return weaponComponentS.instances.Count-1;
+            
+    }
 }

@@ -366,7 +366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50.00001}
+  m_AnchoredPosition: {x: 11, y: 93}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &32306594
@@ -2763,17 +2763,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c92dc6a0fd247b74b8a906fffd3ecfb2, type: 3}
---- !u!114 &417132085 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2126694772294957662, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 3}
-  m_PrefabInstance: {fileID: 5980373977802179886}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93eb2f1b91dfbc842a674c507dc64595, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &418465639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8571900106975425356, guid: c92dc6a0fd247b74b8a906fffd3ecfb2, type: 3}
@@ -3951,17 +3940,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8571900106975425356, guid: c92dc6a0fd247b74b8a906fffd3ecfb2, type: 3}
   m_PrefabInstance: {fileID: 611188206}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &627144225 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7123206984244372839, guid: 6759feafc0d88e74b90c6017f7d0de35, type: 3}
-  m_PrefabInstance: {fileID: 5980373977802179886}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b73f05dd2d362e44090aaf10d58fc133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &629799726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8571900106975425356, guid: c92dc6a0fd247b74b8a906fffd3ecfb2, type: 3}
@@ -4058,7 +4036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 27, y: 98}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &651306202
@@ -5862,18 +5840,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd4b0cf18595be14c94b65d137aaf828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponComponent: {fileID: 417132085}
-  healthComponent: {fileID: 627144225}
-  weaponImage: {fileID: 662474362}
-  ammo: {fileID: 32306594}
-  extraAmmo: {fileID: 651306202}
-  reloadtime: {fileID: 1780975367}
-  reloadWheelCurrent: {fileID: 1554746033}
-  reloadWheelBackGround: {fileID: 139096298}
-  HealthBar: {fileID: 1949352279}
-  health: {fileID: 341172022}
-  maxhealth: {fileID: 1629289667}
-  debugText: {fileID: 901069081}
+  crosshairImage: {fileID: 0}
+  playerWeapon_name: 
+  weaponImage_name: 
+  currentAmmo_name: 
+  extraAmmo_name: 
+  reloadtime_name: 
+  reloadWheelCurrent_name: 
+  reloadwheelBG_name: 
+  healthbar_name: 
+  health_name: 
+  maxhealth_name: 
+  fuelbar_name: 
+  fuel_name: 
+  maxfuel_name: 
+  clickLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  trapMenu_name: 
+  trapName_name: 
+  trapImage_name: 
+  trapLevel_name: 
+  trapLevelUp_name: 
+  trapLevelDown_name: 
+  debug_name: 
 --- !u!1001 &1004533400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7405,6 +7395,9 @@ MonoBehaviour:
   spawnPoints:
   - {x: 30, y: -4}
   - {x: -30, y: -4}
+  spawnKey: 
+  autoSpawn: 0
+  spawnDelay: 0
 --- !u!4 &1280798279
 Transform:
   m_ObjectHideFlags: 0

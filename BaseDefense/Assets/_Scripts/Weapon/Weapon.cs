@@ -35,7 +35,7 @@ public class Weapon : MonoBehaviour
     #region HideInEditor
     // Components
     SpriteRenderer sRenderer;
-    List<WeaponData> instances;
+    public List<WeaponData> instances;
     // Properties
     int dataIndex = 0;
     private int DataIndex
@@ -256,5 +256,33 @@ public class Weapon : MonoBehaviour
     {
         OnReloadChange?.Invoke(time, percent);
     }
+
+    public bool HasWeapon(WeaponData w)
+    {
+        
+        foreach(var item in instances)
+        {
+            if(item == w)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public WeaponData ReturnWeapon(WeaponData w)
+    {
+
+        foreach (var item in instances)
+        {
+            if (item == w)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    
     #endregion
 }

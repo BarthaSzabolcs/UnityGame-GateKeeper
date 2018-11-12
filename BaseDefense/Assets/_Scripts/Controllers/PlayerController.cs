@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
     [SerializeField] JetPack jetPack;
+    [SerializeField] GameObject shop;
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -249,6 +250,7 @@ public class PlayerController : MonoBehaviour
     void OtherInput()
     {
         BuildMode();
+        OpenCloseShop();
     }
     void BuildMode()
     {
@@ -259,6 +261,22 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButtonUp("BuildMode"))
         {
             GameManager.Instance.InBuildMode = false;
+        }
+    }
+    void OpenCloseShop()
+    {
+        if (Input.GetButtonDown("Shop"))
+        {
+            var sm = shop.GetComponent<ShopManager>();
+            sm.UpdateMoney();
+            if(shop.activeSelf == false)
+            {
+                shop.SetActive(true);
+            }
+            else
+            {
+                shop.SetActive(false);
+            }
         }
     }
     #endregion

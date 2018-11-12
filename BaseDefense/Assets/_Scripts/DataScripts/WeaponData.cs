@@ -40,7 +40,7 @@ public class WeaponData : ScriptableObject
             weapon.TriggerExtraAmmoChange(extraAmmo);
         }
     }
-    [SerializeField] int magSize;
+    public int magSize;
 
     [Header("Reload Settings:")]
     [SerializeField] int reloadAmmount;

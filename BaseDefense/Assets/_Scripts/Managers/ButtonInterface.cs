@@ -31,4 +31,9 @@ public class ButtonInterface : ScriptableObject
     { 
         GameManager.Instance.BuyTrap(newData);
     }
+
+    public void BuyAmmo(WeaponData wep, int cost)
+    {
+        GameManager.Instance.BuyAmmo(wep, cost);
+    }
 }

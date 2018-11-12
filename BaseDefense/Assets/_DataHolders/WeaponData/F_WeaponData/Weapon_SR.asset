@@ -22,8 +22,8 @@ MonoBehaviour:
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
-    key0: {r: 0.42702705, g: 1, b: 0.8594595, a: 0.39215687}
-    key1: {r: 0.42702705, g: 1, b: 0.8594595, a: 0.39215687}
+    key0: {r: 0.30980393, g: 0.7254902, b: 0.62352943, a: 0.6862745}
+    key1: {r: 0.30980393, g: 0.7254902, b: 0.62352943, a: 0.6862745}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -61,6 +61,7 @@ MonoBehaviour:
   isAuto: 0
   extraAmmo: 100
   ammoConsumption: 1
+  infiniteAmmo: 0
   magSize: 3
   reloadAmmount: 3
   reloadTime: 0.5

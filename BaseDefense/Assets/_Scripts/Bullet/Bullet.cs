@@ -36,7 +36,9 @@ public class Bullet : MonoBehaviour
         renderer.color = data.bulletColor;
         renderer.sprite = data.sprite;
 
-        // Trail        
+        // Trail
+        trailerRenderer.enabled = true;
+        trailerRenderer.Clear();
         trailerRenderer.colorGradient = data.trailColor;
         trailerRenderer.widthCurve = data.trailWidth;
         trailerRenderer.widthMultiplier = data.trailWidthMultiplier;
@@ -138,12 +140,15 @@ public class Bullet : MonoBehaviour
         AudioManager.Instance.PlaySound(data.impactAudio);
         if (data.explosionData != null)
         {
-			GameObject explosionInstance = ObjectPool_Manager.Instance.SpawnExplosion(transform.position);
-			var explosionComponent = explosionInstance.GetComponent<Explosion>();
-			explosionComponent.data = data.explosionData;
-			explosionComponent.Initialize();
-		}
-        ObjectPool_Manager.Instance.PoolBullet(gameObject);
+            GameObject explosionInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.explosion, transform.position);
+            var explosionComponent = explosionInstance.GetComponent<Explosion>();
+            explosionComponent.data = data.explosionData;
+            explosionComponent.Initialize();
+        }
+
+        trailerRenderer.Clear();
+        trailerRenderer.enabled = false;
+        ObjectPool.Instance.Pool(ObjectPool.Types.bullet, gameObject);
     }
     private void Penetrate()
     {
@@ -175,7 +180,7 @@ public class Bullet : MonoBehaviour
             {
                 for (var i = 0; i < splits; i++)
                 {
-                    bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(spawnPosition);
+                    bulletInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.bullet, spawnPosition);
                     bulletComponent = bulletInstance.GetComponent<Bullet>();
 
                     bulletInstance.transform.Rotate
@@ -191,7 +196,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(spawnPosition);
+                bulletInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.bullet, spawnPosition);
                 bulletComponent = bulletInstance.GetComponent<Bullet>();
 
                 bulletInstance.transform.Rotate(0, 0, impactAngle + data.smallBulletAngleOffset);

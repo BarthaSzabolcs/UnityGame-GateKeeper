@@ -19,12 +19,11 @@ public class Weapon : MonoBehaviour
 
     public delegate void MagEmpty();
     public event MagEmpty OnMagEmpty;
-    
+
     public delegate void ReloadChange(float time, float percent);
     public event ReloadChange OnReloadChange;
     #endregion
     #region ShowInEditor
-
     [Header("Weapons:")]
     [SerializeField] List<WeaponData> data;
     [SerializeField] GameObject droppedWeapon;
@@ -37,7 +36,7 @@ public class Weapon : MonoBehaviour
 
     [Header("LaserSight:")]
     [SerializeField] LayerMask laserMask;
-    [SerializeField] LineRenderer laserSight;
+    [SerializeField] LineRenderer laserRenderer;
     [SerializeField] Transform laserTransform;
     #endregion
     #region HideInEditor
@@ -68,11 +67,11 @@ public class Weapon : MonoBehaviour
         }
         set
         {
-            if(value > data.Count - 1)
+            if (value > data.Count - 1)
             {
                 dataIndex = 0;
             }
-            else if(value < 0)
+            else if (value < 0)
             {
                 dataIndex = data.Count - 1;
             }
@@ -116,7 +115,7 @@ public class Weapon : MonoBehaviour
             {
                 StopCoroutine(muzzleFlashCoruutine);
             }
-            else if(value == null && muzzleFlashCoruutine != null)
+            else if (value == null && muzzleFlashCoruutine != null)
             {
                 StopCoroutine(muzzleFlashCoruutine);
                 muzzleflashRenderer.enabled = false;
@@ -126,8 +125,7 @@ public class Weapon : MonoBehaviour
     }
     public int AmmoInMag { get => instances[DataIndex].AmmoInMag; }
     public int ExtraAmmo { get => instances[DataIndex].ExtraAmmo; }
-    public bool IsAuto { get => instances[DataIndex].isAuto; }
-    
+    public WeaponData WeaponData { get => data[DataIndex]; }
     #endregion
     #region UnityFunctions
 
@@ -174,13 +172,13 @@ public class Weapon : MonoBehaviour
         // Lasersight
         if (data[DataIndex].hasLaserSight)
         {
-            laserSight.enabled = true;
-            laserSight.colorGradient = data[DataIndex].laserSightColor;
+            laserRenderer.enabled = true;
+            laserRenderer.colorGradient = data[DataIndex].laserSightColor;
             laserSightRange = data[DataIndex].LaserSightRange;
         }
         else
         {
-            laserSight.enabled = false;
+            laserRenderer.enabled = false;
         }
 
         OnWeaponChanged?.Invoke(instances[DataIndex]);
@@ -198,7 +196,7 @@ public class Weapon : MonoBehaviour
     }
     IEnumerator MuzzleFlashRoutine(Sprite[] animation)
     {
-        data[DataIndex].muzzleFashAnimation.Randomize(spriteRenderer);
+        data[DataIndex].muzzleFashAnimation.Randomize(muzzleflashRenderer);
 
         muzzleflashRenderer.enabled = true;
 
@@ -252,25 +250,25 @@ public class Weapon : MonoBehaviour
         data.Add(newWeaponData);
         Initialize(newWeaponData);
     }
-    public void SetApearence(bool lookingRight)
+    public void SetApearence(bool flipApperance)
     {
-        if (lookingRight)
+        spriteRenderer.flipY = flipApperance;
+
+        if (flipApperance)
         {
-            spriteRenderer.flipY = false;
+            transform.localPosition = new Vector2(-data[DataIndex].weaponPosition.x, data[DataIndex].weaponPosition.y);
+            leftHand.localPosition = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
+            rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
+            muzzleFlash.localPosition = new Vector2(data[DataIndex].muzzleFlashOffSet.x, -data[DataIndex].muzzleFlashOffSet.y);
+            laserTransform.localPosition = new Vector2(data[DataIndex].laserOffSet.x, -data[DataIndex].laserOffSet.y);
+        }
+        else
+        {
             transform.localPosition = data[DataIndex].weaponPosition;
             leftHand.localPosition = data[DataIndex].leftHandPosition;
             rightHand.localPosition = data[DataIndex].rightHandPosition;
             muzzleflashRenderer.transform.localPosition = data[DataIndex].muzzleFlashOffSet;
-            laserTransform.localPosition = data[DataIndex].laserOffSet; 
-        }
-        else
-        {
-            spriteRenderer.flipY = true;
-            transform.localPosition = new Vector2(-data[DataIndex].weaponPosition.x, data[DataIndex].weaponPosition.y);
-            leftHand.localPosition  = new Vector2(data[DataIndex].leftHandPosition.x, -data[DataIndex].leftHandPosition.y);
-            rightHand.localPosition = new Vector2(data[DataIndex].rightHandPosition.x, -data[DataIndex].rightHandPosition.y);
-            muzzleFlash.localPosition = new Vector2(data[DataIndex].muzzleFlashOffSet.x, -data[DataIndex].muzzleFlashOffSet.y);
-            laserTransform.localPosition = new Vector2(data[DataIndex].laserOffSet.x, -data[DataIndex].laserOffSet.y);
+            laserTransform.localPosition = data[DataIndex].laserOffSet;
         }
     }
 
@@ -289,7 +287,7 @@ public class Weapon : MonoBehaviour
         {
             linePositions[1] = transform.TransformPoint(Vector2.right * laserSightRange);
         }
-        laserSight.SetPositions(linePositions);
+        laserRenderer.SetPositions(linePositions);
     }
 
     // Accessor for the Weapon class

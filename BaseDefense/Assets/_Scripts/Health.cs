@@ -141,7 +141,7 @@ public class Health : MonoBehaviour
     {
         if(data.deathAnim != null)
         {
-            var deathAnim = ObjectPool_Manager.Instance.SpawnExplosion(transform.position);
+            var deathAnim = ObjectPool.Instance.Spawn(ObjectPool.Types.explosion, transform.position);
             Explosion exp = deathAnim.GetComponent<Explosion>();
             exp.data = data.deathAnim;
             exp.Initialize();

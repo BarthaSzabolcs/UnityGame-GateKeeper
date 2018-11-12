@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Exp_Generic_BulletImpact
   m_EditorClassIdentifier: 
   animationCllection: {fileID: 11400000, guid: d57b0637e9819614b829bca0fec3044f, type: 2}
-  animationColor: {r: 1, g: 0.8391768, b: 0.6367924, a: 1}
+  animationColor: {r: 1, g: 0.6509804, b: 0.21176471, a: 1}
   isExplosive: 0
   explosionRange: 0
   explosionMagnitude: 0

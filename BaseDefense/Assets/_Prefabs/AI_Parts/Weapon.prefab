@@ -121,7 +121,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 1
+    textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -244,13 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93eb2f1b91dfbc842a674c507dc64595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test0: 0
+  test1: 0
+  test2: 0
   data:
   - {fileID: 11400000, guid: bbd86a9ee941e7c4eb5e928b26e52c1c, type: 2}
-  - {fileID: 11400000, guid: e8e67b15fa5f2104b9475e90c049f86e, type: 2}
-  - {fileID: 11400000, guid: c3b711aaf80e08f4fbf1f2446cc64dbb, type: 2}
-  - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
-  - {fileID: 11400000, guid: 74b3cfc87bd70f64aa3b1361276361f3, type: 2}
-  - {fileID: 11400000, guid: dfcae1e2644c25b45bbae5daa3e4d752, type: 2}
   droppedWeapon: {fileID: 1959444473538686, guid: 5285ddab37430b244b0b0d9b0895c045, type: 3}
   spriteRenderer: {fileID: 610561043227335660}
   muzzleflashRenderer: {fileID: 9167076062032745846}
@@ -260,7 +258,7 @@ MonoBehaviour:
   laserMask:
     serializedVersion: 2
     m_Bits: 64823
-  laserSight: {fileID: 3341015644346641553}
+  laserRenderer: {fileID: 3341015644346641553}
   laserTransform: {fileID: 1945172907038105589}
 --- !u!1 &5177301760493914885
 GameObject:

@@ -16,17 +16,17 @@ MonoBehaviour:
   muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
   muzzleFlashOffSet: {x: 1.5, y: 0}
   barrelOffSet: {x: 1.5, y: 0}
-  weaponPosition: {x: 0.96, y: 0}
+  weaponPosition: {x: 0.75, y: 0}
   rightHandPosition: {x: 0.68, y: -0.27}
   leftHandPosition: {x: -0.8, y: -0.32}
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
-    key0: {r: 1, g: 0.1011236, b: 0, a: 0.39215687}
-    key1: {r: 1, g: 0.1011236, b: 0, a: 0.39215687}
-    key2: {r: 0.69803923, g: 0.07058824, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.49019608}
+    key1: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.5882353}
+    key2: {r: 0.69803923, g: 0.07058824, b: 0, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 1}
+    key4: {r: 0, g: 0, b: 0, a: 1}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
@@ -40,9 +40,9 @@ MonoBehaviour:
     ctime7: 0
     atime0: 0
     atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
+    atime2: 65535
+    atime3: 65535
+    atime4: 62258
     atime5: 0
     atime6: 0
     atime7: 0
@@ -59,8 +59,9 @@ MonoBehaviour:
   dynamicTimeBtwShots: []
   fireRateDecreaseTime: 0
   isAuto: 0
-  extraAmmo: 99999
+  extraAmmo: 0
   ammoConsumption: 1
+  infiniteAmmo: 1
   magSize: 14
   reloadAmmount: 14
   reloadTime: 0.3

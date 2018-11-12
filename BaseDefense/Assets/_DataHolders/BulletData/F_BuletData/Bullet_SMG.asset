@@ -99,7 +99,7 @@ MonoBehaviour:
   hasLifeTime: 1
   isHoming: 1
   spawnBullet: 0
-  lifeTime: 0.6
+  lifeTime: 0.45
   explodeAfterLifeTime: 0
   targetMask:
     serializedVersion: 2

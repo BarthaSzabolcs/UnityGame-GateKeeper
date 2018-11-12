@@ -38,6 +38,6 @@ public class SelfDestruct : MonoBehaviour
             var explosion = Instantiate(explosionObject, transform.position, Quaternion.identity);
             explosion.GetComponent<Explosion>().data = explosionData;
         }
-        ObjectPool_Manager.Instance.PoolBullet(gameObject);
+        ObjectPool.Instance.Pool(ObjectPool.Types.bullet, gameObject);
     }
 }

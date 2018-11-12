@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.InBuildMode == false)
         {
-            Move();
             WeaponHandling();
+            Move();
         }
         OtherInput();
     }
@@ -150,9 +150,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Teleport"))
         {
-
-            Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
             if (Vector2.Distance(target, transform.position) < data.teleportRange && teleportTimer + data.teleportCoolDown < Time.time)
             {
                 Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
@@ -210,14 +207,14 @@ public class PlayerController : MonoBehaviour
 
     void CheckDirection()
     {
-        if(target.x > transform.position.x)
+        if(target.x < transform.position.x)
         {
-            sRenderer.flipX = false;
+            sRenderer.flipX = true;
             weapon.SetApearence(true);
         }
         else
         {
-            sRenderer.flipX = true;
+            sRenderer.flipX = false;
             weapon.SetApearence(false);
         }
     }

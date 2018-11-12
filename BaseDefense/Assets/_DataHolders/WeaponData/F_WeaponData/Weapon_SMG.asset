@@ -22,8 +22,8 @@ MonoBehaviour:
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
-    key0: {r: 1, g: 0.18934911, b: 0.66272175, a: 0.39215687}
-    key1: {r: 1, g: 0.18934911, b: 0.66272175, a: 0.39215687}
+    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.49019608}
+    key1: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.5882353}
     key2: {r: 0.92237604, g: 0.5627737, b: 0, a: 0.09803922}
     key3: {r: 0.862069, g: 1, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
     atime5: 0
     atime6: 0
     atime7: 0
-    m_Mode: 1
+    m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   laserOffSet: {x: 1.74, y: 0.03}
@@ -59,8 +59,9 @@ MonoBehaviour:
   dynamicTimeBtwShots: []
   fireRateDecreaseTime: 0
   isAuto: 1
-  extraAmmo: 99999
+  extraAmmo: 450
   ammoConsumption: 1
+  infiniteAmmo: 0
   magSize: 45
   reloadAmmount: 45
   reloadTime: 0.5

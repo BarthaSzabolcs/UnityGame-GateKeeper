@@ -62,6 +62,6 @@ public class Explosion : MonoBehaviour
 
         // Object Pooling
 		spriteRenderer.sprite = null;
-		ObjectPool_Manager.Instance.PoolExplosion(gameObject);
+		ObjectPool.Instance.Pool(ObjectPool.Types.explosion, gameObject);
 	}
 }

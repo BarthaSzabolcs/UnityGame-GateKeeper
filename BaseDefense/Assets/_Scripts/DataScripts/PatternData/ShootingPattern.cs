@@ -9,7 +9,7 @@ public abstract class ShootingPattern : ScriptableObject
 	{
         Vector2 calculatedPosition = self.TransformVector(barrelOffSet) + self.position;
 
-		GameObject bulletInstance = ObjectPool_Manager.Instance.SpawnBullet(calculatedPosition);	
+		GameObject bulletInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.bullet, calculatedPosition);	
         bulletInstance.transform.up = rotation * self.right;
 		var bulletComponent = bulletInstance.GetComponent<Bullet>();
 		bulletComponent.data = bulletData;

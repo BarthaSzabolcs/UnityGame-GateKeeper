@@ -59,8 +59,9 @@ MonoBehaviour:
   dynamicTimeBtwShots: []
   fireRateDecreaseTime: 0
   isAuto: 1
-  extraAmmo: 99999
+  extraAmmo: 30
   ammoConsumption: 1
+  infiniteAmmo: 0
   magSize: 6
   reloadAmmount: 1
   reloadTime: 0.2

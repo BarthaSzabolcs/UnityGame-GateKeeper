@@ -13,7 +13,6 @@ public class AnimationCollection: ScriptableObject
     /// <summary>
     /// Returns a random animation from the array
     /// </summary>
-    /// <returns></returns>
     public Sprite[] Next()
     {
         return animations[Random.Range(0, animations.Length)].frames;
@@ -22,7 +21,6 @@ public class AnimationCollection: ScriptableObject
     /// <summary>
     /// Randomly flips the renderer X and Y based on the AnimationCollection settings 
     /// </summary>
-    /// <param name="spriteRenderer"></param>
     public void Randomize(SpriteRenderer spriteRenderer)
     {
         if (randomizeX)

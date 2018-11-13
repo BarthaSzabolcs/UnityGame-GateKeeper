@@ -84,10 +84,10 @@ public class HomingBehavior : MonoBehaviour
 
                 self.velocity = transform.up * speed;
             }
-            //else if (SearchTargetRoutine == null)
-            //{
-            //    SearchTargetRoutine = StartCoroutine(SearchTarget());
-            //}
+            else if (SearchTargetRoutine == null)
+            {
+                SearchTargetRoutine = StartCoroutine(SearchTarget());
+            }
             yield return new WaitForSeconds(homingRefreshRate);
         }
     }

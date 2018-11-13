@@ -50,7 +50,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   laserOffSet: {x: 0.3, y: -0.2}
-  laserSightMaxRange: 50
+  laserSightMaxRange: 100
   bulletData: {fileID: 11400000, guid: 7cf7541e94ba2fb4c9a336c8dd81d0cf, type: 2}
   chargable: 0
   pattern: {fileID: 11400000, guid: 74765fd794284fa4cbc9844b1751f580, type: 2}

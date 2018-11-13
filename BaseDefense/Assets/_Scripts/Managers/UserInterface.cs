@@ -86,7 +86,29 @@ public class UserInterface : MonoBehaviour
     Text debugText;
     public static UserInterface Instance { get; private set; }
 
-    //Health
+    // Ammo
+    private int ammo;
+    private int Ammo
+    {
+        get => ammo;
+        set
+        {
+            ammo = value;
+            AmmoChange(ammo);
+        }
+    }
+    private int extraAmmo;
+    private int ExtraAmmo
+    {
+        get => extraAmmo;
+        set
+        {
+            extraAmmo = value;
+            ExtraAmmoChange(extraAmmo);
+        }
+    }
+
+    // Health
     private int currentHealth;
     int maxHealth;
     float healthPercent;
@@ -127,7 +149,7 @@ public class UserInterface : MonoBehaviour
         }
     }
 
-    //Fuel
+    // Fuel
     private int currentFuel;
     private int maxFuel;
     private float fuelPercent;
@@ -202,16 +224,14 @@ public class UserInterface : MonoBehaviour
         weaponComponent.OnReloadStart += ReloadStart;
         weaponComponent.OnReloadChange += Instance.ReloadChange;
         weaponComponent.OnReloadStop += ReloadStop;
-        weaponComponent.OnExtraAmmoChange += ExtraMagChange;
-        weaponComponent.OnMagChange += MagChange;
+        weaponComponent.OnExtraAmmoChange += ExtraAmmoChange;
+        weaponComponent.OnMagChange += AmmoChange;
 
         weaponImage_Image = GameObject.Find(weaponImage_name).GetComponent<Image>();
         ammo_Text = GameObject.Find(currentAmmo_name).GetComponent<Text>();
         extraAmmo_Text = GameObject.Find(extraAmmo_name).GetComponent<Text>();
 
-        weaponImage_Image.sprite = weaponComponent.WeaponData.sprite;
-        MagChange(weaponComponent.AmmoInMag);
-        ExtraMagChange(weaponComponent.ExtraAmmo);
+        RefreshWeaponData(weaponComponent.WeaponData);
 
         // Get and Set ReloadWheel
         reloadtime_Text = GameObject.Find(reloadtime_name).GetComponent<Text>();
@@ -276,21 +296,19 @@ public class UserInterface : MonoBehaviour
     private void RefreshWeaponData(WeaponData weapon)
     {
         weaponImage_Image.sprite = weapon.sprite;
-        ammo_Text.text = weapon.AmmoInMag.ToString();
 
+        Ammo = weapon.AmmoInMag;
         extraAmmo_Text.text =  weapon.infiniteAmmo ? "/ ∞" : "/ " + weapon.ExtraAmmo.ToString();
-
-        extraAmmo_Text.enabled = true;
     }
     
     // Ammo
-    private void MagChange(int value)
+    private void AmmoChange(int ammo)
     {
-        this.ammo_Text.text = value.ToString() + " ";
+        ammo_Text.text = ammo.ToString() + " ";
     }
-    private void ExtraMagChange(int value)
+    private void ExtraAmmoChange(int extraAmmo)
     {
-        this.extraAmmo_Text.text = "/ " + value.ToString();
+        extraAmmo_Text.text = "/ " + extraAmmo.ToString();
     }
     
     // Reload

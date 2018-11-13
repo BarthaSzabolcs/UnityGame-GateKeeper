@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region UnityFunctions
+
     void Awake ()
     {
         self = GetComponent<Rigidbody2D>();
@@ -46,8 +47,10 @@ public class PlayerController : MonoBehaviour
             Destroy(col.gameObject);
         }
     }
+
     #endregion
     #region Movement Functions
+
     void Move()
     {
         Grounded();
@@ -170,8 +173,10 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
     #endregion
     #region Weapon Functions
+
     void WeaponHandling()
     {
         AimWeapon();
@@ -183,8 +188,11 @@ public class PlayerController : MonoBehaviour
     }
     void AimWeapon()
     {
+        // Set target
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        weaponTransform.right = target - (Vector2)weaponTransform.position;
+        
+        // Rotate the weapon towards the target based on the difference in angle
+        weaponTransform.Rotate(new Vector3(0, 0, Vector2.SignedAngle(weaponTransform.right, target - (Vector2)weaponTransform.position)));
     }
     void Attack()
     {
@@ -207,7 +215,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckDirection()
     {
-        if(target.x < transform.position.x)
+        if (target.x < transform.position.x)
         {
             sRenderer.flipX = true;
             weapon.SetApearence(true);

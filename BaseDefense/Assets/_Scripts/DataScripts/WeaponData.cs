@@ -6,22 +6,30 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     #region ShowInEditor
-    [Header("Appearance Settings:")]
+    [Header("   Idle:")]
+    [Header("VisualFX Settings:")]
     public Sprite sprite;
+
+    [Header("   Animations:")]
     public AnimationCollection muzzleFashAnimation;
+    public AnimationCollection firingAnimation;
+    public AnimationCollection reloadAnimation;
+
+    [Header("   Lasersight:")]
+    public bool hasLaserSight;
+    public Gradient laserSightColor;
+    public float laserSightMaxRange;
+
+    [Header("   Offsets:")]
     public Vector2 muzzleFlashOffSet;
     public Vector2 barrelOffSet;
     public Vector2 weaponPosition;
     public Vector2 rightHandPosition;
     public Vector2 leftHandPosition;
-
-    [Header("   Lasersight:")]
-    public bool hasLaserSight;
-    public Gradient laserSightColor;
     public Vector2 laserOffSet;
-    public float laserSightMaxRange;
 
-    [Header("Shooting Settings:")]
+    [Header("   Shooting:")]
+    [Header("Function Settings:")]
     public BulletData bulletData;
     public bool chargable;
     [SerializeField] ShootingPattern pattern;
@@ -32,7 +40,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] float fireRateDecreaseTime;
     public bool isAuto;
 
-    [Header("Ammo Settings:")]
+    [Header("   Ammo:")]
     [SerializeField] int extraAmmo;
     public int ammoConsumption;
     public bool infiniteAmmo;
@@ -50,7 +58,7 @@ public class WeaponData : ScriptableObject
     }
     [SerializeField] int magSize;
 
-    [Header("Reload Settings:")]
+    [Header("   Reload:")]
     [SerializeField] int reloadAmmount;
     [SerializeField] float reloadTime;
     [SerializeField] int reloadRefreshPerSecond;
@@ -163,7 +171,6 @@ public class WeaponData : ScriptableObject
             {
                 FireRateIndex -= (int)Mathf.Floor((Time.time - fireRateTimer) / ( dynamicTimeBtwShots[FireRateIndex] + fireRateDecreaseTime));
                 FireRateIndex++;
-                Debug.Log(FireRateIndex);
             }
 
             // Shoot Bullet
@@ -173,7 +180,7 @@ public class WeaponData : ScriptableObject
             AmmoInMag -= ammoConsumption;
             
             // Play MuzzleFlash Animation
-            weapon.MuzleFlash(muzzleFashAnimation.Next());
+            weapon.PlayarFiringAnimations(muzzleFashAnimation.Next());
 
             charge++;
             triggerReseted = false;

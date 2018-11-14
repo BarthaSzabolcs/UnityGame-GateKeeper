@@ -104,12 +104,12 @@ public class SpawnManager_B_Adam : MonoBehaviour
     {
         // 5 waves total currently with fix 10 ai's per wave.;
         Wave.Add(AisToSpawn[0]);
+        Wave.Add(AisToSpawn[1]);
+        Wave.Add(AisToSpawn[0]);
+        Wave.Add(AisToSpawn[1]);
         Wave.Add(AisToSpawn[0]);
         Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
+        Wave.Add(AisToSpawn[1]);
         Wave.Add(AisToSpawn[0]);
         Wave.Add(AisToSpawn[0]);
         Wave.Add(AisToSpawn[1]);

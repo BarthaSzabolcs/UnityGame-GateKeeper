@@ -62,7 +62,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 20
   fieldOfView: 90
+  checkAngle: 0
   checkLineOfSight: 1
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1536

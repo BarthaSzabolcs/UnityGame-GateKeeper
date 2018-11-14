@@ -5,10 +5,21 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     #region ShowInEditor
+
+    [Header("Type:")]
+    public string type;
+
+    [Header("Data")]
     [SerializeField] private TrapData data;
     [SerializeField] private TrapData nullData;
+
     #endregion
     #region HideInEditor
+
+    BoxCollider2D triggerZone;
+    SpriteRenderer spriteRenderer;
+    TrapBehaviour trapBehaviourInstance;
+
     public TrapData Data
     {
         get
@@ -25,16 +36,32 @@ public class Trap : MonoBehaviour
             {
                 data = value;
             }
-            triggerZone.size = data.triggerZoneSize;
-            triggerZone.offset = data.triggerZoneOffset;
-            spriteRenderer.sprite = GameManager.Instance.InBuildMode ? data.buildModeSprite : data.sprite;   
+
+            InitializeTrapData();
         }
     }
-    BoxCollider2D triggerZone;
-    SpriteRenderer spriteRenderer;
-    #endregion
 
+    Coroutine recoverCoroutine;
+    private Coroutine RecoverCoroutine
+    {
+        get
+        {
+            return recoverCoroutine;
+        }
+        set
+        {
+            if(recoverCoroutine != null && value == null)
+            {
+                StopCoroutine(recoverCoroutine);
+            }
+
+            recoverCoroutine = value;
+        }
+    }
+
+    #endregion
     #region UnityFunctions
+
     void Start()
     {
         triggerZone = GetComponent<BoxCollider2D>();
@@ -45,6 +72,11 @@ public class Trap : MonoBehaviour
         spriteRenderer.sprite = Data.sprite;
 
         GameManager.Instance.OnBuildModeStateChange += HandleBuildModeStateChanged;
+
+        if(Data != nullData)
+        {
+            InitializeTrapData();
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -52,8 +84,9 @@ public class Trap : MonoBehaviour
         {
             if(tag == col.tag)
             {
-                col.gameObject.GetComponent<Health>().TakeDamage(Data.damage);
-                StartCoroutine(RecoverRoutine());
+
+                trapBehaviourInstance.Trigger();
+                return;
             }
         }
     }
@@ -61,7 +94,31 @@ public class Trap : MonoBehaviour
     {
         GameManager.Instance.OnBuildModeStateChange -= HandleBuildModeStateChanged;
     }
+
     #endregion
+
+    private void InitializeTrapData()
+    {
+
+        triggerZone.enabled = data.trapBehaviour.enableTrigger;
+        triggerZone.size = data.triggerZoneSize;
+        triggerZone.offset = data.triggerZoneOffset;
+
+        spriteRenderer.sprite = GameManager.Instance.InBuildMode ? data.buildModeSprite : data.sprite;
+
+        if (trapBehaviourInstance != null)
+        {
+            trapBehaviourInstance.CleanUp();
+            Destroy(trapBehaviourInstance);
+        }
+
+        if (data != nullData)
+        {
+            trapBehaviourInstance = Instantiate(data.trapBehaviour);
+            trapBehaviourInstance.Initialize(transform, triggerZone);
+        }
+
+    }
     private void HandleBuildModeStateChanged(bool inBuildMode)
     {
         if(inBuildMode)
@@ -78,7 +135,10 @@ public class Trap : MonoBehaviour
     {
         triggerZone.enabled = false;
         yield return new WaitForSeconds(Data.recoverSpeed);
+
         triggerZone.enabled = true;
         AudioManager.Instance.PlaySound(Data.recoverAudio);
+
+        recoverCoroutine = null;
     }
 }

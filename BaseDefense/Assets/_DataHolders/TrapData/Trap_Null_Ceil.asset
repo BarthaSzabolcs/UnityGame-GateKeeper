@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
-  m_Name: Null_Trap
+  m_Name: Trap_Null_Ceil
   m_EditorClassIdentifier: 
   shopImage: {fileID: 0}
   shopName: No Trap
   price: 0
+  trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
   taggedToDamage: []
   damage: 0
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
   recoverSpeed: 0
   sprite: {fileID: 0}
-  buildModeSprite: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
+  buildModeSprite: {fileID: 21300012, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
   recoverAudio: 
   triggerAudio: 

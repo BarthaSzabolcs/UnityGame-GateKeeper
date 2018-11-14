@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
-  m_Name: Stone_Trap
+  m_Name: Trap_Mine
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300008, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
-  shopName: Stone trap
+  shopImage: {fileID: 21300004, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
+  shopName: Bomb
   price: 500
   taggedToDamage:
   - Enemy
@@ -21,7 +21,7 @@ MonoBehaviour:
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
   recoverSpeed: 0.1
-  sprite: {fileID: 21300008, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
-  buildModeSprite: {fileID: 21300010, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
+  sprite: {fileID: 21300004, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
+  buildModeSprite: {fileID: 21300004, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
   recoverAudio: 
   triggerAudio: 

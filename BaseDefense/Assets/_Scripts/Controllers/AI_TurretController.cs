@@ -5,17 +5,21 @@ using UnityEngine;
 public class AI_TurretController : MonoBehaviour
 {
     #region ShowInEditor
+
     [SerializeField] AI_Sight sight;
     [SerializeField] Weapon weapon;
+
     [Header("Aim:")]
     [SerializeField] float maxRotationAngle;
     [SerializeField] float aimingPrecision;
+
     #endregion
     #region HideInEditor
-    Rigidbody2D self;
 
+    Rigidbody2D self;
     bool shoot;
     bool reload;
+
     #endregion
 
     void Start()

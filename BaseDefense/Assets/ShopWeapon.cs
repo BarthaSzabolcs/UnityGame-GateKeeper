@@ -33,13 +33,10 @@ public class ShopWeapon : MonoBehaviour
 
     void StartData()
     {
+
         weaponsscript = weapons.GetComponent<Weapon>();
         isBought = false;
         //InitTest();
-       
-        
-        
-
 
     }
     void UpdateBought()

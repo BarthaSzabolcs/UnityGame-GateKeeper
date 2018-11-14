@@ -123,8 +123,10 @@ public class Health : MonoBehaviour
 
     void ResetHealth()
 	{
+
 		HealthPoint = data.maxHealthPoints;
 		dead = false;
+
 	}
 
     /// <summary>
@@ -133,15 +135,19 @@ public class Health : MonoBehaviour
     /// </summary>
     public void GainHealth(int heal)
 	{
+
 		HealthPoint += heal;
 		if (HealthPoint > data.maxHealthPoints)
 		{
 			HealthPoint = data.maxHealthPoints;
 		}
+
 	}
     public void GainHealthOverTime(int heal, int times, float frequency)
     {
+
         StartCoroutine(HealOverTime(heal, times, frequency));
+
     }
 
     /// <summary>
@@ -151,19 +157,25 @@ public class Health : MonoBehaviour
     /// </summary>
     public void TakeDamage(int damage)
     {
+
         if(dead)
         {
             return;
         }
+
         if (data.hitAudio != null)
         {
             AudioManager.Instance.PlaySound(data.hitAudio);
         }
+
         HealthPoint -= damage;
+
     }
     public void TakeDamgeOverTime(int damage, int times, float frequency)
     {
+
         StartCoroutine(DamageOverTime(damage, times, frequency));
+
     }
    
     
@@ -172,6 +184,7 @@ public class Health : MonoBehaviour
     /// </summary>
     public void Die()
     {
+
         if(data.deathAnim != null)
         {
             var deathAnim = ObjectPool.Instance.Spawn(ObjectPool.Types.explosion, transform.position);
@@ -184,6 +197,7 @@ public class Health : MonoBehaviour
         OnDeath?.Invoke(gameObject);
 
         Destroy(gameObject);   
+
     }
 
     /// <summary>
@@ -191,8 +205,10 @@ public class Health : MonoBehaviour
     /// </summary>
     public void DestroySelf()
     {
+
         OnSelfDestruct?.Invoke(gameObject);
         Destroy(gameObject);
+
     }
 
     #endregion
@@ -200,25 +216,30 @@ public class Health : MonoBehaviour
 
     private IEnumerator DamageOverTime(int damage, int times, float frequency)
     {
+
         for (int i = 0; i < times; i++)
         {
             yield return new WaitForSeconds(frequency);
             TakeDamage(damage);
         }
+
     }
     private IEnumerator HealOverTime(int heal, int times, float frequency)
     {
+
         for (int i = 0; i < times; i++)
         {
             yield return new WaitForSeconds(frequency);
             GainHealth(heal);
         }
+
     }
     private IEnumerator FlashRed()
 	{
         float flashProgress;
 
         flashProgress = 1;
+
 		while (flashProgress > 0)
 		{
 			spriteRenderer.color = new Color(1, 1 * flashProgress, 1 * flashProgress);
@@ -228,6 +249,7 @@ public class Health : MonoBehaviour
 		}
 
         flashProgress = 0;
+
         while (flashProgress <= 1)
 		{
             spriteRenderer.color = new Color(1, 1 * flashProgress, 1 * flashProgress);
@@ -235,11 +257,13 @@ public class Health : MonoBehaviour
 			flashProgress += 1 / data.flashTime / 2;
 			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
 		}
+
 		flash = null;
 	}
 	private IEnumerator FlashGreen()
 	{
         float flashProgress = 1;
+
 		while (flashProgress > 0)
 		{
             spriteRenderer.color = new Color(1 * flashProgress, 1 , 1 * flashProgress);
@@ -249,6 +273,7 @@ public class Health : MonoBehaviour
 		}
 
         flashProgress = 0;
+
         while (flashProgress <= 1)
 		{
             spriteRenderer.color = new Color(1 * flashProgress, 1 , 1 * flashProgress);
@@ -256,6 +281,7 @@ public class Health : MonoBehaviour
 			flashProgress += 1 / data.flashTime / 2;
 			yield return new WaitForSeconds(Time.deltaTime * (1 / Time.timeScale));
 		}
+
 		flash = null;
 	}
 

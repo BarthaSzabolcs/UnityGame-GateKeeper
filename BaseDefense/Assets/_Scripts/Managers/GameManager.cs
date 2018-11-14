@@ -73,46 +73,68 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     #region CusomFunctions
+
     public void ChangeScene(int index)
     {
+
         OnSceneChange?.Invoke();
         SceneManager.LoadScene(index);
         
     }
     public void ReloadScene()
     {
+
         ChangeScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
         Money = 0;
+
         player = GameObject.Find("Player");
+
         var portal = GameObject.Find("friendlyPortal");
-        if(portal != null)
+
+        if (portal != null)
         {
             portal.GetComponent<Health>().OnDeath += HandlePlayerDeath;
         }
+
         if (player != null)
         {
             player.GetComponent<Health>().OnDeath += HandlePlayerDeath;
         }
+
         UserInterface.Instance.InitializeLevelUI();
         ObjectPool.Instance.InitializeLevel();
+
     }
 
     public void PauseGame()
     {
+
         SetTimeScale(0);
+
     }
     public void ContinueGame()
+
     {
         SetTimeScale(1);
+
+    }
+    public void QuitGame()
+    {
+
+        Application.Quit();
+
     }
     private void SetTimeScale(float timeScale = Constants.timeSlowScale)
     {
+
         Time.timeScale = timeScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
     }
 
 
@@ -131,9 +153,13 @@ public class GameManager : MonoBehaviour
         UserInterface.Instance.InitializeTrapMenu();
     }
     #endregion
+
     private void HandlePlayerDeath(GameObject sender)
     {
+
         ReloadScene();
+
     }
+
     #endregion
 }

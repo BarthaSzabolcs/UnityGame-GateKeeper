@@ -67,13 +67,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a61529442ee10e44d8905e83f1d71c45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 808636054307b6e49b43e3dc0e361c1e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a61529442ee10e44d8905e83f1d71c45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 808636054307b6e49b43e3dc0e361c1e, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -493,7 +493,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 273.15, y: 273.15}
+  m_SizeDelta: {x: 296.05, y: 296.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1609361059889036198
 CanvasRenderer:
@@ -522,7 +522,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -660,7 +660,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000002623397, y: 0.0000012516131}
-  m_SizeDelta: {x: 0, y: 296.17}
+  m_SizeDelta: {x: 0, y: 821.4}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4101291465209556244
 MonoBehaviour:
@@ -680,11 +680,11 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 0
+  m_Spacing: 80
   m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
 --- !u!1 &1770721702148855287
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,8 +906,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1770721703220401638}
   m_HandleRect: {fileID: 1770721703220401639}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.3659727
   m_NumberOfSteps: 11
   m_OnValueChanged:
     m_PersistentCalls:
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Content: {fileID: 1770721701921526570}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1770721703255319901}
   m_HorizontalScrollbarVisibility: 2
-  m_VerticalScrollbarVisibility: 1
+  m_VerticalScrollbarVisibility: 0
   m_HorizontalScrollbarSpacing: -3
   m_VerticalScrollbarSpacing: -3
   m_OnValueChanged:
@@ -1153,7 +1153,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 135, y: 135}
+  m_SizeDelta: {x: 138, y: 138}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &324352306248070300
 CanvasRenderer:
@@ -1182,7 +1182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a61529442ee10e44d8905e83f1d71c45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 255135696a79a2a409e07901b25ef5cc, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_Script: {fileID: -1200242548, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
+  m_ShowMaskGraphic: 1
 --- !u!224 &192349148116653671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
@@ -1273,6 +1273,14 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
 --- !u!1001 &1665265448221388149
@@ -1310,10 +1318,6 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8600008771241766220, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a61529442ee10e44d8905e83f1d71c45, type: 3}
     - target: {fileID: 4063268919232187332, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -1324,6 +1328,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8600008771241766220, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
@@ -1393,6 +1401,14 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
 --- !u!1001 &5310021542107436620
@@ -1448,6 +1464,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600008771241766220, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
       propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1507,6 +1531,14 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
 --- !u!1001 &7633901022399406893
@@ -1562,6 +1594,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8600008771241766220, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
       propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342641567094446441, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

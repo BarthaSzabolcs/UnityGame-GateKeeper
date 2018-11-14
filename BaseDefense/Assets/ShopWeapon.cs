@@ -35,7 +35,7 @@ public class ShopWeapon : MonoBehaviour
     {
         weaponsscript = weapons.GetComponent<Weapon>();
         isBought = false;
-        InitTest();
+        //InitTest();
        
         
         
@@ -47,7 +47,7 @@ public class ShopWeapon : MonoBehaviour
         wsprite.sprite = weapon.sprite;
         weaponcostText.text = weaponCost.ToString();
         ammoCostText.text = ammoCost.ToString();
-        buyammotext.text = "Buy Ammo(" + weapon.magSize.ToString() + ")";
+        buyammotext.text = "Buy Ammo(" + weapon.AmmoInMag.ToString() + ")";
         UpdateData();
     }
 
@@ -65,30 +65,30 @@ public class ShopWeapon : MonoBehaviour
 
     public void BuyAmmo()
     {
-        GameManager.Instance.BuyAmmo(weapon, ammoCost);
+        //GameManager.Instance.BuyAmmo(weapon, ammoCost);
     }
 
     //If the player already has the weapon wepIdx != -1
 
-    public void InitTest()
-    {
-        if(wepIdx != -1)
-        {
-            weapon = weaponsscript.instances[wepIdx];
-            isBought = true;
-        }
+    //public void InitTest()
+    //{
+    //    if(wepIdx != -1)
+    //    {
+    //        //weapon = weaponsscript.instances[wepIdx];
+    //        isBought = true;
+    //    }
         
-    }
+    //}
 
     public void BuyWeapon()
     {
         if (wepIdx == -1)
         {
-            wepIdx = GameManager.Instance.BuyWeapon(weapon, weaponCost);
+            //wepIdx = GameManager.Instance.BuyWeapon(weapon, weaponCost);
             if (wepIdx != -1)
             {
                 ammocount.text = wepIdx.ToString();
-                InitTest();
+                //InitTest();
                 UpdateBought();
                 UpdateData();
             }

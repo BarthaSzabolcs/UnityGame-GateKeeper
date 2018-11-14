@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: Weapon_SMG
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c1a198dc6ae2bef44acc52d5cbdf1e94, type: 3}
-  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  waeponOffSet: {x: 1, y: 1}
   muzzleFlashOffSet: {x: 1.7, y: 0}
   barrelOffSet: {x: 1.5, y: 0}
-  weaponPosition: {x: 0.81, y: 0}
-  rightHandPosition: {x: 0, y: -0.33}
-  leftHandPosition: {x: 0, y: -0.33}
+  laserOffSet: {x: 1.74, y: 0.03}
+  rightHandPosition: {x: -0.2, y: -0.4}
+  leftHandPosition: {x: 0.45, y: -0.4}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  firingAnimation: {fileID: 0}
+  reloadAnimation: {fileID: 0}
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
@@ -49,8 +52,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  laserOffSet: {x: 1.74, y: 0.03}
   laserSightMaxRange: 100
+  rightHandSprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
+  leftHandSprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
   bulletData: {fileID: 11400000, guid: 7ed9fa855b17fad429a1b813094283ea, type: 2}
   chargable: 0
   pattern: {fileID: 11400000, guid: 7e222224ca001d34eaa8f75be5909c2e, type: 2}

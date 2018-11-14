@@ -39,8 +39,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  trailWidthMultiplier: 1
-  trailTime: 0.035
+  trailWidthMultiplier: 0.55
+  trailTime: 0.05
   trailColor:
     serializedVersion: 2
     key0: {r: 0.30980393, g: 0.7254902, b: 0.62352943, a: 1}
@@ -107,6 +107,7 @@ MonoBehaviour:
   taggedToTarget:
   - Enemy
   targetingRadius: 20
+  searchingDelay: 0.1
   homingRefreshRate: 0.01
   targetingRefreshRate: 0.3
   maxRotationPerCycle: 20

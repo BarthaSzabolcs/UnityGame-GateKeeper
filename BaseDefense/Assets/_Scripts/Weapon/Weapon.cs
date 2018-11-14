@@ -24,14 +24,19 @@ public class Weapon : MonoBehaviour
     public event ReloadChange OnReloadChange;
     #endregion
     #region ShowInEditor
-    [Header("Weapons:")]
+    [Header("Weapon:")]
     [SerializeField] List<WeaponData> data;
     [SerializeField] GameObject droppedWeapon;
-
-    [Header("Components:")]
     [SerializeField] SpriteRenderer weaponSpriteRenderer;
+
+    [Header("Hands:")]
+    [SerializeField] Transform rightHand;
+    [SerializeField] Transform leftHand;
+    [SerializeField] SpriteRenderer rightHandRenderer;
+    [SerializeField] SpriteRenderer leftHandRenderer;
+
+    [Header("MuzzleFlash:")]
     [SerializeField] SpriteRenderer muzzleflashRenderer;
-    [SerializeField] Transform rightHand, leftHand;
     [SerializeField] Transform muzzleFlash;
 
     [Header("LaserSight:")]
@@ -208,7 +213,14 @@ public class Weapon : MonoBehaviour
     }
     void RefreshData()
     {
+        // Weapon Idle
         weaponSpriteRenderer.sprite = WeaponData.sprite;
+
+        // Hands
+        leftHandRenderer.sprite = WeaponData.leftHandSprite;
+        rightHandRenderer.sprite = WeaponData.rightHandSprite;
+
+        //MuzzleFlash
         muzzleflashRenderer.color = WeaponData.bulletData.muzzleFlashColor;
         muzzleflashRenderer.transform.localPosition = WeaponData.muzzleFlashOffSet;
 
@@ -318,10 +330,12 @@ public class Weapon : MonoBehaviour
     public void SetApearence(bool flipApperance)
     {
         weaponSpriteRenderer.flipY = flipApperance;
+        leftHandRenderer.flipY = flipApperance;
+        rightHandRenderer.flipY = flipApperance;
 
         if (flipApperance)
         {
-            transform.localPosition         = new Vector2( -WeaponData.weaponPosition.x,    WeaponData.weaponPosition.y );
+            transform.localPosition         = new Vector2( -WeaponData.waeponOffSet.x,    WeaponData.waeponOffSet.y );
             leftHand.localPosition          = new Vector2( WeaponData.leftHandPosition.x,   -WeaponData.leftHandPosition.y );
             rightHand.localPosition         = new Vector2( WeaponData.rightHandPosition.x,  -WeaponData.rightHandPosition.y );
             muzzleFlash.localPosition       = new Vector2( WeaponData.muzzleFlashOffSet.x,  -WeaponData.muzzleFlashOffSet.y );
@@ -329,7 +343,7 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            transform.localPosition         = WeaponData.weaponPosition;
+            transform.localPosition         = WeaponData.waeponOffSet;
             leftHand.localPosition          = WeaponData.leftHandPosition;
             rightHand.localPosition         = WeaponData.rightHandPosition;
             muzzleFlash.localPosition       = WeaponData.muzzleFlashOffSet;

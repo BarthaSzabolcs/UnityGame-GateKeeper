@@ -92,8 +92,8 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_IsTrigger: 1
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -131,6 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7399322352936869294}
-  explosiobCollider: {fileID: 6848905067723388418}
+  explosionCollider: {fileID: 6848905067723388418}
   pointEffector: {fileID: 3992142457751045623}
   data: {fileID: 0}

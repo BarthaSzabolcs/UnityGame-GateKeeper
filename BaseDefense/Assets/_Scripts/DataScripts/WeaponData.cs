@@ -10,6 +10,14 @@ public class WeaponData : ScriptableObject
     [Header("VisualFX Settings:")]
     public Sprite sprite;
 
+    [Header("   Offsets:")]
+    public Vector2 waeponOffSet;
+    public Vector2 muzzleFlashOffSet;
+    public Vector2 barrelOffSet;
+    public Vector2 laserOffSet;
+    public Vector2 rightHandPosition;
+    public Vector2 leftHandPosition;
+
     [Header("   Animations:")]
     public AnimationCollection muzzleFashAnimation;
     public AnimationCollection firingAnimation;
@@ -20,13 +28,9 @@ public class WeaponData : ScriptableObject
     public Gradient laserSightColor;
     public float laserSightMaxRange;
 
-    [Header("   Offsets:")]
-    public Vector2 muzzleFlashOffSet;
-    public Vector2 barrelOffSet;
-    public Vector2 weaponPosition;
-    public Vector2 rightHandPosition;
-    public Vector2 leftHandPosition;
-    public Vector2 laserOffSet;
+    [Header("   Hands:")]
+    public Sprite rightHandSprite;
+    public Sprite leftHandSprite;
 
     [Header("   Shooting:")]
     [Header("Function Settings:")]

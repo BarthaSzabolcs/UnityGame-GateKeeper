@@ -39,8 +39,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  trailWidthMultiplier: 1
-  trailTime: 0.05
+  trailWidthMultiplier: 0.3
+  trailTime: 0.075
   trailColor:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -74,21 +74,22 @@ MonoBehaviour:
   explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
   bulletFiredAudio: BulletFired
   speed: 120
-  mass: 1
+  mass: 3
   gravityScale: 0
   taggedToDamage:
   - Enemy
   taggedToDestroy:
   - Wall
   - DroppedWeapon
+  - Enemy
   - Base
   taggedToDestroyWithoutEffects: []
   baseLayer: 13
   taggedToPenetrate:
-  - Enemy
-  penetrationsBeforeExplode: 0
-  ghostTime: 0
-  ghostLayer: 0
+  - 
+  penetrationsBeforeExplode: 1
+  ghostTime: 0.05
+  ghostLayer: 14
   damage: 7
   isAoE: 0
   aoeLayerMask:

@@ -52,8 +52,7 @@ public class ShootingPattern_RandomSpread : ShootingPattern, IChargable
 
         float randomAngle;
 
-        int splits = bulletCount - 1;
-        if(splits == 0)
+        if(bulletCount -1 == 0)
         {
             randomAngle = Random.Range(-0.5f * randomAngles[RandomSpreadIndex], 0.5f * randomAngles[RandomSpreadIndex]);
             Quaternion rotation = Quaternion.Euler(0, 0, randomAngle);
@@ -61,12 +60,12 @@ public class ShootingPattern_RandomSpread : ShootingPattern, IChargable
         }
         else
         {
-            for (int i = 0; i < splits; i++)
+            for (int i = 0; i < bulletCount; i++)
             {
                 randomAngle = Random.Range(-0.5f * randomAngles[RandomSpreadIndex], 0.5f * randomAngles[RandomSpreadIndex]);
                 Quaternion rotation = Quaternion.Euler(0, 0, randomAngle);
                 
-                rotation *= Quaternion.Euler(0, 0, i * spreadAngle / splits - spreadAngle * 0.5f);
+                rotation *= Quaternion.Euler(0, 0, spreadAngle / bulletCount * 0.5f + i * spreadAngle / bulletCount - spreadAngle * 0.5f);
                 ShootBullet(bulletData, self, barrelOffSet, rotation);
             }
         }

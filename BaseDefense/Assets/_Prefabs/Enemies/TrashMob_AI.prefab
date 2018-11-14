@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5397374428723529836}
   - component: {fileID: 5397374428723529837}
   - component: {fileID: 7158033105260915058}
-  - component: {fileID: 240909342192669392}
   - component: {fileID: 5397374428723529834}
   - component: {fileID: 3585165860624888489}
   - component: {fileID: 7727774098371253529}
+  - component: {fileID: 6300702968888760677}
   m_Layer: 8
   m_Name: TrashMob_AI
   m_TagString: Enemy
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 05506e085a23ccf4b9ddc4d6a2454a23, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -122,22 +122,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
---- !u!58 &240909342192669392
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397374428723529838}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.2
 --- !u!114 &5397374428723529834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 912d95315f0eb384a81e1b8de8f109c7, type: 2}
+  spriteRenderer: {fileID: 5397374428723529836}
 --- !u!114 &7727774098371253529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 51421cd74cf715841b4799e9a5426752, type: 2}
   timebetweenDamage: 0.25
+--- !u!58 &6300702968888760677
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397374428723529838}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.1

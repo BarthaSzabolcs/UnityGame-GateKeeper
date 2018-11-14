@@ -16,7 +16,7 @@ MonoBehaviour:
   gripLayer:
     serializedVersion: 2
     m_Bits: 50432
-  moveForce: 3000
+  moveForce: 7000
   baseMaxSpeed: 30
   altMaxSpeed: 20
   airControlMultiplier: 0.5

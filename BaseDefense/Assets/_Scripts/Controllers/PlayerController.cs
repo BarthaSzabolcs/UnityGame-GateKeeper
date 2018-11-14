@@ -5,39 +5,43 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region ShowInEditor
+
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
+    [SerializeField] PlayerHead head;
     [SerializeField] JetPack jetPack;
+    [SerializeField] SpriteRenderer bodyRenderer;
     #endregion
     #region HideInEditor
+
     Rigidbody2D self;
-    SpriteRenderer sRenderer;
     Weapon weapon;
     bool isGrounded;
     int jumpCounter = 0;
     float currentMaxSpeed;
     float currentMoveForce;
     float teleportTimer;
-    Vector2 target;
-    #endregion
+    public Vector2 Target { get; private set; }
+    private bool movingLeft;
 
+    #endregion
     #region UnityFunctions
 
     void Awake ()
     {
         self = GetComponent<Rigidbody2D>();
-        sRenderer = GetComponent<SpriteRenderer>();
         weapon = weaponTransform.GetComponent<Weapon>();
     }
 	void Update ()
     {
+        BuildMode();
         if (GameManager.Instance.InBuildMode == false)
         {
             WeaponHandling();
             Move();
         }
-        OtherInput();
+        AnimatePlayer();
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -90,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Left"))
         {
+            movingLeft = true;
+
             if (self.velocity.x > -currentMaxSpeed)
             {
                 self.AddForce(Vector2.left * currentMoveForce);
@@ -101,6 +107,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Input.GetButton("Right"))
         {
+            movingLeft = false;
+
             if (self.velocity.x < currentMaxSpeed)
             {
                 self.AddForce(Vector2.right * currentMoveForce);
@@ -153,17 +161,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Teleport"))
         {
-            if (Vector2.Distance(target, transform.position) < data.teleportRange && teleportTimer + data.teleportCoolDown < Time.time)
+            if (Vector2.Distance(Target, transform.position) < data.teleportRange && teleportTimer + data.teleportCoolDown < Time.time)
             {
                 Vector2 colliderSize = GetComponent<Collider2D>().bounds.size;
 
-                Vector2 pointA = new Vector2(-colliderSize.x / 2, -colliderSize.y / 2) + target;
-                Vector2 pointB = new Vector2(colliderSize.x / 2, colliderSize.y / 2) + target;
-
+                Vector2 pointA = new Vector2(-colliderSize.x / 2, -colliderSize.y / 2) + Target;
+                Vector2 pointB = new Vector2(colliderSize.x / 2, colliderSize.y / 2) + Target;
 
                 if (Physics2D.OverlapArea(pointA, pointB, data.teleportMask) == null)
                 {
-                    transform.position = target;
+                    transform.position = Target;
                     teleportTimer = Time.time;
                     if(data.loseVelocityOnTeleport)
                     {
@@ -180,7 +187,6 @@ public class PlayerController : MonoBehaviour
     void WeaponHandling()
     {
         AimWeapon();
-        CheckDirection();
         Attack();
         Reload();
         ChangeWeapon();
@@ -189,10 +195,10 @@ public class PlayerController : MonoBehaviour
     void AimWeapon()
     {
         // Set target
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
         // Rotate the weapon towards the target based on the difference in angle
-        weaponTransform.Rotate(new Vector3(0, 0, Vector2.SignedAngle(weaponTransform.right, target - (Vector2)weaponTransform.position)));
+        weaponTransform.Rotate(new Vector3(0, 0, Vector2.SignedAngle(weaponTransform.right, Target - (Vector2)weaponTransform.position)));
     }
     void Attack()
     {
@@ -212,21 +218,6 @@ public class PlayerController : MonoBehaviour
             weapon.Reload();
         }
     }
-
-    void CheckDirection()
-    {
-        if (target.x < transform.position.x)
-        {
-            sRenderer.flipX = true;
-            weapon.SetApearence(true);
-        }
-        else
-        {
-            sRenderer.flipX = false;
-            weapon.SetApearence(false);
-        }
-    }
-
     void ChangeWeapon()
     {
         if (Input.GetButtonDown("NextWeapon"))
@@ -250,12 +241,12 @@ public class PlayerController : MonoBehaviour
         weapon.AddWeapon(weaponData);
     }
     #endregion
-    #region Other Functions
-    void OtherInput()
-    {
-        BuildMode();
-    }
+    #region Build Mode
     void BuildMode()
+    {
+        CheckBuildMode();
+    }
+    void CheckBuildMode()
     {
         if (Input.GetButtonDown("BuildMode"))
         {
@@ -266,5 +257,28 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.InBuildMode = false;
         }
     }
+    #endregion
+    #region Player Animation
+
+    
+    void AnimatePlayer()
+    {
+        head.LookAt(Target);
+        CheckDirection();
+    }
+    void CheckDirection()
+    {
+        bodyRenderer.flipX = movingLeft;
+
+        if (Target.x < transform.position.x)
+        {
+            weapon.SetApearence(true);
+        }
+        else
+        {
+            weapon.SetApearence(false);
+        }
+    }
+
     #endregion
 }

@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-	#region ShowInEditor
+    #region ShowInEditor
+
+    [Header("Debug:")]
+    [SerializeField] bool logMiisingAudio;
+
+    [Header("Audio clips:")]
 	[SerializeField] Sound[] sounds;
+    
     #endregion
     #region HideInEditor
+
     public static AudioManager Instance { get; private set; }
+
     #endregion
 
     #region UnityFunctions
@@ -54,6 +62,6 @@ public class AudioManager : MonoBehaviour
 				found = true;
 			}
 		}
-		if (!found) print("Sound not found: " + audioName);
+		if (!found && logMiisingAudio) print("Sound not found: " + audioName);
 	}
 }

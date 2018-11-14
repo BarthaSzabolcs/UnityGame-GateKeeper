@@ -8,7 +8,7 @@ public class Explosion : MonoBehaviour
 
     [Header("Components:")]
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] CircleCollider2D explosiobCollider;
+    [SerializeField] CircleCollider2D explosionCollider;
     [SerializeField] PointEffector2D pointEffector;
     
     #endregion
@@ -31,8 +31,8 @@ public class Explosion : MonoBehaviour
 		if (data.isExplosive)
         {
             // Collider
-			explosiobCollider.enabled = true;
-	        explosiobCollider.radius = data.explosionRange;
+			explosionCollider.enabled = true;
+	        explosionCollider.radius = data.explosionRange;
             
             // Effector
 			pointEffector.enabled = true;
@@ -45,7 +45,7 @@ public class Explosion : MonoBehaviour
 		else
 		{
             // Collider
-			explosiobCollider.enabled = false;
+			explosionCollider.enabled = false;
 
             // Effector
             pointEffector.enabled = false;

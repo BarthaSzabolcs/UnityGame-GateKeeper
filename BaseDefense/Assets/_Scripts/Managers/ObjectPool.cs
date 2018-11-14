@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-	#region ShowInEditor
-	[SerializeField] private GameObject bulletPrefab;
-	[SerializeField] private GameObject explosionPrefab;
+    #region ShowInEditor
+
+    [Header("Bullet:")]
+    [SerializeField] Transform bulletTransform;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private int bulletPoolBase;
+
+    [Header("Explosion")]
+    [SerializeField] Transform explosionTransform;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private int explosionPoolbase;
+
     #endregion
     #region HideInEditor
     public enum Types{ bullet, explosion};
@@ -60,7 +69,7 @@ public class ObjectPool : MonoBehaviour
             }
             else
             {
-                return Instantiate(bulletPrefab, position, Quaternion.identity);
+                return Instantiate(bulletPrefab, position, Quaternion.identity, bulletTransform);
             }
         }
         else if (type == Types.explosion)
@@ -75,15 +84,27 @@ public class ObjectPool : MonoBehaviour
             }
             else
             {
-                return Instantiate(explosionPrefab, position, Quaternion.identity);
+                return Instantiate(explosionPrefab, position, Quaternion.identity, explosionTransform);
             }
         }
         return null;
     }
     public void InitializeLevel()
     {
-        bulletPool.Clear();
-        explosionPool.Clear();
+        //bulletPool.Clear();
+        //explosionPool.Clear();
+
+        // Initialize BulletPool
+        for (int i = 0; i < bulletPoolBase; i++)
+        {
+            Pool( Types.bullet, Instantiate(bulletPrefab, Vector2.zero, Quaternion.identity, bulletTransform));
+        }
+
+        // Initialize ExplosionPool
+        for (int i = 0; i < bulletPoolBase; i++)
+        {
+            Pool(Types.explosion, Instantiate(explosionPrefab, Vector2.zero, Quaternion.identity, explosionTransform));
+        }
     }
    
     #endregion

@@ -248,13 +248,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bbd86a9ee941e7c4eb5e928b26e52c1c, type: 2}
   droppedWeapon: {fileID: 1959444473538686, guid: 5285ddab37430b244b0b0d9b0895c045, type: 3}
   weaponSpriteRenderer: {fileID: 610561043227335660}
-  muzzleflashRenderer: {fileID: 9167076062032745846}
   rightHand: {fileID: 4563299978047517368}
   leftHand: {fileID: 3140466390550604774}
+  rightHandRenderer: {fileID: 2850348869879489258}
+  leftHandRenderer: {fileID: 6722782571893445388}
+  muzzleflashRenderer: {fileID: 9167076062032745846}
   muzzleFlash: {fileID: 3777270189408193588}
   laserMask:
     serializedVersion: 2
-    m_Bits: 64823
+    m_Bits: 34049
   laserRenderer: {fileID: 3341015644346641553}
   laserTransform: {fileID: 1945172907038105589}
 --- !u!1 &5177301760493914885
@@ -361,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678176444602894714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.88, y: -0.32, z: 0}
+  m_LocalPosition: {x: 0.454, y: -0.088, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2554940815676398442}
@@ -374,7 +376,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6678176444602894714}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -404,8 +406,8 @@ SpriteRenderer:
   m_SortingLayerID: 418810375
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
-  m_Color: {r: 0.28648987, g: 0.6117231, b: 0.6981132, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -440,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7891463849802190336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.07, y: -0.48, z: 0}
+  m_LocalPosition: {x: -0.413, y: -0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2554940815676398442}
@@ -453,7 +455,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7891463849802190336}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -482,15 +484,15 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 418810375
   m_SortingLayer: 4
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
-  m_Color: {r: 0.28648987, g: 0.6117231, b: 0.6981132, a: 1}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

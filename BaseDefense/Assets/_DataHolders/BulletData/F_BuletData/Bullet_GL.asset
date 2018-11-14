@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
-  m_Name: Bullet_Granade
+  m_Name: Bullet_GL
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 932cdbe759105464b839bcfe7c4be379, type: 3}
   bulletColor: {r: 1, g: 1, b: 1, a: 1}
@@ -39,8 +39,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  trailWidthMultiplier: 1
-  trailTime: 0.105
+  trailWidthMultiplier: 0.8
+  trailTime: 0.15
   trailColor:
     serializedVersion: 2
     key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 1}
@@ -74,7 +74,7 @@ MonoBehaviour:
   explosionData: {fileID: 11400000, guid: 9a5bb4f03df2c364f82b06fd2f608101, type: 2}
   bulletFiredAudio: BulletFired
   speed: 60
-  mass: 3
+  mass: 0.5
   gravityScale: 7
   taggedToDamage:
   - Enemy

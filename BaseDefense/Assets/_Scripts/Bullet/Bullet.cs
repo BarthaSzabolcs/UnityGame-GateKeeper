@@ -67,6 +67,7 @@ public class Bullet : MonoBehaviour
             homingBehaviour.taggedToTarget = data.taggedToTarget;
             homingBehaviour.targetingRadius = data.targetingRadius;
             homingBehaviour.targetingRefreshRate = data.targetingRefreshRate;
+            homingBehaviour.searchDelay = data.searchingDelay;
             homingBehaviour.homingRefreshRate = data.homingRefreshRate;
             homingBehaviour.speed = data.speed;
             homingBehaviour.maxRotationPerCycle = data.maxRotationPerCycle;
@@ -77,7 +78,7 @@ public class Bullet : MonoBehaviour
             homingBehaviour.enabled = false;
         }
     }
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (data.isAoE == false)
         {
@@ -103,7 +104,8 @@ public class Bullet : MonoBehaviour
                 {
                     if(penetrationCounter < data.penetrationsBeforeExplode)
                     {
-                        Penetrate();
+                        Penetrate( -col.relativeVelocity);
+                        return;
                     }
                     else
                     {
@@ -148,16 +150,18 @@ public class Bullet : MonoBehaviour
 
         trailerRenderer.Clear();
         trailerRenderer.enabled = false;
+        StopAllCoroutines();
         ObjectPool.Instance.Pool(ObjectPool.Types.bullet, gameObject);
     }
-    private void Penetrate()
+    private void Penetrate(Vector2 velocity)
     {
-        StartCoroutine(PenetrationRoutine());
+        StartCoroutine(PenetrationRoutine(velocity));
     }
-    private IEnumerator PenetrationRoutine()
+    private IEnumerator PenetrationRoutine(Vector2 velocity)
     {
         penetrationCounter++;
 
+        self.velocity = velocity;
         gameObject.layer = data.ghostLayer;
         yield return new WaitForSeconds(data.ghostTime);
         gameObject.layer = data.baseLayer;

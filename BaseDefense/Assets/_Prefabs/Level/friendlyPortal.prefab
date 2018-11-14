@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2642096586394682397}
   - component: {fileID: 2642096586394682396}
   - component: {fileID: 4109004601954891956}
-  - component: {fileID: 1666779314444837641}
-  m_Layer: 0
+  - component: {fileID: 8731442726489024804}
+  m_Layer: 16
   m_Name: friendlyPortal
   m_TagString: Portal
   m_Icon: {fileID: 0}
@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 645b5b34e6378c84b855d86d59b389d0, type: 2}
---- !u!61 &1666779314444837641
+  spriteRenderer: {fileID: 2642096586394682396}
+--- !u!61 &8731442726489024804
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

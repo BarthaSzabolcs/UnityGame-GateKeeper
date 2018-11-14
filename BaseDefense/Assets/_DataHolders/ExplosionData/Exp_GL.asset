@@ -15,9 +15,9 @@ MonoBehaviour:
   animationCllection: {fileID: 11400000, guid: b437f7be038744f4987a0c764eb92da4, type: 2}
   animationColor: {r: 1, g: 1, b: 1, a: 1}
   isExplosive: 1
-  explosionRange: 3
-  explosionMagnitude: 10000
+  explosionRange: 10
+  explosionMagnitude: 100000
   explosionMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 13056
   explosionForceMode: 1

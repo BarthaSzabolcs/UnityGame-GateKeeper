@@ -10,6 +10,7 @@ public class HomingBehavior : MonoBehaviour
     public float targetingRefreshRate = 0.2f;
     public float maxRotationPerCycle;
     public float speed;
+    public float searchDelay;
     public LayerMask targetMask;
 
     private Coroutine SearchTargetRoutine
@@ -93,6 +94,7 @@ public class HomingBehavior : MonoBehaviour
     }
     IEnumerator SearchTarget()
     {
+        yield return new WaitForSeconds(searchDelay);
         while(target == null)
         {
             var potentialTargets = Physics2D.OverlapCircleAll(transform.position, targetingRadius, targetMask);

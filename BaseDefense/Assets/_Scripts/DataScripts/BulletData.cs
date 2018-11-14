@@ -57,6 +57,7 @@ public class BulletData : ScriptableObject
     public LayerMask targetMask;
     public string[] taggedToTarget;
     public float targetingRadius;
+    public float searchingDelay;
     public float homingRefreshRate;
     public float targetingRefreshRate;
     public float maxRotationPerCycle;

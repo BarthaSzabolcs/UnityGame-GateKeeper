@@ -35,16 +35,16 @@ public class ButtonInterface : ScriptableObject
         GameManager.Instance.QuitGame();
     }
 
-    public void SellTrap()
-    {
+    //public void SellTrap()
+    //{
 
-        GameManager.Instance.SellTrap();
+    //    GameManager.Instance.SellTrap();
 
-    }
-    public void BuyTrap(TrapData newData)
-    { 
+    //}
+    //public void BuyTrap(TrapData newData)
+    //{ 
 
-        GameManager.Instance.BuyTrap(newData);
+    //    GameManager.Instance.BuyTrap(newData);
 
-    }
+    //}
 }

@@ -139,19 +139,21 @@ public class GameManager : MonoBehaviour
 
 
     #region Shop Functions
-    public void BuyTrap(TrapData newData)
-    {
-        Money += UserInterface.Instance.CurrentTrap.Data.price;
-        Money -= newData.price;
-        UserInterface.Instance.CurrentTrap.Data = newData;
-        UserInterface.Instance.InitializeTrapMenu();
-    }
-    public void SellTrap()
-    {
-        Money += UserInterface.Instance.CurrentTrap.Data.price;
-        UserInterface.Instance.CurrentTrap.Data = null;
-        UserInterface.Instance.InitializeTrapMenu();
-    }
+
+    //public void BuyTrap(TrapData newData)
+    //{
+    //    Money += UserInterface.Instance.CurrentTrap.Data.price;
+    //    Money -= newData.price;
+    //    UserInterface.Instance.CurrentTrap.Data = newData;
+    //    UserInterface.Instance.InitializeTrapMenu();
+    //}
+    //public void SellTrap()
+    //{
+    //    Money += UserInterface.Instance.CurrentTrap.Data.price;
+    //    UserInterface.Instance.CurrentTrap.Data = null;
+    //    UserInterface.Instance.InitializeTrapMenu();
+    //}
+
     #endregion
 
     private void HandlePlayerDeath(GameObject sender)

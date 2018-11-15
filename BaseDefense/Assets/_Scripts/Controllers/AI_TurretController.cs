@@ -24,14 +24,17 @@ public class AI_TurretController : MonoBehaviour
 
     void Start()
     {
+
         self = GetComponent<Rigidbody2D>();
         sight.OnTargetFound += HandleTargetFound;
         sight.OnTargetLost += HandleTargetLost;
         weapon.OnMagEmpty += HandleMagEmpty;
         weapon.OnReloadStop += HandleReloadStopped;
+
     }
-    void Update()
+    void FixedUpdate()
     {
+
         if (sight.Target && sight.TargetVisible)
         {
             RotateTowardsTarget();
@@ -41,34 +44,46 @@ public class AI_TurretController : MonoBehaviour
         {
             weapon.PullTrigger();
         }
+
     }
 
     void HandleTargetFound()
     {
+
         shoot = true;
+
     }
     void HandleTargetLost()
     {
+
         shoot = false;
+
     }
     void HandleMagEmpty()
     {
+
         reload = true;
         weapon.Reload();
+
     }
     void HandleReloadStopped()
     {
+
         reload = false;
+
     }
 
     void RotateTowardsTarget()
     {
+
         float rotation = 
             Mathf.Abs(sight.LineOfSightAngle) < maxRotationAngle ?
             sight.LineOfSightAngle :
             Mathf.Sign(sight.LineOfSightAngle) * maxRotationAngle;
 
         Vector3 rotationVector = new Vector3(0, 0, rotation);
+
         transform.Rotate(rotationVector);
     }
+
 }

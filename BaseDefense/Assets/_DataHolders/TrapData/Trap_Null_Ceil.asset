@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
   m_Name: Trap_Null_Ceil
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 0}
+  shopImage: {fileID: 21300002, guid: 5618cb7a4ca7877419722fd56bbda94e, type: 3}
   shopName: No Trap
-  price: 0
+  shopPrice: 0
+  shopSellingPrice: 0
+  shopDescription: No data Ceil
   trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
   taggedToDamage: []
   damage: 0

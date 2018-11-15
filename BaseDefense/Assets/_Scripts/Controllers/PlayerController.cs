@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerHead head;
     [SerializeField] JetPack jetPack;
     [SerializeField] SpriteRenderer bodyRenderer;
+
     #endregion
     #region HideInEditor
 
@@ -240,8 +241,10 @@ public class PlayerController : MonoBehaviour
     {
         weapon.AddWeapon(weaponData);
     }
+    
     #endregion
     #region Build Mode
+
     void BuildMode()
     {
         CheckBuildMode();
@@ -250,13 +253,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("BuildMode"))
         {
-            GameManager.Instance.InBuildMode = true;
-        }
-        else if (Input.GetButtonUp("BuildMode"))
-        {
-            GameManager.Instance.InBuildMode = false;
+            GameManager.Instance.InBuildMode = !GameManager.Instance.InBuildMode;
         }
     }
+
     #endregion
     #region Player Animation
 

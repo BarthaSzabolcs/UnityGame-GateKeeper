@@ -21,6 +21,7 @@ public class TrapBehaviour_Spawn : TrapBehaviour
 
     public override void Initialize(Transform transform, Collider2D triggerCollider)
     {
+
         this.triggerCollider = triggerCollider;
         this.transform = transform;
 
@@ -28,15 +29,19 @@ public class TrapBehaviour_Spawn : TrapBehaviour
         {
             Instantiate(actuators[i], (Vector2)transform.position + actuatorPositions[i], Quaternion.identity, transform);
         }
+
     }
     public override void Trigger()
     {
+
         //col.gameObject.GetComponent<Health>().TakeDamage(Data.damage);
         //RecoverCoroutine = StartCoroutine(RecoverRoutine());
         //return;
+
     }
     public override void CleanUp()
     {
+
         for(int i = 0; i < actuators.Length; i++)
         {
             Destroy(transform.GetChild(i).gameObject);

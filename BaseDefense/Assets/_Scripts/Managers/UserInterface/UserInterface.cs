@@ -34,14 +34,7 @@ public class UserInterface : MonoBehaviour
 
     [Header("BuildMode:")]
     public LayerMask clickLayer;
-
-    [Header("Trap")]
-    [SerializeField] string trapMenu_name;
-    [SerializeField] string trapName_name;
-    [SerializeField] string trapImage_name;
-    [SerializeField] string trapLevel_name;
-    [SerializeField] string trapLevelUp_name;
-    [SerializeField] string trapLevelDown_name;
+    public string shop_name;
 
     [Header("Debug:")]
     [SerializeField] public string debug_name;
@@ -74,7 +67,6 @@ public class UserInterface : MonoBehaviour
 
     //Debug
     Text debugText;
-    public static UserInterface Instance { get; private set; }
 
     // Ammo
     private int ammo;
@@ -180,12 +172,17 @@ public class UserInterface : MonoBehaviour
         }
     }
 
+    // Shop
+    private Shop shop;
+
+    public static UserInterface Instance { get; private set; }
     #endregion
 
     #region UnityFunctions
 
     private void Awake()
     {
+
         if (Instance == null)
         {
             Instance = this;
@@ -195,17 +192,17 @@ public class UserInterface : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
-    //private void Update()
-    //{
-    //    TrapClick();
-    //}
 
     #endregion
     #region CustomFunctions
-
+    
+    // Initialize 
     public void InitializeLevelUI()
     {
+
+        // Get Camera
         mainCamera = Camera.main;
 
         // Get and Set Weapon
@@ -257,21 +254,20 @@ public class UserInterface : MonoBehaviour
         // Get Debug
         debugText = GameObject.Find(debug_name).GetComponent<Text>();
 
-        //// Get and Set TrapMenu
-        //GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
-
+        // Get and Set Shop
+        shop = GameObject.Find(shop_name).GetComponent<Shop>();
+        GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
+        shop.gameObject.SetActive(false);
+        
         // Set Cursor
-        ChangeCursorToCrossHair();
+        ChangeCursor(crosshairImage);
+
     }
     
     // Cursor
-    public void ChangeCursorToCrossHair()
+    public void ChangeCursor(Texture2D newCursor = null)
     {
-        Cursor.SetCursor(crosshairImage, new Vector2(crosshairImage.width/2, crosshairImage.height/2), CursorMode.Auto);
-    }
-    public void ChangeCursorBack()
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(newCursor, new Vector2(crosshairImage.width/2, crosshairImage.height/2), CursorMode.Auto);
     }
     
     // Weapon
@@ -345,41 +341,20 @@ public class UserInterface : MonoBehaviour
     }
 
     // BuildMode
-    public void InitializeTrapMenu()
+    private void HandleBuildModeChange(bool state)
     {
-        
-        
-
+        if (state == false)
+        {
+            shop.gameObject.SetActive(false);
+            shop.CloseShop();
+            ChangeCursor();
+        }
+        else
+        {
+            shop.gameObject.SetActive(true);
+            shop.OpenShop();
+        }
     }
-    //private void HandleBuildModeChange(bool state)
-    //{
-    //    if (state == false)
-    //    {
-    //        CloseTrapMenu();
-    //    }
-    //}
-    //private void TrapClick()
-    //{
-    //    if (GameManager.Instance.InBuildMode && Input.GetMouseButtonDown(0))
-    //    {
-    //        Ray ray = mainCamera.ViewportPointToRay(mainCamera.ScreenToViewportPoint(Input.mousePosition));
 
-    //        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 30f,clickLayer);
-
-    //        if (hit.collider != null)
-    //        {
-    //            OpenTrapMenu(hit.collider.gameObject.GetComponent<Trap>());
-    //        }
-    //    }
-    //}
-    //private void OpenTrapMenu(Trap trap)
-    //{
-    //    CurrentTrap = trap;
-    //    InitializeTrapMenu();
-    //}
-    //private void CloseTrapMenu()
-    //{
-    //    trapMenu_Canvas.enabled = false;
-    //}
     #endregion
 }

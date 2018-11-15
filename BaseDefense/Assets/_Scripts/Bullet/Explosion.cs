@@ -57,7 +57,7 @@ public class Explosion : MonoBehaviour
         foreach (var sprite in data.animationCllection.Next())
         {
             spriteRenderer.sprite = sprite;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01667f);
         }
 
         // Object Pooling

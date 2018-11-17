@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0a9f75a76379b4795c06f8d3bb723f, type: 3}
+  m_Name: Exp_TankHeadCrit
+  m_EditorClassIdentifier: 
+  animationCllection: {fileID: 11400000, guid: c82d5a3bdf3c69b4097d857320e0f9b1, type: 2}
+  animationColor: {r: 0.6226415, g: 0, b: 0, a: 0}
+  isExplosive: 0
+  explosionRange: 10
+  explosionMagnitude: 10000
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 1
+  explosionForceMode: 1

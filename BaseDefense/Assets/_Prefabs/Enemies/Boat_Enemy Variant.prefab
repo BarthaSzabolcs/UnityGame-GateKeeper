@@ -165,5 +165,9 @@ PrefabInstance:
       propertyPath: targetName
       value: friendlyPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 288855398646526229, guid: f3ac902438068a347b7ac89084d897e5, type: 3}
+      propertyPath: taggedToSight.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3ac902438068a347b7ac89084d897e5, type: 3}

@@ -55,6 +55,9 @@ TagManager:
   - name: Bullet
     uniqueID: 3889062845
     locked: 0
+  - name: Trap
+    uniqueID: 3779061833
+    locked: 0
   - name: Weapon
     uniqueID: 418810375
     locked: 0

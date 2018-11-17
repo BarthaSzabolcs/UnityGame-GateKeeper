@@ -16,6 +16,6 @@ public class ShopManager : MonoBehaviour
     
     public void UpdateMoney()
     {
-        moneytext.text = "Money: " + GameManager.Instance.Money;
+        moneytext.text = "Money: " + GameManager.Instance.money;
     }
 }

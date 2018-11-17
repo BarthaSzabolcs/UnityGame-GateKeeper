@@ -31,14 +31,6 @@ public class TrapBehaviour_Spawn : TrapBehaviour
         }
 
     }
-    public override void Trigger()
-    {
-
-        //col.gameObject.GetComponent<Health>().TakeDamage(Data.damage);
-        //RecoverCoroutine = StartCoroutine(RecoverRoutine());
-        //return;
-
-    }
     public override void CleanUp()
     {
 

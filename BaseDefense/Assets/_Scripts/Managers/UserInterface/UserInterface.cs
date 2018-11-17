@@ -257,7 +257,7 @@ public class UserInterface : MonoBehaviour
         // Get and Set Shop
         shop = GameObject.Find(shop_name).GetComponent<Shop>();
         GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
-        shop.gameObject.SetActive(false);
+        shop.enabled = true;
         
         // Set Cursor
         ChangeCursor(crosshairImage);
@@ -345,14 +345,12 @@ public class UserInterface : MonoBehaviour
     {
         if (state == false)
         {
-            shop.gameObject.SetActive(false);
-            shop.CloseShop();
+            shop.enabled = false;
             ChangeCursor();
         }
         else
         {
-            shop.gameObject.SetActive(true);
-            shop.OpenShop();
+            shop.enabled = true;
         }
     }
 

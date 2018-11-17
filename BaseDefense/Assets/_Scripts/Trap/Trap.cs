@@ -4,19 +4,30 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
+    #region Events
+
+    public delegate void Triggered();
+    public event Triggered OnTrigger;
+
+    #endregion
     #region ShowInEditor
 
+    [SerializeField] BoxCollider2D triggerZone;
+
     [Header("Type:")]
-    public string type;
+    public Type type;
 
     [Header("Data")]
     [SerializeField] private TrapData data;
     [SerializeField] private TrapData nullData;
 
+    [Header("UI:")]
+    public Vector3 UIoffset;
+
     #endregion
     #region HideInEditor
 
-    BoxCollider2D triggerZone;
+    public enum Type { Floor, Ceil };
     SpriteRenderer spriteRenderer;
     TrapBehaviour trapBehaviourInstance;
 
@@ -64,7 +75,6 @@ public class Trap : MonoBehaviour
 
     void Start()
     {
-        triggerZone = GetComponent<BoxCollider2D>();
         triggerZone.size = Data.triggerZoneSize;
         triggerZone.offset = Data.triggerZoneOffset;
 
@@ -80,14 +90,15 @@ public class Trap : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
-        foreach (var tag in Data.taggedToDamage)
+        if(RecoverCoroutine == null)
         {
-            if(tag == col.tag)
-            {
-
-                trapBehaviourInstance.Trigger();
-                return;
-            }
+            RecoverCoroutine = StartCoroutine(RecoverRoutine());
+            print("Trigger - Normal");
+            OnTrigger?.Invoke();
+        }
+        else
+        {
+            print("Trap Plus");
         }
     }
     private void OnDisable()
@@ -99,7 +110,6 @@ public class Trap : MonoBehaviour
 
     private void InitializeTrapData()
     {
-
         triggerZone.enabled = data.trapBehaviour.enableTrigger;
         triggerZone.size = data.triggerZoneSize;
         triggerZone.offset = data.triggerZoneOffset;
@@ -117,7 +127,6 @@ public class Trap : MonoBehaviour
             trapBehaviourInstance = Instantiate(data.trapBehaviour);
             trapBehaviourInstance.Initialize(transform, triggerZone);
         }
-
     }
     private void HandleBuildModeStateChanged(bool inBuildMode)
     {
@@ -139,6 +148,6 @@ public class Trap : MonoBehaviour
         triggerZone.enabled = true;
         AudioManager.Instance.PlaySound(Data.recoverAudio);
 
-        recoverCoroutine = null;
+        RecoverCoroutine = null;
     }
 }

@@ -722,6 +722,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1321804869529617725, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
+      propertyPath: autoSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321804869529617725, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
+      propertyPath: spawnDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b524ea6bfc0c7c9408b964348fc17e00, type: 3}
 --- !u!1001 &2131900236
@@ -1318,6 +1326,14 @@ PrefabInstance:
       objectReference: {fileID: 5068920583424620055}
     - target: {fileID: 1451877390192147050, guid: bdf501c2f2ff5e74189e6ca9591eea50, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662535738902764411, guid: bdf501c2f2ff5e74189e6ca9591eea50, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2150318745129079677, guid: bdf501c2f2ff5e74189e6ca9591eea50, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

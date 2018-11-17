@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopImage: {fileID: 21300006, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
   shopName: Gas trap
-  price: 500
-  taggedToDamage:
-  - Enemy
-  damage: 1
-  triggerZoneSize: {x: 5, y: 5}
-  triggerZoneOffset: {x: 0, y: 0}
+  shopPrice: 350
+  shopSellingPrice: 175
+  shopDescription: 
+  trapBehaviour: {fileID: 11400000, guid: e44bccce09954ac478a02dbdc4d3746b, type: 2}
+  triggerZoneSize: {x: 5, y: 9}
+  triggerZoneOffset: {x: 0, y: -4.5}
   recoverSpeed: 0.1
   sprite: {fileID: 21300006, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
   buildModeSprite: {fileID: 21300008, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}

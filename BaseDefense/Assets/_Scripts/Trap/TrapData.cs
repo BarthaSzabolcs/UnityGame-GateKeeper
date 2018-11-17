@@ -15,8 +15,6 @@ public class TrapData : ScriptableObject
 
     [Header("Interaction Settings:")]
     public TrapBehaviour trapBehaviour;
-    public string[] taggedToDamage;
-    public int damage;
     public Vector2 triggerZoneSize;
     public Vector2 triggerZoneOffset;
     public float recoverSpeed;

@@ -18,10 +18,10 @@ MonoBehaviour:
   shopSellingPrice: 0
   shopDescription: No Data Floor
   trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
-  taggedToDamage: []
+  taggedToTrigger: []
   damage: 0
-  triggerZoneSize: {x: 5, y: 5}
-  triggerZoneOffset: {x: 0, y: 0}
+  triggerZoneSize: {x: 0, y: 0}
+  triggerZoneOffset: {x: -1, y: -1}
   recoverSpeed: 0
   sprite: {fileID: 0}
   buildModeSprite: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}

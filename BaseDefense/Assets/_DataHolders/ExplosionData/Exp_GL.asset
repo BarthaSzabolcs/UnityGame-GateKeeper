@@ -19,5 +19,5 @@ MonoBehaviour:
   explosionMagnitude: 100000
   explosionMask:
     serializedVersion: 2
-    m_Bits: 13056
+    m_Bits: 768
   explosionForceMode: 1

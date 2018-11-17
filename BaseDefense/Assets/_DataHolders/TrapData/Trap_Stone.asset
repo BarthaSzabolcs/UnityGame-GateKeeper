@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopImage: {fileID: 21300008, guid: 074a8bbc78012b34597b7032f670815f, type: 3}
   shopName: Stone trap
-  price: 500
+  shopPrice: 300
+  shopSellingPrice: 150
+  shopDescription: 
+  trapBehaviour: {fileID: 0}
   taggedToDamage:
   - Enemy
   damage: 1

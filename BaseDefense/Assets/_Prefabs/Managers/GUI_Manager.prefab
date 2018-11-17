@@ -60,6 +60,5 @@ MonoBehaviour:
   clickLayer:
     serializedVersion: 2
     m_Bits: 32768
-  shop_name: Panel_TrapShop
-  shopName: Panel_TrapShop
+  shop_name: Shop
   debug_name: Debug_Text

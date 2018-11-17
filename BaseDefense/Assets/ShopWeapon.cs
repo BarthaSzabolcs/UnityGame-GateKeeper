@@ -50,7 +50,7 @@ public class ShopWeapon : MonoBehaviour
 
     public void UpdateData()
     {
-        moneyText.text = "Money: " + GameManager.Instance.Money;
+        moneyText.text = "Money: " + GameManager.Instance.money;
         ammocount.text = (weapon.AmmoInMag + weapon.ExtraAmmo).ToString();
         
     }

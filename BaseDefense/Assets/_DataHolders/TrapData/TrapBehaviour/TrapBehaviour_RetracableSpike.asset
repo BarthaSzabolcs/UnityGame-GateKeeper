@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e228d475a0d66ba4193df40e51fcd16d, type: 3}
+  m_Name: TrapBehaviour_RetracableSpike
+  m_EditorClassIdentifier: 
+  enableTrigger: 1
+  actuators:
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  - {fileID: 5865262866154918168, guid: 8a5010e7562c2134a838629cabb20994, type: 3}
+  actuatorPositions:
+  - {x: -3, y: -1}
+  - {x: -2, y: -1}
+  - {x: -1, y: -1}
+  - {x: 0, y: -1}
+  - {x: 1, y: -1}
+  - {x: 2, y: -1}
+  - {x: 3, y: -1}

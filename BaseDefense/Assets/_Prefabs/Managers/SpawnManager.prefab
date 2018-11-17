@@ -47,10 +47,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
   spawnPoints:
-  - {x: -145, y: 29}
   - {x: -145, y: 5}
-  - {x: 145, y: 5}
-  - {x: 145, y: 29}
   spawnKey: mouse 2
   autoSpawn: 0
   spawnDelay: 4

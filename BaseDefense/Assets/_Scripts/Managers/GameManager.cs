@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     #endregion
     #region Properties
 
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; set; }
     public GameObject Player
     {
         get
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             inBuildMode = value;
         }
     }
-    public int Money { get; set; }
+    public int money = 0;
 
     #endregion
     #region UnityFunctions
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
-        Money = 0;
+        money = 0;
 
         player = GameObject.Find("Player");
 

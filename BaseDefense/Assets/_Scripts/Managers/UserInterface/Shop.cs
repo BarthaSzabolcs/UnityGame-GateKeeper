@@ -16,9 +16,12 @@ public class Shop : MonoBehaviour
     [SerializeField] TrapData[] floorTraps;
     [SerializeField] TrapData[] ceilTraps;
 
-    //Trap
+    [Header("Trap menu item:")]
     [SerializeField] GameObject trapMenuItem;
     [SerializeField] string trapMenuItem_picturePath;
+    [SerializeField] string trapMenuItem_borderPath;
+    [SerializeField] Sprite unselectedItem;
+    [SerializeField] Sprite selectedItem;
     [SerializeField] RectTransform trapList;
 
     [SerializeField] RectTransform trapMenuRect;
@@ -45,13 +48,16 @@ public class Shop : MonoBehaviour
         {
             if (value)
             {
-                UserInterface.Instance.ChangeCursor(cursor_Build);
+                UserInterface.Instance.ChangeCursor(cursor_Sell);
             }
             else
             {
-                UserInterface.Instance.ChangeCursor(cursor_Sell);
+                UserInterface.Instance.ChangeCursor(cursor_Build);
             }
+
             altMode = value;
+
+            TrapMenuRefresh();
         }
     }
 
@@ -64,18 +70,19 @@ public class Shop : MonoBehaviour
         }
         set
         {
-            if( value > selectableTraps.Length - 1)
+            if( value >= selectableTraps.Length)
             {
-                trapIndex = selectableTraps.Length - 1;
+                trapIndex = 0;
             }
             else if(value < 0)
             {
-                trapIndex = 0;
+                trapIndex = selectableTraps.Length - 1;
             }
             else
             {
                 trapIndex = value;
             }
+
         }    
     }
     private TrapData SelectedTrap
@@ -95,20 +102,11 @@ public class Shop : MonoBehaviour
         }
         set
         {
-            trapMenuRect.gameObject.SetActive(value == null);
-           
             if(value != currentTrap)
             {
-                if (value?.type == Trap.Type.Floor)
-                {
-                    selectableTraps = floorTraps;
-                }
-                else if (value?.type == Trap.Type.Ceil)
-                {
-                    selectableTraps = ceilTraps;
-                }
+                currentTrap = value;
+                TrapMenuRefresh();
             }
-            currentTrap = value;
         }
     }
 
@@ -118,20 +116,57 @@ public class Shop : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
+        trapMenuRect.gameObject.SetActive(false);
+        selectableTraps = floorTraps;
     }
     private void Update()
     {
         CheckAltMode();
         CheckHover();
-        CheckTrapChange();
-        TrapClick();
-        PositionateTrapMenu();
-        //ChangeSelectedTrap();
+        ChangeSelectedTrap();
+        ClickTrap();
     }
 
     #endregion
 
-    public void SetupItemList()
+    public void Open()
+    {
+        UserInterface.Instance.ChangeCursor(cursor_Build);
+    }
+    public void Close()
+    {
+        UserInterface.Instance.ChangeCursor();
+        trapMenuRect.gameObject.SetActive(false);
+        CurrentTrap = null;
+    }
+
+    private void TrapMenuRefresh()
+    {
+        if(CurrentTrap != null)
+        {
+            trapMenuRect.gameObject.SetActive(true);
+
+            if (CurrentTrap.type == Trap.Type.Floor)
+            {
+                selectableTraps = floorTraps;
+            }
+            else if (CurrentTrap.type == Trap.Type.Ceil)
+            {
+                selectableTraps = ceilTraps;
+            }
+
+            SetupItemList();
+
+            PositionateTrapMenu();
+            DisplayTransaction();
+            RefreshSelectedTrap();
+        }
+        else
+        {
+            trapMenuRect.gameObject.SetActive(false);
+        }
+    }
+    private void SetupItemList()
     {
         for (int i = 0; i < trapList.childCount; i++)
         {
@@ -152,6 +187,20 @@ public class Shop : MonoBehaviour
         trap.transform.SetParent(trapList, false);
         trap.transform.Find(trapMenuItem_picturePath).GetComponent<Image>().sprite = trapData.shopImage;
     }
+    private void RefreshSelectedTrap()
+    {
+        for(int i = 0; i < trapList.childCount; i++)
+        {
+            if( i == TrapIndex )
+            {
+                trapList.GetChild(i).GetComponent<Image>().sprite = selectedItem;
+            }
+            else
+            {
+                trapList.GetChild(i).GetComponent<Image>().sprite = unselectedItem;
+            }
+        }
+    }
 
     private void CheckAltMode()
     {
@@ -171,33 +220,35 @@ public class Shop : MonoBehaviour
             trapMenuRect.position = mainCamera.WorldToScreenPoint(CurrentTrap.transform.position) + CurrentTrap.UIoffset;
         }
     }
-    private void RefreshTrapMenu()
+    private void DisplayTransaction()
     {
         if (AltMode)
         {
-            currentTrap_Image.sprite = CurrentTrap.Data.sprite;
+            currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
             selectedTrap_Image.sprite = null;
 
             arrow_Text.text = CurrentTrap.Data.shopSellingPrice.ToString();
         }
         else
         {
-            currentTrap_Image.sprite = CurrentTrap.Data.sprite;
+            currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
             selectedTrap_Image.sprite = SelectedTrap.shopImage;
 
             arrow_Text.text = (CurrentTrap.Data.shopSellingPrice - SelectedTrap.shopPrice).ToString();
         }
     }
 
-    private void CheckTrapChange()
+    private void ChangeSelectedTrap()
     {
         if(Input.GetButtonDown("NextWeapon"))
         {
-            TrapIndex--;
+            TrapIndex++;
+            TrapMenuRefresh();
         }
         else if (Input.GetButtonDown("PreviousWeapon"))
         {
-            TrapIndex++;
+            TrapIndex--;
+            TrapMenuRefresh();
         }
     }
     private void CheckHover()
@@ -217,7 +268,7 @@ public class Shop : MonoBehaviour
         }
 
     }
-    private void TrapClick()
+    private void ClickTrap()
     {
 
         if (Input.GetMouseButtonDown(0) && CurrentTrap != null)
@@ -237,6 +288,8 @@ public class Shop : MonoBehaviour
 
                 CurrentTrap.Data = SelectedTrap;
             }
+
+            TrapMenuRefresh();
         }
 
     }

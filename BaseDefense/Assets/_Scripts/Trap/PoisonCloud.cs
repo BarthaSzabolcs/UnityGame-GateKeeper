@@ -20,7 +20,7 @@ public class PoisonCloud : MonoBehaviour
 
     [Header("Area:")]
     [SerializeField] float radius;
-    
+
     #endregion
     #region Hide In Editor
 
@@ -31,6 +31,7 @@ public class PoisonCloud : MonoBehaviour
     private void Start()
     {
         transform.parent.GetComponent<Trap>().OnTrigger += Attack;
+        recentlyDamaged = new Dictionary<Collider2D, float>();
     }
 
     public void Attack()

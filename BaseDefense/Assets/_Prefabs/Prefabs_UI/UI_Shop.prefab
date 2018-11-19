@@ -1,5 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!224 &9153392889840970792 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4969118126592665642, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+  m_PrefabInstance: {fileID: 4319718187069080578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6459338800030067944 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7086016709961492714, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+  m_PrefabInstance: {fileID: 4319718187069080578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &539211701495952509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4362038477574533247, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
@@ -9,6 +19,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4851602863285753443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8693886632763740769, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+  m_PrefabInstance: {fileID: 4319718187069080578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &21275777739120112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4303522565382068722, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+  m_PrefabInstance: {fileID: 4319718187069080578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4212830111619459534
@@ -133,10 +165,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfb15c4ebb765a4478e470df4e4ef327, type: 2}
   floorTraps:
   - {fileID: 11400000, guid: 19278bf399341864ebe490e4713fdf9b, type: 2}
+  - {fileID: 11400000, guid: 18c1edb2735b1a8429cfe5a1f34d9a20, type: 2}
+  - {fileID: 11400000, guid: 3b730f9aef4299c48b81da2d27d9e949, type: 2}
   ceilTraps:
   - {fileID: 11400000, guid: 3357b54422dc43649b9839e5c5c3d1ff, type: 2}
+  - {fileID: 11400000, guid: 59ae3034b94d7b045959a75ee208ea48, type: 2}
+  - {fileID: 11400000, guid: c36f335095709684db47a2c56e72c76b, type: 2}
   trapMenuItem: {fileID: 5341733680707755948, guid: 4e509e0e9142b9440bedc4ad327b7501, type: 3}
   trapMenuItem_picturePath: Mask/ActualImage
+  trapMenuItem_borderPath: 
+  unselectedItem: {fileID: 21300000, guid: 808636054307b6e49b43e3dc0e361c1e, type: 3}
+  selectedItem: {fileID: 21300000, guid: a61529442ee10e44d8905e83f1d71c45, type: 3}
   trapList: {fileID: 6459338800030067944}
   trapMenuRect: {fileID: 9153392889840970792}
   clickLayer:
@@ -145,38 +184,6 @@ MonoBehaviour:
   currentTrap_Image: {fileID: 4851602863285753443}
   selectedTrap_Image: {fileID: 539211701495952509}
   arrow_Text: {fileID: 21275777739120112}
---- !u!114 &4851602863285753443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8693886632763740769, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
-  m_PrefabInstance: {fileID: 4319718187069080578}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &21275777739120112 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4303522565382068722, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
-  m_PrefabInstance: {fileID: 4319718187069080578}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &6459338800030067944 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7086016709961492714, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
-  m_PrefabInstance: {fileID: 4319718187069080578}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &9153392889840970792 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4969118126592665642, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
-  m_PrefabInstance: {fileID: 4319718187069080578}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4319718187069080578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +278,46 @@ PrefabInstance:
     - target: {fileID: 4969118126592665643, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
       propertyPath: m_Name
       value: Panel_TrapShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055414265591400475, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303522565382068722, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_Text
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303522565382068722, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303522565382068722, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086016709961492714, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248478037854410927, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055414265591400475, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055414265591400475, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055414265591400475, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055414265591400475, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}
+      propertyPath: m_ChildAlignment
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8bd9ca8f1f405d44835b0dedc7e23f4, type: 3}

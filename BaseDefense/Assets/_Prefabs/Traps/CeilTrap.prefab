@@ -79,5 +79,13 @@ PrefabInstance:
       propertyPath: UIoffset.y
       value: 96
       objectReference: {fileID: 0}
+    - target: {fileID: 1121300186, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106914878106277674, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2b301ff9e3287843830227cd8052ad6, type: 3}

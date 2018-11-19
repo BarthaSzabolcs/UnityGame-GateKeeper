@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     #region ShowInEditor
+
     [Header("Settings:")]
     public BulletData data;
 
@@ -13,14 +14,21 @@ public class Bullet : MonoBehaviour
     [SerializeField] Rigidbody2D self;
     [SerializeField] SpriteRenderer renderer;
     [SerializeField] TrailRenderer trailerRenderer;
+
     #endregion
     #region HideInEditor
-    private int penetrationCounter = 0;
-    #endregion
 
+    private bool alive;
+    private Coroutine penetrationCoroutine;
+    private int penetrationCounter = 0;
+    
+    #endregion
     #region UnityFunctions
+
     public void Initialize()
     {
+        alive = true;
+
         // Layer
         gameObject.layer = data.baseLayer;
 
@@ -80,6 +88,11 @@ public class Bullet : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
+        if(alive == false)
+        {
+            return;
+        }
+
         if (data.isAoE == false)
         {
             foreach (var tag in data.taggedToDamage)
@@ -94,7 +107,7 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == col.gameObject.tag)
                 {
-                    Explode(/*col.contacts[0].point*/);
+                    Explode();
                     return;
                 }
             }
@@ -102,14 +115,14 @@ public class Bullet : MonoBehaviour
             {
                 if (tag == col.gameObject.tag)
                 {
-                    if(penetrationCounter < data.penetrationsBeforeExplode)
+                    if(penetrationCounter < data.penetrationsBeforeExplode && penetrationCoroutine == null)
                     {
-                        Penetrate( -col.relativeVelocity);
+                        penetrationCoroutine = StartCoroutine(PenetrationRoutine(-col.relativeVelocity));
                         return;
                     }
                     else
                     {
-                        Explode(/*col.contacts[0].point*/);
+                        Explode();
                         return;
                     }
                 }
@@ -128,18 +141,17 @@ public class Bullet : MonoBehaviour
                     }
                 }
             }
-            Explode(/*col.contacts[0].point*/);
+            Explode();
             return;
         }
     }
     #endregion
-    private void Explode(/*Vector2 contactPoint*/)
+    private void Explode()
     {
-        //if (data.spawnBullet == true)
-        //{
-        //    DeathSpawn(contactPoint);
-        //}
+        alive = false;
+
         AudioManager.Instance.PlaySound(data.impactAudio);
+
         if (data.explosionData != null)
         {
             GameObject explosionInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.explosion, transform.position);
@@ -150,63 +162,21 @@ public class Bullet : MonoBehaviour
 
         trailerRenderer.Clear();
         trailerRenderer.enabled = false;
+
         StopAllCoroutines();
         ObjectPool.Instance.Pool(ObjectPool.Types.bullet, gameObject);
     }
-    private void Penetrate(Vector2 velocity)
-    {
-        StartCoroutine(PenetrationRoutine(velocity));
-    }
     private IEnumerator PenetrationRoutine(Vector2 velocity)
     {
+        gameObject.layer = data.ghostLayer;
+        self.velocity = velocity;
+
+        yield return new WaitForSeconds(data.ghostTime);
+
+        gameObject.layer = data.baseLayer;
         penetrationCounter++;
 
-        self.velocity = velocity;
-        gameObject.layer = data.ghostLayer;
-        yield return new WaitForSeconds(data.ghostTime);
-        gameObject.layer = data.baseLayer;
+        penetrationCoroutine = null;
     }
-    private void DeathSpawn(Vector2 contactPoint)
-    {
-        if(data.smallerBullet != null)
-        {
-            int splits = data.smallBulletCount - 1;
-            GameObject bulletInstance;
-            Bullet bulletComponent;
 
-            Vector2 direction = contactPoint - (Vector2)transform.position;
-            direction.Normalize();
-
-            Vector2 spawnPosition = transform.position + transform.TransformVector(data.smalBulletpositionOffSet);//(Vector2)transform.position + direction * data.smalBulletpositionOffSet;
-            float impactAngle = Vector2.SignedAngle(transform.up, direction);
-
-            if (splits != 0)
-            {
-                for (var i = 0; i < splits; i++)
-                {
-                    bulletInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.bullet, spawnPosition);
-                    bulletComponent = bulletInstance.GetComponent<Bullet>();
-
-                    bulletInstance.transform.Rotate
-                    (
-                        0,
-                        0,
-                        i * data.smallBulletAngle / splits - data.smallBulletAngle * 0.5f + impactAngle + data.smallBulletAngleOffset
-                    );
-
-                    bulletComponent.data = data.smallerBullet;
-                    bulletComponent.Initialize();
-                }
-            }
-            else
-            {
-                bulletInstance = ObjectPool.Instance.Spawn(ObjectPool.Types.bullet, spawnPosition);
-                bulletComponent = bulletInstance.GetComponent<Bullet>();
-
-                bulletInstance.transform.Rotate(0, 0, impactAngle + data.smallBulletAngleOffset);
-                bulletComponent.data = data.smallerBullet;
-                bulletComponent.Initialize();
-            }
-        }
-    }
 }

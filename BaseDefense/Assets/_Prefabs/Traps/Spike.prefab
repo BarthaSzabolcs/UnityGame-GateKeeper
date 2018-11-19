@@ -142,10 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 1398021122446146918}
-  distance: 1.75
-  damage: 14
-  travelTime: 0.2
   taggedToDamage:
   - Enemy
   - Player
+  damage: 14
+  travelDistance: 1.5
+  travelTime: 0.2
   startingHeight: -1

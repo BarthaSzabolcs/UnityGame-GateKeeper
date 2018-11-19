@@ -93,12 +93,7 @@ public class Trap : MonoBehaviour
         if(RecoverCoroutine == null)
         {
             RecoverCoroutine = StartCoroutine(RecoverRoutine());
-            print("Trigger - Normal");
             OnTrigger?.Invoke();
-        }
-        else
-        {
-            print("Trap Plus");
         }
     }
     private void OnDisable()

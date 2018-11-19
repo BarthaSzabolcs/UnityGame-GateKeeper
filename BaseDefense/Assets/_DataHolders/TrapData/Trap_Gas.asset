@@ -18,7 +18,7 @@ MonoBehaviour:
   shopSellingPrice: 175
   shopDescription: 
   trapBehaviour: {fileID: 11400000, guid: e44bccce09954ac478a02dbdc4d3746b, type: 2}
-  triggerZoneSize: {x: 5, y: 9}
+  triggerZoneSize: {x: 8, y: 9}
   triggerZoneOffset: {x: 0, y: -4.5}
   recoverSpeed: 0.1
   sprite: {fileID: 21300006, guid: 074a8bbc78012b34597b7032f670815f, type: 3}

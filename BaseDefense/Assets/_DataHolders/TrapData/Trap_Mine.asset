@@ -17,10 +17,7 @@ MonoBehaviour:
   shopPrice: 100
   shopSellingPrice: 50
   shopDescription: 
-  trapBehaviour: {fileID: 0}
-  taggedToDamage:
-  - Enemy
-  damage: 1
+  trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
   recoverSpeed: 0.1

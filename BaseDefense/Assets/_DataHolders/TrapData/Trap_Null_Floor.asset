@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
   m_Name: Trap_Null_Floor
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300000, guid: 2517cacd17c878d4fb6af0b24362575f, type: 3}
+  shopImage: {fileID: 0}
   shopName: No Trap
   shopPrice: 0
   shopSellingPrice: 0
   shopDescription: No Data Floor
   trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
-  taggedToTrigger: []
-  damage: 0
   triggerZoneSize: {x: 0, y: 0}
   triggerZoneOffset: {x: -1, y: -1}
   recoverSpeed: 0

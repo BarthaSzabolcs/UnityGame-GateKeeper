@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
   m_Name: Trap_Null_Floor
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 0}
+  shopImage: {fileID: 21300012, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
   shopName: No Trap
   shopPrice: 0
   shopSellingPrice: 0
@@ -22,6 +22,6 @@ MonoBehaviour:
   triggerZoneOffset: {x: -1, y: -1}
   recoverSpeed: 0
   sprite: {fileID: 0}
-  buildModeSprite: {fileID: 21300006, guid: d392e0f34d5cdf54faf21ef19515c2bc, type: 3}
+  buildModeSprite: {fileID: 21300006, guid: 56880e1dcb5d2db44976c83329d16eb6, type: 3}
   recoverAudio: 
   triggerAudio: 

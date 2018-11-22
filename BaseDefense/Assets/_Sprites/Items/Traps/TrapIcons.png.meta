@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 56880e1dcb5d2db44976c83329d16eb6
+guid: 234a34bc7ef84a346bf415a34f355419
 TextureImporter:
   fileIDToRecycleName:
-    21300000: S_FloorTraps_Build_0
-    21300002: S_FloorTraps_Build_1
-    21300004: S_FloorTraps_Build_2
-    21300006: S_FloorTraps_Build_3
+    21300000: TrapIcons_0
+    21300002: TrapIcons_1
+    21300004: TrapIcons_2
+    21300006: TrapIcons_3
+    21300008: TrapIcons_4
+    21300010: TrapIcons_5
+    21300012: TrapIcons_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +52,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -64,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -75,7 +78,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -86,7 +89,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -99,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: S_FloorTraps_Build_0
+      name: TrapIcons_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +116,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710d2fd170b00f34d94985610c057847
+      spriteID: 5d79392365cd73947b42560b38ac625a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_1
+      name: TrapIcons_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 16
         y: 0
-        width: 128
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +136,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e0c8ce80af93af4d820acd229be5ee6
+      spriteID: ab75b6f77a319194388d484719cf9ea4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_2
+      name: TrapIcons_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 32
         y: 0
-        width: 128
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +156,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa02231e62c330d4489f2d138d15050f
+      spriteID: a506ba453d8ad304b89e039ab219046c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_3
+      name: TrapIcons_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 48
         y: 0
-        width: 128
-        height: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +176,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 341b10504e5f31648ac3008d9def9dcf
+      spriteID: 8330f086f86558e4da33f17b4190f55d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrapIcons_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 211b58d573a14894fae23f83264e244f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrapIcons_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993d5512f1371574d84e222d3d68a0bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TrapIcons_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f52f4a1d792b74d9ee45c451c87e85
       vertices: []
       indices: 
       edges: []
@@ -181,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7644a15763e2fba4b8447ce44e6fb5a0
+    spriteID: fd1b27897c1158b48b40af2344d1aa25
     vertices: []
     indices: 
     edges: []

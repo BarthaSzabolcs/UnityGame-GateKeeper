@@ -28,9 +28,12 @@ public class UserInterface : MonoBehaviour
     [SerializeField] string maxhealth_name;
          
     [Header("JetPack:")]
-    [SerializeField]string fuelbar_name;
-    [SerializeField]string fuel_name;
-    [SerializeField]string maxfuel_name;
+    [SerializeField] string fuelbar_name;
+    [SerializeField] string fuel_name;
+    [SerializeField] string maxfuel_name;
+
+    [Header("Money")]
+    [SerializeField] string money_name; 
 
     [Header("BuildMode:")]
     public LayerMask clickLayer;
@@ -173,6 +176,7 @@ public class UserInterface : MonoBehaviour
     }
 
     // Shop
+    private Text money_Text;
     private Shop shop;
 
     public static UserInterface Instance { get; private set; }
@@ -201,6 +205,10 @@ public class UserInterface : MonoBehaviour
     // Initialize 
     public void InitializeLevelUI()
     {
+        // Money
+        GameManager.Instance.OnMoneyChaned -= HandleMoneyChange;
+        GameManager.Instance.OnMoneyChaned += HandleMoneyChange;
+        money_Text = GameObject.Find(money_name).GetComponent<Text>();
 
         // Get Camera
         mainCamera = Camera.main;
@@ -355,6 +363,13 @@ public class UserInterface : MonoBehaviour
 
             shop.enabled = false;
         }
+    }
+
+    // Money
+    private void HandleMoneyChange(int money)
+    {
+        // chage = money - (int)moneyText;
+        money_Text.text = money.ToString();
     }
 
     #endregion

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
-  m_Name: Trap_Mine
+  m_Name: Trap_Mounted_GL
   m_EditorClassIdentifier: 
-  shopImage: {fileID: 21300002, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
-  shopName: Bomb
-  shopPrice: 100
-  shopSellingPrice: 50
+  shopImage: {fileID: 21300004, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
+  shopName: Stone trap
+  shopPrice: 500
+  shopSellingPrice: 250
   shopDescription: 
-  trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
+  trapBehaviour: {fileID: 11400000, guid: ba346a755f6e3a14d9533624a50b2093, type: 2}
   triggerZoneSize: {x: 5, y: 5}
   triggerZoneOffset: {x: 0, y: 0}
   recoverSpeed: 0.1
-  sprite: {fileID: 21300004, guid: c1ee084d1d6c30b409f287c36041777e, type: 3}
-  buildModeSprite: {fileID: 21300004, guid: 56880e1dcb5d2db44976c83329d16eb6, type: 3}
+  sprite: {fileID: 21300004, guid: e977a3b1a0cab4e46b5b76aa72d3a156, type: 3}
+  buildModeSprite: {fileID: 21300004, guid: 32dbf7d796605f340b99411a577eecd6, type: 3}
   recoverAudio: 
   triggerAudio: 

@@ -19,9 +19,9 @@ public class Shop : MonoBehaviour
     [Header("Trap menu item:")]
     [SerializeField] GameObject trapMenuItem;
     [SerializeField] string trapMenuItem_picturePath;
-    [SerializeField] string trapMenuItem_borderPath;
-    [SerializeField] Sprite unselectedItem;
-    [SerializeField] Sprite selectedItem;
+    [SerializeField] Sprite Sprite_nullData;
+    [SerializeField] Sprite Sprite_unselected;
+    [SerializeField] Sprite Sprite_selected;
     [SerializeField] RectTransform trapList;
 
     [SerializeField] RectTransform trapMenuRect;
@@ -83,6 +83,7 @@ public class Shop : MonoBehaviour
                 trapIndex = value;
             }
 
+            RefreshSelectedTrap();
         }    
     }
     private TrapData SelectedTrap
@@ -104,7 +105,19 @@ public class Shop : MonoBehaviour
         {
             if(value != currentTrap)
             {
+                if (value?.type == Trap.Type.Floor)
+                {
+                    selectableTraps = floorTraps;
+                    SetupItemList();
+                }
+                else if (value?.type == Trap.Type.Ceil)
+                {
+                    selectableTraps = ceilTraps;
+                    SetupItemList();
+                }
+
                 currentTrap = value;
+
                 TrapMenuRefresh();
             }
         }
@@ -146,20 +159,9 @@ public class Shop : MonoBehaviour
         {
             trapMenuRect.gameObject.SetActive(true);
 
-            if (CurrentTrap.type == Trap.Type.Floor)
-            {
-                selectableTraps = floorTraps;
-            }
-            else if (CurrentTrap.type == Trap.Type.Ceil)
-            {
-                selectableTraps = ceilTraps;
-            }
-
-            SetupItemList();
-
             PositionateTrapMenu();
+
             DisplayTransaction();
-            RefreshSelectedTrap();
         }
         else
         {
@@ -168,10 +170,12 @@ public class Shop : MonoBehaviour
     }
     private void SetupItemList()
     {
-        for (int i = 0; i < trapList.childCount; i++)
+        for (int i = trapList.childCount -1; i >= 0; i--)
         {
             Destroy(trapList.GetChild(i).gameObject);
         }
+
+        trapList.DetachChildren();
 
         foreach (TrapData trap in selectableTraps)
         {
@@ -193,11 +197,11 @@ public class Shop : MonoBehaviour
         {
             if( i == TrapIndex )
             {
-                trapList.GetChild(i).GetComponent<Image>().sprite = selectedItem;
+                trapList.GetChild(i).GetComponent<Image>().sprite = Sprite_selected;
             }
             else
             {
-                trapList.GetChild(i).GetComponent<Image>().sprite = unselectedItem;
+                trapList.GetChild(i).GetComponent<Image>().sprite = Sprite_unselected;
             }
         }
     }
@@ -225,16 +229,26 @@ public class Shop : MonoBehaviour
         if (AltMode)
         {
             currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
-            selectedTrap_Image.sprite = null;
+            selectedTrap_Image.sprite = Sprite_nullData;
 
             arrow_Text.text = CurrentTrap.Data.shopSellingPrice.ToString();
         }
         else
         {
-            currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
-            selectedTrap_Image.sprite = SelectedTrap.shopImage;
+            if(CurrentTrap.Data != SelectedTrap)
+            {
+                currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
+                selectedTrap_Image.sprite = SelectedTrap.shopImage;
 
-            arrow_Text.text = (CurrentTrap.Data.shopSellingPrice - SelectedTrap.shopPrice).ToString();
+                arrow_Text.text = (CurrentTrap.Data.shopSellingPrice - SelectedTrap.shopPrice).ToString();
+            }
+            else
+            {
+                currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
+                selectedTrap_Image.sprite = SelectedTrap.shopImage;
+
+                arrow_Text.text = "0";
+            }
         }
     }
 
@@ -276,15 +290,15 @@ public class Shop : MonoBehaviour
             if (AltMode)
             {
 
-                GameManager.Instance.money += CurrentTrap.Data.shopSellingPrice;
+                GameManager.Instance.Money += CurrentTrap.Data.shopSellingPrice;
                 CurrentTrap.Data = null;
 
             }
-            else /*if (GameManager.Instance.money - SelectedItem.shopPrice >= 0)*/
+            else if ((GameManager.Instance.Money - SelectedTrap.shopPrice >= 0) && (CurrentTrap.Data != SelectedTrap))
             {
 
-                GameManager.Instance.money += CurrentTrap.Data.shopSellingPrice;
-                GameManager.Instance.money -= SelectedTrap.shopPrice;
+                GameManager.Instance.Money += CurrentTrap.Data.shopSellingPrice;
+                GameManager.Instance.Money -= SelectedTrap.shopPrice;
 
                 CurrentTrap.Data = SelectedTrap;
             }

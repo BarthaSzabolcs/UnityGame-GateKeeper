@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 56880e1dcb5d2db44976c83329d16eb6
+guid: 2f7cec8661119764da1d7e40c2c82bfc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: S_FloorTraps_Build_0
-    21300002: S_FloorTraps_Build_1
-    21300004: S_FloorTraps_Build_2
-    21300006: S_FloorTraps_Build_3
+    21300000: PoisonCloud_0
+    21300002: PoisonCloud_1
+    21300004: PoisonCloud_2
+    21300006: PoisonCloud_3
+    21300008: PoisonCloud_4
+    21300010: PoisonCloud_5
+    21300012: PoisonCloud_6
+    21300014: PoisonCloud_7
+    21300016: PoisonCloud_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -64,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -75,7 +80,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -86,7 +91,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -99,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: S_FloorTraps_Build_0
+      name: PoisonCloud_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
-        height: 64
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +118,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710d2fd170b00f34d94985610c057847
+      spriteID: 4c6158a86471d79499212cac62e91ddd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_1
+      name: PoisonCloud_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 128
-        height: 64
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +138,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e0c8ce80af93af4d820acd229be5ee6
+      spriteID: e772e294feb98de448402574e46a1519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_2
+      name: PoisonCloud_2
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 128
-        height: 64
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa02231e62c330d4489f2d138d15050f
+      spriteID: 7eaf137c8d88cc04e8a9cc1cb817de43
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: S_FloorTraps_Build_3
+      name: PoisonCloud_3
       rect:
         serializedVersion: 2
         x: 384
         y: 0
         width: 128
-        height: 64
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +178,107 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 341b10504e5f31648ac3008d9def9dcf
+      spriteID: eefccf9e8abfd8a478480d8b4c5aa72f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoisonCloud_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d56d568a278a5f45a1a1b4c412e7346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoisonCloud_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff35e456035cca44c97665bda5071925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoisonCloud_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4de48d7ff4a97144fac414f1df997aac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoisonCloud_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e9f2fb55f4adc4f8b95a475c29a054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PoisonCloud_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba6b3c2c4facf1745ab6bc4ff8b0c991
       vertices: []
       indices: 
       edges: []
@@ -181,7 +286,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7644a15763e2fba4b8447ce44e6fb5a0
+    spriteID: 2e6c67ae9c735ad4c9f61c84b9a84ff6
     vertices: []
     indices: 
     edges: []

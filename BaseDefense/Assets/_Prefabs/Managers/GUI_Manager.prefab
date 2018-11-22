@@ -57,6 +57,7 @@ MonoBehaviour:
   fuelbar_name: FuelBarCurrent_Image
   fuel_name: CurrentFuel_Text
   maxfuel_name: MaxFuel_Text
+  money_name: Money_Text
   clickLayer:
     serializedVersion: 2
     m_Bits: 32768

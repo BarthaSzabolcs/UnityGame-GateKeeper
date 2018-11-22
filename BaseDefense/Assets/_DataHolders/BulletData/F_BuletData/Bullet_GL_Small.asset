@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
-  m_Name: Bullet_SG
+  m_Name: Bullet_GL_Small
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300002, guid: 26ddd3071a8d08d4e8ff10af896cbec9, type: 3}
-  bulletColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
-  muzzleFlashColor: {r: 1, g: 0.2971698, b: 0.44393036, a: 1}
+  sprite: {fileID: 21300000, guid: 932cdbe759105464b839bcfe7c4be379, type: 3}
+  bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  muzzleFlashColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
   trailWidth:
     serializedVersion: 2
     m_Curve:
@@ -40,19 +40,19 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   trailWidthMultiplier: 0.4
-  trailTime: 0.035
+  trailTime: 0.1
   trailColor:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 1, g: 0.8724341, b: 0, a: 1}
-    key2: {r: 0.9420443, g: 1, b: 0.5896226, a: 0}
-    key3: {r: 0.862069, g: 1, b: 0, a: 0}
+    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 1}
+    key1: {r: 0.93333334, g: 0.13725491, b: 0.45882353, a: 0}
+    key2: {r: 0.9420443, g: 1, b: 0.5896226, a: 0.19607843}
+    key3: {r: 0.862069, g: 1, b: 0, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 35466
+    ctime1: 65535
     ctime2: 65535
     ctime3: 65535
     ctime4: 0
@@ -60,53 +60,54 @@ MonoBehaviour:
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 21010
+    atime1: 65535
     atime2: 65535
-    atime3: 65535
+    atime3: 63222
     atime4: 0
     atime5: 0
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 3
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
   impactAudio: BulletImpact
-  explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
+  explosionData: {fileID: 11400000, guid: 9a5bb4f03df2c364f82b06fd2f608101, type: 2}
   bulletFiredAudio: BulletFired
-  speed: 100
+  speed: 40
   mass: 0.5
-  gravityScale: 0
+  gravityScale: 1
   taggedToDamage:
   - Enemy
+  - Player
   taggedToDestroy:
   - Wall
   - Enemy
   - DroppedWeapon
-  - Base
   taggedToDestroyWithoutEffects: []
   baseLayer: 13
   taggedToPenetrate:
-  - Enemy
-  penetrationsBeforeExplode: 5
-  ghostTime: 0.01
-  ghostLayer: 14
-  damage: 10
-  isAoE: 0
+  - 
+  penetrationsBeforeExplode: 0
+  ghostTime: 0
+  ghostLayer: 0
+  damage: 30
+  isAoE: 1
   aoeLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   aoeRadius: 1
   hasLifeTime: 1
-  isHoming: 0
+  isHoming: 1
   spawnBullet: 0
-  lifeTime: 0.35
-  explodeAfterLifeTime: 0
+  lifeTime: 2
+  explodeAfterLifeTime: 1
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
-  taggedToTarget: []
-  targetingRadius: 0
-  searchingDelay: 0
-  homingRefreshRate: 0
-  targetingRefreshRate: 0
-  maxRotationPerCycle: 0
+    m_Bits: 256
+  taggedToTarget:
+  - Enemy
+  targetingRadius: 10
+  searchingDelay: 0.05
+  homingRefreshRate: 0.016
+  targetingRefreshRate: 0.016
+  maxRotationPerCycle: 5

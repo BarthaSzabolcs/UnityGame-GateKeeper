@@ -6,6 +6,9 @@ public class Spike : MonoBehaviour
 {
     #region Show In Editor
 
+    [Header("Visual:")]
+    [SerializeField] Sprite[] sprites;
+
     [Header("Components")]
     [SerializeField] Rigidbody2D self;
 
@@ -32,9 +35,14 @@ public class Spike : MonoBehaviour
     private void Start()
     {
         transform.parent.GetComponent<Trap>().OnTrigger += Attack;
-
+        GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Length)];
         speed = travelDistance / travelTime;
     }
+    private void OnDisable()
+    {
+        transform.parent.GetComponent<Trap>().OnTrigger -= Attack;
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (canDamage)

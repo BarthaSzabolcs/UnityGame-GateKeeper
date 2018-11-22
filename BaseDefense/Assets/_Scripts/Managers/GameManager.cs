@@ -12,17 +12,21 @@ public class GameManager : MonoBehaviour
 
     public delegate void BuildMode(bool state);
     public event BuildMode OnBuildModeStateChange;
-    
+
+    public delegate void MoneyChanged(int money);
+    public event MoneyChanged OnMoneyChaned;
+
     #endregion
     #region Fields
 
     private GameObject player;
     private bool inBuildMode;
+    private int money = 0;
     
     #endregion
     #region Properties
 
-    public static GameManager Instance { get; set; }
+    public static GameManager Instance { get; private set; }
     public GameObject Player
     {
         get
@@ -51,10 +55,22 @@ public class GameManager : MonoBehaviour
                 OnBuildModeStateChange?.Invoke(value);
                 SetTimeScale( value ? 1 / 20f : 1);
             }
+
             inBuildMode = value;
         }
     }
-    public int money = 0;
+    public int Money
+    {
+        get
+        {
+            return money;
+        }
+        set
+        {
+            money = value;
+            OnMoneyChaned?.Invoke(value);
+        }
+    }
 
     #endregion
     #region UnityFunctions
@@ -85,22 +101,16 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(int index)
     {
-
         OnSceneChange?.Invoke();
         SceneManager.LoadScene(index);
-        
     }
     public void ReloadScene()
     {
-
         ChangeScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
-        money = 0;
-
         player = GameObject.Find("Player");
 
         var portal = GameObject.Find("friendlyPortal");
@@ -118,38 +128,29 @@ public class GameManager : MonoBehaviour
         UserInterface.Instance.InitializeLevelUI();
         ObjectPool.Instance.InitializeLevel();
 
+        Money = 50000;
     }
 
     public void SlowTime(float slowRate = 1 / 20f)
     {
-
         SetTimeScale(slowRate);
-
     }
     public void ContinueGame()
-
     {
         SetTimeScale(1);
-
     }
     public void QuitGame()
     {
-
         Application.Quit();
-
     }
     private void SetTimeScale(float timeScale = Constants.timeSlowScale)
     {
-
         Time.timeScale = timeScale;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
-
     }
     private void HandlePlayerDeath(GameObject sender)
     {
-
         ReloadScene();
-
     }
 
     #endregion

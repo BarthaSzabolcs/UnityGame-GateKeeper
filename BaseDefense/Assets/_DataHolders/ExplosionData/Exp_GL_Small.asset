@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0a9f75a76379b4795c06f8d3bb723f, type: 3}
-  m_Name: Exp_GL
+  m_Name: Exp_GL_Small
   m_EditorClassIdentifier: 
   animationCllection: {fileID: 11400000, guid: b437f7be038744f4987a0c764eb92da4, type: 2}
   animationColor: {r: 1, g: 1, b: 1, a: 1}
   isExplosive: 1
-  explosionRange: 5
-  explosionMagnitude: 10000
+  explosionRange: 2.5
+  explosionMagnitude: 5000
   explosionMask:
     serializedVersion: 2
     m_Bits: 768

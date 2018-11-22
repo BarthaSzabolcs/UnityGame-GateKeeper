@@ -50,7 +50,7 @@ MonoBehaviour:
   - {x: -145, y: 5}
   spawnKey: mouse 2
   autoSpawn: 0
-  spawnDelay: 4
+  spawnDelay: 0.5
 --- !u!114 &1321804870405499773
 MonoBehaviour:
   m_ObjectHideFlags: 0

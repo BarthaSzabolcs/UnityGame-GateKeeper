@@ -91,12 +91,12 @@ SpriteRenderer:
   m_SortingLayerID: -515905463
   m_SortingLayer: 4
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300012, guid: 1f7e02954bcffae4daa0fc10f5e31103, type: 3}
-  m_Color: {r: 0.30980393, g: 0.7254902, b: 0.62352943, a: 1}
+  m_Sprite: {fileID: 21300004, guid: 2f7cec8661119764da1d7e40c2c82bfc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.7490196}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -114,9 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373bcc2809d4d1f4587deacd344a0f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCycles: 15
-  damageFrequency: 1
-  damage: 0
+  SpriteRenderer: {fileID: 2103278221421258093}
+  animationSpeed: 0.033333335
+  begin_animation: {fileID: 11400000, guid: 53d1e8c7594006c4fb7d81fb95f3edcc, type: 2}
+  middle_animation: {fileID: 11400000, guid: 9f7988754c2e3a0438208191325fbaa5, type: 2}
+  end_animation: {fileID: 11400000, guid: c2713cb748b877c42bb75f9a19086d0b, type: 2}
+  damageCycles: 5
+  damageFrequency: 0.5
+  damage: 1
   damageMask:
     serializedVersion: 2
     m_Bits: 768

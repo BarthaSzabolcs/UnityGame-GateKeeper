@@ -7,21 +7,33 @@ public class ObjectPool : MonoBehaviour
     #region ShowInEditor
 
     [Header("Bullet:")]
-    [SerializeField] Transform bulletTransform;
+    [SerializeField] private Transform bulletTransform;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int bulletPoolBase;
 
     [Header("Explosion")]
-    [SerializeField] Transform explosionTransform;
+    [SerializeField] private Transform explosionTransform;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private int explosionPoolbase;
 
+    [Header("FlyingText:")]
+    [SerializeField] private Transform flyingTextTransform;
+    [SerializeField] private GameObject flyingTextPrefab;
+    [SerializeField] private int flyingTextPoolBase;
+
     #endregion
     #region HideInEditor
-    public enum Types{ bullet, explosion};
+    
     public static ObjectPool Instance { get; private set; }
-	private List<GameObject> bulletPool = new List<GameObject>();
+
+    public enum Types{ bullet, explosion, flyingText};
+
+    private Camera mainCamera;
+
+    private List<GameObject> bulletPool = new List<GameObject>();
 	private List<GameObject> explosionPool = new List<GameObject>();
+    private List<GameObject> flyingTextPool = new List<GameObject>();
+
     #endregion
 
     #region UnityFunctions
@@ -45,6 +57,7 @@ public class ObjectPool : MonoBehaviour
     public void Pool(Types type, GameObject obj)
     {
         obj.SetActive(false);
+
         if (type == Types.bullet)
         {
             bulletPool.Add(obj);
@@ -53,8 +66,12 @@ public class ObjectPool : MonoBehaviour
         {
             explosionPool.Add(obj);
         }
+        else if (type == Types.flyingText)
+        {
+            flyingTextPool.Add(obj);
+        }
     }
-    public GameObject Spawn(Types type, Vector2 position)
+    public GameObject Spawn(Types type, Vector2 worldPosition)
     {
         if(type == Types.bullet)
         { 
@@ -62,14 +79,16 @@ public class ObjectPool : MonoBehaviour
             {
                 GameObject bullet = bulletPool[0];
                 bulletPool.RemoveAt(0);
-                bullet.transform.position = position;
+
+                bullet.transform.position = worldPosition;
                 bullet.SetActive(true);
                 bullet.transform.Find("BulletTrail").GetComponent<TrailRenderer>().Clear();
+
                 return bullet;
             }
             else
             {
-                return Instantiate(bulletPrefab, position, Quaternion.identity, bulletTransform);
+                return Instantiate(bulletPrefab, worldPosition, Quaternion.identity, bulletTransform);
             }
         }
         else if (type == Types.explosion)
@@ -78,21 +97,43 @@ public class ObjectPool : MonoBehaviour
             {
                 GameObject explosion = explosionPool[0];
                 explosionPool.RemoveAt(0);
-                explosion.transform.position = position;
+
+                explosion.transform.position = worldPosition;
                 explosion.SetActive(true);
+
                 return explosion;
             }
             else
             {
-                return Instantiate(explosionPrefab, position, Quaternion.identity, explosionTransform);
+                return Instantiate(explosionPrefab, worldPosition, Quaternion.identity, explosionTransform);
+            }
+        }
+        else if (type == Types.flyingText)
+        {
+            //Vector2 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
+            
+            if (flyingTextPool.Count > 0)
+            {
+                GameObject flyingText = flyingTextPool[0];
+                flyingTextPool.RemoveAt(0);
+
+                flyingText.transform.position = worldPosition;
+                flyingText.SetActive(true);
+
+                return flyingText;
+            }
+            else
+            {
+                return Instantiate(flyingTextPrefab, worldPosition, Quaternion.identity, flyingTextTransform);
             }
         }
         return null;
     }
+
     public void InitializeLevel()
     {
-        //bulletPool.Clear();
-        //explosionPool.Clear();
+        // Get main camera
+        mainCamera = Camera.main;
 
         // Initialize BulletPool
         for (int i = 0; i < bulletPoolBase; i++)
@@ -101,9 +142,15 @@ public class ObjectPool : MonoBehaviour
         }
 
         // Initialize ExplosionPool
-        for (int i = 0; i < bulletPoolBase; i++)
+        for (int i = 0; i < explosionPoolbase; i++)
         {
             Pool(Types.explosion, Instantiate(explosionPrefab, Vector2.zero, Quaternion.identity, explosionTransform));
+        }
+
+        // Initialize FlyingTextPool
+        for (int i = 0; i < flyingTextPoolBase; i++)
+        {
+            Pool(Types.flyingText, Instantiate(flyingTextPrefab, Vector2.zero, Quaternion.identity, flyingTextTransform));
         }
     }
    

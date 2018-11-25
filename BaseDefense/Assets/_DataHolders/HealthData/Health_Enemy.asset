@@ -16,5 +16,7 @@ MonoBehaviour:
   hitAudio: 
   flashOnHealthChange: 1
   flashTime: 1
+  killReward: 15
+  deathText: {fileID: 11400000, guid: 6a73202d9d2b056428b3897d60a85598, type: 2}
   deathAudio: 
   deathAnim: {fileID: 11400000, guid: 1acb211fba434294e84679174427e3c6, type: 2}

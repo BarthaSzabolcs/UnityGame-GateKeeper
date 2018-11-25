@@ -21,7 +21,7 @@ public class ButtonInterface : ScriptableObject
     public void PauseGame()
     {
 
-        GameManager.Instance.PauseGame();
+        GameManager.Instance.SlowTime();
 
     }
     public void ContinueGame()

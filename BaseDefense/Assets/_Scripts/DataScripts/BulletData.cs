@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Bullet")]
 public class BulletData : ScriptableObject
 {
+
     [Header("VisualFX:")]
     public Sprite sprite;
     public Color bulletColor;
@@ -62,10 +63,4 @@ public class BulletData : ScriptableObject
     public float targetingRefreshRate;
     public float maxRotationPerCycle;
 
-    [Header("   Spawn Bullet:")]
-    public BulletData smallerBullet;
-    public int smallBulletCount;
-    public float smallBulletAngle;
-    public float smallBulletAngleOffset;
-    public Vector2 smalBulletpositionOffSet;
 }

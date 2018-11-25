@@ -96,7 +96,7 @@ MonoBehaviour:
   isAoE: 1
   aoeLayerMask:
     serializedVersion: 2
-    m_Bits: 17152
+    m_Bits: 768
   aoeRadius: 5
   hasLifeTime: 1
   isHoming: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
     m_Bits: 0
   taggedToTarget: []
   targetingRadius: 0
+  searchingDelay: 0
   homingRefreshRate: 0
   targetingRefreshRate: 0
   maxRotationPerCycle: 0

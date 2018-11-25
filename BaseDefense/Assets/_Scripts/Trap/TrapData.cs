@@ -9,12 +9,12 @@ public class TrapData : ScriptableObject
     [Header("Shop Settings:")]
     public Sprite shopImage; 
     public string shopName;
-    public int price;
+    public int shopPrice;
+    public int shopSellingPrice;
+    public string shopDescription;
 
     [Header("Interaction Settings:")]
     public TrapBehaviour trapBehaviour;
-    public string[] taggedToDamage;
-    public int damage;
     public Vector2 triggerZoneSize;
     public Vector2 triggerZoneOffset;
     public float recoverSpeed;

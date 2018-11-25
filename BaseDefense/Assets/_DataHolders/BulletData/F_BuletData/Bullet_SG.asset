@@ -86,10 +86,10 @@ MonoBehaviour:
   taggedToDestroyWithoutEffects: []
   baseLayer: 13
   taggedToPenetrate:
-  - 
-  penetrationsBeforeExplode: 0
-  ghostTime: 0
-  ghostLayer: 0
+  - Enemy
+  penetrationsBeforeExplode: 5
+  ghostTime: 0.01
+  ghostLayer: 14
   damage: 10
   isAoE: 0
   aoeLayerMask:
@@ -99,7 +99,7 @@ MonoBehaviour:
   hasLifeTime: 1
   isHoming: 0
   spawnBullet: 0
-  lifeTime: 0.2
+  lifeTime: 0.25
   explodeAfterLifeTime: 0
   targetMask:
     serializedVersion: 2
@@ -110,8 +110,3 @@ MonoBehaviour:
   homingRefreshRate: 0
   targetingRefreshRate: 0
   maxRotationPerCycle: 0
-  smallerBullet: {fileID: 0}
-  smallBulletCount: 0
-  smallBulletAngle: 0
-  smallBulletAngleOffset: 0
-  smalBulletpositionOffSet: {x: 0, y: 0}

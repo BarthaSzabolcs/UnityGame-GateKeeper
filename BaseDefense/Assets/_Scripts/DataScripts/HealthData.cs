@@ -14,6 +14,8 @@ public class HealthData : ScriptableObject
     public float flashTime = 1f;
 
     [Header("Death:")]
+    public int killReward;
+    public FlyingTextData deathText;
     public string deathAudio;
     public ExplosionData deathAnim;
 }

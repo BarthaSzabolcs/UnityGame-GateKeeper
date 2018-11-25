@@ -57,13 +57,9 @@ MonoBehaviour:
   fuelbar_name: FuelBarCurrent_Image
   fuel_name: CurrentFuel_Text
   maxfuel_name: MaxFuel_Text
+  money_name: Money_Text
   clickLayer:
     serializedVersion: 2
     m_Bits: 32768
-  trapMenu_name: UI_TrapMenu
-  trapName_name: TrapName_Text
-  trapImage_name: TrapImageFG_Image
-  trapLevel_name: TrapLevel_Text
-  trapLevelUp_name: TrapLevelUp_Button
-  trapLevelDown_name: TrapLevelDown_Buton
+  shop_name: Shop
   debug_name: Debug_Text

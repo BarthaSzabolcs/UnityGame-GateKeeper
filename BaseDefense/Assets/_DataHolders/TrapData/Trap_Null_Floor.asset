@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
+  m_Name: Trap_Null_Floor
+  m_EditorClassIdentifier: 
+  shopImage: {fileID: 21300012, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
+  shopName: No Trap
+  shopPrice: 0
+  shopSellingPrice: 0
+  shopDescription: No Data Floor
+  trapBehaviour: {fileID: 11400000, guid: 989a9f730f5181a4ca952cabdd654d17, type: 2}
+  triggerZoneSize: {x: 0, y: 0}
+  triggerZoneOffset: {x: -1, y: -1}
+  recoverSpeed: 0
+  sprite: {fileID: 0}
+  buildModeSprite: {fileID: 21300006, guid: 56880e1dcb5d2db44976c83329d16eb6, type: 3}
+  recoverAudio: 
+  triggerAudio: 

@@ -8,6 +8,5 @@ public abstract class TrapBehaviour : ScriptableObject
     public bool enableTrigger;
 
     public abstract void Initialize(Transform transform, Collider2D triggerCollider);
-    public abstract void Trigger();
     public abstract void CleanUp();
 }

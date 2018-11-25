@@ -15,7 +15,7 @@ PlayerSettings:
   companyName: DefaultCompany
   productName: BaseDefense
   defaultCursor: {fileID: 2800000, guid: d3bdd078fc5b0a049b1a695d7365c89f, type: 3}
-  cursorHotspot: {x: 0.5, y: 0.5}
+  cursorHotspot: {x: 16, y: 16}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1

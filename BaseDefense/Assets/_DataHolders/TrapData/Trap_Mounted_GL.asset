@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a162d10de4120a4982d2ebc2df80c08, type: 3}
+  m_Name: Trap_Mounted_GL
+  m_EditorClassIdentifier: 
+  shopImage: {fileID: 21300004, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
+  shopName: Stone trap
+  shopPrice: 500
+  shopSellingPrice: 250
+  shopDescription: 
+  trapBehaviour: {fileID: 11400000, guid: ba346a755f6e3a14d9533624a50b2093, type: 2}
+  triggerZoneSize: {x: 5, y: 5}
+  triggerZoneOffset: {x: 0, y: 0}
+  recoverSpeed: 0.1
+  sprite: {fileID: 21300004, guid: e977a3b1a0cab4e46b5b76aa72d3a156, type: 3}
+  buildModeSprite: {fileID: 21300004, guid: 32dbf7d796605f340b99411a577eecd6, type: 3}
+  recoverAudio: 
+  triggerAudio: 

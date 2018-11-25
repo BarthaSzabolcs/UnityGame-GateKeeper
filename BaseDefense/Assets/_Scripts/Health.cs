@@ -184,20 +184,30 @@ public class Health : MonoBehaviour
     /// </summary>
     public void Die()
     {
-
         if(data.deathAnim != null)
         {
             var deathAnim = ObjectPool.Instance.Spawn(ObjectPool.Types.explosion, transform.position);
             Explosion exp = deathAnim.GetComponent<Explosion>();
+
             exp.data = data.deathAnim;
             exp.Initialize();
+        }
+
+        if(data.deathText != null)
+        {
+            GameManager.Instance.Money += data.killReward;
+
+            var flyingText = ObjectPool.Instance.Spawn(ObjectPool.Types.flyingText, transform.position);
+            FlyingText text = flyingText.GetComponent<FlyingText>();
+
+            text.data = data.deathText;
+            text.Initialize(data.killReward);
         }
 
         AudioManager.Instance.PlaySound(data.deathAudio);
         OnDeath?.Invoke(gameObject);
 
         Destroy(gameObject);   
-
     }
 
     /// <summary>

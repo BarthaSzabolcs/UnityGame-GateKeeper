@@ -260,38 +260,50 @@ public class Weapon : MonoBehaviour
     // Animations
     IEnumerator MuzzleFlashRoutine(Sprite[] animation)
     {
+
         data[DataIndex].muzzleFashAnimation.Randomize(muzzleflashRenderer);
 
         muzzleflashRenderer.enabled = true;
 
         foreach (Sprite sprite in animation)
         {
+
             muzzleflashRenderer.sprite = sprite;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01667f);
+
         }
 
         muzzleflashRenderer.enabled = false;
         MuzzleFlashCoroutine = null;
+
     }
     IEnumerator ReloadAnimation()
     {
+
         foreach (Sprite sprite in WeaponData.reloadAnimation.Next())
         {
             weaponSpriteRenderer.sprite = sprite;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01667f);
         }
+
         weaponSpriteRenderer.sprite = WeaponData.sprite;
         reloadAnimationCoroutine = null;
+
     }
     IEnumerator FiringAnimation()
     {
+
         foreach (Sprite sprite in WeaponData.firingAnimation.Next())
         {
+
             weaponSpriteRenderer.sprite = sprite;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.01667f);
+
         }
+
         weaponSpriteRenderer.sprite = WeaponData.sprite;
         firingAnimationCoroutine = null;
+
     }
 
     // WeaponData Handling

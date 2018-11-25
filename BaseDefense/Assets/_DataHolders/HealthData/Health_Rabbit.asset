@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b11e80129ae5d5f4e91f908532e242ae, type: 3}
-  m_Name: Health_Enemy
+  m_Name: Health_Rabbit
   m_EditorClassIdentifier: 
   maxHealthPoints: 50
   hitAudio: 
   flashOnHealthChange: 1
-  flashTime: 1
+  flashTime: 0.5
   killReward: 15
   deathText: {fileID: 11400000, guid: 6a73202d9d2b056428b3897d60a85598, type: 2}
   deathAudio: 

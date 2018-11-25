@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager_Szabolcs : MonoBehaviour
 {
     #region ShowInEditor
+
     [Header("Spawn:")]
     [SerializeField] GameObject[] enemies;
     [SerializeField] Vector2[] spawnPoints;
@@ -13,9 +14,12 @@ public class SpawnManager_Szabolcs : MonoBehaviour
     [Header("AutoSpawn: ")]
     [SerializeField] bool autoSpawn;
     [SerializeField] float spawnDelay;
+
     #endregion
     #region HideInEditor
+
     public static SpawnManager_Szabolcs Instance { get; private set; }
+
     #endregion
 
     #region UnityFunctions
@@ -47,6 +51,7 @@ public class SpawnManager_Szabolcs : MonoBehaviour
     }
     #endregion
     #region CustomFunctions
+
     private void SpawnEnemy()
     {
         Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)], Quaternion.identity);
@@ -59,5 +64,6 @@ public class SpawnManager_Szabolcs : MonoBehaviour
             SpawnEnemy();
         }
     }
+
     #endregion
 }

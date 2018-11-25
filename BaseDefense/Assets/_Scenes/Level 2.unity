@@ -2505,8 +2505,8 @@ Transform:
   m_Children:
   - {fileID: 387361113}
   - {fileID: 828446518}
-  - {fileID: 6726112633536612867}
   - {fileID: 4254625726156513112}
+  - {fileID: 6726112633536612867}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5794,7 +5794,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.5254902, g: 0.07450981, b: 0.07450981, a: 1}
+  m_BackGroundColor: {r: 0.2264151, g: 0.15272339, b: 0.22507524, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -7030,7 +7030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254625726156513112, guid: 60e2a413088823847bbac4772f785ac5, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4254625726156513112, guid: 60e2a413088823847bbac4772f785ac5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7087,10 +7087,6 @@ PrefabInstance:
     - target: {fileID: 4212830111619459534, guid: 60e2a413088823847bbac4772f785ac5, type: 3}
       propertyPath: m_Name
       value: Shop
-      objectReference: {fileID: 0}
-    - target: {fileID: 4212830111619459534, guid: 60e2a413088823847bbac4772f785ac5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1058925897318874203, guid: 60e2a413088823847bbac4772f785ac5, type: 3}
       propertyPath: m_AnchorMin.y
@@ -7425,15 +7421,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726112632554898179, guid: cbe1044b0ce5e94468933b78880adb71, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.5254902
+      value: 0.2264151
       objectReference: {fileID: 0}
     - target: {fileID: 6726112632554898179, guid: cbe1044b0ce5e94468933b78880adb71, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.07450981
+      value: 0.15272339
       objectReference: {fileID: 0}
     - target: {fileID: 6726112632554898179, guid: cbe1044b0ce5e94468933b78880adb71, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.07450981
+      value: 0.22507524
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cbe1044b0ce5e94468933b78880adb71, type: 3}
@@ -7449,7 +7445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 710307689}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7394854382312197928
 PrefabInstance:

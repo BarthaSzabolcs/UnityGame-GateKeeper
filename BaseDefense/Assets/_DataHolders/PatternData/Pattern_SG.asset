@@ -16,6 +16,6 @@ MonoBehaviour:
   - 0
   recoilDuration: 0.1
   bulletCount: 5
-  spreadAngle: 15
+  spreadAngle: 5
   chargedRandomSpreadLimit: 0
   chargredAngle: 0

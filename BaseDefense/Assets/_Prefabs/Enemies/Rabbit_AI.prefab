@@ -14,10 +14,9 @@ GameObject:
   - component: {fileID: 7158033105260915058}
   - component: {fileID: 5397374428723529834}
   - component: {fileID: 3585165860624888489}
-  - component: {fileID: 7727774098371253529}
-  - component: {fileID: 6300702968888760677}
+  - component: {fileID: 1484500890110477563}
   m_Layer: 8
-  m_Name: TrashMob_AI
+  m_Name: Rabbit_AI
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5397374428723529838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 91.16406}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,12 +94,12 @@ SpriteRenderer:
   m_SortingLayerID: 866877615
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f12d77d53b70b6e4cb8910b3d6c2b121, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c4719c94aca21042b9358e00fc6449f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 5.88, y: 2.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -119,9 +118,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.30418238}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.7336174
 --- !u!114 &5397374428723529834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,33 +151,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 912d95315f0eb384a81e1b8de8f109c7, type: 2}
   spriteRenderer: {fileID: 5397374428723529836}
---- !u!114 &7727774098371253529
-MonoBehaviour:
+--- !u!95 &1484500890110477563
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5397374428723529838}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c74a5b401bc634087b62292004dd5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 51421cd74cf715841b4799e9a5426752, type: 2}
-  timebetweenDamage: 0.25
---- !u!58 &6300702968888760677
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5397374428723529838}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0a34b313c861e34cb314205a3a3d620, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3585165860624888489}
   - component: {fileID: 7727774098371253529}
   - component: {fileID: 6300702968888760677}
+  - component: {fileID: 6063796168384587124}
   m_Layer: 8
   m_Name: TrashMob_AI
   m_TagString: Enemy
@@ -182,3 +183,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1
+--- !u!114 &6063796168384587124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5397374428723529838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c826a04671106547bed68ab68355944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,6 +20,4 @@ public class Sound
 		source.clip = sounds[Random.Range(0, sounds.Length)];
 		source.Play();
 	}
-
-	
 }

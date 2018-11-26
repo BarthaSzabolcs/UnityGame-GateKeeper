@@ -58,6 +58,9 @@ MonoBehaviour:
   fuel_name: CurrentFuel_Text
   maxfuel_name: MaxFuel_Text
   money_name: Money_Text
+  waveInfo_name: WaveInfo_Text
+  waveInfoTime: 0.5
+  startWaveText: press 'f' to pay respect
   clickLayer:
     serializedVersion: 2
     m_Bits: 32768

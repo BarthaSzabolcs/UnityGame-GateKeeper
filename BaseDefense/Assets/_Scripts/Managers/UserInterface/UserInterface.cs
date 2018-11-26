@@ -32,8 +32,13 @@ public class UserInterface : MonoBehaviour
     [SerializeField] string fuel_name;
     [SerializeField] string maxfuel_name;
 
-    [Header("Money")]
-    [SerializeField] string money_name; 
+    [Header("Money:")]
+    [SerializeField] string money_name;
+
+    [Header("Wave:")]
+    [SerializeField] string waveInfo_name;
+    [SerializeField] float waveInfoTime;
+    [SerializeField] string startWaveText;
 
     [Header("BuildMode:")]
     public LayerMask clickLayer;
@@ -179,7 +184,11 @@ public class UserInterface : MonoBehaviour
     private Text money_Text;
     private Shop shop;
 
+    // Wave
+    private Text wave_Text;
+
     public static UserInterface Instance { get; private set; }
+
     #endregion
 
     #region UnityFunctions
@@ -205,13 +214,13 @@ public class UserInterface : MonoBehaviour
     // Initialize 
     public void InitializeLevelUI()
     {
+        // Get Camera
+        mainCamera = Camera.main;
+
         // Money
         GameManager.Instance.OnMoneyChaned -= HandleMoneyChange;
         GameManager.Instance.OnMoneyChaned += HandleMoneyChange;
         money_Text = GameObject.Find(money_name).GetComponent<Text>();
-
-        // Get Camera
-        mainCamera = Camera.main;
 
         // Get and Set Weapon
         Weapon weaponComponent = GameManager.Instance.Player.transform.Find(playerWeapon_name).GetComponent<Weapon>();
@@ -270,8 +279,18 @@ public class UserInterface : MonoBehaviour
         // Set Cursor
         ChangeCursor(crosshairImage);
 
+        // Wave
+        wave_Text = GameObject.Find(waveInfo_name).GetComponent<Text>();
+        wave_Text.text = startWaveText;
+
+        SpawnManager_Szabolcs.Instance.OnWaveStarted -= HandleWaveStart;
+        SpawnManager_Szabolcs.Instance.OnWaveStarted += HandleWaveStart;
+
+        SpawnManager_Szabolcs.Instance.OnWaveEnded -= HandleWaveEnd;
+        SpawnManager_Szabolcs.Instance.OnWaveEnded += HandleWaveEnd;
+
     }
-    
+
     // Cursor
     public void ChangeCursor(Texture2D newCursor = null)
     {
@@ -370,6 +389,18 @@ public class UserInterface : MonoBehaviour
     {
         // chage = money - (int)moneyText;
         money_Text.text = money.ToString();
+    }
+
+    // Wave
+    private void HandleWaveStart()
+    {
+        wave_Text.CrossFadeAlpha(0, waveInfoTime, false);
+    }
+
+    private void HandleWaveEnd()
+    {
+        wave_Text.text = startWaveText;
+        wave_Text.CrossFadeAlpha(1, waveInfoTime, false);
     }
 
     #endregion

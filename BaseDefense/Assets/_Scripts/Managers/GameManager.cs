@@ -17,15 +17,22 @@ public class GameManager : MonoBehaviour
     public event MoneyChanged OnMoneyChaned;
 
     #endregion
-    #region Fields
+
+    #region Show In Editor
+
+    [Header("Money:")]
+    [SerializeField] int startingMoney;
+
+    #endregion
+    #region Hide In Editor
+
+    public enum GameState { NextWaveReady, InCombat };
 
     private GameObject player;
-    private bool inBuildMode;
+    private bool inBuildMode = false;
     private int money = 0;
-    
-    #endregion
-    #region Properties
 
+    public GameState CurrentGameState{get; private set;}
     public static GameManager Instance { get; private set; }
     public GameObject Player
     {
@@ -73,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
     #region UnityFunctions
 
     private void Awake()
@@ -91,11 +99,26 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
         SceneManager.sceneLoaded += StartLevel;
-
+        SpawnManager_Szabolcs.Instance.OnWaveEnded += HandleWaveEnded;
     }
 
+    #endregion
+    #region Combat
+
+    public void StartWave()
+    {
+        if(CurrentGameState == GameState.NextWaveReady)
+        {
+            SpawnManager_Szabolcs.Instance.StartWave();
+            CurrentGameState = GameState.InCombat;
+        }
+    }
+
+    private void HandleWaveEnded()
+    {
+        CurrentGameState = GameState.NextWaveReady;
+    }
     #endregion
     #region CusomFunctions
 
@@ -111,6 +134,8 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
+        InBuildMode = false;
+
         player = GameObject.Find("Player");
 
         var portal = GameObject.Find("friendlyPortal");
@@ -128,10 +153,12 @@ public class GameManager : MonoBehaviour
         UserInterface.Instance.InitializeLevelUI();
         ObjectPool.Instance.InitializeLevel();
 
-        Money = 50000;
+        Money = startingMoney;
+
+        CurrentGameState = GameState.NextWaveReady;
     }
 
-    public void SlowTime(float slowRate = 1 / 20f)
+    public void SlowTime(float slowRate = 1f)
     {
         SetTimeScale(slowRate);
     }

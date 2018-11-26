@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     }
 	void Update ()
     {
-        BuildMode();
+        GameStateInput();
         if (GameManager.Instance.InBuildMode == false)
         {
             WeaponHandling();
@@ -243,11 +243,12 @@ public class PlayerController : MonoBehaviour
     }
     
     #endregion
-    #region Build Mode
+    #region GameState
 
-    void BuildMode()
+    void GameStateInput()
     {
         CheckBuildMode();
+        CheckWaveStart();
     }
     void CheckBuildMode()
     {
@@ -256,11 +257,17 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance.InBuildMode = !GameManager.Instance.InBuildMode;
         }
     }
+    void CheckWaveStart()
+    {
+        if (Input.GetButtonDown("WaveStart") && GameManager.Instance.InBuildMode == false)
+        {
+            GameManager.Instance.StartWave();
+        }
+    }
 
     #endregion
     #region Player Animation
 
-    
     void AnimatePlayer()
     {
         head.LookAt(Target);

@@ -44,13 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec34a69d46eb7444b84dca13f88aba9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
-  spawnPoints:
+  spawnWaves:
+  - {fileID: 11400000, guid: 89ca44ce7f3f35d4f8c850c3596bc469, type: 2}
+  waveStrengths: 050000000a0000000f000000
+  GroundSpawns:
   - {x: -145, y: 5}
-  spawnKey: mouse 2
-  autoSpawn: 0
-  spawnDelay: 0.5
+  AirSpawns:
+  - {x: 0, y: 30}
+  commonChance: 0.5
+  rareChance: 0.3
+  epicChance: 0.15
+  legendaryChance: 0.05
 --- !u!114 &1321804870405499773
 MonoBehaviour:
   m_ObjectHideFlags: 0

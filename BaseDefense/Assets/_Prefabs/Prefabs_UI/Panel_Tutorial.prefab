@@ -1,5 +1,45 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!224 &2736525829282037699 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184007297618639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525829619087636 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184006556734488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525829405717217 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184007450664941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525829066237228 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184007110658080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525829194956520 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184007191663588}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525829733975375 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184006652766275}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2736525830101881299 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 458184005948505311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &458184007924890339 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+  m_PrefabInstance: {fileID: 2736525828854945775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &220181691
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,10 +174,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458184007924890339}
   - {fileID: 2736525829194956520}
   - {fileID: 2736525829733975375}
   - {fileID: 2736525830101881299}
+  - {fileID: 458184007924890339}
   - {fileID: 2736525829282037699}
   - {fileID: 2736525829405717217}
   - {fileID: 2736525829066237228}
@@ -489,46 +529,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!224 &458184007924890339 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 2736525828854945775}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829066237228 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184007110658080}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829194956520 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184007191663588}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829282037699 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184007297618639}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829405717217 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184007450664941}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829619087636 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184006556734488}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525829733975375 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184006652766275}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &2736525830101881299 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
-  m_PrefabInstance: {fileID: 458184005948505311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8579730763095633612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8163504705063965154, guid: ed91fe74d5a47964fb352d29f823a93f, type: 3}
@@ -589,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -626,6 +626,14 @@ PrefabInstance:
     - target: {fileID: 2567575513172072793, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_Text
       value: "Press A and D \nto move left and right."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
@@ -684,6 +692,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Hold Space to use your jetpack. \nBlue bar shows your fuel."
       objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
 --- !u!1001 &458184006652766275
@@ -711,7 +727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -752,6 +768,14 @@ PrefabInstance:
     - target: {fileID: 2567575513172072793, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_Text
       value: Your healthbar shouldn't hit zero.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
@@ -810,6 +834,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Press B to open the shop.
       objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
 --- !u!1001 &458184007191663588
@@ -837,7 +869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -870,6 +902,14 @@ PrefabInstance:
     - target: {fileID: 2567575513172072793, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_Text
       value: "Enemies come from these portals \nin waves."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
@@ -928,6 +968,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: "Press W to jump. \nPress W twice to double jump."
       objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
 --- !u!1001 &458184007450664941
@@ -984,6 +1032,14 @@ PrefabInstance:
     - target: {fileID: 2567575513172072793, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_Text
       value: "Press Q and E \nto switch between weapons."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
@@ -1142,6 +1198,18 @@ PrefabInstance:
     - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
       propertyPath: m_Pivot.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567575513257487628, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca863e79f8b5a6c49a46cb3f1bede3d6, type: 3}

@@ -19,10 +19,16 @@ public class AI_TurretController : MonoBehaviour
     Rigidbody2D self;
     bool shoot;
     bool reload;
+	private bool turnedOn = true;
 
-    #endregion
+	public bool TurnedOn
+	{
+		get => turnedOn;
+		set => turnedOn = value;
+	}
+	#endregion
 
-    void Start()
+	void Start()
     {
 
         self = GetComponent<Rigidbody2D>();
@@ -34,16 +40,19 @@ public class AI_TurretController : MonoBehaviour
     }
     void FixedUpdate()
     {
+		if (TurnedOn)
+		{
+			if (sight.Target && sight.TargetVisible)
+			{
+				RotateTowardsTarget();
+			}
 
-        if (sight.Target && sight.TargetVisible)
-        {
-            RotateTowardsTarget();
-        }
-
-        if (shoot && !reload && Mathf.Abs(sight.LineOfSightAngle) < aimingPrecision)
-        {
-            weapon.PullTrigger();
-        }
+			if (shoot && !reload && Mathf.Abs(sight.LineOfSightAngle) < aimingPrecision)
+			{
+				weapon.PullTrigger();
+			}
+		}
+        
 
     }
 

@@ -116,48 +116,47 @@ public class SpawnManager_Szabolcs : MonoBehaviour
             return 0f;
         }
     }
-    private List<EnemyData> CreateWave(int targetedWaveStrength)
-    {
-        List<EnemyData> enemies = new List<EnemyData>();
+	private List<EnemyData> CreateWave(int targetedWaveStrength)
+	{
+		List<EnemyData> enemies = new List<EnemyData>();
 
-        int waveIndex = Random.Range(0, spawnWaves.Length);
+		int waveIndex = Random.Range(0, spawnWaves.Length);
 
-        float weightSum = 0;
-        foreach (EnemyData enemy in spawnWaves[waveIndex].enemies)
-        {
-            weightSum += RarityInFloat(enemy.rarity);
-        }
+		float weightSum = 0;
+		foreach (EnemyData enemy in spawnWaves[waveIndex].enemies)
+		{
+			weightSum += RarityInFloat(enemy.rarity);
+		}
 
-        int waveStrength = 0;
-        while (waveStrength < targetedWaveStrength)
-        { 
-            float weightedRandom = Random.Range(0f, weightSum);
-            int weightedEnemyIndex = 0;
-            foreach (EnemyData enemy in spawnWaves[waveIndex].enemies)
-            {
-                int index = 0;
+		int waveStrength = 0;
+		while (waveStrength < targetedWaveStrength)
+		{
+			float weightedRandom = Random.Range(0f, weightSum);
+			int weightedEnemyIndex = 0;
 
-                if (weightedRandom - RarityInFloat(enemy.rarity) < 0)
-                {
-                    weightedEnemyIndex = index;
-                    break;
-                }
-                else
-                {
-                    weightedRandom -= RarityInFloat(enemy.rarity);
-                    index++;
-                }
-            }
+			foreach (EnemyData enemy in spawnWaves[waveIndex].enemies)
+			{
 
-            enemies.Add(spawnWaves[waveIndex].enemies[weightedEnemyIndex]);
+				if (weightedRandom - RarityInFloat(enemy.rarity) < 0)
+				{
+					break;
+				}
+				else
+				{
+					weightedRandom -= RarityInFloat(enemy.rarity);
+					weightedEnemyIndex++;
+				}
+			}
 
-            waveStrength += spawnWaves[waveIndex].enemies[weightedEnemyIndex].strengh;
-        }
+			enemies.Add(spawnWaves[waveIndex].enemies[weightedEnemyIndex]);
 
-        return enemies;
-    }
+			waveStrength += spawnWaves[waveIndex].enemies[weightedEnemyIndex].strengh;
+		}
 
-    private IEnumerator SpawnWave()
+		return enemies;
+	}
+
+	private IEnumerator SpawnWave()
     {
         foreach (EnemyData enemy in CreateWave(CurrentWaveStrength))
         {

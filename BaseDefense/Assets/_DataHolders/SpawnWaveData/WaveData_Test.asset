@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: WaveData_Test
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager_Szabolcs/SpawnWaveData
   enemies:
-  - {fileID: 11400000, guid: 3b393ba1a0577564eb37cc2e0eb29dd9, type: 2}
+  - {fileID: 11400000, guid: eb48aef0221a9c440a6113ebe2a0c1bf, type: 2}

@@ -50,7 +50,11 @@ MonoBehaviour:
   GroundSpawns:
   - {x: -145, y: 5}
   AirSpawns:
-  - {x: 0, y: 30}
+  - {x: 10, y: 33}
+  - {x: -10, y: 33}
+  - {x: -20, y: 33}
+  - {x: 20, y: 33}
+  - {x: 0, y: 33}
   commonChance: 0.5
   rareChance: 0.3
   epicChance: 0.15

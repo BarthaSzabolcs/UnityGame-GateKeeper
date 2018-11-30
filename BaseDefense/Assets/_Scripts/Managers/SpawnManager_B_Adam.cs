@@ -8,21 +8,31 @@ public class SpawnManager_B_Adam : MonoBehaviour
     // Add Empty Gameobject where to spawn to.
     public GameObject[] SpawnPoints;
 
+    // Mode Selector
+    public enum SpawnMode
+    {
+        Random_waves
+    }
+    public SpawnMode spawnMode;
+
     // Which Ai-s to spawn. Currently supports 4 Ai-s.
     public GameObject[] AisToSpawn;
 
     // This pops up after each wave.
     public GameObject FinishText;
 
-    //public static int enemiesAlive = 0;
+    public GameObject DoneText;
+
+    public int numberOfWaves;
+    public int enemiesPerWave;
+
+    public static int enemiesAlive = 0;
 
     private int numberOfAis;
     private bool readyToStart;
     private bool JButtonWasPressed;
     private bool spawning = false;
     private int currentWave;
-    private int enemyPerWave = 10;
-    private string name;
     private List<GameObject> Wave = new List<GameObject>();
 
     // Initialize Random
@@ -32,28 +42,39 @@ public class SpawnManager_B_Adam : MonoBehaviour
     // Start
     void Start()
     {
+        DoneText.SetActive(false);
         numberOfAis = AisToSpawn.Length;
+        Debug.Log("Number of ais: " + numberOfAis);
 
         readyToStart = true;
         currentWave = 0;
 
-        name = AisToSpawn[0].name;
-
-        BuildFixWaves(AisToSpawn);       
+        if (spawnMode == SpawnMode.Random_waves)
+        {
+            BuildRandomWaves(AisToSpawn);
+        }         
     }
 
     // Update
     void Update()
     {
-        if (!EnemyIsStillOnMap())
+        Debug.Log("Enemies alive: " + enemiesAlive);
+        if (enemiesAlive == 0 && currentWave != numberOfWaves)
         {
             FinishText.SetActive(true);
         }
-        if (readyToStart && Input.GetKeyDown(KeyCode.J) && !spawning && !EnemyIsStillOnMap())
+
+        if (readyToStart && Input.GetKeyDown(KeyCode.J) && !spawning && enemiesAlive == 0)
         {
             FinishText.SetActive(false);
             StartCoroutine(CallNextWave());
             UnityEngine.Debug.Log("Next wave!");
+        }
+
+        if (currentWave == numberOfWaves && enemiesAlive == 0)
+        {
+            FinishText.SetActive(false);
+            DoneText.SetActive(true);
         }
     }
 
@@ -63,7 +84,7 @@ public class SpawnManager_B_Adam : MonoBehaviour
         readyToStart = false;
 
         // Call fixed waves
-        for (int i = 0 + (currentWave*10); i < currentWave*10 + 10; i++)
+        for (int i = 0 + (currentWave* enemiesPerWave); i < currentWave* enemiesPerWave + enemiesPerWave; i++)
         {
             if (i >= Wave.Count)
             {
@@ -73,7 +94,7 @@ public class SpawnManager_B_Adam : MonoBehaviour
 
             SpawnEnemy(i);
 
-            if (i == (currentWave*10 + 10) -1)
+            if (i == (currentWave* enemiesPerWave + enemiesPerWave) -1)
             {
                 spawning = false;
             }else
@@ -96,94 +117,19 @@ public class SpawnManager_B_Adam : MonoBehaviour
         int randomNumber = random.Next(0, SpawnPoints.Length);
         Vector3 spawnPosition = SpawnPoints[randomNumber].transform.position;
         Instantiate(Wave[currentEnemy], spawnPosition, Wave[currentEnemy].transform.rotation);
-        //CountEnemies(Wave[currentEnemy]);
+        enemiesAlive += 1;
     }
 
     // Build fixed waves.
-    private void BuildFixWaves(GameObject[] aisToSpawn)
-    {
-        // 5 waves total currently with fix 10 ai's per wave.;
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[2]);
-
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[2]);
-
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[0]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[1]);
-
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[1]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[3]);
-        Wave.Add(AisToSpawn[2]);
-        Wave.Add(AisToSpawn[3]);
-    }
-
-    //public void CountEnemies(GameObject currentEnemy)
-    //{
-    //    currentEnemy.GetComponent<Health>().OnDeath += HandleEnemyDeath;
-    //    currentEnemy.GetComponent<Health>().OnMaxHealthCHange += HandleEnemyBirth;
-    //}
-
-    //private void HandleEnemyBirth(int newHealth)
-    //{
-    //    enemiesAlive += 1;
-    //}
-
-    //private void HandleEnemyDeath(GameObject sender)
-    //{
-    //    enemiesAlive -= 1;
-    //}
-
-    private bool EnemyIsStillOnMap()
-    {
-        GameObject enemy = GameObject.Find(name + "(Clone)");
-        if (enemy == null)
+    private void BuildRandomWaves(GameObject[] aisToSpawn)
+    { 
+        for ( int i = 0; i < numberOfWaves; i++)
         {
-            
-            return false;
+            for ( int j = 0; j < enemiesPerWave; j++)
+            {
+                int randomNum = random.Next(0, numberOfAis);
+                Wave.Add(AisToSpawn[randomNum]);
+            }
         }
-        else
-            return true;
     }
 }

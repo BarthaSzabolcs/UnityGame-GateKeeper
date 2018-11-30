@@ -119,13 +119,13 @@ MonoBehaviour:
   begin_animation: {fileID: 11400000, guid: 53d1e8c7594006c4fb7d81fb95f3edcc, type: 2}
   middle_animation: {fileID: 11400000, guid: 9f7988754c2e3a0438208191325fbaa5, type: 2}
   end_animation: {fileID: 11400000, guid: c2713cb748b877c42bb75f9a19086d0b, type: 2}
-  damageCycles: 5
-  damageFrequency: 0.5
+  damageCycles: 4
+  damageFrequency: 0.25
   damage: 1
   damageMask:
     serializedVersion: 2
     m_Bits: 768
-  poisonDuration: 2
+  poisonDuration: 0.5
   poisonFrequency: 0.1
   poisonDamage: 1
   radius: 5

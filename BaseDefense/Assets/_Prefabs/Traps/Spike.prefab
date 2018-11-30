@@ -153,7 +153,7 @@ MonoBehaviour:
   taggedToDamage:
   - Enemy
   - Player
-  damage: 14
+  damage: 10
   travelDistance: 1.5
   travelTime: 0.2
   startingHeight: -1

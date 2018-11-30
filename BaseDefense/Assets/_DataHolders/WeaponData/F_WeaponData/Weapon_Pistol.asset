@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_Pistol
   m_EditorClassIdentifier: 
+  fireAudio: 
   sprite: {fileID: 21300000, guid: 15c429662dcc5e5498498142c93a06c1, type: 3}
   waeponOffSet: {x: 1.3, y: 0.6}
   muzzleFlashOffSet: {x: 1.5, y: 0}
@@ -25,8 +26,8 @@ MonoBehaviour:
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
-    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.49019608}
-    key1: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.5882353}
+    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.6862745}
+    key1: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.6862745}
     key2: {r: 0.69803923, g: 0.07058824, b: 0, a: 1}
     key3: {r: 0, g: 0, b: 0, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 1}

@@ -20,7 +20,7 @@ MonoBehaviour:
   trapBehaviour: {fileID: 11400000, guid: 8af023759d5f4074a98865d9462dc736, type: 2}
   triggerZoneSize: {x: 6, y: 2}
   triggerZoneOffset: {x: 0, y: 0}
-  recoverSpeed: 1.5
+  recoverSpeed: 3
   sprite: {fileID: 21300000, guid: 4eff0cb4a9059674bbcf97b976d8f4c0, type: 3}
   buildModeSprite: {fileID: 21300000, guid: 56880e1dcb5d2db44976c83329d16eb6, type: 3}
   recoverAudio: 

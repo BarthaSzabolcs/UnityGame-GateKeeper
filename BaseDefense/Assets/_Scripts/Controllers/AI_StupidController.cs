@@ -6,6 +6,11 @@ public class AI_StupidController : MonoBehaviour
 {
     #region ShowInEditor
 
+    [Header("Attack:")]
+    [SerializeField] int damage;
+    [SerializeField] float fallBackForce;
+    [SerializeField] string[] taggedToDamge;
+
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] AI_Sight sight;
     [SerializeField] float moveForce;
@@ -14,9 +19,11 @@ public class AI_StupidController : MonoBehaviour
 
     #endregion
     #region HideInEditor
+
     Rigidbody2D self;
     float sign = 1;
     Transform target;
+    
     #endregion
 
     private void Start()
@@ -42,6 +49,17 @@ public class AI_StupidController : MonoBehaviour
         if (sign > 0)
         {
             spriteRenderer.flipX = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        foreach (string tag in taggedToDamge)
+        {
+            if(col.gameObject.tag == tag)
+            {
+                col.gameObject.GetComponent<Health>().TakeDamage(damage);
+                self.AddForce(Vector2.right * sign * fallBackForce);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_GL_Mounted
   m_EditorClassIdentifier: 
+  fireAudio: 
   sprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}
   waeponOffSet: {x: 0, y: 0.66}
   muzzleFlashOffSet: {x: 1.5, y: 0}
@@ -25,8 +26,8 @@ MonoBehaviour:
   hasLaserSight: 1
   laserSightColor:
     serializedVersion: 2
-    key0: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.6862745}
-    key1: {r: 0.6627451, g: 0.1254902, b: 0.4392157, a: 0.6862745}
+    key0: {r: 1, g: 0, b: 0, a: 0.39215687}
+    key1: {r: 1, g: 0, b: 0, a: 0.39215687}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -52,7 +53,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  laserSightMaxRange: 5
+  laserSightMaxRange: 15
   rightHandSprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
   leftHandSprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
   bulletData: {fileID: 11400000, guid: 056a8de09ec0efd4986b6827db5ec07d, type: 2}
@@ -66,8 +67,8 @@ MonoBehaviour:
   extraAmmo: 30
   ammoConsumption: 1
   infiniteAmmo: 1
-  magSize: 6
-  reloadAmmount: 6
-  reloadTime: 2.5
+  magSize: 1
+  reloadAmmount: 1
+  reloadTime: 3
   reloadRefreshPerSecond: 60
-  ammoInMag: 6
+  ammoInMag: 1

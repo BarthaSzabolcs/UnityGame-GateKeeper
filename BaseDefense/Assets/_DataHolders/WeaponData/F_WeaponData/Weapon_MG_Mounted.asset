@@ -53,7 +53,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  laserSightMaxRange: 100
+  laserSightMaxRange: 25
   rightHandSprite: {fileID: 21300004, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
   leftHandSprite: {fileID: 21300000, guid: eb0c648957f67c441b0a007f99cf8b6f, type: 3}
   bulletData: {fileID: 11400000, guid: 542c60864fe4a8542a0a0c5615a1bdea, type: 2}

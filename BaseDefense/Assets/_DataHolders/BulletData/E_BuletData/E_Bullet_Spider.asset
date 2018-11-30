@@ -10,36 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02885bfe15a058f41a341ad9490eecc1, type: 3}
-  m_Name: E_Turret_Bullet
+  m_Name: E_Bullet_Spider
   m_EditorClassIdentifier: 
-  taggedToDamage:
-  - Base
-  - Player
-  taggedToDestroy:
-  - Wall
-  - DroppedWeapon
-  - Base
-  - Player
-  taggedToDestroyWithoutEffects: []
-  damage: 1
-  baseLayer: 12
-  taggedToPenetrate:
-  - 
-  penetrationNumber: 0
-  penetrationTime: 0
-  penetrationLayer: 0
-  speed: 35
-  mass: 1
-  gravityScale: 0
-  hasLifeTime: 1
-  lifeTime: 1
-  explodeAfterLifeTime: 0
   sprite: {fileID: 21300000, guid: 86719d7168699f94c93932fdb73320aa, type: 3}
-  bulletColor: {r: 1, g: 0, b: 0, a: 1}
-  muzzleFlashColor: {r: 1, g: 0.4198113, b: 0.511812, a: 1}
-  impactAudio: BulletImpact
-  explosionData: {fileID: 11400000, guid: 3578deb2529fa5240af4ee976157ca37, type: 2}
-  bulletFiredAudio: BulletFired
+  bulletColor: {r: 1, g: 1, b: 1, a: 1}
+  muzzleFlashColor: {r: 1, g: 1, b: 1, a: 1}
   trailWidth:
     serializedVersion: 2
     m_Curve:
@@ -65,7 +40,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   trailWidthMultiplier: 1
-  trailTime: 0.07
+  trailTime: 0.03
   trailColor:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -95,23 +70,45 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  impactAudio: BulletImpact
+  explosionData: {fileID: 11400000, guid: bbd40d3c3743cdc438b24e0407d520b5, type: 2}
+  bulletFiredAudio: BulletFired
+  speed: 30
+  mass: 1
+  gravityScale: 0
+  taggedToDamage:
+  - Base
+  - Player
+  taggedToDestroy:
+  - Wall
+  - DroppedWeapon
+  - Base
+  - Player
+  taggedToDestroyWithoutEffects: []
+  baseLayer: 12
+  taggedToPenetrate:
+  - 
+  penetrationsBeforeExplode: 0
+  ghostTime: 0
+  ghostLayer: 0
+  damage: 2
+  isAoE: 0
+  aoeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  aoeRadius: 0.5
+  hasLifeTime: 1
   isHoming: 0
+  spawnBullet: 0
+  lifeTime: 2
+  explodeAfterLifeTime: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 0
   taggedToTarget:
   - Player
   targetingRadius: 7
+  searchingDelay: 0
   homingRefreshRate: 0.01
   targetingRefreshRate: 0
   maxRotationPerCycle: 15
-  isAoE: 0
-  aoeLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  aoeRadius: 0.5
-  smallerBullet: {fileID: 0}
-  smallBulletCount: 0
-  smallBulletAngle: 0
-  smallBulletAngleOffset: 0
-  smalBulletpositionOffSet: {x: 0, y: 0}

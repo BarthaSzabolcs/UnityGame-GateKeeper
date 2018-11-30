@@ -43,4 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c543003602b72e44b08b8ca83d58111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  logMiisingAudio: 0
+  sounds:
+  - name: 
+    sounds:
+    - {fileID: 0}
+    - {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    sounds: []
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}

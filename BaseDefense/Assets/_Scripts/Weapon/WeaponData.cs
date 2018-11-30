@@ -6,6 +6,9 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     #region ShowInEditor
+    [Header("Audio:")]
+    [SerializeField] string fireAudio;
+
     [Header("   Idle:")]
     [Header("VisualFX Settings:")]
     public Sprite sprite;
@@ -185,6 +188,7 @@ public class WeaponData : ScriptableObject
             
             // Play MuzzleFlash Animation
             weapon.PlayarFiringAnimations(muzzleFashAnimation.Next());
+            AudioManager.Instance.PlaySound(fireAudio);
 
             charge++;
             triggerReseted = false;

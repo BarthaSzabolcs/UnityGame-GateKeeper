@@ -53,7 +53,14 @@ public class AudioManager : MonoBehaviour
     /// <param name="audioName"></param>
     public void PlaySound(string audioName)
 	{
+        if(audioName == "")
+        {
+            print("Missing Audio");
+            return;
+        }
+
 		bool found = false;
+
 		for(var i = 0; i < sounds.Length; i++)
 		{
 			if(sounds[i].name == audioName)
@@ -62,6 +69,10 @@ public class AudioManager : MonoBehaviour
 				found = true;
 			}
 		}
-		if (!found && logMiisingAudio) print("Sound not found: " + audioName);
-	}
+
+		if (!found && logMiisingAudio)
+        {
+            print("Sound not found: " + audioName);
+        }
+    }
 }

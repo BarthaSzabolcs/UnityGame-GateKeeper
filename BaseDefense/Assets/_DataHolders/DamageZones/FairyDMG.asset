@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5af6993fdd7fd649b4f95cb1129e30b, type: 3}
   m_Name: FairyDMG
   m_EditorClassIdentifier: 
-  taggedToDamage: []
+  taggedToDamage:
+  - Player
+  - Portal
   damage: 20

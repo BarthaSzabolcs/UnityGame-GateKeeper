@@ -87,6 +87,14 @@ public class SpawnManager_Szabolcs : MonoBehaviour
     #endregion
     #region CustomFunctions
 
+    public void InitializeLevel()
+    {
+        enemiesAlive = 0;
+        WaveStrength_Index = 0;
+        
+        OnWaveEnded?.Invoke();
+    }
+
     public void StartWave()
     {
         StartCoroutine(SpawnWave());

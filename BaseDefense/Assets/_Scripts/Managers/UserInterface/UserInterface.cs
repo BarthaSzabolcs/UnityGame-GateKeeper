@@ -212,7 +212,7 @@ public class UserInterface : MonoBehaviour
     #region CustomFunctions
     
     // Initialize 
-    public void InitializeLevelUI()
+    public void InitializeLevel()
     {
         // Get Camera
         mainCamera = Camera.main;

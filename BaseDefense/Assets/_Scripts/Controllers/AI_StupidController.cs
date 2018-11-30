@@ -5,10 +5,13 @@ using UnityEngine;
 public class AI_StupidController : MonoBehaviour
 {
     #region ShowInEditor
+
+    [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] AI_Sight sight;
     [SerializeField] float moveForce;
     [SerializeField] float maxSpeed;
     [SerializeField] string targetName;
+
     #endregion
     #region HideInEditor
     Rigidbody2D self;
@@ -36,5 +39,9 @@ public class AI_StupidController : MonoBehaviour
     private void CheckDirection()
     {
         sign = Mathf.Sign(transform.position.x - target.position.x);
+        if (sign > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 }

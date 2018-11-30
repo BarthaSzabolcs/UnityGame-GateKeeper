@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1474449168117592697}
   - component: {fileID: 4224153289364130522}
   - component: {fileID: 2081504068185441923}
-  - component: {fileID: 6562066020059497082}
   - component: {fileID: 6034567663200967264}
   m_Layer: 8
   m_Name: Fairy
@@ -31,8 +30,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081504068185441948}
   m_LocalRotation: {x: -0.5735764, y: 0.8191521, z: -0, w: 0}
-  m_LocalPosition: {x: -23.02, y: 25.86, z: 23.353128}
-  m_LocalScale: {x: 14.631242, y: 14.631242, z: 14.631242}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 866877615
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b86206afa8feee24ea4e338a7a6bb800, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -119,18 +118,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022980046, y: 0.017398268}
+  m_Offset: {x: -0.13879979, y: 0.08430812}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.25}
+    oldSize: {x: 2, y: 1.5625}
     newSize: {x: 0.32, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17985478, y: 0.13678436}
+  m_Size: {x: 1.0723011, y: 0.7323931}
   m_EdgeRadius: 0
 --- !u!61 &4224153289364130522
 BoxCollider2D:
@@ -145,18 +144,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029088914, y: 0.015663192}
+  m_Offset: {x: -0.1387998, y: 0.08430812}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.25}
+    oldSize: {x: 2, y: 1.5625}
     newSize: {x: 0.32, y: 0.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21706977, y: 0.1649706}
+  m_Size: {x: 1.072301, y: 0.7323931}
   m_EdgeRadius: 0
 --- !u!114 &2081504068185441923
 MonoBehaviour:
@@ -175,18 +174,6 @@ MonoBehaviour:
   CuteFairy: {fileID: 21300000, guid: b86206afa8feee24ea4e338a7a6bb800, type: 3}
   AttackFairy: {fileID: 21300000, guid: 88b335ae592d17c4a9f842a11f249fba, type: 3}
   data: {fileID: 11400000, guid: bada62a610712c9499e11cb21540bd5b, type: 2}
---- !u!114 &6562066020059497082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081504068185441948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c826a04671106547bed68ab68355944, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6034567663200967264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,5 +186,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73f05dd2d362e44090aaf10d58fc133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 912d95315f0eb384a81e1b8de8f109c7, type: 2}
+  data: {fileID: 11400000, guid: eb369619e877fb944926276c9457c1e6, type: 2}
   spriteRenderer: {fileID: 2081504068185441921}

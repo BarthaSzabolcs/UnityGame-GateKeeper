@@ -39,7 +39,7 @@ public class FairyController : MonoBehaviour
     void Update()
     {
         enemyDistance = Mathf.Abs(this.transform.position.x - attackThis.transform.position.x);
-        Debug.Log(enemyDistance);
+        //Debug.Log(enemyDistance);
 
         if (enemyDistance <= attackDistance && !didCollide)
         {

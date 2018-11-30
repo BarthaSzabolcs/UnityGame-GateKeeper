@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1321804869529617724}
   - component: {fileID: 1321804869529617725}
-  - component: {fileID: 1321804870405499773}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -46,36 +45,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnWaves:
   - {fileID: 11400000, guid: 89ca44ce7f3f35d4f8c850c3596bc469, type: 2}
-  waveStrengths: 050000000a0000000f000000
+  waveStrengths: 0400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000110000001400000019000000
   GroundSpawns:
-  - {x: -145, y: 5}
+  - {x: -68, y: 5}
+  - {x: 68, y: 5}
+  - {x: -68, y: 25}
+  - {x: 68, y: 25}
   AirSpawns:
-  - {x: 10, y: 33}
-  - {x: -10, y: 33}
-  - {x: -20, y: 33}
-  - {x: 20, y: 33}
-  - {x: 0, y: 33}
+  - {x: -40, y: 33}
+  - {x: -15, y: 33}
+  - {x: 15, y: 33}
+  - {x: 40, y: 33}
   commonChance: 0.5
   rareChance: 0.3
   epicChance: 0.15
   legendaryChance: 0.05
---- !u!114 &1321804870405499773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321804869529617726}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d3c439d7745ea84982849d96d2c6b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  AisToSpawn:
-  - {fileID: 5397374428723529838, guid: 249d38242db3c194aa332f4c020ca34f, type: 3}
-  FinishText: {fileID: 0}

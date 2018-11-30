@@ -150,8 +150,9 @@ public class GameManager : MonoBehaviour
             player.GetComponent<Health>().OnDeath += HandlePlayerDeath;
         }
 
-        UserInterface.Instance.InitializeLevelUI();
+        UserInterface.Instance.InitializeLevel();
         ObjectPool.Instance.InitializeLevel();
+        SpawnManager_Szabolcs.Instance.InitializeLevel();
 
         Money = startingMoney;
 

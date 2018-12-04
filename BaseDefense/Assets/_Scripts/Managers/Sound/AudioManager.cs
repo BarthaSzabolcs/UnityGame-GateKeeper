@@ -38,6 +38,7 @@ public class AudioManager : MonoBehaviour
     {
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -45,6 +46,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
         PlaySound("MainTheme");
     }
     /// <summary>

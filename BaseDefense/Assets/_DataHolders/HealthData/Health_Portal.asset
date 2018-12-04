@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Health_Portal
   m_EditorClassIdentifier: 
   maxHealthPoints: 200
-  hitAudio: Hit
+  hitAudio: Portal_Hit
   flashOnHealthChange: 1
   flashTime: 0.5
   killReward: 0
   deathText: {fileID: 0}
-  deathAudio: Death
+  deathAudio: GameOver
   deathAnim: {fileID: 0}

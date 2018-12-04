@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_SR
   m_EditorClassIdentifier: 
-  fireAudio: Pistol
+  fireAudio: SR_Fire
+  reloadAudio: SR_Reload
   sprite: {fileID: 21300000, guid: e9f0ce16b42d0be4d87b092a78bf8f8c, type: 3}
   waeponOffSet: {x: 1, y: 1}
   muzzleFlashOffSet: {x: 2.5, y: 0.1}

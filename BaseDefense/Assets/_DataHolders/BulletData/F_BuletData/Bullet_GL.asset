@@ -70,9 +70,8 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  impactAudio: BulletImpact
+  impactAudio: GL_Impact
   explosionData: {fileID: 11400000, guid: 9a5bb4f03df2c364f82b06fd2f608101, type: 2}
-  bulletFiredAudio: BulletFired
   speed: 60
   mass: 0.5
   gravityScale: 7
@@ -112,8 +111,3 @@ MonoBehaviour:
   homingRefreshRate: 0
   targetingRefreshRate: 0
   maxRotationPerCycle: 0
-  smallerBullet: {fileID: 0}
-  smallBulletCount: 0
-  smallBulletAngle: 0
-  smallBulletAngleOffset: 0
-  smalBulletpositionOffSet: {x: 0, y: 0}

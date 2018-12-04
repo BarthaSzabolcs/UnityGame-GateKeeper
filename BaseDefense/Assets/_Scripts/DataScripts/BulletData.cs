@@ -20,7 +20,6 @@ public class BulletData : ScriptableObject
     [Header("AudioFX:")]
     public string impactAudio;
     public ExplosionData explosionData;
-    public string bulletFiredAudio;
 
     [Header("Movement:")]
     public float speed;

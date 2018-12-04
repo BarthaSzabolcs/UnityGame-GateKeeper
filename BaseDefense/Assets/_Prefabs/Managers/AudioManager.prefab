@@ -43,67 +43,140 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c543003602b72e44b08b8ca83d58111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logMiisingAudio: 0
+  logMiisingAudio: 1
   sounds:
-  - name: Shotgun
+  - name: MainTheme
+    sounds:
+    - {fileID: 8300000, guid: 1ec26e99022fa144eadd97aa2e1a9c28, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: SG_Fire
     sounds:
     - {fileID: 8300000, guid: 860c2aa808cf01a47b6006201ac6a480, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.5
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: Reload
+  - name: SG_Reload
+    sounds:
+    - {fileID: 8300000, guid: 3df64a2afd9cf8c4bbba0ad5e9024c59, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SR_Reload
+    sounds:
+    - {fileID: 8300000, guid: ea499d7fd169ef343b8ff708a2d5537c, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Generic_Reload
     sounds:
     - {fileID: 8300000, guid: 79bb979138919d846a92299e089c58ed, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.33
+    pitch: 1.5
     loop: 0
     source: {fileID: 0}
-  - name: Hit
+  - name: Generic_Hit
     sounds:
-    - {fileID: 8300000, guid: 6a8a72da866bb2a4d9fa8173a73bf717, type: 3}
-    - {fileID: 8300000, guid: edc23ee0619a14c47bebefab703dd984, type: 3}
-    - {fileID: 8300000, guid: e191b80d29efa3b49832c64b3bc45f95, type: 3}
-    - {fileID: 8300000, guid: e183a4b9f47f24342b36ee82958f1dac, type: 3}
-    - {fileID: 8300000, guid: 6864e53cbc9278348ba3595de36593ab, type: 3}
-    volume: 0
-    pitch: 0
+    - {fileID: 8300000, guid: aaf005139a64f6a48884dc732b924605, type: 3}
+    volume: 0.15
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: PlayerHit
+  - name: Player_Hit
     sounds:
     - {fileID: 8300000, guid: 23683d43203357d4c989eaf02240cf81, type: 3}
-    - {fileID: 8300000, guid: 3892424411220824ab7c60c9e329a45a, type: 3}
-    - {fileID: 8300000, guid: a9b93cacaea6fb4459d80fb928923f74, type: 3}
-    volume: 0
-    pitch: 0
+    - {fileID: 8300000, guid: e183a4b9f47f24342b36ee82958f1dac, type: 3}
+    - {fileID: 8300000, guid: 6864e53cbc9278348ba3595de36593ab, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Death
+  - name: Generic_Death
+    sounds:
+    - {fileID: 8300000, guid: 7678acafb2154d14f85743b0edc319ef, type: 3}
+    volume: 0.6
+    pitch: 0.75
+    loop: 0
+    source: {fileID: 0}
+  - name: SR_Fire
+    sounds:
+    - {fileID: 8300000, guid: 860c2aa808cf01a47b6006201ac6a480, type: 3}
+    volume: 0.8
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: MG_Fire
+    sounds:
+    - {fileID: 8300000, guid: dca96190f819f9f4f801429a1f217679, type: 3}
+    volume: 0.5
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: MG_Mounted_Fire
+    sounds:
+    - {fileID: 8300000, guid: dca96190f819f9f4f801429a1f217679, type: 3}
+    volume: 0.25
+    pitch: 1.75
+    loop: 0
+    source: {fileID: 0}
+  - name: SMG_Fire
+    sounds:
+    - {fileID: 8300000, guid: dca96190f819f9f4f801429a1f217679, type: 3}
+    volume: 0.15
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: GL_Fire
+    sounds:
+    - {fileID: 8300000, guid: 3892424411220824ab7c60c9e329a45a, type: 3}
+    volume: 0.5
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Spider_Attack
+    sounds:
+    - {fileID: 8300000, guid: 7db0eb54b85fd5d48904ac5534dc0574, type: 3}
+    volume: 0.35
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: Fairy_Attack
     sounds:
     - {fileID: 8300000, guid: 8f22df629dbd7f54cb4f28eb1898055d, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 2
     loop: 0
     source: {fileID: 0}
-  - name: Pistol
+  - name: Rabbit_Attack
     sounds:
-    - {fileID: 8300000, guid: c458884e1540a8148b596a0fb9bc7c94, type: 3}
-    volume: 0
-    pitch: 0
+    - {fileID: 8300000, guid: 6a8a72da866bb2a4d9fa8173a73bf717, type: 3}
+    volume: 0.75
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: MachineGun
+  - name: Pistol_Fire
     sounds:
-    - {fileID: 8300000, guid: 00d2ef70848b8284f9c8eaea5abccef6, type: 3}
-    volume: 0
-    pitch: 0
+    - {fileID: 8300000, guid: 397bb4a1d47f36f45a9fa8a40b37634e, type: 3}
+    volume: 0.5
+    pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: GL
+  - name: GL_Impact
     sounds:
-    - {fileID: 8300000, guid: 5f5533702087bb64ca3cd48cd375cbcb, type: 3}
-    volume: 0
-    pitch: 0
+    - {fileID: 8300000, guid: b4fbbcad723a4694e8be75aedc1178b6, type: 3}
+    volume: 0.625
+    pitch: 0.75
+    loop: 0
+    source: {fileID: 0}
+  - name: GL_Small_Impact
+    sounds:
+    - {fileID: 8300000, guid: b4fbbcad723a4694e8be75aedc1178b6, type: 3}
+    volume: 0.3
+    pitch: 1.25
     loop: 0
     source: {fileID: 0}

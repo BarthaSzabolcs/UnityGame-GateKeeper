@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_SG
   m_EditorClassIdentifier: 
-  fireAudio: Shotgun
+  fireAudio: SG_Fire
+  reloadAudio: SG_Reload
   sprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
   waeponOffSet: {x: 0.5, y: 0.75}
   muzzleFlashOffSet: {x: 2.5, y: 0}

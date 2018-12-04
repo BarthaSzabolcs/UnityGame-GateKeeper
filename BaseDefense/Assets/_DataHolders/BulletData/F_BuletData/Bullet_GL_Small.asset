@@ -70,9 +70,8 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  impactAudio: BulletImpact
+  impactAudio: GL_Small_Impact
   explosionData: {fileID: 11400000, guid: 9a5bb4f03df2c364f82b06fd2f608101, type: 2}
-  bulletFiredAudio: BulletFired
   speed: 40
   mass: 0.5
   gravityScale: 1

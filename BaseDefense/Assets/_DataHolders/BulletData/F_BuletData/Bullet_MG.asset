@@ -89,7 +89,7 @@ MonoBehaviour:
   penetrationsBeforeExplode: 0
   ghostTime: 0
   ghostLayer: 0
-  damage: 4
+  damage: 5
   isAoE: 0
   aoeLayerMask:
     serializedVersion: 2
@@ -109,8 +109,3 @@ MonoBehaviour:
   homingRefreshRate: 0
   targetingRefreshRate: 0
   maxRotationPerCycle: 0
-  smallerBullet: {fileID: 0}
-  smallBulletCount: 0
-  smallBulletAngle: 0
-  smallBulletAngleOffset: -10
-  smalBulletpositionOffSet: {x: 0, y: 0}

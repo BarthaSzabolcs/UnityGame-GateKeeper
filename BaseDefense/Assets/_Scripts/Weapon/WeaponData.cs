@@ -8,6 +8,7 @@ public class WeaponData : ScriptableObject
     #region ShowInEditor
     [Header("Audio:")]
     [SerializeField] string fireAudio;
+    public string reloadAudio;
 
     [Header("   Idle:")]
     [Header("VisualFX Settings:")]

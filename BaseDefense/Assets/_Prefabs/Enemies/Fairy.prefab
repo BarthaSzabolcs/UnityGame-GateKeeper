@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438d40409ed995046ad366b32b01a4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAudio: 
   maxSpeed: 10
   attackSpeed: 20
   CuteFairy: {fileID: 21300000, guid: b86206afa8feee24ea4e338a7a6bb800, type: 3}

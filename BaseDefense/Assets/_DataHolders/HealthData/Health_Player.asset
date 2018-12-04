@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health_Player
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
-  hitAudio: PlayerHit
+  hitAudio: Player_Hit
   flashOnHealthChange: 1
   flashTime: 1
   killReward: 0

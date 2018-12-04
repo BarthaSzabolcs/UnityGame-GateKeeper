@@ -70,7 +70,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  impactAudio: BulletImpact
+  impactAudio: Spider_Bullet_Impact
   explosionData: {fileID: 11400000, guid: bbd40d3c3743cdc438b24e0407d520b5, type: 2}
   bulletFiredAudio: BulletFired
   speed: 30

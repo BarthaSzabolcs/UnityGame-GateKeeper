@@ -23,5 +23,5 @@ MonoBehaviour:
   recoverSpeed: 3
   sprite: {fileID: 21300000, guid: 4eff0cb4a9059674bbcf97b976d8f4c0, type: 3}
   buildModeSprite: {fileID: 21300000, guid: 56880e1dcb5d2db44976c83329d16eb6, type: 3}
-  recoverAudio: 
+  recoverAudio: Trap_Reload
   triggerAudio: 

@@ -7,6 +7,7 @@ public class AI_StupidController : MonoBehaviour
     #region ShowInEditor
 
     [Header("Attack:")]
+    [SerializeField] string attackAudio;
     [SerializeField] int damage;
     [SerializeField] float fallBackForce;
     [SerializeField] string[] taggedToDamge;
@@ -59,6 +60,8 @@ public class AI_StupidController : MonoBehaviour
             {
                 col.gameObject.GetComponent<Health>().TakeDamage(damage);
                 self.AddForce(Vector2.right * sign * fallBackForce);
+
+                AudioManager.Instance.PlaySound(attackAudio);
             }
         }
     }

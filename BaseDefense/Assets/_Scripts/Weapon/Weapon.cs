@@ -6,6 +6,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     #region Events
+
     public delegate void WeaponChanged(WeaponData wdata);
     public event WeaponChanged OnWeaponChanged;
 
@@ -22,8 +23,10 @@ public class Weapon : MonoBehaviour
 
     public delegate void ReloadChange(float time, float percent);
     public event ReloadChange OnReloadChange;
+
     #endregion
     #region ShowInEditor
+
     [Header("Weapon:")]
     [SerializeField] List<WeaponData> data;
     [SerializeField] GameObject droppedWeapon;
@@ -43,6 +46,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] LayerMask laserMask;
     [SerializeField] LineRenderer laserRenderer;
     [SerializeField] Transform laserTransform;
+
     #endregion
     #region HideInEditor
 
@@ -108,6 +112,7 @@ public class Weapon : MonoBehaviour
             {
                 StopCoroutine(reloadingCoroutine);
                 ReloadAnimationCoroutine = null;
+                AudioManager.Instance.PlaySound(WeaponData.reloadAudio);
                 OnReloadStop?.Invoke();
             }
             reloadingCoroutine = value;
@@ -411,5 +416,6 @@ public class Weapon : MonoBehaviour
     {
         OnReloadChange?.Invoke(time, percent);
     }
+
     #endregion
 }

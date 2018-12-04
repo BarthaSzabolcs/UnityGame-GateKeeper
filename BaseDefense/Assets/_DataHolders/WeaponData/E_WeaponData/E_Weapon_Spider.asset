@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: E_Weapon_Spider
   m_EditorClassIdentifier: 
-  fireAudio: 
+  fireAudio: Spider_Attack
+  reloadAudio: 
   sprite: {fileID: 21300002, guid: 3c8e24bddfdafaa4792407941615b44a, type: 3}
   waeponOffSet: {x: 0, y: -0.25}
   muzzleFlashOffSet: {x: 2, y: 0}

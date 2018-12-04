@@ -7,6 +7,8 @@ using UnityEngine;
 // Nincs kedvem szétkommentezni hogy fel lehessen fogni. Nem kell ide benézni :D
 public class FairyController : MonoBehaviour
 {
+    public string attackAudio;
+
     public int maxSpeed;
     public int attackSpeed;
     
@@ -94,6 +96,7 @@ public class FairyController : MonoBehaviour
 
     void Attack()
     {
+        AudioManager.Instance.PlaySound(attackAudio);
         spriteRenderer.sprite = AttackFairy;
         if (rotation == "right")
         {

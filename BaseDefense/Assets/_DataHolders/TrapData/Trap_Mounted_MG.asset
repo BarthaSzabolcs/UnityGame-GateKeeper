@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopImage: {fileID: 21300004, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
   shopName: Stone trap
-  shopPrice: 500
-  shopSellingPrice: 250
+  shopPrice: 1000
+  shopSellingPrice: 1000
   shopDescription: 
   trapBehaviour: {fileID: 11400000, guid: 2828112ff852d404ca1e9fcaf3356110, type: 2}
   triggerZoneSize: {x: 5, y: 5}

@@ -6,6 +6,15 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     #region ShowInEditor
+
+    [Header("Shop")]
+    public string shopName;
+    public int shopPrice;
+    public int shopAmmoPrice;
+    public int shopMagSize;
+    public Sprite shopSprite;
+    public string shopDescription;
+
     [Header("Audio:")]
     [SerializeField] string fireAudio;
     public string reloadAudio;

@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_GL_Mounted
   m_EditorClassIdentifier: 
+  shopName: 
+  shopPrice: 0
+  shopAmmoPrice: 0
+  shopMagSize: 0
+  shopSprite: {fileID: 0}
+  shopDescription: 
   fireAudio: GL_Fire
   reloadAudio: Trap_Reload
   sprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}
@@ -70,6 +76,6 @@ MonoBehaviour:
   infiniteAmmo: 1
   magSize: 1
   reloadAmmount: 1
-  reloadTime: 3
+  reloadTime: 1
   reloadRefreshPerSecond: 60
   ammoInMag: 1

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopImage: {fileID: 21300000, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
   shopName: Gas trap
-  shopPrice: 350
-  shopSellingPrice: 175
+  shopPrice: 500
+  shopSellingPrice: 500
   shopDescription: 
   trapBehaviour: {fileID: 11400000, guid: e44bccce09954ac478a02dbdc4d3746b, type: 2}
   triggerZoneSize: {x: 8, y: 9}

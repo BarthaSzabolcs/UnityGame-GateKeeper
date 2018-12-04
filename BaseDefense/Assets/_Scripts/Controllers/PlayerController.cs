@@ -27,6 +27,14 @@ public class PlayerController : MonoBehaviour
     private bool movingLeft;
 
     #endregion
+    #region Property
+
+    public Weapon CarriedWeapon
+    {
+        get{return weapon;}
+    }
+
+    #endregion
     #region UnityFunctions
 
     void Awake ()
@@ -37,7 +45,8 @@ public class PlayerController : MonoBehaviour
 	void Update ()
     {
         GameStateInput();
-        if (GameManager.Instance.InBuildMode == false)
+        if (GameManager.Instance.CurrentGameState != GameManager.GameState.GunShop &&
+            GameManager.Instance.CurrentGameState != GameManager.GameState.TrapShop)
         {
             WeaponHandling();
             Move();
@@ -247,19 +256,41 @@ public class PlayerController : MonoBehaviour
 
     void GameStateInput()
     {
-        CheckBuildMode();
+        CheckTrapShop();
         CheckWaveStart();
+        CheckGunShop();
     }
-    void CheckBuildMode()
+    void CheckTrapShop()
     {
         if (Input.GetButtonDown("BuildMode"))
         {
-            GameManager.Instance.InBuildMode = !GameManager.Instance.InBuildMode;
+            if (GameManager.Instance.CurrentGameState == GameManager.GameState.NextWaveReady)
+            {
+                GameManager.Instance.CurrentGameState = GameManager.GameState.TrapShop;
+            }
+            else if(GameManager.Instance.CurrentGameState == GameManager.GameState.TrapShop)
+            {
+                GameManager.Instance.CurrentGameState = GameManager.GameState.NextWaveReady;
+            }
+        }
+    }
+    void CheckGunShop()
+    {
+        if (Input.GetButtonDown("GunShop"))
+        {
+            if(GameManager.Instance.CurrentGameState == GameManager.GameState.NextWaveReady)
+            {
+                GameManager.Instance.CurrentGameState = GameManager.GameState.GunShop;
+            }
+            else
+            {
+                GameManager.Instance.CurrentGameState = GameManager.GameState.NextWaveReady;
+            }
         }
     }
     void CheckWaveStart()
     {
-        if (Input.GetButtonDown("WaveStart") && GameManager.Instance.InBuildMode == false)
+        if (Input.GetButtonDown("WaveStart") && GameManager.Instance.CurrentGameState == GameManager.GameState.NextWaveReady)
         {
             GameManager.Instance.StartWave();
         }

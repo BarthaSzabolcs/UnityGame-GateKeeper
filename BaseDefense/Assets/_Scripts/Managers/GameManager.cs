@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     public delegate void SceneChange();
     public event SceneChange OnSceneChange;
 
-    public delegate void BuildMode(bool state);
-    public event BuildMode OnBuildModeStateChange;
+    public delegate void GameStateChange(GameState state);
+    public event GameStateChange OnGameStateChange;
 
     public delegate void MoneyChanged(int money);
     public event MoneyChanged OnMoneyChaned;
@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
     #endregion
     #region Hide In Editor
 
-    public enum GameState { NextWaveReady, InCombat };
+    public enum GameState { NextWaveReady, InCombat, TrapShop, GunShop };
 
     private GameObject player;
     private bool inBuildMode = false;
     private int money = 0;
+    private GameState currentGameState;
 
-    public GameState CurrentGameState{get; private set;}
     public static GameManager Instance { get; private set; }
     public GameObject Player
     {
@@ -49,21 +49,19 @@ public class GameManager : MonoBehaviour
             return player;
         }
     }
-    public bool InBuildMode
+    public GameState CurrentGameState
     {
         get
         {
-            return inBuildMode;
+            return currentGameState;
         }
         set
         {
-            if (value != inBuildMode)
+            if (value != currentGameState)
             {
-                OnBuildModeStateChange?.Invoke(value);
-                SetTimeScale( value ? 1 / 20f : 1);
+                OnGameStateChange?.Invoke(value);
             }
-
-            inBuildMode = value;
+            currentGameState = value;
         }
     }
     public int Money
@@ -119,6 +117,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentGameState = GameState.NextWaveReady;
     }
+
     #endregion
     #region CusomFunctions
 
@@ -134,7 +133,9 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel(Scene scene, LoadSceneMode mode)
     {
-        InBuildMode = false;
+        SetTimeScale(1);
+
+        CurrentGameState = GameState.NextWaveReady;
 
         player = GameObject.Find("Player");
 

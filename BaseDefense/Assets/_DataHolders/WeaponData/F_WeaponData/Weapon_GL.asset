@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_GL
   m_EditorClassIdentifier: 
+  shopName: Granadelauncher
+  shopPrice: 5000
+  shopAmmoPrice: 600
+  shopMagSize: 6
+  shopSprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}
+  shopDescription: 
   fireAudio: GL_Fire
   reloadAudio: Generic_Reload
   sprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}

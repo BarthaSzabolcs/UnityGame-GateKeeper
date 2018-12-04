@@ -81,7 +81,7 @@ public class Trap : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = Data.sprite;
 
-        GameManager.Instance.OnBuildModeStateChange += HandleBuildModeStateChanged;
+        GameManager.Instance.OnGameStateChange += HandleBuildModeStateChanged;
 
         if(Data != nullData)
         {
@@ -98,7 +98,7 @@ public class Trap : MonoBehaviour
     }
     private void OnDisable()
     {
-        GameManager.Instance.OnBuildModeStateChange -= HandleBuildModeStateChanged;
+        GameManager.Instance.OnGameStateChange -= HandleBuildModeStateChanged;
     }
 
     #endregion
@@ -109,7 +109,14 @@ public class Trap : MonoBehaviour
         triggerZone.size = data.triggerZoneSize;
         triggerZone.offset = data.triggerZoneOffset;
 
-        spriteRenderer.sprite = GameManager.Instance.InBuildMode ? data.buildModeSprite : data.sprite;
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.TrapShop)
+        {
+            spriteRenderer.sprite = data.buildModeSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = data.sprite;
+        }
 
         if (trapBehaviourInstance != null)
         {
@@ -123,9 +130,9 @@ public class Trap : MonoBehaviour
             trapBehaviourInstance.Initialize(transform, triggerZone);
         }
     }
-    private void HandleBuildModeStateChanged(bool inBuildMode)
+    private void HandleBuildModeStateChanged(GameManager.GameState state)
     {
-        if(inBuildMode)
+        if(state == GameManager.GameState.TrapShop)
         {
             spriteRenderer.sprite = Data.buildModeSprite;
         }
@@ -133,7 +140,6 @@ public class Trap : MonoBehaviour
         {
             spriteRenderer.sprite = Data.sprite;
         }
-        UserInterface.Instance.DebugLog(inBuildMode.ToString());
     }
     private IEnumerator RecoverRoutine()
     {

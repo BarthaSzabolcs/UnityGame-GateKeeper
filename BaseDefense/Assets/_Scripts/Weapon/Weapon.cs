@@ -103,7 +103,7 @@ public class Weapon : MonoBehaviour
             if (reloadingCoroutine == null && value != null)
             {
                 OnReloadStart?.Invoke();
-                if(WeaponData.reloadAnimation != null)
+                if (WeaponData.reloadAnimation != null)
                 {
                     ReloadAnimationCoroutine = StartCoroutine(ReloadAnimation());
                 }
@@ -164,7 +164,7 @@ public class Weapon : MonoBehaviour
         {
             if (value != null && muzzleFlashCoruutine != null)
             {
-                StopCoroutine(muzzleFlashCoruutine);    
+                StopCoroutine(muzzleFlashCoruutine);
             }
             else if (value == null && muzzleFlashCoruutine != null)
             {
@@ -190,6 +190,14 @@ public class Weapon : MonoBehaviour
     private void Update()
     {
         DrawLaser();
+    }
+
+    #endregion
+    #region Properties
+
+    public List<WeaponData> Weapons
+    {
+        get {return instances; }
     }
 
     #endregion
@@ -343,6 +351,16 @@ public class Weapon : MonoBehaviour
     {
         data.Add(newWeaponData);
         Initialize(newWeaponData);
+    }
+    public void AddAmmo(string weaponShopName, int ammo)
+    {
+        foreach (var weapon in instances)
+        {
+            if(weapon.shopName == weaponShopName)
+            {
+                weapon.ExtraAmmo += ammo;
+            }
+        }
     }
     public void SetApearence(bool flipApperance)
     {

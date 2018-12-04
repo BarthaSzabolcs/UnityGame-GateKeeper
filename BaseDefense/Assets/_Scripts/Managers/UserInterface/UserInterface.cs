@@ -273,7 +273,7 @@ public class UserInterface : MonoBehaviour
 
         // Get and Set Shop
         shop = GameObject.Find(shop_name).GetComponent<Shop>();
-        GameManager.Instance.OnBuildModeStateChange += HandleBuildModeChange;
+        GameManager.Instance.OnGameStateChange += HandleGameStateChange;
         shop.enabled = false;
         
         // Set Cursor
@@ -368,18 +368,21 @@ public class UserInterface : MonoBehaviour
     }
 
     // BuildMode
-    private void HandleBuildModeChange(bool inBuildMode)
+    private void HandleGameStateChange(GameManager.GameState state)
     {
-        if (inBuildMode)
+        if (state == GameManager.GameState.TrapShop)
         {
             shop.enabled = true;
-
-            shop.Open();
+            shop.Open(Shop.ShopType.Trap);
+        }
+        else if(state == GameManager.GameState.GunShop)
+        {
+            shop.enabled = true;
+            shop.Open(Shop.ShopType.Gun);
         }
         else
         {
             shop.Close();
-
             shop.enabled = false;
         }
     }

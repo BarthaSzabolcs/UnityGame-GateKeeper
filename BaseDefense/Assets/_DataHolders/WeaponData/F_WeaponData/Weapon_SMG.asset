@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_SMG
   m_EditorClassIdentifier: 
+  shopName: Tactical SMG
+  shopPrice: 1500
+  shopAmmoPrice: 450
+  shopMagSize: 45
+  shopSprite: {fileID: 21300000, guid: c1a198dc6ae2bef44acc52d5cbdf1e94, type: 3}
+  shopDescription: 
   fireAudio: SMG_Fire
   reloadAudio: Generic_Reload
   sprite: {fileID: 21300000, guid: c1a198dc6ae2bef44acc52d5cbdf1e94, type: 3}

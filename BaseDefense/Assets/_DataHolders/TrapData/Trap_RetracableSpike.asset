@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopImage: {fileID: 21300010, guid: 234a34bc7ef84a346bf415a34f355419, type: 3}
   shopName: Retracable spikes
-  shopPrice: 250
-  shopSellingPrice: 125
+  shopPrice: 350
+  shopSellingPrice: 350
   shopDescription: 
   trapBehaviour: {fileID: 11400000, guid: 8af023759d5f4074a98865d9462dc736, type: 2}
   triggerZoneSize: {x: 6, y: 2}

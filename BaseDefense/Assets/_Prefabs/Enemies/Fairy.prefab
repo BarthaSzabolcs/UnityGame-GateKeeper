@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4224153289364130522}
   - component: {fileID: 2081504068185441923}
   - component: {fileID: 6034567663200967264}
-  m_Layer: 8
+  m_Layer: 17
   m_Name: Fairy
   m_TagString: Enemy
   m_Icon: {fileID: 0}

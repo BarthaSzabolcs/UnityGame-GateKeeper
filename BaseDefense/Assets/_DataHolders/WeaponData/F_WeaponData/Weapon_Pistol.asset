@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c080c7099f5ab0242bec1c3479698670, type: 3}
   m_Name: Weapon_Pistol
   m_EditorClassIdentifier: 
+  shopName: Tactical Pistol
+  shopSprite: {fileID: 21300000, guid: 15c429662dcc5e5498498142c93a06c1, type: 3}
+  shopDescription: 
   fireAudio: Pistol_Fire
   reloadAudio: Generic_Reload
   sprite: {fileID: 21300000, guid: 15c429662dcc5e5498498142c93a06c1, type: 3}

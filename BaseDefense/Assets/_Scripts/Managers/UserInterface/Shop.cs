@@ -16,7 +16,18 @@ public class Shop : MonoBehaviour
     [SerializeField] TrapData[] floorTraps;
     [SerializeField] TrapData[] ceilTraps;
 
-    [Header("Trap menu item:")]
+    [Header("GunShopItem Components:")]
+    [SerializeField] RectTransform gunShopRect;
+    [SerializeField] GameObject gunShopItem;
+    [SerializeField] string buyWeaponButton_path;
+    [SerializeField] string weaponPrice_path;
+
+    [SerializeField] string buyAmmoButton_path;
+    [SerializeField] string ammoPrice_path;
+
+    [SerializeField] string weaponImage_path;
+
+    [Header("TrapShopItem Components:")]
     [SerializeField] GameObject trapMenuItem;
     [SerializeField] string trapMenuItem_picturePath;
     [SerializeField] Sprite Sprite_nullData;
@@ -33,7 +44,10 @@ public class Shop : MonoBehaviour
 
     #endregion
     #region Hide In Editor
-    
+
+    public enum ShopType { Trap, Gun};
+    private ShopType currentShopType;
+
     Camera mainCamera;
     TrapData[] selectableTraps;
 
@@ -70,11 +84,11 @@ public class Shop : MonoBehaviour
         }
         set
         {
-            if( value >= selectableTraps.Length)
+            if (value >= selectableTraps.Length)
             {
                 trapIndex = 0;
             }
-            else if(value < 0)
+            else if (value < 0)
             {
                 trapIndex = selectableTraps.Length - 1;
             }
@@ -84,7 +98,7 @@ public class Shop : MonoBehaviour
             }
 
             RefreshSelectedTrap();
-        }    
+        }
     }
     private TrapData SelectedTrap
     {
@@ -103,17 +117,17 @@ public class Shop : MonoBehaviour
         }
         set
         {
-            if(value != currentTrap)
+            if (value != currentTrap)
             {
                 if (value?.type == Trap.Type.Floor)
                 {
                     selectableTraps = floorTraps;
-                    SetupItemList();
+                    SetupTrapShop();
                 }
                 else if (value?.type == Trap.Type.Ceil)
                 {
                     selectableTraps = ceilTraps;
-                    SetupItemList();
+                    SetupTrapShop();
                 }
 
                 currentTrap = value;
@@ -122,6 +136,8 @@ public class Shop : MonoBehaviour
             }
         }
     }
+
+    List<WeaponData> carriedWeapons;
 
     #endregion
     #region UnityFunctions
@@ -142,35 +158,47 @@ public class Shop : MonoBehaviour
 
     #endregion
 
-    public void Open()
+    public void Open(ShopType type)
     {
-        UserInterface.Instance.ChangeCursor(cursor_Build);
+        currentShopType = type;
+        
+        if(currentShopType == ShopType.Trap)
+        {
+            UserInterface.Instance.ChangeCursor(cursor_Build);
+        }
+        else if (currentShopType == ShopType.Gun)
+        {
+            gunShopRect.gameObject.SetActive(true);
+            SetupGunShop();
+        }
     }
     public void Close()
     {
+        gunShopRect.gameObject.SetActive(false);
         UserInterface.Instance.ChangeCursor();
         trapMenuRect.gameObject.SetActive(false);
         CurrentTrap = null;
     }
 
+    // TrapShop
     private void TrapMenuRefresh()
     {
-        if(CurrentTrap != null)
+        if (CurrentTrap != null)
         {
             trapMenuRect.gameObject.SetActive(true);
 
             PositionateTrapMenu();
 
-            DisplayTransaction();
+            DisplayTrapTransaction();
         }
         else
         {
             trapMenuRect.gameObject.SetActive(false);
         }
     }
-    private void SetupItemList()
+    private void SetupTrapShop()
     {
-        for (int i = trapList.childCount -1; i >= 0; i--)
+        for (int i = trapList.childCount - 1; i >= 0; i--)
         {
             Destroy(trapList.GetChild(i).gameObject);
         }
@@ -179,12 +207,12 @@ public class Shop : MonoBehaviour
 
         foreach (TrapData trap in selectableTraps)
         {
-            AddItemToList(trap);
+            AddTrapToShop(trap);
         }
-        
+
         TrapIndex = trapIndex;
     }
-    private void AddItemToList(TrapData trapData)
+    private void AddTrapToShop(TrapData trapData)
     {
         var trap = Instantiate(trapMenuItem, Vector2.zero, Quaternion.identity);
 
@@ -193,9 +221,9 @@ public class Shop : MonoBehaviour
     }
     private void RefreshSelectedTrap()
     {
-        for(int i = 0; i < trapList.childCount; i++)
+        for (int i = 0; i < trapList.childCount; i++)
         {
-            if( i == TrapIndex )
+            if (i == TrapIndex)
             {
                 trapList.GetChild(i).GetComponent<Image>().sprite = Sprite_selected;
             }
@@ -224,7 +252,7 @@ public class Shop : MonoBehaviour
             trapMenuRect.position = mainCamera.WorldToScreenPoint(CurrentTrap.transform.position) + CurrentTrap.UIoffset;
         }
     }
-    private void DisplayTransaction()
+    private void DisplayTrapTransaction()
     {
         if (AltMode)
         {
@@ -235,7 +263,7 @@ public class Shop : MonoBehaviour
         }
         else
         {
-            if(CurrentTrap.Data != SelectedTrap)
+            if (CurrentTrap.Data != SelectedTrap)
             {
                 currentTrap_Image.sprite = CurrentTrap.Data.shopImage;
                 selectedTrap_Image.sprite = SelectedTrap.shopImage;
@@ -254,7 +282,7 @@ public class Shop : MonoBehaviour
 
     private void ChangeSelectedTrap()
     {
-        if(Input.GetButtonDown("NextWeapon"))
+        if (Input.GetButtonDown("NextWeapon"))
         {
             TrapIndex++;
             TrapMenuRefresh();
@@ -306,6 +334,76 @@ public class Shop : MonoBehaviour
             TrapMenuRefresh();
         }
 
+    }
+
+    // GunShop
+    private void CloseTrapShop()
+    {
+        gunShopRect.gameObject.SetActive(false);
+    }
+
+    public void AddWeaponToShop(WeaponData weaponData)
+    {
+        bool weaponCarried = false;
+        foreach (var weapon in carriedWeapons)
+        {
+            if (weaponData.shopName == weapon.shopName)
+            {
+                weaponCarried = true;
+                break;
+            }
+        }
+
+        var item = Instantiate(gunShopItem, Vector2.zero, Quaternion.identity);
+        item.transform.SetParent(gunShopRect, false);
+
+        item.transform.Find(weaponImage_path).GetComponent<Image>().sprite = weaponData.shopSprite;
+
+        if (weaponCarried == false)
+        {
+            item.transform.Find(buyWeaponButton_path).GetComponent<Button>().onClick.AddListener(() => BuyWeapon(weaponData));
+            item.transform.Find(weaponPrice_path).GetComponent<Text>().text = weaponData.shopPrice.ToString();
+        }
+        else
+        {
+            item.transform.Find(buyWeaponButton_path).gameObject.SetActive(false);
+            item.transform.Find(buyAmmoButton_path).GetComponent<Button>().onClick.AddListener(() => BuyAmmo(weaponData));
+            item.transform.Find(ammoPrice_path).GetComponent<Text>().text = weaponData.shopAmmoPrice.ToString();
+        }
+
+    }
+    private void SetupGunShop()
+    {
+        carriedWeapons = GameManager.Instance.Player.GetComponent<PlayerController>().CarriedWeapon.Weapons;
+
+        for (int i = gunShopRect.childCount - 1; i >= 0; i--)
+        {
+            Destroy(gunShopRect.GetChild(i).gameObject);
+        }
+
+        gunShopRect.DetachChildren();
+
+        foreach (WeaponData weapon in weapons)
+        {
+            AddWeaponToShop(weapon);
+        }
+    }
+    private void BuyWeapon(WeaponData weaponData)
+    {
+        if (GameManager.Instance.Money >= weaponData.shopPrice)
+        {
+            GameManager.Instance.Player.GetComponent<PlayerController>().CarriedWeapon.AddWeapon(weaponData);
+            SetupGunShop();
+            GameManager.Instance.Money -= weaponData.shopPrice;
+        }
+    }
+    private void BuyAmmo(WeaponData weaponData)
+    {
+        if(GameManager.Instance.Money >= weaponData.shopAmmoPrice)
+        {
+            GameManager.Instance.Player.GetComponent<PlayerController>().CarriedWeapon.AddAmmo(weaponData.shopName, weaponData.shopMagSize);
+            GameManager.Instance.Money -= weaponData.shopAmmoPrice;
+        }
     }
 
 }

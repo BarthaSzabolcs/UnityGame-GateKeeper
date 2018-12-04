@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health_Fairy
   m_EditorClassIdentifier: 
   maxHealthPoints: 20
-  hitAudio: 
+  hitAudio: Hit
   flashOnHealthChange: 1
   flashTime: 0.5
   killReward: 200

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health_Spider
   m_EditorClassIdentifier: 
   maxHealthPoints: 30
-  hitAudio: 
+  hitAudio: Hit
   flashOnHealthChange: 1
   flashTime: 0.5
   killReward: 100

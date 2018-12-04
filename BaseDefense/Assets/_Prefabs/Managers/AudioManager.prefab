@@ -45,16 +45,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logMiisingAudio: 0
   sounds:
-  - name: 
+  - name: Shotgun
     sounds:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 8300000, guid: 860c2aa808cf01a47b6006201ac6a480, type: 3}
     volume: 0
     pitch: 0
     loop: 0
     source: {fileID: 0}
-  - name: 
-    sounds: []
+  - name: Reload
+    sounds:
+    - {fileID: 8300000, guid: 79bb979138919d846a92299e089c58ed, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Hit
+    sounds:
+    - {fileID: 8300000, guid: 6a8a72da866bb2a4d9fa8173a73bf717, type: 3}
+    - {fileID: 8300000, guid: edc23ee0619a14c47bebefab703dd984, type: 3}
+    - {fileID: 8300000, guid: e191b80d29efa3b49832c64b3bc45f95, type: 3}
+    - {fileID: 8300000, guid: e183a4b9f47f24342b36ee82958f1dac, type: 3}
+    - {fileID: 8300000, guid: 6864e53cbc9278348ba3595de36593ab, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: PlayerHit
+    sounds:
+    - {fileID: 8300000, guid: 23683d43203357d4c989eaf02240cf81, type: 3}
+    - {fileID: 8300000, guid: 3892424411220824ab7c60c9e329a45a, type: 3}
+    - {fileID: 8300000, guid: a9b93cacaea6fb4459d80fb928923f74, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    sounds:
+    - {fileID: 8300000, guid: 8f22df629dbd7f54cb4f28eb1898055d, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Pistol
+    sounds:
+    - {fileID: 8300000, guid: c458884e1540a8148b596a0fb9bc7c94, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: MachineGun
+    sounds:
+    - {fileID: 8300000, guid: 00d2ef70848b8284f9c8eaea5abccef6, type: 3}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: GL
+    sounds:
+    - {fileID: 8300000, guid: 5f5533702087bb64ca3cd48cd375cbcb, type: 3}
     volume: 0
     pitch: 0
     loop: 0

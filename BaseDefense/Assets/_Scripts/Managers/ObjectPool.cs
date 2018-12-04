@@ -21,18 +21,25 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private GameObject flyingTextPrefab;
     [SerializeField] private int flyingTextPoolBase;
 
+
+    [Header("HealthDrop:")]
+    [SerializeField] private Transform healthDropTransform;
+    [SerializeField] private GameObject healthDropPrefab;
+    [SerializeField] private int healthDropPoolBase;
+
     #endregion
     #region HideInEditor
-    
+
     public static ObjectPool Instance { get; private set; }
 
-    public enum Types{ bullet, explosion, flyingText};
+    public enum Types{ bullet, explosion, flyingText, healthDrop};
 
     private Camera mainCamera;
 
     private List<GameObject> bulletPool = new List<GameObject>();
 	private List<GameObject> explosionPool = new List<GameObject>();
     private List<GameObject> flyingTextPool = new List<GameObject>();
+    private List<GameObject> healthDropPool = new List<GameObject>();
 
     #endregion
 
@@ -73,8 +80,8 @@ public class ObjectPool : MonoBehaviour
     }
     public GameObject Spawn(Types type, Vector2 worldPosition)
     {
-        if(type == Types.bullet)
-        { 
+        if (type == Types.bullet)
+        {
             if (bulletPool.Count > 0)
             {
                 GameObject bullet = bulletPool[0];
@@ -111,7 +118,7 @@ public class ObjectPool : MonoBehaviour
         else if (type == Types.flyingText)
         {
             //Vector2 screenPosition = mainCamera.WorldToScreenPoint(worldPosition);
-            
+
             if (flyingTextPool.Count > 0)
             {
                 GameObject flyingText = flyingTextPool[0];
@@ -127,6 +134,24 @@ public class ObjectPool : MonoBehaviour
                 return Instantiate(flyingTextPrefab, worldPosition, Quaternion.identity, flyingTextTransform);
             }
         }
+        else if (type == Types.healthDrop)
+        {
+            if (healthDropPool.Count > 0)
+            {
+                GameObject healthDrop = healthDropPool[0];
+                healthDropPool.RemoveAt(0);
+
+                healthDrop.transform.position = worldPosition;
+                healthDrop.SetActive(true);
+
+                return healthDrop;
+            }
+            else
+            {
+                return Instantiate(healthDropPrefab, worldPosition, Quaternion.identity, healthDropTransform);
+            }
+        }
+
         return null;
     }
 
@@ -134,6 +159,12 @@ public class ObjectPool : MonoBehaviour
     {
         // Get main camera
         mainCamera = Camera.main;
+
+        // Clear previous level
+        bulletPool.Clear();
+        explosionPool.Clear();
+        flyingTextPool.Clear();
+        healthDropPool.Clear();
 
         // Initialize BulletPool
         for (int i = 0; i < bulletPoolBase; i++)
@@ -151,6 +182,12 @@ public class ObjectPool : MonoBehaviour
         for (int i = 0; i < flyingTextPoolBase; i++)
         {
             Pool(Types.flyingText, Instantiate(flyingTextPrefab, Vector2.zero, Quaternion.identity, flyingTextTransform));
+        }
+
+        // Initialize HealthDropPool
+        for (int i = 0; i < healthDropPoolBase; i++)
+        {
+            Pool(Types.healthDrop, Instantiate(healthDropPrefab, Vector2.zero, Quaternion.identity, healthDropTransform));
         }
     }
    

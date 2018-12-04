@@ -18,4 +18,8 @@ public class HealthData : ScriptableObject
     public FlyingTextData deathText;
     public string deathAudio;
     public ExplosionData deathAnim;
+
+    [Header("   Health Drop:")]
+    public bool dropHealth;
+    [Range(0, 100f)] public float dropChance;
 }

@@ -204,6 +204,14 @@ public class Health : MonoBehaviour
             text.Initialize(data.killReward);
         }
 
+        if (data.dropHealth)
+        {
+            if (Random.Range(0, 100f) < data.dropChance)
+            {
+                ObjectPool.Instance.Spawn(ObjectPool.Types.healthDrop, transform.position);
+            }
+        }
+
         AudioManager.Instance.PlaySound(data.deathAudio);
         OnDeath?.Invoke(gameObject);
 

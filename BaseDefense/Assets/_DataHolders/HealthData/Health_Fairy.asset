@@ -21,4 +21,4 @@ MonoBehaviour:
   deathAudio: Fairy_Attack
   deathAnim: {fileID: 11400000, guid: 1acb211fba434294e84679174427e3c6, type: 2}
   dropHealth: 1
-  dropChance: 100
+  dropChance: 80

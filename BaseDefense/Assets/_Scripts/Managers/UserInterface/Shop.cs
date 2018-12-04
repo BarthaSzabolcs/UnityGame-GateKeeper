@@ -174,9 +174,9 @@ public class Shop : MonoBehaviour
     }
     public void Close()
     {
-        gunShopRect.gameObject.SetActive(false);
         UserInterface.Instance.ChangeCursor();
         trapMenuRect.gameObject.SetActive(false);
+        gunShopRect.gameObject.SetActive(false);
         CurrentTrap = null;
     }
 
@@ -317,14 +317,11 @@ public class Shop : MonoBehaviour
         {
             if (AltMode)
             {
-
                 GameManager.Instance.Money += CurrentTrap.Data.shopSellingPrice;
                 CurrentTrap.Data = null;
-
             }
             else if ((GameManager.Instance.Money - SelectedTrap.shopPrice >= 0) && (CurrentTrap.Data != SelectedTrap))
             {
-
                 GameManager.Instance.Money += CurrentTrap.Data.shopSellingPrice;
                 GameManager.Instance.Money -= SelectedTrap.shopPrice;
 
@@ -363,6 +360,8 @@ public class Shop : MonoBehaviour
         {
             item.transform.Find(buyWeaponButton_path).GetComponent<Button>().onClick.AddListener(() => BuyWeapon(weaponData));
             item.transform.Find(weaponPrice_path).GetComponent<Text>().text = weaponData.shopPrice.ToString();
+
+            item.transform.Find(buyAmmoButton_path).gameObject.SetActive(false);
         }
         else
         {
@@ -370,7 +369,6 @@ public class Shop : MonoBehaviour
             item.transform.Find(buyAmmoButton_path).GetComponent<Button>().onClick.AddListener(() => BuyAmmo(weaponData));
             item.transform.Find(ammoPrice_path).GetComponent<Text>().text = weaponData.shopAmmoPrice.ToString();
         }
-
     }
     private void SetupGunShop()
     {

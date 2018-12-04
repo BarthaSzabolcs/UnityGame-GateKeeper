@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_SG
   m_EditorClassIdentifier: 
   shopName: Auto Shotgun
-  shopPrice: 2500
+  shopPrice: 1000
   shopAmmoPrice: 900
   shopMagSize: 18
   shopSprite: {fileID: 21300000, guid: 5e3cc601347e4024fb498db1bb7a2fc7, type: 3}
@@ -27,7 +27,8 @@ MonoBehaviour:
   laserOffSet: {x: 1.38, y: 0.18}
   rightHandPosition: {x: 1, y: -0.15}
   leftHandPosition: {x: 0, y: -0.25}
-  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800,
+    type: 2}
   firingAnimation: {fileID: 0}
   reloadAnimation: {fileID: 0}
   hasLaserSight: 1

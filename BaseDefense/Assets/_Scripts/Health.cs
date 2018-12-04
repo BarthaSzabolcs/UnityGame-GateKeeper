@@ -76,17 +76,12 @@ public class Health : MonoBehaviour
             OnHealthCHange?.Invoke(healthPoint);
         }
 	}
-    private int maxHealthPoint;
+    //private int maxHealthPoint;
     public int MaxHealthPoint
     {
         get
         {
-            return maxHealthPoint;
-        }
-        set
-        {
-            maxHealthPoint = value;
-            OnMaxHealthCHange?.Invoke(value);
+            return data.maxHealthPoints;
         }
     }
 
@@ -114,7 +109,6 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        MaxHealthPoint = data.maxHealthPoints;
         HealthPoint = data.maxHealthPoints;
     }
 

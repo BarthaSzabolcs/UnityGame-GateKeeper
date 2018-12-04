@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     #region Show In Editor
 
+    [SerializeField] string baseName;
+
     [Header("Money:")]
     [SerializeField] int startingMoney;
 
@@ -135,11 +137,9 @@ public class GameManager : MonoBehaviour
     {
         SetTimeScale(1);
 
-        CurrentGameState = GameState.NextWaveReady;
-
         player = GameObject.Find("Player");
 
-        var portal = GameObject.Find("friendlyPortal");
+        var portal = GameObject.Find(baseName);
 
         if (portal != null)
         {

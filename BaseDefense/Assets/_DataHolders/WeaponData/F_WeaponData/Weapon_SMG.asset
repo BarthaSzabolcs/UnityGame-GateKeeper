@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_SMG
   m_EditorClassIdentifier: 
   shopName: Tactical SMG
-  shopPrice: 1500
+  shopPrice: 500
   shopAmmoPrice: 450
   shopMagSize: 45
   shopSprite: {fileID: 21300000, guid: c1a198dc6ae2bef44acc52d5cbdf1e94, type: 3}
@@ -27,7 +27,8 @@ MonoBehaviour:
   laserOffSet: {x: 1.74, y: 0.03}
   rightHandPosition: {x: -0.2, y: -0.4}
   leftHandPosition: {x: 0.45, y: -0.4}
-  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800,
+    type: 2}
   firingAnimation: {fileID: 0}
   reloadAnimation: {fileID: 0}
   hasLaserSight: 1

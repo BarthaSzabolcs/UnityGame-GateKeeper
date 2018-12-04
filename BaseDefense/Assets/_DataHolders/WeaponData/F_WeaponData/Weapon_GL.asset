@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_GL
   m_EditorClassIdentifier: 
   shopName: Granadelauncher
-  shopPrice: 5000
+  shopPrice: 2000
   shopAmmoPrice: 600
   shopMagSize: 6
   shopSprite: {fileID: 21300000, guid: e7081c264fb484545a12772db1e6895b, type: 3}
@@ -27,7 +27,8 @@ MonoBehaviour:
   laserOffSet: {x: 0, y: 0}
   rightHandPosition: {x: -0.5, y: -0.15}
   leftHandPosition: {x: 1, y: -0.2}
-  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800,
+    type: 2}
   firingAnimation: {fileID: 0}
   reloadAnimation: {fileID: 0}
   hasLaserSight: 0

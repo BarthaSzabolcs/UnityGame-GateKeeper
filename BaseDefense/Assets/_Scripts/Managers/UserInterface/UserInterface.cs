@@ -32,6 +32,12 @@ public class UserInterface : MonoBehaviour
     [SerializeField] string fuel_name;
     [SerializeField] string maxfuel_name;
 
+    [Header("Base:")]
+    [SerializeField] string baseName;
+    [SerializeField] string baseHealthbar_name;
+    [SerializeField] string baseHealth_name;
+    [SerializeField] string baseMaxHealth_name;
+
     [Header("Money:")]
     [SerializeField] string money_name;
 
@@ -72,6 +78,11 @@ public class UserInterface : MonoBehaviour
     Image fuelBar_Image;
     Text fuel_Text;
     Text maxFuel_Text;
+
+    // BaseHealth
+    Image baseHealthBar_Image;
+    Text baseHealth_Text;
+    Text maxBaseHealth_Text;
 
     //Debug
     Text debugText;
@@ -180,6 +191,47 @@ public class UserInterface : MonoBehaviour
         }
     }
 
+    // BaseHealth
+    private int currentBaseHealth;
+    private int maxBaseHealth;
+    private float baseHealthPercent;
+    private int CurrentBaseHealth
+    {
+        get
+        {
+            return currentBaseHealth;
+        }
+        set
+        {
+            currentBaseHealth = value;
+            BaseHealthPercent = (float)currentBaseHealth / MaxBaseHealth;
+        }
+    }
+    private int MaxBaseHealth
+    {
+        get
+        {
+            return maxBaseHealth;
+        }
+        set
+        {
+            maxBaseHealth = value;
+            BaseHealthPercent = (float)currentBaseHealth / maxBaseHealth;
+        }
+    }
+    private float BaseHealthPercent
+    {
+        get
+        {
+            return baseHealthPercent;
+        }
+        set
+        {
+            baseHealthPercent = value;
+            baseHealthBar_Image.fillAmount = baseHealthPercent;
+        }
+    }
+
     // Shop
     private Text money_Text;
     private Shop shop;
@@ -253,11 +305,12 @@ public class UserInterface : MonoBehaviour
 
         Health healthComponent = GameManager.Instance.Player.GetComponent<Health>();
         healthComponent.OnHealthCHange += HealthChange;
-        healthComponent.OnMaxHealthCHange += MaxHealthChange;
+        //healthComponent.OnMaxHealthCHange += MaxHealthChange;
+
         CurrentHealth = healthComponent.HealthPoint;
         MaxHealth = healthComponent.MaxHealthPoint;
 
-        // Get and Set Fuel
+        // Get and Set Fuel 
         fuelBar_Image = GameObject.Find(fuelbar_name).GetComponent<Image>();
         fuel_Text = GameObject.Find(fuel_name).GetComponent<Text>();
         maxFuel_Text = GameObject.Find(maxfuel_name).GetComponent<Text>();
@@ -267,6 +320,20 @@ public class UserInterface : MonoBehaviour
         jetPackComponent.OnMaxFuelCHange += MaxFuelChange;
         CurrentFuel = jetPackComponent.Fuel;
         MaxFuel = jetPackComponent.MaxFuel;
+
+        // Get and Set BaseHealth
+        baseHealthBar_Image = GameObject.Find(baseHealthbar_name).GetComponent<Image>();
+        baseHealth_Text = GameObject.Find(baseHealth_name).GetComponent<Text>();
+        maxBaseHealth_Text = GameObject.Find(baseMaxHealth_name).GetComponent<Text>();
+
+        Health baseHealth = GameObject.Find(baseName).GetComponent<Health>();
+        baseHealth.OnHealthCHange += BaseHealthChange;
+        //healthComponent.OnMaxHealthCHange += MaxBaseHealthChange;
+        CurrentBaseHealth = baseHealth.HealthPoint;
+        baseHealth_Text.text = "/ " + baseHealth.HealthPoint.ToString();
+
+        MaxBaseHealth = baseHealth.MaxHealthPoint;
+        maxBaseHealth_Text.text = "/ " + baseHealth.MaxHealthPoint.ToString();
 
         // Get Debug
         debugText = GameObject.Find(debug_name).GetComponent<Text>();
@@ -348,7 +415,7 @@ public class UserInterface : MonoBehaviour
         MaxHealth = value;
         maxHealth_Text.text = "/ " + value.ToString();
     }
-    
+
     // Fuel
     private void FuelChange(int value)
     {
@@ -361,6 +428,12 @@ public class UserInterface : MonoBehaviour
         maxFuel_Text.text = "/ " + value.ToString();
     }
 
+    // BaseHealth
+    private void BaseHealthChange(int value)
+    {
+        CurrentBaseHealth = value;
+        baseHealth_Text.text = value.ToString() + " ";
+    }
     // Debug
     public void DebugLog(string text)
     {
@@ -382,6 +455,7 @@ public class UserInterface : MonoBehaviour
         }
         else
         {
+            shop.enabled = true;
             shop.Close();
             shop.enabled = false;
         }
@@ -390,7 +464,6 @@ public class UserInterface : MonoBehaviour
     // Money
     private void HandleMoneyChange(int money)
     {
-        // chage = money - (int)moneyText;
         money_Text.text = money.ToString();
     }
 

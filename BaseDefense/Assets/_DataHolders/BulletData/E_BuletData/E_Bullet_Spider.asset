@@ -72,7 +72,6 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   impactAudio: Spider_Bullet_Impact
   explosionData: {fileID: 11400000, guid: bbd40d3c3743cdc438b24e0407d520b5, type: 2}
-  bulletFiredAudio: BulletFired
   speed: 30
   mass: 1
   gravityScale: 0
@@ -91,7 +90,7 @@ MonoBehaviour:
   penetrationsBeforeExplode: 0
   ghostTime: 0
   ghostLayer: 0
-  damage: 2
+  damage: 5
   isAoE: 0
   aoeLayerMask:
     serializedVersion: 2

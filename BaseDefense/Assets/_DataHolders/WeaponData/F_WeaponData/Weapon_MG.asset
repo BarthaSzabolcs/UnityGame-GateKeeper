@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon_MG
   m_EditorClassIdentifier: 
   shopName: Machinegun
-  shopPrice: 5000
+  shopPrice: 2000
   shopAmmoPrice: 1000
   shopMagSize: 100
   shopSprite: {fileID: 21300000, guid: b05f9dab487ebc649b03162738b0b60d, type: 3}
@@ -27,7 +27,8 @@ MonoBehaviour:
   laserOffSet: {x: 0, y: 0}
   rightHandPosition: {x: -0.2, y: -0.3}
   leftHandPosition: {x: 1, y: 0}
-  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800, type: 2}
+  muzzleFashAnimation: {fileID: 11400000, guid: 9ae366a6eb35c124eb3a8a69bbcb1800,
+    type: 2}
   firingAnimation: {fileID: 11400000, guid: 2d979df23984bb441aabf330e2f96b2c, type: 2}
   reloadAnimation: {fileID: 0}
   hasLaserSight: 1

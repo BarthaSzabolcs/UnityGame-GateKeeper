@@ -57,6 +57,10 @@ MonoBehaviour:
   fuelbar_name: FuelBarCurrent_Image
   fuel_name: CurrentFuel_Text
   maxfuel_name: MaxFuel_Text
+  baseName: Base
+  baseHealthbar_name: BaseHealthBarCurrent_Image
+  baseHealth_name: CurrentBaseHealth_Text
+  baseMaxHealth_name: BaseMaxHealth_Text
   money_name: Money_Text
   waveInfo_name: WaveInfo_Text
   waveInfoTime: 0.5

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b11e80129ae5d5f4e91f908532e242ae, type: 3}
-  m_Name: Health_Portal
+  m_Name: Health_Base
   m_EditorClassIdentifier: 
   maxHealthPoints: 200
   hitAudio: Portal_Hit
@@ -20,3 +20,5 @@ MonoBehaviour:
   deathText: {fileID: 0}
   deathAudio: GameOver
   deathAnim: {fileID: 0}
+  dropHealth: 0
+  dropChance: 0

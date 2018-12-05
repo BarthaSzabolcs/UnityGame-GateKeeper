@@ -713,9 +713,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1451877390192147050}
+      objectReference: {fileID: 11400000, guid: 582f0a60a5cbf0f4bb6b90bf60f42fa7,
+        type: 2}
+    - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527206036890004202, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2527206036485219809, guid: f218f40a9b19ede46b3d5e6848c7ef0d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1354,12 +1380,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 517573f4610a9904dbb6e4f17cd337d8, type: 3}
---- !u!1 &1451877390192147050 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1451877390192147050, guid: bdf501c2f2ff5e74189e6ca9591eea50,
-    type: 3}
-  m_PrefabInstance: {fileID: 4523029102558062819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1451877390192147051 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1451877390192147051, guid: bdf501c2f2ff5e74189e6ca9591eea50,

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     #region ShowInEditor
 
+    [SerializeField] Animator animator;
     [SerializeField] PlayerControlData data;
     [SerializeField] Transform grip;
     [SerializeField] Transform weaponTransform;
@@ -101,6 +102,9 @@ public class PlayerController : MonoBehaviour
         {
             currentMoveForce = data.moveForce * data.airControlMultiplier;
         }
+
+
+        animator.SetBool("Walking", (Input.GetButton("Left") | Input.GetButton("Right")));
 
         if (Input.GetButton("Left"))
         {

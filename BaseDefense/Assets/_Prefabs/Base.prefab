@@ -80,6 +80,32 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1350762867437468762}
     m_Modifications:
+    - target: {fileID: 5983105291775855428, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478674845877493784, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: b56e32d7c8ee7f54c83a6ef5e87b5c6e,
+        type: 3}
+    - target: {fileID: 7478674845877493785, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478674845877493785, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478674845877493785, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7478674845877493787, guid: 943c57c9f3e73244d9e61a9fb42c262c,
         type: 3}
       propertyPath: m_Name
@@ -190,21 +216,28 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7478674845877493785, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+    - target: {fileID: 7478674846497452305, guid: 943c57c9f3e73244d9e61a9fb42c262c,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7478674846497452305, guid: 943c57c9f3e73244d9e61a9fb42c262c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: b56e32d7c8ee7f54c83a6ef5e87b5c6e,
+        type: 3}
+    - target: {fileID: 8383619073165416385, guid: 943c57c9f3e73244d9e61a9fb42c262c,
         type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8383619073165416385, guid: 943c57c9f3e73244d9e61a9fb42c262c,
         type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b56e32d7c8ee7f54c83a6ef5e87b5c6e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 943c57c9f3e73244d9e61a9fb42c262c, type: 3}
 --- !u!224 &2006364442353596769 stripped

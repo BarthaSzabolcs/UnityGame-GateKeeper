@@ -95,7 +95,7 @@ MonoBehaviour:
   isAoE: 1
   aoeLayerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 131840
   aoeRadius: 5
   hasLifeTime: 1
   isHoming: 0

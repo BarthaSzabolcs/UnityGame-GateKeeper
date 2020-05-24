@@ -7,7 +7,7 @@ using UnityEngine;
 namespace UnityEditor
 {
 [CustomGridBrush(true, false, false, "Prefab Brush")]
-public class CustomPrefabBrush : GridBrush
+public class CustomPrefabBrush : UnityEditor.Tilemaps.GridBrush
 {
     #region ShowInEditor
     [SerializeField] PrefabPalette [] prefabPalette;
@@ -103,7 +103,7 @@ public class CustomPrefabBrush : GridBrush
     }
 
         [CustomEditor(typeof(CustomPrefabBrush))]
-        public class CustomPrefabBrushEditor : GridBrushEditor
+        public class CustomPrefabBrushEditor : UnityEditor.Tilemaps.GridBrushEditor
         {
             private CustomPrefabBrush customBrush { get { return target as CustomPrefabBrush; } }
 
